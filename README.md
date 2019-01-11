@@ -4,8 +4,6 @@ I am Ashish. I am a full-time graduate student at the University of Connecticut,
 
 My area of focus and expertise lie in portraying the business insights in a striking way. I started with the reports, moved to the dashboards and now focusing on the infographics. I firmly believe in a statement that says ‘If an information is not conveyed to a recipient, it is not the information!‘.
 
-[Jekyll](https://jekyllrb.com/)
-
 ## Core Competencies:
 
 ### Analytical Thinking
