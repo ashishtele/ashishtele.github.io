@@ -1,37 +1,23 @@
-## Welcome to GitHub Pages
+## Ashish Tele
 
-You can use the [editor on GitHub](https://github.com/ashishtele/ashishtele.github.io/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+I am Ashish. I am a full-time graduate student at the University of Connecticut, pursuing the degree in the Business Analytics and Project Management. My interest in applied analytics and data science led to creating the blog post in 2015 and now the posts are pilling up!
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+My area of focus and expertise lie in portraying the business insights in a striking way. I started with the reports, moved to the dashboards and now focusing on the infographics. I firmly believe in a statement that says ‘If an information is not conveyed to a recipient, it is not the information!‘.
 
-### Markdown
+[Jekyll](https://jekyllrb.com/)
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+## Core Competencies:
 
-```markdown
-Syntax highlighted code block
+### Analytical Thinking
 
-# Header 1
-## Header 2
-### Header 3
+Passionate about finding insights in data. Experienced in working with large datasets in Healthcare, Retail domains and using advanced data analysis techniques to answer complex questions. Proficient in mastering new knowledge and techniques quickly. Able to understand and articulate what questions can and can’t be answered given certain data.
 
-- Bulleted
-- List
+### Modeling
 
-1. Numbered
-2. List
+Experienced in using statistical techniques with real-world data. Able to apply sophisticated mathematics to understanding data. Familiar with machine learning, including supervised and unsupervised learning techniques, and how to build predictive models.
 
-**Bold** and _Italic_ and `Code` text
+### Communication
 
-[Link](url) and ![Image](src)
-```
+Passionate about conducting knowledge transfer sessions for the technical and non-technical audience on emerging tools and techniques in analytics. Experienced successfully conducting ‘Data Visualization: Storytelling’ and ‘Power BI’ sessions for company new hires.
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/ashishtele/ashishtele.github.io/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+I enjoy coding in R and Python(Deep Learning). I like to focus on all the aspects of a predictive model building and model interpretability. Thank you, [Max Kuhn](https://twitter.com/topepos), for a realistic approach.
