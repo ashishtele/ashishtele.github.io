@@ -1,3 +1,5 @@
+<img src = "Upload/resume.PNG" width="500" >
+
 ## Ashish Tele
 
 I am Ashish. I am a full-time graduate student at the University of Connecticut, pursuing the degree in the Business Analytics and Project Management. My interest in applied analytics and data science led to creating the blog post in 2015 and now the posts are pilling up!
