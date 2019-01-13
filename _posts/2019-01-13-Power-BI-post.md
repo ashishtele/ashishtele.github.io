@@ -10,7 +10,7 @@ Hi All,
 
 This is my first post on Github page. Please find old posts at [blog](https://ashishtele1992.wordpress.com/).
 
-There are many things changing in the industry and especially related to data manipulation and visualization. There are few new entries such as [Google Data Studio](https://marketingplatform.google.com/about/data-studio/), Microsoft SandDance, and [Popily](http://developers.popily.com/). This rapid change in the visualization industry is because of the fact that the people want to visualize the data.
+There are many things changing in the industry and especially related to data manipulation and visualization. There are few new entries  such as [Google Data Studio](https://marketingplatform.google.com/about/data-studio/), Microsoft SandDance, and [Popily](http://developers.popily.com/). This rapid change in the visualization industry is because of the fact that the people want to visualize the data.
 
 Recently I got a chance to read two magnificent books by [Edward Tufte](https://www.edwardtufte.com/tufte/) and [Scott Berinato](https://hbr.org/product/good-charts-the-hbr-guide-to-making-smarter-more-persuasive-data-visualizations/15005-PBK-ENG). These books give you a new way of thinking and designing. There are many apt statements in the book ‘Good Charts by Scott Berinato’ which make you think twice before designing the reports. I think I shall go through these books again as with each read, you enrich your ideas and thoughts that also visually!
 
