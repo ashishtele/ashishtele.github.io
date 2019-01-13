@@ -1,5 +1,4 @@
 ---
-layout: page
 title: About Me
 comments: false
 tags: [about]
@@ -15,13 +14,16 @@ Consumer Products domains.
 Core Competencies
 =================
 
-**Analytical Thinking**
+**Analytical Thinking:**
+
 Passionate about finding insights in data. Proficient in mastering new knowledge and techniques quickly. Able to understand and articulate what questions can and can’t be answered given certain data.
 
-**Modeling**
+**Modeling:**
+
 Experienced in using statistical techniques with real-world data. Familiar with machine learning, including supervised and unsupervised learning techniques, and how to build predictive models.
 
-**Communication**
+**Communication:**
+
 Passionate about conducting knowledge transfer sessions for the technical and non-technical audience on emerging tools and techniques in analytics. Successfully conducted ‘Data Visualization: Storytelling’ and ‘Power BI’ sessions for company new hires.
 
 I enjoy coding in R and Python(Deep Learning). I like to focus on all the aspects of a predictive model building and model interpretability.
