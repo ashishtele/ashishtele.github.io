@@ -113,9 +113,9 @@ author:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
       url: mailto:ashish.tele@uconn.edu
-    - label: "Website"
-      icon: "fas fa-fw fa-link"
-      url: "https://ashishtele1992.wordpress.com/"
+    - label: "Tableau"
+      icon: "fas fa-fw fa-chart-line"
+      url: "https://public.tableau.com/profile/ashish.tele#!/"
     - label: "Twitter"
       icon: "fab fa-fw fa-twitter-square"
       # url: "https://twitter.com/"
