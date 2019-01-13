@@ -1,4 +1,5 @@
 ---
+layout: posts
 title: "Data Science portfolio in Power BI"
 date: 2019-01-13 12:00:00 -0400
 comments: true
