@@ -108,7 +108,7 @@ author:
   avatar           : "/images/pic.jpg"
   bio              : "Data Science Portfolio"
   location         : "Stamford, CT"
-  email            : ashish.tele@uconn.edu
+  email            : #ashish.tele@uconn.edu
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
@@ -119,15 +119,15 @@ author:
     - label: "Twitter"
       icon: "fab fa-fw fa-twitter-square"
       # url: "https://twitter.com/"
-    - label: "Facebook"
-      icon: "fab fa-fw fa-facebook-square"
-      # url: "https://facebook.com/"
+    - label: "LinkedIn"
+      icon: "fab fa-fw fa-linkedin-in"
+      url: "https://www.linkedin.com/in/ashishtele/"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/ashishtele"
-    - label: "Instagram"
-      icon: "fab fa-fw fa-instagram"
-      # url: "https://instagram.com/"
+    - label: "Wordpress"
+      icon: "fab fa-fw fa-wordpress"
+      url: "https://ashishtele1992.wordpress.com/about/"
 
 # Site Footer
 footer:
