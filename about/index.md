@@ -1,7 +1,7 @@
 ---
-layout: "page"
+
 title: "About Me"
-parmalink: /about/
+
 comments: false
 tags: "about"
 ---
