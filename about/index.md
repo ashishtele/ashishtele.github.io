@@ -1,4 +1,10 @@
-Ashish Tele
+---
+layout: "page"
+title: "About Me"
+parmalink: /about/
+comments: false
+tags: "about"
+---
 
 I am a Data Scientist at Nestle Waters North America. I enjoy data storytelling and 
 sharing my experiences on Blog.
