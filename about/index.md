@@ -7,7 +7,7 @@ tags: [about]
 I am a Data Scientist at Nestle Waters North America. I enjoy data storytelling and 
 sharing my experiences on Blog.
 
-Previously, I studied Business Analytics & Project Management at Uconn School of Business, where I received my Masters 
+Previously, I studied Business Analytics & Project Management at UConn School of Business, where I received my Master's 
 Degree. I have experiences working for Analytical Consulting focusing Healthcare, Retail, and
 Consumer Products domains.
 
