@@ -17,7 +17,7 @@ The first blog post highlights the content for the upcoming posts.
 5. Feature Engineering and Modeling
 6. Future Work
 
-1. Introduction
+**1. Introduction**
 
 I got an opportunity to work on a demand forecasting project 
 which involved secondary research and talking to subject matter experts.
@@ -28,4 +28,4 @@ I used SAS EG to for data manipulation and SAS FS to create (bottom-up) forecast
 The similar process was followed in R (R Studio IDE) where I leveraged different 
 packages to implement the algorithms.
 
-See you in next post.
+Keep returning the posts!
