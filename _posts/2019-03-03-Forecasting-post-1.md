@@ -1,7 +1,6 @@
 ---
 layout: post
 title: "Robust forecasting using SAS and R (Part 1)"
-output: html_document
 date: 2019-03-03 12:00:00 -0400
 comments: true
 tags: "Forecasting"
