@@ -6,8 +6,6 @@ comments: true
 tags: "Regression"
 ---
 
-Hi All,
-
 Recently I came across a scenario where we had to feed the data to the multi-regression model. 
 The data had multiple granular levels to aggregate and run the model. The scenario is around 
 the level of granularity and what happens if the data granularity identifier column is not 
