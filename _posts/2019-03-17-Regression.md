@@ -25,13 +25,13 @@ We have sales available for each zip, regions, and population for each region. I
 a dependent variable and ‘Population’ as an independent variable. When I used the data at the zip
 level without zip identifier, we get below summary output:
 
-![center](/images/3.PNG)
+![center](/images/5.PNG)
 
 The same analysis was done on the data aggregated at the region level. The sales column represents 
 the average sales per region. I used the same variable combinations as the input and the output 
 variables. The summary output is below:
 
-![center](/images/4.PNG)
+![center](/images/6.PNG)
 
 Key Highlights:
 
@@ -40,8 +40,8 @@ Key Highlights:
 R Square values, while the same dataset at zip level gives lower values of R and Adj. R Square values.
 3. The standard errors of intercept and population coefficients are lower in the case of aggregated data.
 
-![center](/images/5.PNG)
-![center](/images/6.PNG)
+![center](/images/3.PNG)
+![center](/images/4.PNG)
 
 When we use the dataset at an unaggregated level, we have more points to explain the variability in 
 the output, but it also increases the unexplained variation because of the square term. As we can see,
