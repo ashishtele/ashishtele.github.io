@@ -13,11 +13,11 @@ The data had multiple granular levels to aggregate and run the model. The scenar
 the level of granularity and what happens if the data granularity identifier column is not 
 included in the model. I am using a toy dataset to do this analysis.
 
-1. Unaggregated Dataset:
+* Unaggregated Dataset:
 
 ![center](/images/1.PNG)
 
-2. Aggregated Dataset:
+* Aggregated Dataset:
 
 ![center](/images/2.PNG)
 
