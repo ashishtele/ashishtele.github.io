@@ -40,10 +40,10 @@ Key Highlights:
 R Square values, while the same dataset at zip level gives lower values of R and Adj. R Square values.
 3. The standard errors of intercept and population coefficients are lower in the case of aggregated data.
 
-![center](/images/3.PNG = 100x50)
-<img src="/images/3.PNG" width="200">
-![center](/images/4.PNG = 100x50)
-<img src="/images/4.PNG" width="200">
+
+<img src="/images/3.PNG" width="500">
+
+<img src="/images/4.PNG" width="500">
 
 When we use the dataset at an unaggregated level, we have more points to explain the variability in 
 the output, but it also increases the unexplained variation because of the square term. As we can see,
