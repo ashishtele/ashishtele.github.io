@@ -12,7 +12,8 @@ We came across a situation where we had to find the zip codes across US coastlin
 
 I tried to find the coastline zips by calculating the distances from different reference points. I used the geographical centers of the USA, the geographical centers of the coastline US states, and three reference points in the ocean. The distances between lat and long using below formula:
 
-ACOS(COS(RADIANS(90-Lat1)) *COS(RADIANS(90-Lat2)) +SIN(RADIANS(90-Lat1)) *SIN(RADIANS(90-Lat2)) *COS(RADIANS(Long1-Long2))) *6371.
+=ACOS(COS(RADIANS(90-Lat1)) *COS(RADIANS(90-Lat2)) +SIN(RADIANS(90-Lat1)) *SIN(RADIANS(90-Lat2)) *COS(RADIANS(Long1-Long2))) *6371.
+
 [Reference](http://bluemm.blogspot.com/2007/01/excel-formula-to-calculate-distance.html)
 
 The data for the united state's zip codes are downloaded from [zipcodes.org](http://bluemm.blogspot.com/2007/01/excel-formula-to-calculate-distance.html). 
