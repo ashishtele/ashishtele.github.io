@@ -31,5 +31,7 @@ USA_df_lat <- st_coordinates(USA_lat_long) %>%
 ```
 I used Mapbox for map visualization. Below graph shows the coastline boundary (including Alaska).
 
+![center](/images/coast_zip.PNG)
+
 
 ![center](/images/zip1.PNG)
