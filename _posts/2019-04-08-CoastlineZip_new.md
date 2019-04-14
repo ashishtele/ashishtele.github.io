@@ -7,7 +7,7 @@ tags: "Zip"
 ---
 Hi All,
 
-The last blog gives an approach to find the coastline zip codes. I followed the relative distances calculation approach to find the zip codes. I came across "Natural Earth" and an R package 'rnaturalearth' which is the API to the site. 
+The last blog gives an approach to find the coastline zip codes. I followed the relative distances calculation approach to find the zip codes. I came across ['Natural Earth'](https://www.naturalearthdata.com/) and an R package ['rnaturalearth'](https://cran.r-project.org/web/packages/rnaturalearth/README.html) which is the API to the site. 
 
 The piece of code gives the Latitude and Longitude coordinates of the coastline zip codes:
 
@@ -29,7 +29,9 @@ USA_df_lat <- st_coordinates(USA_lat_long) %>%
   dplyr::select(lat,long)
 
 ```
-I used Mapbox for map visualization. Below graph shows the coastline boundary (including Alaska).
+The CSV file extract is available on my github page to download.
+
+I used [Mapbox](https://docs.mapbox.com/help/tutorials/power-bi/) for map visualization. Below graph shows the coastline boundary (including Alaska).
 
 ![center](/images/coast_zip.PNG)
 
@@ -79,3 +81,5 @@ write.csv(USA_dataset, "E:\\Study\\Power_BI\\USA_dataset.csv")
 The below piece of code gives the distance in Km from the coastline coordinates. The distance can be used as a filter on the dashboard as shown. 
 
 ![center](/images/distance_report.PNG)
+
+The USA_dataset which includes the distance values is available on my github page. 
