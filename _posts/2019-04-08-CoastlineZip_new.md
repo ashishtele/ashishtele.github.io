@@ -5,8 +5,6 @@ date: 2019-04-09 12:00:00 -0400
 comments: true
 tags: "Zip"
 ---
-Hi All,
-
 The last blog gives an approach to find the coastline zip codes. I followed the relative distances calculation approach to find the zip codes. I came across ['Natural Earth'](https://www.naturalearthdata.com/) and an R package ['rnaturalearth'](https://cran.r-project.org/web/packages/rnaturalearth/README.html) which is the API to the site. 
 
 The piece of code gives the Latitude and Longitude coordinates of the coastline zip codes:
