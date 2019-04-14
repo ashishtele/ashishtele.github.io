@@ -77,3 +77,5 @@ write.csv(USA_dataset, "E:\\Study\\Power_BI\\USA_dataset.csv")
 ```
 
 The below piece of code gives the distance in Km from the coastline coordinates. The distance can be used as a filter on the dashboard as shown. 
+
+![center](/images/distance_report.PNG)
