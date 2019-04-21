@@ -28,4 +28,10 @@ I used SAS EG to for data manipulation and SAS FS to create (bottom-up) forecast
 The similar process was followed in R (R Studio IDE) where I leveraged different 
 packages to implement the algorithms.
 
+**2. Problem Statement**
+
+Forecast the demand for different products (businesses) considering the historical numbers.
+It was a univariate forecasting problem with a forecasting horizon of 12 months.
+
+
 Keep returning the posts!
