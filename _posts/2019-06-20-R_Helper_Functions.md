@@ -26,3 +26,42 @@ if.na.0 <- function(x)
         {ifelse(is.na(x),0,x)}
 
 ```
+
+We often require to modify the number formats by converting to text string.
+
+### 3. Number Foramt (Percent & Comma)
+```{r}
+
+percent <- function(x, digits = 1, format = "f", ...) 
+{
+  paste0(formatC(100 * x, format = format, digits = digits, ...), "%")
+}
+
+comma <- function(x, digits = 0, format = "f", ...) 
+{
+  format(x, big.mark=",", digits=digits)
+}
+
+```
+When we need to count the missing and duplicate records in the data, we can use the below lines of code:
+### 3. Missing and Duplicate
+```{r}
+
+countMissing <- function(x) {
+  ## calculate counts
+  missing = sum(is.na(x))
+  if (mode(x) == "character") 
+  emptyStrings = sum(x=="", na.rm=TRUE) 
+  else emptyStrings = 0
+  totalRows = NROW(x)
+  nonMissing = totalRows - missing - emptyStrings
+  
+  ## present results
+  cat("#           TOTAL ROWS: ", totalRows, " (", percent(totalRows/NROW(x)), ")\n", sep="")
+  cat("# Missing Values (NAs): ", missing, " (", percent(missing/NROW(x)), ")\n", sep="")
+  cat("  # Empty Strings (\"\"): ", emptyStrings, " (", percent(emptyStrings/NROW(x)), ")\n", sep="")
+  cat("   # Non-missing Value: ", nonMissing, " (", percent(nonMissing/NROW(x)), ")\n", sep="")
+  cat("    Mode & Class: ", mode(x), ", ", class(x), "\n", sep="")
+}
+
+```
