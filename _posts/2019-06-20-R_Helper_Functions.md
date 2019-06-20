@@ -29,7 +29,7 @@ if.na.0 <- function(x)
 
 We often require to modify the number formats by converting to text string.
 
-### 3. Number Foramt (Percent & Comma)
+### 3. Number Format (Percent & Comma)
 ```{r}
 
 percent <- function(x, digits = 1, format = "f", ...) 
