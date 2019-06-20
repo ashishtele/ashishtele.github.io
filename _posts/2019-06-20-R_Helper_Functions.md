@@ -44,7 +44,7 @@ comma <- function(x, digits = 0, format = "f", ...)
 
 ```
 When we need to count the missing and duplicate records in the data, we can use the below lines of code:
-### 3. Missing and Duplicate
+### 4. Missing and Duplicate
 ```{r}
 
 countMissing <- function(x) {
@@ -59,8 +59,18 @@ countMissing <- function(x) {
   ## present results
   cat("#           TOTAL ROWS: ", totalRows, " (", percent(totalRows/NROW(x)), ")\n", sep="")
   cat("# Missing Values (NAs): ", missing, " (", percent(missing/NROW(x)), ")\n", sep="")
-  cat("  # Empty Strings (\"\"): ", emptyStrings, " (", percent(emptyStrings/NROW(x)), ")\n", sep="")
+  cat("# Empty Strings (\"\"): ", emptyStrings, " (", percent(emptyStrings/NROW(x)), ")\n", sep="")
   cat("   # Non-missing Value: ", nonMissing, " (", percent(nonMissing/NROW(x)), ")\n", sep="")
+  cat("   #      Mode & Class: ", mode(x), ", ", class(x), "\n", sep="")
+}
+
+```
+```{r}
+countDups <- function(x) {
+  cat("    Rows of Data: ", NROW(x), "\n", sep="")  
+  cat("   Unique Values: ", length(unique(x)), "\n", sep="")
+  cat("Duplicate Values: ", sum(duplicated(x)), "\n", sep="")
+  cat("  Missing Values: ", sum(is.na(x)), " (", percent(sum(is.na(x))/NROW(x)), ")\n", sep="")
   cat("    Mode & Class: ", mode(x), ", ", class(x), "\n", sep="")
 }
 
