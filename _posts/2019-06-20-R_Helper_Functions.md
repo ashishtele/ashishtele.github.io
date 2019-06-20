@@ -47,7 +47,8 @@ When we need to count the missing and duplicate records in the data, we can use 
 ### 4. Missing and Duplicate
 ```{r}
 
-countMissing <- function(x) {
+countMissing <- function(x) 
+{
   ## calculate counts
   missing = sum(is.na(x))
   if (mode(x) == "character") 
@@ -66,7 +67,8 @@ countMissing <- function(x) {
 
 ```
 ```{r}
-countDups <- function(x) {
+countDups <- function(x) 
+{
   cat("    Rows of Data: ", NROW(x), "\n", sep="")  
   cat("   Unique Values: ", length(unique(x)), "\n", sep="")
   cat("Duplicate Values: ", sum(duplicated(x)), "\n", sep="")
