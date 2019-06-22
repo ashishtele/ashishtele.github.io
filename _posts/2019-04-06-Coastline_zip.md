@@ -7,7 +7,6 @@ tags: "Zip"
 ---
 
 Hi All,
-
 We came across a situation where we had to find the zip codes across US coastline. The consumer behavior and buying patterns are different across the coastline. We need to make strategies and give promotions accordingly.  Finding the zip codes closer to the coastline is difficult and we don't have a direct approach to search the zips.
 
 I tried to find the coastline zips by calculating the distances from different reference points. I used the geographical centers of the USA, the geographical centers of the coastline US states, and three reference points in the ocean. The distances between lat and long using below formula:
