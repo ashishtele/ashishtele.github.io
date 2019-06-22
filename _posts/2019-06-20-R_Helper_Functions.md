@@ -6,7 +6,7 @@ comments: true
 tags: "R"
 ---
 Hi All, I am adding the code snippets which I often use. It is always a good practice to create and 
-maintain the custom functions in R and Python. We can attach the used defined functions' file at the
+maintain the custom functions in R and Python. We can attach the user-defined functions' file at the
 top of the main script.
 
 ### 1. System Time
