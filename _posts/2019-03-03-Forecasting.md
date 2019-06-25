@@ -7,7 +7,6 @@ tags: "Forecasting"
 ---
 
 Hi All,
-
 The first blog post highlights the content for the upcoming posts.
 
 1. Introduction
