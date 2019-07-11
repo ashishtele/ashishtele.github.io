@@ -12,3 +12,34 @@ We decided to stop to click few pictures and fortunately, the time was perfect (
 
 I was capturing moments thorugh my iphone. You can determine the location where you clicked the picture. To extract the metadata, I used 
 ExifWizard mobile application. It gives most of the information we require.
+
+Below image gives the timestamp and coordibates of the location:
+
+![center](/images/img_4_meta.png)
+
+Now. Lets see the timing of the earthquake and its epicenter:
+
+Source: [Volcanodiscovery](https://www.volcanodiscovery.com/earthquakes/2019/07/04/17h33/magnitude6-CA-USA-quake.html)
+
+![center](/images/img_5.PNG)
+
+
+We can calcualte the distance based on the latitude and longitude coordinates. I used Google map distance finder to calculate the 
+distance between the points.
+
+![center](/images/dist_1.PNG)
+
+And we were this much away from the epicenter!
+
+![center](/images/dist_img_2.PNG)
+
+So, we were **25KM** away from the center !!
+
+[Volcanodiscovery](https://www.volcanodiscovery.com/earthquakes/2019/07/04/17h33/magnitude6-CA-USA-quake.html) provides the Distance vs 
+Intensity graph to check the intensity (mmi) we felt.
+
+![center](/images/dis_inten_3.PNG)
+
+As per the graph, we felt maximum intensity of 6.8 mmi (median) at our location which was 25 KM away.
+
+Crazy experience!!
