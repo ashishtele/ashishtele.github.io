@@ -13,7 +13,7 @@ We decided to stop to click few pictures and fortunately, the time was perfect (
 I was capturing moments through my iPhone. You can determine the location where you clicked the picture. To extract the metadata, I used 
 the ExifWizard mobile application. It gives most of the information we require.
 
-Below image gives the timestamp and coordibates of the location:
+The Below image gives the timestamp and coordinates of the location:
 
 ![center](/images/img_4_meta.png)
 
@@ -24,7 +24,7 @@ Source: [Volcanodiscovery](https://www.volcanodiscovery.com/earthquakes/2019/07/
 ![center](/images/img_5.PNG)
 
 
-We can calcualte the distance based on the latitude and longitude coordinates. I used Google map distance finder to calculate the 
+We can calculate the distance based on the latitude and longitude coordinates. I used Google map distance finder to calculate the 
 distance between the points.
 
 ![center](/images/dist_1.PNG)
