@@ -33,7 +33,7 @@ And we were this much away from the epicenter!
 
 ![center](/images/dist_img_2.PNG)
 
-So, we were **25KM** away from the center !!
+So, **25KM**, that's it!!
 
 [Volcanodiscovery](https://www.volcanodiscovery.com/earthquakes/2019/07/04/17h33/magnitude6-CA-USA-quake.html) provides the Distance vs 
 Intensity graph to check the intensity (mmi) we felt.
