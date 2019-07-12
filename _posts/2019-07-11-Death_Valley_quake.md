@@ -6,18 +6,16 @@ comments: true
 tags: "earthquake"
 ---
 Hi All, 
-I am writing this blog post to share my experience of an earthquake! We were travelling from San Diego to Las Vegas through the Death Valley.
-We started our journey early morning to reach at Vegas on time. We were enjoying the scenic view and capturing the moments. It was a hot day (105F).
-We decided to stop to click few pictures and fortunately, the time was perfect (scary though!) to experience my first earthquake.
 
-I was capturing moments through my iPhone. You can determine the location where you clicked the picture. To extract the metadata, I used 
-the ExifWizard mobile application. It gives most of the information we require.
+I am writing this blog post to share my experience of an earthquake! We were traveling from San Diego to Las Vegas through the Death Valley. We started our journey early morning to reach Vegas on time. We were enjoying the scenic view and capturing the moments. It was a hot day (105F). We decided to stop to click few pictures and fortunately, the time was perfect (scary thought!) to experience my first earthquake.
 
-The Below image gives the timestamp and coordinates of the location:
+I was capturing moments through my iPhone. You can determine the location where you clicked the picture. To extract the metadata, I used the ExifWizard mobile application. It gives most of the information we require.
+
+The below image gives the timestamp and coordinates of the location:
 
 ![center](/images/img_4_meta.png)
 
-Now. Lets see the timing of the earthquake and its epicenter:
+Now. Let's see the timing of the earthquake and its epicenter:
 
 Source: [Volcanodiscovery](https://www.volcanodiscovery.com/earthquakes/2019/07/04/17h33/magnitude6-CA-USA-quake.html)
 
@@ -43,3 +41,5 @@ Intensity graph to check the intensity (mmi) we felt.
 As per the graph, we felt maximum intensity of 6.8 mmi (median) at our location which was 25 KM away.
 
 Crazy experience!!
+
+We had another surprise on July 5th as well 🙂
