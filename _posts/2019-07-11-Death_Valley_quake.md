@@ -40,6 +40,6 @@ Intensity graph to check the intensity (mmi) we felt.
 
 As per the graph, we felt maximum intensity of 6.8 mmi (median) at our location which was 25 KM away.
 
-Crazy experience!!
+Crazy experience!!!
 
 We had another surprise on July 5th as well 🙂
