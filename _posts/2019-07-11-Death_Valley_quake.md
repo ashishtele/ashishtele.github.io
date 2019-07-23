@@ -3,7 +3,7 @@ layout: posts
 title: "The way a Data Scientist analyzes an Earthquake!!"
 date: 2019-07-11 12:00:00 -0400
 comments: true
-tags: "earthquake"
+tags: "Data Science"
 ---
 Hi All, 
 
