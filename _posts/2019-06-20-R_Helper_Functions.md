@@ -3,7 +3,7 @@ layout: posts
 title: "R Helper Functions - Expedite your work"
 date: 2019-06-20 12:00:00 -0400
 comments: true
-tags: "R"
+tags: ["Data Science","Earthquake","Machine Learning (ML)","Artificial Intelligence (AI)","Data Mining","Data Engineering","Pyhton","R","SAS","NY","Helper Function","Rockstar R"]
 ---
 Hi All, I am adding the code snippets which I often use. It is always a good practice to create and 
 maintain the custom functions in R and Python. We can attach the user-defined functions' file at the
