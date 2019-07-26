@@ -3,7 +3,7 @@ layout: posts
 title: "Coastline Zip Codes (USA)"
 date: 2019-04-06 12:00:00 -0400
 comments: true
-tags: "Zip"
+tags: ["Data Science","ZIP","Machine Learning (ML)","Artificial Intelligence (AI)","Data Mining","Data Engineering","Pyhton","R","SAS","USA","CA","Coastline","Zipcodes"]
 ---
 
 Hi All,
