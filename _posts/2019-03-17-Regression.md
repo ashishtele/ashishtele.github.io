@@ -3,7 +3,7 @@ layout: posts
 title: "Importance of Aggregation before Regression Models"
 date: 2019-03-17 12:00:00 -0400
 comments: true
-tags: "Regression"
+tags: ["Data Science","USA","Machine Learning (ML)","Artificial Intelligence (AI)","Data Mining","Data Engineering","Pyhton","R","SAS","NY","Helper Function","Rockstar R","America", "Regression", "Models"]
 ---
 
 Recently I came across a scenario where we had to feed the data to the multi-regression model. 
