@@ -3,7 +3,7 @@ layout: posts
 title: "Robust forecasting using SAS and R (Part 1)"
 date: 2019-03-03 12:00:00 -0400
 comments: true
-tags: "Forecasting"
+tags: ["Data Science","USA","Machine Learning (ML)","Artificial Intelligence (AI)","Data Mining","Data Engineering","Pyhton","R","SAS","NY","Helper Function","Rockstar R","America", "Regression", "Models","Forecasting", "time series"]
 ---
 
 Hi All,
