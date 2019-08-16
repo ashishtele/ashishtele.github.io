@@ -3,7 +3,7 @@ layout: posts
 title: "The way a Data Scientist analyzes an Earthquake!!"
 date: 2019-07-11 12:00:00 -0400
 comments: true
-tags: ["Data Science","Earthquake","Machine Learning (ML)","Artificial Intelligence (AI)","Data Mining","Data Engineering","Pyhton","R","SAS","Death Valley","CA"]
+tags: ["Data Science","Earthquake","Machine Learning (ML)","Artificial Intelligence (AI)","Data Mining","Data Engineering","Pyhton","R","SAS","Death Valley","CA","search"]
 ---
 Hi All, 
 
@@ -42,4 +42,4 @@ As per the graph, we felt maximum intensity of 6.8 mmi (median) at our location 
 
 Crazy experience!!!
 
-We had another surprise on July 5th as well 🙂
+We had another surprise on July 5th (2019) as well 🙂
