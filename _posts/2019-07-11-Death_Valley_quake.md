@@ -42,4 +42,4 @@ As per the graph, we felt maximum intensity of 6.8 mmi (median) at our location 
 
 Crazy experience!!!
 
-We had another surprise on July 5th (2019) as well 🙂
+We had another surprise on July 5th (2019) as well! 🙂
