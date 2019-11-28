@@ -14,5 +14,6 @@ Have you ever come across a dashboard which is meant for Executives, but it has 
 Most of the time we make dashboards/reports without knowing the target audience. Knowing the target 
 audience is one of the important criterions before designing the visualizations. I was fortunate to
 present before a batch of new hires the rules and best ways of communicating the data. I got a chance
-to read an incredible book: "Good Charts" by Scott Berinato. It helped me to develop the thinking of 
-wireframing the visualization. I am adding the link to the presentation I created.
+to read an incredible book: ["Good Charts"](https://store.hbr.org/product/good-charts-the-hbr-guide-to-making-smarter-more-persuasive-data-visualizations/15005) by ['Scott Berinato'](https://www.linkedin.com/in/scott-berinato-6330ba54/). It helped me to develop the thinking of wireframing the visualization. I am adding the link to the presentation I created.
+
+![center](/images/111.PNG)
