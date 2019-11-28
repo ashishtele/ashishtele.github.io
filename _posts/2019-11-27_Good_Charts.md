@@ -6,6 +6,8 @@ comments: true
 tags: ["Data Science","Earthquake","Machine Learning (ML)","Artificial Intelligence (AI)","Data Mining","Data Engineering","Pyhton","R","SAS","Death Valley","CA","search"]
 ---
 
+Hi All,
+
 Have you ever come across a dashboard which is meant for Executives, but it has many dropdowns
  and filters? Did your executives find it difficult to read the report? Mostly the answer will be YES!
 
