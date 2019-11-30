@@ -18,8 +18,8 @@ to read an incredible book: ["Good Charts"](https://store.hbr.org/product/good-c
 
 ![center](/images/111.JPG)
 
-The below chart gives the information about the target audience and preferred visualization. The report or infographic is
-most preferred way to show results to executives as it gives summarised view of the business at a glance. 
+The below chart gives information about the target audience and preferred visualization. The report or infographic is
+the most preferred way to show results to executives as it gives a summarised view of the business at a glance. 
 
 ![center](/images/112.png)
 
