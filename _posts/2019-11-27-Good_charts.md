@@ -23,8 +23,8 @@ most preferred way to show results to executives as it gives summarised view of 
 
 ![center](/images/112.png)
 
-Please find the presentation at the [Location](https://github.com/ashishtele/Power_BI/blob/master/Data%20Visualization%20v2.0.pptx)
-
 Data iceberg: Data visualization contributes 20% of the efforts, while data cleaning takes almost 80% of the efforts.
 
 ![center](/images/113.JPG)
+
+Please find the presentation at the [Location](https://github.com/ashishtele/Power_BI/blob/master/Data%20Visualization%20v2.0.pptx)
