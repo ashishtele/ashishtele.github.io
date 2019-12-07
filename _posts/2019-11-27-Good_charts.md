@@ -3,7 +3,7 @@ layout: posts
 title: "The Good Charts!!"
 date: 2019-11-27 12:00:00-0400
 comments: true
-tags: ["Data Science","Earthquake","reports","Artificial Intelligence (AI)","Data Mining","Data Engineering","Pyhton","R","SAS","Death Valley","CA","search"]
+tags: ["Data Science","Chart","reports","Artificial Intelligence (AI)","Data Mining","Data Engineering","Pyhton","R","SAS"," Dashboard","DS","search"]
 ---
 
 Hi All,
