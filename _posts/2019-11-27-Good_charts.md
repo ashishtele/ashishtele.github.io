@@ -28,3 +28,5 @@ Data iceberg: Data visualization contributes 20% of the efforts, while data clea
 ![center](/images/113.JPG)
 
 Please find the presentation at the [Location](https://github.com/ashishtele/Power_BI/blob/master/Data%20Visualization%20v2.0.pptx)
+
+Thank you for stopping by!
