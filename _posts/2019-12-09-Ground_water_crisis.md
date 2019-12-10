@@ -5,8 +5,6 @@ date: 2019-12-09 12:00:00-0400
 comments: true
 tags: ["Data Science","Chart","reports","Artificial Intelligence (AI)","Data Mining","Ground","Pyhton","R","SAS"," Dashboard","DS","water","India"]
 ---
-Hi All,
-
 I have been a big fan of open government data sources such as [data.gov.in](https://data.gov.in/) 
 and [data.gov](https://www.data.gov/). Recently I came across a data source called [Dynamic Ground Water Resources](https://data.gov.in/resources/district-wise-dynamic-ground-water-resources-march-2013). It has rich information 
 about groundwater recharge (rainfall) and discharge (draft), The data column definitions were new to me so I have added
