@@ -14,6 +14,6 @@ them for reference purposes.
 
 It contains the information of **662** Indian districts. The overall data quality is good. It does not have many **NA** values. The column names (metric) are self-defining. The information is available as of **March 2013**. 
 
-The below chart shows the number of districts by states and UTs studied to collect the ground water data. Uttar pradesh has most districts studied for this research.
+The below chart shows the number of districts by states and UTs studied to collect the ground water data. **Uttar Pradesh** has most districts studied for this research.
 
 ![center](/images/gw1.PNG)
