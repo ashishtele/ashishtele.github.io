@@ -17,3 +17,8 @@ It contains the information of **662** Indian districts. The overall data qualit
 The below chart shows the number of districts by states and UTs studied to collect the ground water data. **Uttar Pradesh** has most districts studied for this research.
 
 ![center](/images/gw1.PNG)
+
+**Paschim Medinipore** district in West Bengal received highest rainfaill during monsoon season in India. Interestingly, top 3 districts are belong to **West Bengal**.
+
+![center](/images/gw2.PNG)
+
