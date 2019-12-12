@@ -27,3 +27,5 @@ The below heatmap shows the districts with comparatively high groundwater availa
 ![center](/images/gw3.PNG)
 
 When we see the average annual groundwater availability (HaM) by states, **Telangana** and **Andra Pradesh** take places in the top list. The numbers contradict with the current google searches. As per [the report](https://www.thehindu.com/news/cities/Hyderabad/telangana-sees-sharp-drop-in-groundwater-table/article28160098.ece), Telangana sees a sharp drop in the groundwater table.
+
+![center](/images/gw4.PNG)
