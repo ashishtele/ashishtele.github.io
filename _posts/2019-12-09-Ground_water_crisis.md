@@ -29,3 +29,5 @@ The below heatmap shows the districts with comparatively high groundwater availa
 When we see the average annual groundwater availability (HaM) by states, **Telangana** and **Andra Pradesh** take places in the top list. The numbers contradict with the current google searches. As per [the report](https://www.thehindu.com/news/cities/Hyderabad/telangana-sees-sharp-drop-in-groundwater-table/article28160098.ece), Telangana sees a sharp drop in the groundwater table.
 
 ![center](/images/gw4.PNG)
+
+Let's see what does projected demand for Domestic and Industrial Uses up to 2025 say. We have information about the current draft due to Domestic and Industrial water supply needs (2013) and projected demand (2025) for it. The below chart shows districts with the most increase in the demand for Domestic and Industrial uses. 
