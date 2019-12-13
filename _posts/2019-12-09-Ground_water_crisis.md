@@ -30,7 +30,7 @@ When we see the average annual groundwater availability (HaM) by states, **Telan
 
 ![center](/images/gw4.PNG)
 
-Let's see what does projected demand for Domestic and Industrial Uses up to 2025 say. We have information about the current draft due to Domestic and Industrial water supply needs (2013) and projected demand (2025) for it. The below chart shows districts with the most increase in the demand for Domestic and Industrial uses. 
+Let's see what does projected demand for Domestic and Industrial Uses up to 2025 say. We have information about the current draft due to Domestic and Industrial water supply needs (2013) and projected demand (2025) for it. The below chart shows districts with the most % increase in the demand for Domestic and Industrial uses. 
 
 ![center](/images/gw5.PNG)
 
