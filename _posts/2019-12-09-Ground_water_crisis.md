@@ -35,3 +35,7 @@ Let's see what does projected demand for Domestic and Industrial Uses up to 2025
 ![center](/images/gw5.PNG)
 
 As you can in the above chart, these districts are expected to see a huge spike in the demand for domestic and industrial uses. Interestingly, all top districts belong to **Manipur** and **Meghalaya** states from northeastern India.
+
+Let's check out an important metric called a stage of groundwater development.
+**The stage of groundwater development** is a ratio of Annual Ground Water Draft and Net Annual Ground-Water Availability in percentage.
+[Ref](http://cgwb.gov.in/faq.html). The reference page gives details of the criteria for the categorization of assessment units. We will create a factor column for an analysis purpose.
