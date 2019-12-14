@@ -40,3 +40,7 @@ Let's check out an important metric called a stage of groundwater development.
 
 **The stage of groundwater development** is a ratio of Annual Ground Water Draft and Net Annual Ground-Water Availability in percentage.
 [Ref](http://cgwb.gov.in/faq.html). The reference page gives details of the criteria for the categorization of assessment units. We will create a factor column for an analysis purpose.
+
+The below chart shows the overexploited districts of India. The size of the bubble shows how big exploitation is. I filtered the districts with the stage of groundwater development is more than **100%**. **Kala Amb** district of **Himachal Pradesh** has the most stage of groundwater development of astounding **411%**.
+
+![center](/images/gw6.PNG)
