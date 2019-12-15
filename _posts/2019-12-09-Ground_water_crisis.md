@@ -48,3 +48,7 @@ The below chart shows the overexploited districts of India. The size of the bubb
 I created the categories as mentioned by Central Ground Water Board. I then developed a **Power BI** dashboard where we can filter the states and districts based on the category. Again, the bubble size determines the extent of exploitation. 
 
 ![center](/images/gw7.PNG)
+
+Few key observations:
+
+1. **Delhi** has the highest average stage of groundwater development. 
