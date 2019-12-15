@@ -49,6 +49,9 @@ I created the categories as mentioned by Central Ground Water Board. I then deve
 
 ![center](/images/gw7.PNG)
 
-Few key observations:
+1. **Delhi** has the highest average stage of groundwater development followed by **Punjab** and **Haryana**.
+2. **Karnataka** and **Tamilnadu** have overexploitation in South India.
+3. **16%** of Indian districts are overexploited (2013). The number must have skyrocketed by now.
 
-1. **Delhi** has the highest average stage of groundwater development. 
+Thank you for reading this article!!
+
