@@ -21,6 +21,6 @@ I found this dataset very interesting because of the data size and efforts autho
 
 * Moosavi, Sobhan, Mohammad Hossein Samavatian, Srinivasan Parthasarathy, Radu Teodorescu, and Rajiv Ramnath. ["Accident Risk Prediction based on Heterogeneous Sparse Data: New Dataset and Insights."](https://arxiv.org/abs/1906.05409) In Proceedings of the 27th ACM SIGSPATIAL International Conference on Advances in Geographic Information Systems, ACM, 2019.
 
-**US Traffic Accidents by States (2016-19)
+**US Traffic Accidents by States (2016-19)**
 
-
+![center](/images/US_1.PNG)
