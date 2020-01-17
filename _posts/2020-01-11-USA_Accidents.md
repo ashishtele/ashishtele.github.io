@@ -21,4 +21,9 @@ I found this dataset very interesting because of the data size and efforts autho
 
 **US Traffic Accidents by States (2016-19)**
 
+As we can see, **California** tops the chart with the maximum number of traffic accidents in the period 2016-19. **California** has recorded more than double traffic accidents than that recorded in **Texas**.
+
 ![center](/images/US_1.PNG)
+
+![center](/images/US_2.PNG)
+
