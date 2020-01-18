@@ -19,7 +19,7 @@ I found this dataset very interesting because of the data size and efforts autho
 
 * Moosavi, Sobhan, Mohammad Hossein Samavatian, Srinivasan Parthasarathy, Radu Teodorescu, and Rajiv Ramnath. ["Accident Risk Prediction based on Heterogeneous Sparse Data: New Dataset and Insights."](https://arxiv.org/abs/1906.05409) In Proceedings of the 27th ACM SIGSPATIAL International Conference on Advances in Geographic Information Systems, ACM, 2019.
 
-**US Traffic Accidents by States (2016-19)**
+**USA Traffic Accidents by States (2016-19)**
 
 As we can see, **California** tops the chart with the maximum number of traffic accidents in the period 2016-19. **California** has recorded more than double traffic accidents than that recorded in **Texas**.
 
@@ -27,3 +27,4 @@ As we can see, **California** tops the chart with the maximum number of traffic 
 
 ![center](/images/US_2.PNG)
 
+**USA Traffic Accidents by Counties (2016-19)**
