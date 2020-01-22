@@ -34,3 +34,4 @@ As we can see, **California** tops the chart with the maximum number of traffic 
 
 ![center](/images/US_3.PNG)
 
+
