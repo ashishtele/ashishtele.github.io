@@ -11,7 +11,6 @@ Recently I came across a dataset on [Kaggle](https://www.kaggle.com/sobhanmoosav
 
 I found this dataset very interesting because of the data size and efforts authors put to gather the data. A huge shout out to them! There are many notebooks available on Kaggle for reference purposes. I explored the dataset using RStudio.
 
-
 **Acknowledgments**
 
 * Please cite the following papers if you use this dataset:
