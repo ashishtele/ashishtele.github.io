@@ -1,10 +1,10 @@
 ---
-#layout: posts
+layout: post
 title: "USA Traffic Accidents!!"
-date: 2020-01-11 12:00:00-0400
-categories: [modin-library]
+#date: 2020-01-11 12:00:00-0400
 comments: true
 tags: ["Data Science","Chart","reports","Artificial Intelligence (AI)","Data Mining","Accidents","Pyhton","R","SAS"," Dashboard","DS","traffic","USA"]
+image: /images/US_4.PNG
 ---
 Happy New Year!!!
 
@@ -41,8 +41,4 @@ As we can see, **California** tops the chart with the maximum number of traffic 
 
 ![center](/images/US_4.PNG)
 
-### Want to know more about me?
-## Follow Me
-<a href="https://twitter.com/aashishdt" target="_blank"><img class="ai-subscribed-social-icon" src="/assets/images/tw.png" width="30"></a>
-<a href="https://github.com/ashishtele" target="_blank"><img class="ai-subscribed-social-icon" src="/assets/images/gthb.png" width="30"></a>
-<a href="https://www.linkedin.com/in/ashishtele/" target="_blank"><img class="ai-subscribed-social-icon" src="/assets/images/lnkdn.png" width="30"></a>
+
