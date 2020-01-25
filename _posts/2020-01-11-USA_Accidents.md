@@ -38,3 +38,4 @@ As we can see, **California** tops the chart with the maximum number of traffic 
 
 **South Dakota** and **Wyoming** have high average severity among all the states. 
 
+![center](/images/US_4.PNG)
