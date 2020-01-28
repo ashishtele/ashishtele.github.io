@@ -34,6 +34,11 @@
         <a href="{{ post.url | relative_url }}" rel="permalink">{{ title }}</a>
       {% endif %}
     </h2>
+    <h2 class="post-list">
+       {% if post.image %}
+         <a href="{{ post.url | relative_url }}" style="display:block;margin:auto"><img src="{{ post.image }}" style="display:block;margin:auto" /></a>
+       {% endif %}
+    </h2>
     {% if post.read_time %}
       <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> {% include read-time.html %}</p>
     {% endif %}
