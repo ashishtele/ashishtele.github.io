@@ -1,0 +1,173 @@
+@import url("https://fonts.googleapis.com/css?family=Lato:400,800");
+
+body {
+  font-weight: 400;
+  color: #222;
+  font-family: Lato, sans-serif;
+}
+
+header h2 {
+  font-size: 1.2em;
+  font-weight: normal;
+  line-height: 0.7;
+}
+
+p {
+  line-height: 1.5;
+}
+
+header {
+  text-align: center;
+}
+
+hr {
+  margin-top: 30px;
+  border-width: 0;
+  border-top: 2px solid #222;
+  width: 80px;
+}
+
+section {
+  margin: 30px;
+}
+
+canvas {
+  position: fixed;
+  top: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100vh;
+  margin-left: 0em;
+}
+
+.projects a {
+  color: #222;
+}
+
+.speaking-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.speaking a {
+  color: #444;
+  display: block;
+  line-height: 1.5;
+}
+
+.speaking p {
+  line-height: 1;
+  font-size: 0.9em;
+}
+
+.writing a {
+  display: block;
+  text-decoration: underline;
+  color: #444;
+  margin-top: 6px;
+}
+
+.social-links a {
+  font-size: 25px;
+  padding: 0px 8px;
+  text-decoration: none;
+  color: #444;
+}
+
+.container {
+  max-width: 800px;
+  margin: 60px auto;
+}
+
+.rainbow-letters {
+  margin-bottom: 30px;
+}
+
+.rainbow-letters span {
+  font-size: 70px;
+  font-weight: 800;
+  mix-blend-mode: darken;
+  opacity: 0.8;
+  text-transform: uppercase;
+  letter-spacing: -4px;
+}
+
+.big-space {
+  padding: 8px;
+}
+
+.rainbow-letters span:nth-child(10n + 1),
+.red {
+  color: #ef5350;
+}
+
+.rainbow-letters span:nth-child(10n + 2),
+.light-purple {
+  color: #ab47bc;
+}
+
+.rainbow-letters span:nth-child(10n + 3),
+.dark-purple {
+  color: #651fff;
+}
+
+.rainbow-letters span:nth-child(10n + 5),
+.dark-blue {
+  color: #3949ab;
+}
+
+.rainbow-letters span:nth-child(10n + 4),
+.blue {
+  color: #2196f3;
+}
+
+.rainbow-letters span:nth-child(10n + 6),
+.light-blue {
+  color: #00bcd4;
+}
+
+.rainbow-letters span:nth-child(10n + 7),
+.green {
+  color: #4caf50;
+}
+
+.rainbow-letters span:nth-child(10n + 8),
+.yellow {
+  color: #ffc107;
+}
+
+.rainbow-letters span:nth-child(10n + 9),
+.pink {
+  color: #e96290;
+}
+
+.rainbow-letters span:nth-child(10n + 10),
+.orange {
+  color: #ff8f00;
+}
+
+.social-footer {
+  text-align: center;
+}
+
+::selection {
+  background: lavender;
+}
+
+@media only screen and (max-width: 450px) {
+  .rainbow-letters span {
+    font-size: 40px;
+  }
+  section {
+    margin: 10px;
+  }
+  .speaking-columns {
+    display: block;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .speaking-columns {
+    display: block;
+  }
+}
