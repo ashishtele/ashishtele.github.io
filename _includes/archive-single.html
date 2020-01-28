@@ -34,5 +34,6 @@
       <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> {% include read-time.html %}</p>
     {% endif %}
     {% if post.excerpt %}<p class="archive__item-excerpt" itemprop="description">{{ post.excerpt | markdownify | strip_html | truncate: 160 }}</p>{% endif %}
+    {% if post.image %}<a href="{{ post.url | prepend: site.baseurl }}" style="display:block;margin:auto"><img src="{{ post.image }}" style="display:block;margin:auto" /></a>{% endif %}
   </article>
 </div>
