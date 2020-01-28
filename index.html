@@ -5,13 +5,3 @@ header:
   image: "/images/sit.PNG"
 ---
 
-<div class="home">
-
-  <ul class="post-list">
-    {% for post in site.posts %}
-      <li>
-        {% if post.image %}<a href="{{ post.url | prepend: site.baseurl }}" style="display:block;margin:auto"><img src="{{ post.image }}" style="display:block;margin:auto" /></a>{% endif %}
-      </li>
-    {% endfor %}
-  </ul>
-</div>
