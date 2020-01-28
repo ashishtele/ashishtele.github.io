@@ -8,6 +8,9 @@ layout: archive
 
 {% for post in paginator.posts %}
   {% include archive-single.html %}
+  <li>
+  {% if post.image %}<a href="{{ post.url | prepend: site.baseurl }}" style="display:block;margin:auto"><img src="{{ post.image }}" style="display:block;margin:auto" /></a>{% endif %}
+  </li>
 {% endfor %}
 
 {% include paginator.html %}
