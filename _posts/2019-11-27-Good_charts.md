@@ -1,9 +1,20 @@
 ---
-layout: posts
+layout: single
 title: "The Good Charts!!"
-date: 2019-11-27 12:00:00-0400
+author: Ashish Tele
+excerpt: "Data visualizations make big and small data easier for the human brain to understand, and visualization also makes it easier to detect patterns, trends, and outliers in groups of data"
+description: "Data visualizations make big and small data easier for the human brain to understand, and visualization also makes it easier to detect patterns, trends, and outliers in groups of data"
+permalink:
 comments: true
-tags: ["Data Science","Chart","reports","Artificial Intelligence (AI)","Data Mining","Data Engineering","Pyhton","R","SAS"," Dashboard","DS","search"]
+tags: ["Data Science","Pyhton","R"," Dashboard","DS","chart","India"]
+published: true
+comments: true
+author_profile: false
+header:
+  teaserlogo:
+  teaser: /images/gr.PNG
+  image: /images/gr.PNG
+  caption: "courtesy: goodchartsbook.com"
 ---
 
 Hi All,
