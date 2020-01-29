@@ -2,7 +2,7 @@
 layout: single
 title: USA Traffic Accidents!!
 excerpt: "USA Traffic accidents are one of the major causes of dealths"
-date: 2020-01-11 12:00:00-0400
+permalink:
 comments: true
 tags: ["Data Science","R","Data Mining","Accidents","USA"]
 published: true
@@ -12,7 +12,12 @@ header:
   teaserlogo:
   teaser: ''
   image: /images/US_4.PNG
-  caption: 
+  caption:
+gallery:
+
+  - image_path: ''
+    url: ''
+    title: ''
 ---
 Happy New Year!!!
 
@@ -31,20 +36,20 @@ I found this dataset very interesting because of the data size and efforts autho
 
 As we can see, **California** tops the chart with the maximum number of traffic accidents in the period 2016-19. **California** has recorded more than double traffic accidents than that recorded in **Texas**.
 
-![center](/images/US_1.PNG)
+![center](/images/US_1.PNG){: .align-center}
 
-![center](/images/US_2.PNG)
+![center](/images/US_2.PNG){: .align-center}
 
 
 **USA Traffic Accidents by Counties (2016-19)**
 
 **Lod Angeles** has recorded whopping **172K** traffic accidents during this time period. LA is followed by **Harris**(TX) and **Mecklenburg**(NC). 
 
-![center](/images/US_3.PNG)
+![center](/images/US_3.PNG){: .align-center}
 
 
 **USA Traffic Accidents by Severity (2016-19)**
 
 **South Dakota** and **Wyoming** have high average traffic accident severity among all the states. 
 
-![center](/images/US_4.PNG)
+![center](/images/US_4.PNG){: .align-center}
