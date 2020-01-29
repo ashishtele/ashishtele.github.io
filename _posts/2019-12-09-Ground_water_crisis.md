@@ -2,8 +2,8 @@
 layout: single
 title: "The Ground Water Crisis in India!!"
 author: Ashish Tele
-excerpt: "This blog highlights few findings from a countrywide traffic accident dataset (USA), collected from February 2016 to December 2019, using several data providers, including two APIs which provide streaming traffic event data. There are about 3.0 million accident records in this dataset."
-description: "This blog highlights few findings from a countrywide traffic accident dataset (USA), collected from February 2016 to December 2019, using several data providers, including two APIs which provide streaming traffic event data. There are about 3.0 million accident records in this dataset."
+excerpt: "Water scarcity in India is due to both natural and human-made causes. The main factors that is contributed to water issues include poor management of resources, lack of government attention, and man-made waste.(Wikipedia)"
+description: "Water scarcity in India is due to both natural and human-made causes. The main factors that is contributed to water issues include poor management of resources, lack of government attention, and man-made waste.(wikipedia)"
 permalink:
 comments: true
 tags: ["Data Science","Ground","Pyhton","R"," Dashboard","DS","water","India"]
@@ -14,7 +14,7 @@ header:
   teaserlogo:
   teaser: /images/India-water-crisis.png
   image: /images/India-water-crisis.png
-  caption:
+  caption: "courtesy: vice.com"
 ---
 I have been a big fan of open government data sources such as [data.gov.in](https://data.gov.in/) and [data.gov](https://www.data.gov/). Recently I came across a data source called [Dynamic Ground Water Resources](https://data.gov.in/resources/district-wise-dynamic-ground-water-resources-march-2013). It has rich information about groundwater recharge (rainfall) and discharge (draft), The data column definitions were new to me so I have added
 them for reference purposes.
