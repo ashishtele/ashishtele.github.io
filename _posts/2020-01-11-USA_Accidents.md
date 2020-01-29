@@ -1,7 +1,9 @@
 ---
 layout: single
 title: USA Traffic Accidents!!
-excerpt: "USA Traffic accidents are one of the major causes of dealths"
+author: Ashish Tele
+excerpt: "This blog highlights few findings from a countrywide traffic accident dataset (USA), collected from February 2016 to December 2019, using several data providers, including two APIs which provide streaming traffic event data. There are about 3.0 million accident records in this dataset."
+description: "This blog highlights few findings from a countrywide traffic accident dataset (USA), collected from February 2016 to December 2019, using several data providers, including two APIs which provide streaming traffic event data. There are about 3.0 million accident records in this dataset."
 permalink:
 comments: true
 tags: ["Data Science","R","Data Mining","Accidents","USA"]
@@ -10,8 +12,8 @@ comments: true
 author_profile: false
 header:
   teaserlogo:
-  teaser: ''
-  image: /images/US_4.PNG
+  teaser: /images/US_5.PNG
+  image: /images/US_5.PNG
   caption:
 gallery:
 
