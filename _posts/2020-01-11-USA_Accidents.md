@@ -1,10 +1,18 @@
 ---
-layout: posts
+layout: single
 title: USA Traffic Accidents!!
+excerpt: "USA Traffic accidents are one of the major causes of dealths"
 date: 2020-01-11 12:00:00-0400
 comments: true
-tags: ["Data Science","Chart","reports","Artificial Intelligence (AI)","Data Mining","Accidents","Pyhton","R","SAS"," Dashboard","DS","traffic","USA"]
-image: /images/US_4.PNG
+tags: ["Data Science","R","Data Mining","Accidents","USA"]
+published: true
+comments: true
+author_profile: false
+header:
+  teaserlogo:
+  teaser: ''
+  image: /images/US_4.PNG
+  caption: 
 ---
 Happy New Year!!!
 
