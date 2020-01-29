@@ -22,12 +22,12 @@ name                     : "Ashish Tele"
 description              : "Data Science Portfolio"
 url                      : "https://ashishtele.github.io/"
 baseurl                  : # the subpath of your site, e.g. "/blog"
-repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
-teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
+repository               : ashishtele/ashishtele.github.io e.g. "mmistakes/minimal-mistakes"
+teaser                   : "/assets/images/image.PNG" #, e.g. "/assets/images/500x300.png"
 # breadcrumbs            : false # true, false (default)
 words_per_minute         : 200
 comments:
-  provider               : # false (default), "disqus", "discourse", "facebook", "google-plus", "staticman", "staticman_v2", "utterances", "custom"
+  provider               : "utterances" # false (default), "disqus", "discourse", "facebook", "google-plus", "staticman", "staticman_v2", "utterances", "custom"
   disqus:
     shortname            : # https://help.disqus.com/customer/portal/articles/466208-what-s-a-shortname-
   discourse:
@@ -216,8 +216,8 @@ sass:
 
 
 # Outputting
-permalink: /:categories/:title/
-paginate: 5 # amount of posts to show
+permalink: /:year/:month/:title.html
+paginate: 4 # amount of posts to show
 paginate_path: /page:num/
 timezone: # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
@@ -288,7 +288,7 @@ defaults:
       layout: single
       author_profile: true
       read_time: true
-      comments: # true
+      comments:  true
       share: true
       related: true
       
@@ -299,4 +299,22 @@ defaults:
     values:
       layout: single
       author_profile: true
+   
+##########
+# CUSTOM #
+##########
+# post with future date won't show'
+future: true
+
+# Show date on main page
+custom:
+  landingpage:
+    publisheddate: true
+    postlogo: false
+  post:
+    authorname: false
+    publisheddate: true
+    edit: true
+  link:
+    rssfeed: ""
       
