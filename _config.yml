@@ -23,7 +23,7 @@ description              : "Data Science Portfolio"
 url                      : "https://ashishtele.github.io/"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : ashishtele/ashishtele.github.io e.g. "mmistakes/minimal-mistakes"
-teaser                   : "/assets/image.PNG" #, e.g. "/assets/images/500x300.png"
+teaser                   : "/assets/images/image.PNG" #, e.g. "/assets/images/500x300.png"
 # breadcrumbs            : false # true, false (default)
 words_per_minute         : 200
 comments:
