@@ -1,23 +1,38 @@
 ---
-layout: posts
+layout: single
 title: "R Helper Functions - Expedite your work"
-date: 2019-06-20 12:00:00 -0400
+author: Ashish Tele
 comments: true
+excerpt: "R helper functions make easier to read programs. We can reuse the computations and code snippet. It is best to create a list of helper functions and source them whenever we run the program."
+description: "R helper functions make easier to read programs. We can reuse the computations and code snippet. It is best to create a list of helper functions and source them whenever we run the program."
 tags: ["Data Science","Earthquake","Machine Learning (ML)","Artificial Intelligence (AI)","Data Mining","Data Engineering","Pyhton","R","SAS","NY","Helper Function","Rockstar R"]
+published: true
+comments: true
+author_profile: false
+header:
+  teaserlogo:
+  teaser: /images/robot.PNG
+  image: /images/robot.PNG
+  caption:
+gallery:
+  - image_path: ''
+    url: ''
+    title: ''
 ---
-Hi All, I am adding the code snippets which I often use. It is always a good practice to create and 
+Hi All, 
+I am adding the code snippets which I often use. It is always a good practice to create and 
 maintain the custom functions in R and Python. We can attach the user-defined functions' file at the
 top of the main script.
 
 ### 1. System Time
-```{r}
+```ruby
 
 st <- function() 
       {Sys.time()}
 
 ```
 ### 2. Working with NAs
-```{r}
+```ruby
 
 if.na <- function(x,y) 
         {ifelse(is.na(x),y,x)}
@@ -30,7 +45,7 @@ if.na.0 <- function(x)
 We often require to modify the number formats by converting to text string.
 
 ### 3. Number Format (Percent & Comma)
-```{r}
+```ruby
 
 percent <- function(x, digits = 1, format = "f", ...) 
 {
@@ -45,7 +60,7 @@ comma <- function(x, digits = 0, format = "f", ...)
 ```
 When we need to count the missing and duplicate records in the data, we can use the below lines of code:
 ### 4. Missing and Duplicate
-```{r}
+```ruby
 
 countMissing <- function(x) 
 {
@@ -66,7 +81,7 @@ countMissing <- function(x)
 }
 
 ```
-```{r}
+```ruby
 countDups <- function(x) 
 {
   cat("    Rows of Data: ", NROW(x), "\n", sep="")  
@@ -77,6 +92,6 @@ countDups <- function(x)
 }
 
 ```
-I will keep updating this post with more helper functions.
+I will keep updating this post with more helper functions. Please drop a comment if you need more helper functions.
 
-Thank you!
+Thank you!.
