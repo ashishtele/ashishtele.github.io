@@ -20,37 +20,38 @@ Hi All,
 
 I am writing this blog post to share my experience of an earthquake! We were traveling from San Diego to Las Vegas through the Death Valley. We started our journey early morning to reach Vegas on time. We were enjoying the scenic view and capturing the moments. It was a hot day (105F). We decided to stop to click few pictures and fortunately, the time was perfect (scary thought!) to experience my first earthquake.
 
-I was capturing moments through my iPhone. You can determine the location where you clicked the picture. To extract the metadata, I used the ExifWizard mobile application. It gives most of the information we require.
+I was capturing moments through my iPhone. You can determine the location where you clicked the picture. To extract the metadata, I used the **ExifWizard** mobile application. It gives most of the information we require.
 
-The below image gives the timestamp and coordinates of the location:
+The below image gives the timestamp and coordinates of the location. We get many more features just through one single image captured.
 
-![center](/images/img_4_meta.png) {: .align-center}
+![center](/images/img_4_meta.png){: .align-center}
 
-Now. Let's see the timing of the earthquake and its epicenter:
+
+There are many sources available which provide the accurate information about the natural calamities. **Volcanodiscovery** is one of them. Let's see the timing of the earthquake and its epicenter:
 
 Source: [Volcanodiscovery](https://www.volcanodiscovery.com/earthquakes/2019/07/04/17h33/magnitude6-CA-USA-quake.html)
 
-![center](/images/earth_q_1.PNG) {: .align-center}
+![center](/images/earth_q_1.PNG){: .align-center}
 
 
-We can calculate the distance based on the latitude and longitude coordinates. I used Google map distance finder to calculate the 
+We can calculate the distance based on the latitude and longitude coordinates. I used **Google map distance finder** to calculate the 
 distance between the points.
 
-![center](/images/dist_1.PNG) {: .align-center}
+![center](/images/dist_1.PNG){: .align-center}
 
-And we were this much away from the epicenter!
+Here starts the scary part. we were this much away from the epicenter!
 
-![center](/images/dist_img_2.PNG) {: .align-center}
+![center](/images/dist_img_2.PNG){: .align-center}
 
 So, **25KM**, that's it!!
 
 [Volcanodiscovery](https://www.volcanodiscovery.com/earthquakes/2019/07/04/17h33/magnitude6-CA-USA-quake.html) provides the Distance vs 
-Intensity graph to check the intensity (mmi) we felt.
+Intensity graph to check the intensity (mmi) we felt. 
 
-![center](/images/dis_inten_3.PNG) {: .align-center}
+![center](/images/dis_inten_3.PNG){: .align-center}
 
-As per the graph, we felt maximum intensity of 6.8 mmi (median) at our location which was 25 KM away.
+As per the graph, we felt maximum intensity of **6.8 mmi** (median) at our location which was **25KM** away. So next time, please plan your trip accordingly.
 
 Crazy experience!!!
 
-We had another surprise on July 5th (2019) as well! 🙂
+We had another surprise on **July 5th(2019)** as well! 🙂
