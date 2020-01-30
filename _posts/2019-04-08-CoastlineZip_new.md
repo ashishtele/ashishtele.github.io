@@ -16,7 +16,7 @@ header:
   teaserlogo:
   teaser: /images/US_map1.PNG
   image: /images/US_map1.PNG
-  caption:
+  caption: "courtesy: https://weather.com/"
 gallery:
   - image_path: ''
     url: ''
@@ -57,7 +57,7 @@ Once I had the coastline lat and long, I wrote SQL query conditioned on lat and 
 
 The below piece of code gives the distance in Km from the coastline coordinates. The distance can be used as a filter on the dashboard as shown. 
 
-```{r}
+```ruby
 # Distance calculations
 USA <- ne_countries(scale = 110, 
                     country = "United States of America", 
@@ -98,3 +98,5 @@ The below piece of code gives the distance in Km from the coastline coordinates.
 ![center](/images/distance_report.PNG)
 
 The USA_dataset which includes the distance values is available on my github page. 
+
+Thank you for reading the post!
