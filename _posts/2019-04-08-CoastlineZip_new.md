@@ -1,9 +1,26 @@
 ---
-layout: posts
-title: "Coastline Zip Codes (USA) - New Approach"
-date: 2019-04-09 12:00:00 -0400
+layout: single
+title: Coastline Zip Codes (USA) - New Approach
+author: Ashish Tele
+excerpt: "While working on a project, we came across a scenario where we had to find the coastline zipcode. 
+This post explains the approach I used."
+description: "While working on a project, we came across a scenario where we had to find the coastline zipcode. 
+This post explains the approach I used."
+permalink:
 comments: true
-tags: ["Data Science","USA","Machine Learning (ML)","Artificial Intelligence (AI)","Data Mining","Data Engineering","Pyhton","R","SAS","NY","Helper Function","Rockstar R","Zip","Zip code","Coastline","America"]
+tags:   ["Data Science","USA","Machine Learning (ML)","Data Mining","Data Engineering","Pyhton","R","Zip","Zip code","Coastline","America"]
+published: true
+comments: true
+author_profile: false
+header:
+  teaserlogo:
+  teaser: /images/US_map1.PNG
+  image: /images/US_map1.PNG
+  caption:
+gallery:
+  - image_path: ''
+    url: ''
+    title: ''
 ---
 The last blog gives an approach to find the coastline zip codes. I followed the relative distances calculation approach to find the zip codes. I came across ['Natural Earth'](https://www.naturalearthdata.com/) and an R package ['rnaturalearth'](https://cran.r-project.org/web/packages/rnaturalearth/README.html) which is the API to the site. 
 
