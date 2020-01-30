@@ -1,25 +1,4 @@
----
-layout: single
-title: The way a Data Scientist analyzes an Earthquake!!
-author: Ashish Tele
-excerpt: "How can a happy journey turn to a scary experience. One of the lifetime experiences everyone should have 🙂. I tried to explore the facts through data analysis."
-description: "How can a happy journey turn to a scary experience. One of the lifetime experiences everyone should have 🙂"
-permalink:
-comments: true
-tags: ["Data Science","Earthquake","Data Mining","Data Engineering","Pyhton","R",,"Death Valley","CA","search"]
-published: true
-comments: true
-author_profile: false
-header:
-  teaserlogo:
-  teaser: /images/earth_q_2.PNG
-  image: /images/earth_q_2.PNG
-  caption:
-gallery:
-  - image_path: ''
-    url: ''
-    title: ''
----
+
 Hi All, 
 
 I am writing this blog post to share my experience of an earthquake! We were traveling from San Diego to Las Vegas through the Death Valley. We started our journey early morning to reach Vegas on time. We were enjoying the scenic view and capturing the moments. It was a hot day (105F). We decided to stop to click few pictures and fortunately, the time was perfect (scary thought!) to experience my first earthquake.
