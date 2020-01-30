@@ -11,7 +11,7 @@ published: true
 comments: true
 author_profile: false
 header:
-  teaserlogo:
+  teaserlogo: /images/gr.PNG
   teaser: /images/gr.PNG
   image: /images/gr.PNG
   caption: "courtesy: goodchartsbook.com"
