@@ -1,9 +1,24 @@
 ---
-layout: posts
-title: "The way a Data Scientist analyzes an Earthquake!!"
-date: 2019-07-11 12:00:00 -0400
+layout: single
+title: The way a Data Scientist analyzes an Earthquake!!
+author: Ashish Tele
+excerpt: "How can a happy journey turn to a scary experience. One of the lifetime experiences everyone should have 🙂. I tried to explore the facts through data analysis."
+description: "How can a happy journey turn to a scary experience. One of the lifetime experiences everyone should have 🙂"
+permalink:
 comments: true
-tags: ["Data Science","Earthquake","Machine Learning (ML)","Artificial Intelligence (AI)","Data Mining","Data Engineering","Pyhton","R","SAS","Death Valley","CA","search"]
+tags: ["Data Science","Earthquake","Data Mining","Data Engineering","Pyhton","R",,"Death Valley","CA","search"]
+published: true
+comments: true
+author_profile: false
+header:
+  teaserlogo:
+  teaser: /images/earth_q_2.PNG
+  image: /images/earth_q_2.PNG
+  caption:
+gallery:
+  - image_path: ''
+    url: ''
+    title: ''
 ---
 Hi All, 
 
@@ -13,30 +28,30 @@ I was capturing moments through my iPhone. You can determine the location where 
 
 The below image gives the timestamp and coordinates of the location:
 
-![center](/images/img_4_meta.png)
+![center](/images/img_4_meta.png){: .align-center}
 
 Now. Let's see the timing of the earthquake and its epicenter:
 
 Source: [Volcanodiscovery](https://www.volcanodiscovery.com/earthquakes/2019/07/04/17h33/magnitude6-CA-USA-quake.html)
 
-![center](/images/img_5.PNG)
+![center](/images/earth_q_1.PNG){: .align-center}
 
 
 We can calculate the distance based on the latitude and longitude coordinates. I used Google map distance finder to calculate the 
 distance between the points.
 
-![center](/images/dist_1.PNG)
+![center](/images/dist_1.PNG){: .align-center}
 
 And we were this much away from the epicenter!
 
-![center](/images/dist_img_2.PNG)
+![center](/images/dist_img_2.PNG){: .align-center}
 
 So, **25KM**, that's it!!
 
 [Volcanodiscovery](https://www.volcanodiscovery.com/earthquakes/2019/07/04/17h33/magnitude6-CA-USA-quake.html) provides the Distance vs 
 Intensity graph to check the intensity (mmi) we felt.
 
-![center](/images/dis_inten_3.PNG)
+![center](/images/dis_inten_3.PNG){: .align-center}
 
 As per the graph, we felt maximum intensity of 6.8 mmi (median) at our location which was 25 KM away.
 
