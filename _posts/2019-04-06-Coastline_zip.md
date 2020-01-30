@@ -1,9 +1,24 @@
 ---
-layout: posts
-title: "Coastline Zip Codes (USA)"
-date: 2019-04-06 12:00:00 -0400
+layout: single
+title: Coastline Zip Codes (USA)
+author: Ashish Tele
+excerpt: "It explains the distance calculation, Power BI dashbord, and other methods followed."
+description: "It explains the distance calculation, Power BI dashbord, and other methods followed."
+permalink:
 comments: true
-tags: ["Data Science","ZIP","Machine Learning (ML)","Artificial Intelligence (AI)","Data Mining","Data Engineering","Pyhton","R","SAS","USA","CA","Coastline","Zipcodes"]
+tags:   ["Data Science","USA","Machine Learning (ML)","Data Mining","Data Engineering","Pyhton","R","Zip","Zip code","Coastline","America"]
+published: true
+comments: true
+author_profile: false
+header:
+  teaserlogo:
+  teaser: /images/US_map2.png
+  image: /images/US_map2.png
+  caption: "courtesy: https://climate.nasa.gov/"
+gallery:
+  - image_path: ''
+    url: ''
+    title: ''
 ---
 
 Hi All,
@@ -11,7 +26,9 @@ We came across a situation where we had to find the zip codes across US coastlin
 
 I tried to find the coastline zips by calculating the distances from different reference points. I used the geographical centers of the USA, the geographical centers of the coastline US states, and three reference points in the ocean. The distances between lat and long using below formula:
 
-=ACOS(COS(RADIANS(90-Lat1)) *COS(RADIANS(90-Lat2)) +SIN(RADIANS(90-Lat1)) *SIN(RADIANS(90-Lat2)) *COS(RADIANS(Long1-Long2))) *6371.
+```ruby
+=ACOS(COS(RADIANS(90-Lat1)) *COS(RADIANS(90-Lat2)) +SIN(RADIANS(90-Lat1)) *SIN(RADIANS(90-Lat2)) *COS(RADIANS(Long1-Long2))) *6371
+```
 
 [Reference](http://bluemm.blogspot.com/2007/01/excel-formula-to-calculate-distance.html)
 
@@ -22,7 +39,7 @@ to find the geographical center of the USA and the geographical centers of the c
 2. North Atlantic Ocean
 3. Gulf of Mexico
 
-Distance Calculations:
+**Distance Calculations:**
 1. US geographical center to each zip:
 This distance should be maximum for the coastline zip codes, but it gives the circular curve which needs additional calculations.
 
@@ -33,8 +50,10 @@ I did the calculation to scale the distances as it differs for each state.
 3. The ocean reference points to each zip:
 This distance should be minimum for the coastline zip codes. It also gives the circular curvatures, but the combinations of the other two calculations give the required zip codes.
 
-Please find the below screenshot for Texas reason:
+Please find the below screenshot for **Texas** reason:
 
 ![center](/images/ZIP.PNG)
+
+The dashboard is available in Power BI.
 
  
