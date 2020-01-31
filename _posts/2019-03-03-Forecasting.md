@@ -1,9 +1,24 @@
 ---
-layout: posts
-title: "Robust forecasting using SAS and R (Part 1)"
-date: 2019-03-03 12:00:00 -0400
+layout: single
+title: Robust forecasting using SAS and R (Part 1)
+author: Ashish Tele
+excerpt: "This blog post is a first in the series of Forecasting. I am sharing my experience and problems faced during project journey."
+description: "This blog post is a first in the series of Forecasting. I am sharing my experience and problems faced during project journey."
+permalink:
 comments: true
-tags: ["Data Science","USA","Machine Learning (ML)","Artificial Intelligence (AI)","Data Mining","Data Engineering","Pyhton","R","SAS","NY","Helper Function","Rockstar R","America", "Regression", "Models","Forecasting", "time series"]
+tags: ["Data Mining","Data Engineering","Pyhton","R","SAS","NY","Helper Function","Rockstar R","America", "Regression", "Models","Forecasting", "time series"]
+published: true
+comments: true
+author_profile: false
+header:
+  teaserlogo:
+  teaser: /images/for.PNG
+  image: /images/for.PNG
+  caption: "courtesy: toolsfroup.com"
+gallery:
+  - image_path: ''
+    url: ''
+    title: ''
 ---
 
 Hi All,
