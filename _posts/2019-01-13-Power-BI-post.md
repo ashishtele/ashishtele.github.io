@@ -1,10 +1,24 @@
 ---
-layout: posts
-title: "Data Science portfolio in Power BI"
-date: 2019-01-13 12:00:00 -0400
+layout: single
+title: Data Science portfolio in Power BI
+author: Ashish Tele
+excerpt: "I created my interactive resume in Power BI. This post shares some of its key highlights."
+description: "I created my interactive resume in Power BI. This post shares some of its key highlights."
+permalink:
 comments: true
-tags: ["Data Science","USA","Machine Learning (ML)","Artificial Intelligence (AI)","Data Mining","Data Engineering","Pyhton","R","SAS","NY","Helper Function","Rockstar R","America", "Regression", "Models","Forecasting", "time series",
-"Power BI","chart"]
+tags: ["Data Mining","Data Engineering","Pyhton","R","SAS","NY","Helper Function","Rockstar R","America", "Regression", "Models","Forecasting", "time series"]
+published: true
+comments: true
+author_profile: false
+header:
+  teaserlogo:
+  teaser: /images/power.PNG
+  image: /images/power.PNG
+  caption: "courtesy: myself"
+gallery:
+  - image_path: ''
+    url: ''
+    title: ''
 ---
 
 Hi All,
