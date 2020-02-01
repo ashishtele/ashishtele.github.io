@@ -83,3 +83,11 @@ As we can see, **California** tops the chart with the maximum number of traffic 
 </p>
 
 </details>
+
+**Relationship between Avg. Visibility & Severity**
+
+I aggregated the data by severity and calculated the average visibility at each level. The analysis shows **shorter the visibility distance, higher the accident severity!**
+
+<p align="center">
+  <img width="650" height="500" src="/images/US_7.PNG">
+</p>
