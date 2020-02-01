@@ -73,13 +73,9 @@ As we can see, **California** tops the chart with the maximum number of traffic 
   <img width="600" height="400" src="/images/US_6.PNG">
 </p>
 
-    <details>
-      <summary>
-        <i>Click for Code</i>
-      </summary>
-    <p>
-
-    ```ruby
+<details><summary><i>Click for Code</i></summary>
+  
+ ```ruby
     df %>% 
       group_by(Weather_Condition) %>% 
       summarise(cnt = n()) %>% 
@@ -104,6 +100,6 @@ As we can see, **California** tops the chart with the maximum number of traffic 
            y = "No of Accidents",
            x = "Weather Condition") +
       coord_flip()
-    ```
-    </p>
-    </details>
+  ```
+    
+ </details>
