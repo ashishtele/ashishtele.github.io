@@ -77,9 +77,10 @@ As we can see, **California** tops the chart with the maximum number of traffic 
   <summary>
     <i>Click for Code</i>
   </summary>
+<p>
 
-  
-```r#
+
+```r
 df %>% 
   group_by(Weather_Condition) %>% 
   summarise(cnt = n()) %>% 
@@ -106,5 +107,5 @@ df %>%
   coord_flip()
 ```
 
-
+</p>
 </details>
