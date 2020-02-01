@@ -53,7 +53,7 @@ As we can see, **California** tops the chart with the maximum number of traffic 
 **Lod Angeles** has recorded whopping **172K** traffic accidents during this time period. LA is followed by **Harris**(TX) and **Mecklenburg**(NC). 
 
 <p align="center">
-  <img width="650" height="400" src="/images/US_3.PNG">
+  <img width="650" height="350" src="/images/US_3.PNG">
 </p>
 
 **USA Traffic Accidents by Severity (2016-19)**
