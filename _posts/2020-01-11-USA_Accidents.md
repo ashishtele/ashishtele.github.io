@@ -39,12 +39,12 @@ I found this dataset very interesting because of the data size and efforts autho
 As we can see, **California** tops the chart with the maximum number of traffic accidents in the period 2016-19. **California** has recorded more than double traffic accidents than that recorded in **Texas**.
 
 <p align="center">
-  <img width="600" height="400" src="/images/US_1.PNG">
+  <img width="650" height="500" src="/images/US_1.PNG">
 </p>
 
 
 <p align="center">
-  <img width="600" height="400" src="/images/US_2.PNG">
+  <img width="650" height="500" src="/images/US_2.PNG">
 </p>
 
 
@@ -53,7 +53,7 @@ As we can see, **California** tops the chart with the maximum number of traffic 
 **Lod Angeles** has recorded whopping **172K** traffic accidents during this time period. LA is followed by **Harris**(TX) and **Mecklenburg**(NC). 
 
 <p align="center">
-  <img width="600" height="400" src="/images/US_3.PNG">
+  <img width="650" height="400" src="/images/US_3.PNG">
 </p>
 
 **USA Traffic Accidents by Severity (2016-19)**
@@ -61,7 +61,7 @@ As we can see, **California** tops the chart with the maximum number of traffic 
 **South Dakota** and **Wyoming** have high average traffic accident severity among all the states. 
 
 <p align="center">
-  <img width="600" height="400" src="/images/US_4.PNG">
+  <img width="650" height="400" src="/images/US_4.PNG">
 </p>
 
 
@@ -70,7 +70,7 @@ As we can see, **California** tops the chart with the maximum number of traffic 
 **Clear** weather condition has over **800K** traffic accidents recorded, but when we look for **overcast & cloudy** weather consitions together, they have over **1M** traffic accidents recorded.
 
 <p align="center">
-  <img width="600" height="400" src="/images/US_6.PNG">
+  <img width="650" height="500" src="/images/US_6.PNG">
 </p>
 
 <details>
