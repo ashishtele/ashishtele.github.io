@@ -73,31 +73,37 @@ As we can see, **California** tops the chart with the maximum number of traffic 
   <img width="600" height="400" src="/images/US_6.PNG">
 </p>
 
+    <details>
+      <summary>
+        <i>Click for Code</i>
+      </summary>
+    <p>
 
-
-```ruby
-df %>% 
-  group_by(Weather_Condition) %>% 
-  summarise(cnt = n()) %>% 
-  arrange(-cnt) %>% 
-  filter(Weather_Condition != "") %>% 
-  top_n(10) %>% 
-  ggplot(aes(x = reorder(Weather_Condition,cnt), y = cnt, fill = -cnt)) + 
-  geom_bar(stat = "identity") +
-  geom_text(aes(label = scales::number(cnt/1000,accuracy = 1,scale = 1, suffix = "K",
-                                       big.mark = ",")), hjust = -0.2) +
-  theme_economist()+
-  theme(
-    rect = element_rect(fill = "#f9f5f1"),
-    plot.background = element_rect(fill = "#f9f5f1"),
-    text = element_text(size = 7),
-    strip.text = element_text(size = 8),
-    axis.text.x = element_text(vjust = 0.4, size = 7),
-    axis.ticks.x = element_blank(),
-    legend.position = "none"  #remove the legend
-  )+
-  labs(title = "How was the weather?",
-       y = "No of Accidents",
-       x = "Weather Condition") +
-  coord_flip()
-```
+    ```ruby
+    df %>% 
+      group_by(Weather_Condition) %>% 
+      summarise(cnt = n()) %>% 
+      arrange(-cnt) %>% 
+      filter(Weather_Condition != "") %>% 
+      top_n(10) %>% 
+      ggplot(aes(x = reorder(Weather_Condition,cnt), y = cnt, fill = -cnt)) + 
+      geom_bar(stat = "identity") +
+      geom_text(aes(label = scales::number(cnt/1000,accuracy = 1,scale = 1, suffix = "K",
+                                           big.mark = ",")), hjust = -0.2) +
+      theme_economist()+
+      theme(
+        rect = element_rect(fill = "#f9f5f1"),
+        plot.background = element_rect(fill = "#f9f5f1"),
+        text = element_text(size = 7),
+        strip.text = element_text(size = 8),
+        axis.text.x = element_text(vjust = 0.4, size = 7),
+        axis.ticks.x = element_blank(),
+        legend.position = "none"  #remove the legend
+      )+
+      labs(title = "How was the weather?",
+           y = "No of Accidents",
+           x = "Weather Condition") +
+      coord_flip()
+    ```
+    </p>
+    </details>
