@@ -77,7 +77,7 @@ As we can see, **California** tops the chart with the maximum number of traffic 
   <summary>
     <i>Click for Code</i>
   </summary>
-<p>
+
   
 ```ruby
 df %>% 
@@ -106,5 +106,5 @@ df %>%
   coord_flip()
 ```
 
-</p>
+
 </details>
