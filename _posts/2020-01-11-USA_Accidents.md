@@ -55,3 +55,8 @@ As we can see, **California** tops the chart with the maximum number of traffic 
 **South Dakota** and **Wyoming** have high average traffic accident severity among all the states. 
 
 ![center](/images/US_4.PNG){: .align-center}
+
+
+<p align="center">
+  <img width="600" height="400" src="/images/US_6.PNG">
+</p>
