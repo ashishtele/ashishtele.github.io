@@ -91,3 +91,12 @@ I aggregated the data by severity and calculated the average visibility at each 
 <p align="center">
   <img width="650" height="500" src="/images/US_7.PNG">
 </p>
+
+**Can we predict the number of traffic accidents?**
+
+The number of traffic accidents follows a trend and cyclicity. If we see the data at the granular level (for a month and a city), we can observe a pattern. I tried to **Auto Forecast** the traffic accident count using **Power BI** for the entire dataset. We can use **ARIMA** or **Hydrid of ML models and Statistical time series models** to better predict the numbers. You can refer my [sales prediction](https://ashishtele1992.wordpress.com/store-sales-prediction/) post to get a better understanding of time series forecasting. 
+
+<p align="center">
+  <img width="650" height="500" src="/images/US_8.PNG">
+</p>
+
