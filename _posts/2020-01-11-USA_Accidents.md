@@ -100,3 +100,7 @@ The number of traffic accidents follows a trend and cyclicity. If we see the dat
   <img width="650" height="500" src="/images/US_8.PNG">
 </p>
 
+
+**Temperature seasonality in the state of Connecticut**
+
+I filtered the data for Connecticut and plotted the average temperature for more than two years. We can see the seasonality with some dips in January. Also, the temperature dropped below 0 F on January 8, 2018, which we can in the chart.
