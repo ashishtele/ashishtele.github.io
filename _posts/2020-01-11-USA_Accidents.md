@@ -109,3 +109,5 @@ I filtered the data for Connecticut and plotted the average temperature for more
 <p align="center">
   <img width="650" height="500" src="/images/US_9.PNG">
 </p>
+
+Thank you for reading the post!
