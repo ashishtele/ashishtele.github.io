@@ -14,7 +14,7 @@ header:
   teaserlogo:
   teaser: /images/opti.PNG
   image: /images/opti.PNG
-  caption:
+  caption: "courtesy: Khan Academy"
 gallery:
 
   - image_path: ''
