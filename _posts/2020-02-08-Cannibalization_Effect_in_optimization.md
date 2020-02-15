@@ -29,6 +29,9 @@ Optimization is one of my favorite topics to brainstorm. I was working on an opt
 
 I have highlighted my implementation methodology in this post. I have taken an example of a store and supporting calculations. Consider than we have 6 products in a store as shown. We can introduce 3 new products and replace existing products based on the revenue performace. We can come up to **probable addition** product list by different techniques.
 
+<p align="center">
+  <img width="650" height="500" src="/images/store1.PNG">
+</p>
 
 
 
