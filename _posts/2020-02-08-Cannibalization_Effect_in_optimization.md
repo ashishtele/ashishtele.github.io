@@ -33,5 +33,6 @@ I have highlighted my implementation methodology in this post. I have taken an e
   <img width="250" height="250" src="/images/store1.PNG">
 </p>
 
+Below screenshot shows cannibalization coefficients both for addition and deletion.
 
 
