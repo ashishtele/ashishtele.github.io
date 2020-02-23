@@ -29,3 +29,42 @@ When I was going through my archive, I found this picture. My old picture but in
 <p align="center">
   <img width="300" height="453" src="/images/me.jpeg">
 </p>
+
+Let us import the image and extarct the grayscale. Find the R code snippet below. I averaged out the values to fetch the grayscale values. Final line of code is user defined function to copy the data in clipboard then pasting in Excel.
+
+```ruby
+
+library(raster)
+library(dplyr)
+library(tidyverse)
+library(tibble)
+
+color_image <- brick("E:\\Study\\Power_BI\\me.jpeg")
+color_values <- getValues(color_image)
+
+# Dimensions of the image
+img_width <- 400
+img_heigh <- 533
+
+color_table <- as.data.frame(color_values)
+color_table$avg <- (color_table$me.1 + color_table$me.2 + color_table$me.3)/3
+
+append_vector <- rep(1:img_width,img_heigh)
+append_vector1 <- rep(1:img_heigh, each = 400)
+  
+color_table$rank <- append_vector
+color_table$sr_no <- append_vector1
+
+color_table$me.1 <- NULL
+color_table$me.2 <- NULL
+color_table$me.3 <- NULL
+
+color_table %>% 
+  tidyr::spread(rank, avg) -> color_table1
+
+color_table1$sr_no <- NULL
+
+# Copying the large matric in Excel
+copy(color_table1)
+
+```
