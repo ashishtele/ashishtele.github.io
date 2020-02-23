@@ -1,4 +1,4 @@
- ---
+---
 layout: single
 title: AI Image restoration using Excel and R
 author: Ashish Tele
