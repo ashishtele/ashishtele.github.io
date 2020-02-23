@@ -74,8 +74,14 @@ Once I converted it to grayscale and pasted the matrix in Excel, these are the s
 2. Shortening the Row height (Alt + O + R + E) to **5**.
 3. Zooming out the excel to **10%**.
 
-This is how it looks in Excel!! We can see the patches on the picture predominantly white now. 
+This is how it looks in Excel!! We can see the **white** patches on the picture predominantly. 
 
 <p align="center">
   <img width="300" height="453" src="/images/me1.PNG">
 </p>
+
+Now it is time to try for different **kernels** to smoothen the image. I tried two approached:
+
+1. Using a 3X3 kernel to fill the center value.
+2. Using the values of 24 cells around the targeted cell to fill it.
+
