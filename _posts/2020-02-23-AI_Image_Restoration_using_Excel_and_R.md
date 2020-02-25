@@ -85,3 +85,6 @@ Now it is time to try for different **kernels** to smoothen the image. I tried t
 1. Using a 3X3 kernel to fill the center value.
 2. Using the values of 24 cells around the targeted cell to fill it.
 
+<p align="center">
+  <img width="700" height="300" src="/images/kernel1.PNG">
+</p>
