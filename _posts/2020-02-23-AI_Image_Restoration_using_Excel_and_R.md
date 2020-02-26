@@ -88,3 +88,5 @@ Now it is time to try for different **kernels** to smoothen the image. I tried t
 <p align="center">
   <img width="700" height="300" src="/images/kernel1.PNG">
 </p>
+
+If you see the below screenshot, you can trace precedents using Excel formulas. Each output cell is calculated by multiplying the kernel and the original image matrix. It is a kind of **Convolution** in Excel.
