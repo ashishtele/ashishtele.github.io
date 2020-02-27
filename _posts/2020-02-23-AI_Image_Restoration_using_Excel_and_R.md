@@ -90,3 +90,8 @@ Now it is time to try for different **kernels** to smoothen the image. I tried t
 </p>
 
 If you see the below screenshot, you can trace precedents using Excel formulas. Each output cell is calculated by multiplying the kernel and the original image matrix. It is a kind of **Convolution** in Excel.
+
+
+<p align="center">
+  <img width="600" height="300" src="/images/kernel2.PNG">
+</p>
