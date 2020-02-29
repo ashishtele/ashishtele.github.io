@@ -96,6 +96,20 @@ If you see the below screenshot, you can trace precedents using Excel formulas. 
   <img width="500" height="300" src="/images/kernel2.PNG">
 </p>
 
+The second method of averaging the cell values around worked better. If we see the below screenshot, we can understand how the averaging works. I averaged out the values around the white patches. We can try using 8  cells, 24 cells, etc. 
+
 <p align="center">
   <img width="500" height="200" src="/images/kernel4.PNG">
 </p>
+
+```ruby
+df <- readxl::read_excel("E:\\Study\\Power_BI\\my pic.xlsx",
+                         sheet = "Sheet6")
+# Creating the matrix
+m = as.matrix(df)
+
+# Saving the picture as jpeg format
+as.cimg(m) %>% imrotate(90) %>% plot() %>% save.image("E:\\Study\\Power_BI\\MyPic.jpeg")
+```
+
+
