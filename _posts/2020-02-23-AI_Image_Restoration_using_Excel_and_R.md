@@ -93,5 +93,5 @@ If you see the below screenshot, you can trace precedents using Excel formulas. 
 
 
 <p align="center">
-  <img width="600" height="300" src="/images/kernel2.PNG">
+  <img width="500" height="200" src="/images/kernel4.PNG">
 </p>
