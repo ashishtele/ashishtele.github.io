@@ -123,3 +123,9 @@ I tried IMAGE INPAINTING by [NVIDIA](https://www.nvidia.com/research/inpainting/
 <p align="center">
   <img width="500" height="500" src="/images/kernel3.PNG">
 </p>
+
+I came across an article that has listed a comprehensive list of researches and papers written by [Jamshed Khan](https://heartbeat.fritz.ai/guide-to-image-inpainting-using-machine-learning-to-edit-and-correct-defects-in-photos-3c1b0e13bbd0). A few of the resources are:
+1. Pluralistic Image Completion
+2. EdgeConnect
+3. SC-FEGAN
+4. Generative Multi-column Convolutional Neural Networks
