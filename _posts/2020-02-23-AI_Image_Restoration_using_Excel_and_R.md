@@ -112,13 +112,13 @@ m = as.matrix(df)
 as.cimg(m) %>% imrotate(90) %>% plot() %>% save.image("E:\\Study\\Power_BI\\MyPic.jpeg")
 ```
 
-Once we save the image, it looks better now. Though it is available in grayscale, it is a good start.
+Once we save the image, it looks better now. Though it is available in grayscale, it is a good start. Next steps will be to modify it in RGB scale.
 
 <p align="center">
   <img width="300" height="453" src="/images/kernel5.PNG">
 </p>
 
-I tried IMAGE INPAINTING by [NVIDIA](https://www.nvidia.com/research/inpainting/). It also gave a good result. I think it can be improved by re-running by changing brush strokes. 
+I tried IMAGE INPAINTING by [NVIDIA](https://www.nvidia.com/research/inpainting/). It also gave a good result. I think it can be improved by re-running by changing the brush strokes. 
 
 <p align="center">
   <img width="500" height="500" src="/images/kernel3.PNG">
@@ -129,3 +129,5 @@ I came across an article that has listed a comprehensive list of researches and 
 2. EdgeConnect
 3. SC-FEGAN
 4. Generative Multi-column Convolutional Neural Networks
+
+See you in the next post!!
