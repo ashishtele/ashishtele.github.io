@@ -30,7 +30,7 @@ When I was going through my archive, I found this picture. My old picture but in
   <img width="300" height="453" src="/images/me.jpeg">
 </p>
 
-Let us import the image and extarct the grayscale. Find the R code snippet below. I averaged out the values to fetch the grayscale values. Final line of code is user defined function to copy the data in clipboard then pasting in Excel.
+Let us import the image and extract the grayscale. Find the R code snippet below. I averaged out the values to fetch the grayscale values. The final line of code is the user-defined function to copy the data in clipboard then pasting in Excel.
 
 ```ruby
 
@@ -112,7 +112,7 @@ m = as.matrix(df)
 as.cimg(m) %>% imrotate(90) %>% plot() %>% save.image("E:\\Study\\Power_BI\\MyPic.jpeg")
 ```
 
-Once we save the image, it looks better now. Though it is available in grayscale, it is a good start. Next steps will be to modify it in RGB scale.
+Once we save the image, it looks better now. Though it is available in grayscale, it is a good start. The next step will be to modify it on the RGB scale.
 
 <p align="center">
   <img width="300" height="453" src="/images/kernel5.PNG">
