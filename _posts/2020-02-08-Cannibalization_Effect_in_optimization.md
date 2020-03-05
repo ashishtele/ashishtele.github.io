@@ -33,7 +33,7 @@ I have highlighted my implementation methodology in this post. I have taken an e
   <img width="250" height="250" src="/images/store1.PNG">
 </p>
 
-The below screenshot shows cannibalization coefficients both for addition and deletion. e.g. when the product P1 is removed as a part of optimization, its revenue R1 is split among other products and the product P2 would receive R1*RC2 addition revenue and so on.
+The below screenshot shows cannibalization coefficients both for addition and deletion. e.g. when the product P1 is removed as a part of optimization, its revenue R1 is split among other products and the product P2 would receive R1xRC2 addition revenue and so on.
 
 <p align="center">
   <img width="500" height="250" src="/images/store2.PNG">
