@@ -38,3 +38,7 @@ The below screenshot shows cannibalization coefficients both for addition and de
 <p align="center">
   <img width="500" height="250" src="/images/store2.PNG">
 </p>
+
+<p align="center">
+  <img width="500" height="90" src="/images/store3.PNG">
+</p>
