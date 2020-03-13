@@ -39,8 +39,9 @@ The below screenshot shows cannibalization coefficients both for addition and de
   <img width="500" height="250" src="/images/store2.PNG">
 </p>
 
- The below image shows an example of selection criteria. We are trying to remove product P1 and add product P7. The final revenue is the summation of individual product revenue and the component of actual revenue.
+ The below image shows an example of selection criteria. We are trying to remove product P1 and add product P7. The final revenue is the summation of individual product revenue and the components of actual revenue.
 
 <p align="center">
   <img width="500" height="90" src="/images/store3.PNG">
 </p>
+
