@@ -45,4 +45,4 @@ The below screenshot shows cannibalization coefficients both for addition and de
   <img width="500" height="90" src="/images/store3.PNG">
 </p>
 
-In the given example, we have 6 products in the store and 3 probable additions. So each product will have 3 probable substitions and total 6x3 = 18 combinations.
+In the given example, we have 6 products in the store and 3 probable additions. So each product will have 3 probable substitutions and total of 6x3 = 18 combinations.
