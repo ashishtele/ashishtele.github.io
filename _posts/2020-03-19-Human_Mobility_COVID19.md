@@ -24,7 +24,7 @@ gallery:
 
 Hi All,
 
-I was researching about using human mobility data for retail data science work. [Carto](https://carto.com/) works in specially focused retail analytics. They use human mobility data to answer:
+I was researching about using human mobility data for retail data science work. [Carto](https://carto.com/) works in spatially focused retail analytics. They use human mobility data to answer:
 
 1. Reduce traffic congestion
 2. Insights on commuting patterns
