@@ -35,3 +35,5 @@ I am writing this blog when **COVID-19** is at its peak in **Itlay** and **Spain
 I was reading a couple of articles from India where the person who was asked to self-quarantine, disobeyed the rule and traveled through public transportation. The person endangered the lives of many people including oneself. It becomes difficult to retrace the route a person used before getting identified. Also, it is an arduous job for the officials to understand and estimate how many people did come in contact with the probably infected person. 
 
 **Can we not use anonymized human mobility data to check probable spread?**
+
+I came across an article by [Google AI](https://ai.googleblog.com/2019/11/new-insights-into-human-mobility-with.html) which mentions how human mobility data can be used for predicting epidemics. Data is completely anonymized and hence the user information is secured. 
