@@ -37,3 +37,5 @@ I was reading a couple of articles from India where the person who was asked to 
 **Can we not use anonymized human mobility data to check probable spread?**
 
 I came across an article by [Google AI](https://ai.googleblog.com/2019/11/new-insights-into-human-mobility-with.html) which mentions how human mobility data can be used for predicting epidemics. Data is completely anonymized and hence the user information is secured. 
+
+While writing this blog, the Singapore government released a mobile application named [TraceTogether](https://twitter.com/GovTechSG). It is a very innovative approach to keep people safe provided an infected patient obliges. It is a Bluetooth technology-based application that estimates proximity between users.
