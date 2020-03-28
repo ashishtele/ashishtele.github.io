@@ -48,3 +48,5 @@ Can we not implement something:
 4. Not only this, but the journey of the patient can also be simulated using the data points. The possible exposure to the crowd can be estimated. Also, a general advisory can be circulated among the people who were there when the patient traveled.
 
 Please comment if you come across any innovative idea or action someone has already implemented. It will always be an interesting article.
+
+March 27 update: Indian institute developed a Bluetooth technology based mobile application.
