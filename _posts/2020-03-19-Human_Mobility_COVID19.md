@@ -1,6 +1,6 @@
 ---
 layout: single
-title: Human Mobility data and COVID-19
+title: Human Mobility Data and COVID-19
 author: Ashish Tele
 excerpt: "Human mobility data has been pivotal in many fields. We can leverage the mobility data to track current issues."
 description: "Human mobility data has been pivotal in many fields. We can leverage the mobility data to track current issues."
