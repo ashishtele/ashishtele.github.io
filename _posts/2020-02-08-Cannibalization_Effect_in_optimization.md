@@ -48,3 +48,11 @@ The below screenshot shows cannibalization coefficients both for addition and de
 In the given example, we have 6 products in the store and 3 probable additions. So each product will have 3 probable substitutions and total of 6x3 = 18 combinations.
 
 The next step is to write the loops for each of these combinations and select the best combination. I wrote this piece of code in R.
+
+```ruby
+df_total = data.frame()
+df_total_1 = data.frame()
+
+df_col <- data.frame()
+df_col_total <- data.frame()
+```
