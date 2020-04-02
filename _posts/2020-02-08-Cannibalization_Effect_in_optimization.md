@@ -50,6 +50,7 @@ In the given example, we have 6 products in the store and 3 probable additions. 
 The next step is to write the loops for each of these combinations and select the best combination. I wrote this piece of code in R.
 
 ```ruby
+# Dataframe initialization
 df_total = data.frame()
 df_total_1 = data.frame()
 
