@@ -57,3 +57,61 @@ df_total_1 = data.frame()
 df_col <- data.frame()
 df_col_total <- data.frame()
 ```
+```ruby
+
+for(w in 1:length(Replace_ind)){
+  
+  # Matrix initialization
+  z1 <- matrix(Replace_ind,length(rep(1:length(Replace_ind),1)),1)
+  z2 <- matrix(rep(1:length(r2),1),length(rep(1:length(r2),1)),1)
+  
+  # First FOR loop
+  for(i in Replace_ind){
+    # Second FOR loop
+    for(j in 1:nrow(z2)){
+
+      # Revenue
+      s1 <- r1
+      s1[i] <- r2[z2[j,]]
+      
+      # Product
+      s2 <- p1
+      s2[i] <- p2[z2[j,]]
+      
+      df_customer %>%
+        gather("Prod","Rev",- UPC, - Product, - Condition, - revenue) %>%
+        filter(substr(Prod,3,length(Prod)) %in% p1[i] | substr(Prod,3,length(Prod)) %in% p2[j]) %>%
+        group_by(Prod) %>%
+        mutate(grp_id = row_number()) %>%
+        spread("Prod", "Rev", fill = 0) %>%
+        arrange(grp_id)-> t1
+      
+      
+      cann_rev <- t1[ , names(t1)[!(names(t1) %in% c("UPC","Product","Condition","revenue","grp_id"))]] %>%
+        rowSums(na.rm = TRUE)
+      
+      # Revenue transfer from
+      
+      df_temp_created %>%
+        filter(str_detect(Product,as.character(p2[j]))) %>%
+        gather("Prod","Rev",- UPC, - Product, - Condition, - revenue) %>%
+        filter(str_detect(substr(Prod,3,nchar(Prod)),as.character(p1[i]))) %>%
+        pull(Value) -> cann_rev[i]
+      
+      # Adding two vectors
+      
+      s1 <- s1 + cann_rev
+      print(append(sum(s1),s1))
+      
+      
+      # Revenue table
+      if(!is.na(sum(s1))){
+        dat <- data.frame(t(append(w,append(i,append(j,append(sum(s1),s1))))))
+        df_total <- rbind(df_total,dat)
+        
+        dat1 <- data.frame(t(append(w,append(i,append(j,append(999,s2)))))) #999 as a large number
+        df_col <- rbind(df_col,dat1)}
+      
+    }
+  }
+```
