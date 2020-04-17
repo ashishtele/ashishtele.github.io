@@ -115,6 +115,8 @@ for(w in 1:length(Replace_ind)){
     }
   }
 ```
+Once we have combined data, we can select the combination with maximum revenue.
+
 Please let me know your thoughts.
 
 Thank you!!
