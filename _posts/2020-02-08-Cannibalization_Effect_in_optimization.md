@@ -115,7 +115,7 @@ for(w in 1:length(Replace_ind)){
     }
   }
 ```
-Once we have combined data, we can select the combination with maximum revenue.
+Once we have combined data, we can select the combination with maximum revenue. It gives storewise highest revenue and best combination of products.
 
 Please let me know your thoughts.
 
