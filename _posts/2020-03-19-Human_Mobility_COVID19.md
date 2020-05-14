@@ -47,6 +47,7 @@ Can we not implement something:
 3. If the test comes positive, then the patient can be traced through mobility data or GPS. 
 4. Not only this, but the journey of the patient can also be simulated using the data points. The possible exposure to the crowd can be estimated. Also, a general advisory can be circulated among the people who were there when the patient traveled.
 5. Apple started sharing the mobility data (driving, walking, transit). Very useful information for modeling.
+6. One more good source of data: https://github.com/descarteslabs/DL-COVID-19
 
 Please comment if you come across any innovative idea or action someone has already implemented. It will always be an interesting article.
 
