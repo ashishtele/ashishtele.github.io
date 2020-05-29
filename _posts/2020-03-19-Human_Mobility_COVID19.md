@@ -51,10 +51,10 @@ Can we not implement something:
 
 Please comment if you come across any innovative idea or action someone has already implemented. It will always be an interesting article.
 
-March 27,2020 update: Indian institute developed a Bluetooth technology based mobile application.
+**March 27,2020 update:** Indian institute developed a Bluetooth technology based mobile application.
 
-April 06,2020 update: Govn. of India launched 'Aarogya Setu' application.
+**April 06,2020 update:** Govn. of India launched 'Aarogya Setu' application.
 
-Online Dashboard: https://www.zoho.com/covid/india/
+**Online Dashboard:** https://www.zoho.com/covid/india/
 
 Thank you.
