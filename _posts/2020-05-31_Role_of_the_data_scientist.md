@@ -15,7 +15,7 @@ header:
   teaserlogo:
   teaser: /images/cover_DS.png
   image: /images/cover_DS.png
-  caption: "courtesy: www.houseofbots.com/"
+  caption: "courtesy: houseofbots.com"
 gallery:
 
   - image_path: ''
