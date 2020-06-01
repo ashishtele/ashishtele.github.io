@@ -1,4 +1,3 @@
-
 ---
 layout: single
 title: Role of the Data Scientist
