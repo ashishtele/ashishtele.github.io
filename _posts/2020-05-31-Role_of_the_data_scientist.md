@@ -21,3 +21,10 @@ gallery:
     url: ''
     title: ''
 ---
+Hi All,
+
+I came across the article "The Role of the Data Scientist" by Carl and Sean. They have raised a few burning questions about the data scientist role such as:
+
+1. Will automation replace the data scientist role?
+2. Does 'intuition' still play a pivotal role in the industry or the data-driven approach is well received?
+3. Has the data scientist role plateaued?
