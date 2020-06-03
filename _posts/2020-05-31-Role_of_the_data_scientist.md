@@ -28,3 +28,5 @@ I came across the article ["The Role of the Data Scientist"](https://blog.rstudi
 1. Will automation replace the data scientist role?
 2. Does 'intuition' still play a pivotal role in the industry or the data-driven approach is well received?
 3. Has the data scientist role plateaued?
+
+Carl and Sean made a very impactful point on why organizations need data scientists more than ever. The most resonating point for me is, **'Identifying and solving hard problems can't be automated !'**. Why?
