@@ -30,3 +30,9 @@ I came across the article ["The Role of the Data Scientist"](https://blog.rstudi
 3. Has the data scientist role plateaued?
 
 Carl and Sean made a very impactful point on why organizations need data scientists more than ever. The most resonating point for me is, **'Identifying and solving hard problems can't be automated !'**. Why?
+
+1. As Carl and Sean mention, the data extraction and visualization of structured data can be automated using different tools. The problems are well defined and understood in these scenarios. 
+
+2. The well-defined problems with structured data can be automated by making data pipelines, model development, and deploying in production. We have seen enormous test cases leveraging it.
+
+3. But what about the real-life problems which are difficult to comprehend and with minimal references from the past. We encounter such cases in healthcare, NPL, imaging, scenario planning, etc.
