@@ -36,3 +36,5 @@ Carl and Sean made a very impactful point on why organizations need data scienti
 2. The well-defined problems with structured data can be automated by making data pipelines, model development, and deploying in production. We have seen enormous test cases leveraging it.
 
 3. But what about the real-life problems which are difficult to comprehend and with minimal references from the past. We encounter such cases in healthcare, NPL, imaging, scenario planning, etc.
+
+4. One of the examples I can give is of demand forecasting in the COVID19 pandemic period. It is one of the kinds of problems which is unprecedented. We had a few outbreaks, the global recession, etc but the COIVD19 outbreak has locked the people in homes and changed the buying pattern.
