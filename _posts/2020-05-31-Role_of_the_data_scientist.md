@@ -37,4 +37,4 @@ Carl and Sean made a very impactful point on why organizations need data scienti
 
 3. But what about the real-life problems which are difficult to comprehend and with minimal references from the past. We encounter such cases in healthcare, NPL, imaging, scenario planning, etc.
 
-4. One of the examples I can give is of demand forecasting in the COVID19 pandemic period. It is one of the kinds of problems which is unprecedented. We had a few outbreaks, the global recession, etc but the COIVD19 outbreak has locked the people in homes and changed the buying pattern.
+4. One of the examples I can give is of demand forecasting in the COVID19 pandemic period. It is an unprecedented problem. We had a few outbreaks, the global recession, etc but the COIVD19 outbreak has locked the people in homes and changed the buying pattern.
