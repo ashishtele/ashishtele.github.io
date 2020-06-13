@@ -44,3 +44,5 @@ Carl and Sean made a very impactful point on why organizations need data scienti
 6. Limited historical data of regressors make the short-term forecast reasonably unpredictable. The confidence intervals are wider, making the strategic decisions difficult. 
 
 7. Solving this problem and putting in production is difficult as with each new data point, the output varies drastically at various granularity. The COVID cases follow different trends during weekdays and weekends changing the short-term forecast. States' post-opening response is different than the pre-lockdown phase. We know more see the panic buying now. Capturing this transition in the model is a dynamic process. 
+
+Thank you!
