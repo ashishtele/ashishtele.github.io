@@ -45,4 +45,6 @@ Carl and Sean made a very impactful point on why organizations need data scienti
 
 7. Solving this problem and putting in production is difficult as with each new data point, the output varies drastically at various granularity. The COVID cases follow different trends during weekdays and weekends changing the short-term forecast. States' post-opening response is different than the pre-lockdown phase. We know more see the panic buying now. Capturing this transition in the model is a dynamic process. 
 
+8. As the post mentions, the results provided by the Data Scientists should be credible, agile, and durable. Data Scientists need to create models that can be explained to the peer group. Agility is important to address a real-world problem such as COVID19 forecasting etc. which required multiple iterations. Durable results are the ones that survive the methodology, not the technology improvement,eg., Market Mix Modeling.
+
 Thank you!
