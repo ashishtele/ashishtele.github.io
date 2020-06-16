@@ -44,8 +44,8 @@ packages to implement the algorithms.
 
 **2. Problem Statement**
 
-Forecast the demand for different products (businesses) considering the historical numbers.
-It was a univariate forecasting problem with a forecasting horizon of 12 months.
+Forecast the demand (volume) for different products (businesses) considering the historical numbers.
+It was a univariate forecasting problem with a forecasting horizon of 12 months. The business used the forecast for strategic decisions such as inventory management, production schedules, order push etc.
 
 
 Keep returning the posts!!
