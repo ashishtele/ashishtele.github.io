@@ -47,4 +47,6 @@ Carl and Sean made a very impactful point on why organizations need data scienti
 
 8. As the post mentions, the results provided by the Data Scientists should be credible, agile, and durable. Data Scientists need to create models that can be explained to the peer group. Agility is important to address a real-world problem such as COVID19 forecasting etc. which required multiple iterations. Durable results are the ones that survive the methodology, not the technology improvement,eg., Market Mix Modeling.
 
+In short, the role of the Data Scientist is not always to put the well-defined models in production, but add values to the business strategies. 
+
 Thank you!
