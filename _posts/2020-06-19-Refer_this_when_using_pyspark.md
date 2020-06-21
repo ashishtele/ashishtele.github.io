@@ -12,9 +12,9 @@ comments: true
 author_profile: false
 header:
   teaserlogo:
-  teaser: /images/cover_DS.png
-  image: /images/cover_DS.png
-  caption: "courtesy: houseofbots.com"
+  teaser: /images/pyspark.png
+  image: /images/pyspark.png
+  caption: "courtesy: Cambridge Spark"
 gallery:
 
   - image_path: ''
