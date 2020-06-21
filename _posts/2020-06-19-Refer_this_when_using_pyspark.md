@@ -2,11 +2,11 @@
 layout: single
 title: Refer this if you need PySpark or SparkR code snippets!
 author: Ashish Tele
-excerpt: "The role of the data scientist is not always well defined and well structured. People have various views regarding this role."
-description: "The role of the data scientist is not always well defined and well structured. People have various views regarding this role."
+excerpt: "We need to change the table formats from spark dataframes to pandas or R dataframe when we prefer SQL, Python, and R in the same notebook. I had to search online a lot these code snippets."
+description: "We need to change the table formats from spark dataframes to pandas or R dataframe when we prefer SQL, Python, and R in the same notebook. I had to search online a lot these code snippets."
 permalink:
 comments: true
-tags: ["Data Science","R","Data Scientist","India","USA","Role"]
+tags: ["Data Science","R","Data Scientist","India","USA","PySpark","Python"]
 published: true
 comments: true
 author_profile: false
