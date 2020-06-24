@@ -22,3 +22,5 @@ gallery:
     title: ''
 ---
 Hi All,
+
+Lately, I started coding extensively on Databricks (Microsoft Azure) using PySpark and SparkR. The platform is versatile as we can use the language of our preference interchangeably. 
