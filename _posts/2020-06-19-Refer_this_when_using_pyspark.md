@@ -24,3 +24,14 @@ gallery:
 Hi All,
 
 Lately, I started coding extensively on Databricks (Microsoft Azure) using PySpark and SparkR. The platform is versatile as we can use the language of our preference interchangeably. I prefer R (a personal favorite) over Python. I find data cleaning, data transformation (dplyr), and visualization very intuitive in R. PySpark syntax are also easy to grasp. I want to highlight some of my findings and a few of the great resources I came across.
+
+```ruby
+library(dplyr)
+library(SparkR)
+
+SparkR_frame <- sql("select * from 
+                     zip_codes")
+R_dataframe <- collect(SparkR_frame)
+
+```
+The above code snippet is very simple to interpret, but when you run it, you would encounter an error which difficult to understand on databricks. **collect()** was masked by the **dplyr** package and couldn't convert to R data frame for me. 
