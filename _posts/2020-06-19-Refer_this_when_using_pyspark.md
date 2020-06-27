@@ -34,4 +34,10 @@ SparkR_frame <- sql("select * from
 R_dataframe <- collect(SparkR_frame)
 
 ```
-The above code snippet is very simple to interpret, but when you run it, you would encounter an error which difficult to understand on databricks. **collect()** was masked by the **dplyr** package and couldn't convert to R data frame for me. 
+The above code snippet is very simple to interpret, but when you run it, you would encounter an error which difficult to understand on databricks. **collect()** was masked by the **dplyr** package and couldn't convert to R data frame for me. Including package name before method/function would return the desired result.
+
+```ruby
+R_dataframe <- SparkR::collect(SparkR_frame)
+```
+
+I reached out to [Bryan Cafferky](https://www.linkedin.com/in/bryancafferky/) on LinkedIn asking for help after watching his ['Azure Databricks with R: Deep Dive'](https://www.youtube.com/watch?v=-vekHiJdQ1Y) video on Youtube. He provided an example to convert SQL spark dataframe to SparkR dataframe. Finally, the trial and error method resolved this simple conflict.
