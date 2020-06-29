@@ -41,3 +41,13 @@ R_dataframe <- SparkR::collect(SparkR_frame)
 ```
 
 I reached out to [Bryan Cafferky](https://www.linkedin.com/in/bryancafferky/) on LinkedIn asking for help after watching his ['Azure Databricks with R: Deep Dive'](https://www.youtube.com/watch?v=-vekHiJdQ1Y) video on Youtube. He provided an example to convert SQL spark dataframe to SparkR dataframe. Finally, the trial and error method resolved this simple conflict.
+
+1. If you have a table in Azure Databricks database (library), you can directly query the table in a notebook by adding **%sql** at the top of the cell and executing the query.
+
+```ruby
+%sql
+
+select * from database.table_name 
+
+# Ctrl + Enter: Shortcut to run
+```
