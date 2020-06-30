@@ -51,3 +51,5 @@ select * from database.table_name
 
 # Ctrl + Enter: Shortcut to run
 ```
+
+2. We can convert a SQL dataframe to a Spark dataframe using following command.
