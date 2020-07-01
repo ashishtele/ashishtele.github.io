@@ -53,3 +53,7 @@ select * from database.table_name
 ```
 
 2. We can convert a SQL dataframe to a Spark dataframe using following command.
+
+```ruby
+Spark_df = spark.sql("database.table")
+```
