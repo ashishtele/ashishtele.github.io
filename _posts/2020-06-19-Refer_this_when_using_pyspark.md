@@ -57,3 +57,4 @@ select * from database.table_name
 ```ruby
 Spark_df = spark.sql("database.table")
 ```
+Thank you!
