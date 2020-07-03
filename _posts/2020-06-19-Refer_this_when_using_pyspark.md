@@ -57,4 +57,11 @@ select * from database.table_name
 ```ruby
 Spark_df = spark.sql("database.table")
 ```
+3. Convert Spark dataframe to SQL dataframe using below command.
+
+```ruby
+Spark_df.createOrReplaceTempView("SQL_table") #OR
+Spark_df.registerTempTable("SQL_table")
+```
+
 Thank you!
