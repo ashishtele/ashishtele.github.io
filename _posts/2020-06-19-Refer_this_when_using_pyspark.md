@@ -64,4 +64,10 @@ Spark_df.createOrReplaceTempView("SQL_table") #OR
 Spark_df.registerTempTable("SQL_table")
 ```
 
+4. Convert Spark dataframe to Padas dataframe:
+
+```ruby
+Pandas_df = Spark_df.select("*").toPandas()
+```
+
 Thank you!
