@@ -70,4 +70,10 @@ Spark_df.registerTempTable("SQL_table")
 Pandas_df = Spark_df.select("*").toPandas()
 ```
 
+5. Create a Spark dataframe from a Pandas dataframe:
+
+```ruby
+Spark_df = createDataFrame(Pandas_df)
+```
+
 Thank you!
