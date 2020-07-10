@@ -75,5 +75,6 @@ Pandas_df = Spark_df.select("*").toPandas()
 ```ruby
 Spark_df = createDataFrame(Pandas_df)
 ```
+These are the few most used conversions. 
 
 Thank you!
