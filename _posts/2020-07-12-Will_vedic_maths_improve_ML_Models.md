@@ -12,9 +12,9 @@ comments: true
 author_profile: false
 header:
   teaserlogo:
-  teaser: /images/pyspark.png
-  image: /images/pyspark.png
-  caption: "courtesy: Cambridge Spark"
+  teaser: /images/vedic.png
+  image: /images/vedic.png
+  caption: "courtesy: pallikkutam.com"
 gallery:
 
   - image_path: ''
