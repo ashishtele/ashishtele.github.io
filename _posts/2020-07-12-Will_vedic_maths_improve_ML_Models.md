@@ -26,3 +26,5 @@ Hi All,
 [Vedic Mathematics](http://mathlearners.com/) is a collection of Techniques/Sutras to solve mathematical arithmetics in an easy and faster way. There is a famous book called Vedic Mathematics by Bharati Krishna Tirtha. It has many mathematical techniques. Though the claimed source of Vedas is rejected, the tricks of fast calculations are still intriguing.
 
 I still remember the hot summer holidays between the school terms when I used to spend time in cricket camps, painting, or reading. I was and yet am fascinated by the Vedic mathematics tricks. I remember spending time in the Cyber Cafes (nostalgia!!) watching the math tricks on the internet and writing them down.
+
+An idea behind writing this blog is to share my eureka moment when I accidentally stumbled upon the multiplication short-cut technique. I later discovered that the technique has some name in Vedic maths.😞
