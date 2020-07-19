@@ -77,4 +77,6 @@ Spark_df = createDataFrame(Pandas_df)
 ```
 These are the few most used conversions. 
 
+You can follow an exhaustive list of code snippets at towardsdatascience.com by [Rahul](https://towardsdatascience.com/the-most-complete-guide-to-pyspark-dataframes-2702c343b2e8). I found it very useful and handy while coding. You can take the printed copy of it and clip it at the desk station.
+
 Thank you!
