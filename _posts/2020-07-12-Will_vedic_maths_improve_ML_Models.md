@@ -29,4 +29,8 @@ I still remember the hot summer holidays between the school terms when I used to
 
 An idea behind writing this blog is to share my eureka moment when I accidentally stumbled upon the multiplication short-cut technique. I later discovered that the technique has some name in Vedic maths.😞
 
-Consider an example of 2 X 2 multiplication. 
+Consider an example of 2 X 2 multiplication (Don't look for back print on the paper. Reusing the paper that comes in the mail). We use the standard way of multiplication (taught in the school) using the carry method. Multiplying by one digit, writing it down, putting 0 below rightmost digit, multiplying by the second digit, adding the carry to the result, summing up the numbers. 
+
+<p align="center">
+  <img width="250" height="200" src="/images/vedic1.jpeg">
+</p>
