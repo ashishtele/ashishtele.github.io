@@ -36,3 +36,7 @@ Consider an example of 2 X 2 multiplication (Don't look for back print on the pa
 </p>
 
 As I knew the answer, I had to play and figure out all the possible combinations which could lead to this answer. After a lot of trial and error, I could get something like this. 
+
+<p align="center">
+  <img width="250" height="200" src="/images/vedic2.jpeg">
+</p>
