@@ -40,3 +40,9 @@ As I knew the answer, I had to play and figure out all the possible combinations
 <p align="center">
   <img width="250" height="200" src="/images/vedic2.jpeg">
 </p>
+
+Let us understand the calculations:
+1. Multiply the unit digit numbers (3 X 4 =12), write it down.
+2. Multiply the cross numbers (2 X 4 and 3 X 4) and add them up (20), write it down.
+3. Multiply the digits at 10's place (2 X 4 = 8), write it down.
+4. IMP STEP: if the numbers from the above steps are two-digit numbers, put the unit digit number starting from the right (2 from 12), add the 10's place digit to the next number as a carry (1 is added to 20 and became 21). Repeat the process until the left end. DONE!!
