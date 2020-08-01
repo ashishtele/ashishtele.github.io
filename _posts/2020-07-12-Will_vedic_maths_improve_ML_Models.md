@@ -47,7 +47,7 @@ Let us understand the calculations:
 3. Multiply the digits at 10's place (2 X 4 = 8), write it down.
 4. IMP STEP: if the numbers from the above steps are two-digit numbers, put the unit digit number starting from the right (2 from 12), add the 10's place digit to the next number as a carry (1 is added to 20 and became 21). Repeat the process until the left end. DONE!!
 
-We have to do repetitive multiplication and then chain addition. An important point that I want to highlight is the **PATTERN**. When I arrived at this answer, I tried for 3 digit multiplication. The pattern was symmetric. 
+We have to do repetitive multiplication and then chain addition. An important point that I want to highlight is the **PATTERN**. Once I arrived at this answer, I tried for 3 digit multiplication. The pattern was symmetric. 
 
 <p align="center">
   <img width="250" height="200" src="/images/vedic3.jpeg">
