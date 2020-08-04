@@ -52,3 +52,5 @@ We have to do repetitive multiplication and then chain addition. An important po
 <p align="center">
   <img width="250" height="200" src="/images/vedic3.jpeg">
 </p>
+
+Finally, an interesting part is the multiplication pattern. It is symmetric along Y-axis. 
