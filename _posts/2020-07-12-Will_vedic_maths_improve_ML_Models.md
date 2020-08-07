@@ -53,7 +53,7 @@ We have to do repetitive multiplication and then chain addition. An important po
   <img width="250" height="200" src="/images/vedic3.jpeg">
 </p>
 
-Finally, an interesting part is the multiplication pattern. It is symmetric along Y-axis. 
+Finally, an interesting part is the multiplication pattern. It is symmetric along Y-axis. We can expand the pattern for big numbers' multiplication. Once I started using this multiplication method, returning to the conventional one is hard. I always use it when I have to multiply. 
 
 <p align="center">
   <img width="350" height="200" src="/images/vedic4.jpeg">
