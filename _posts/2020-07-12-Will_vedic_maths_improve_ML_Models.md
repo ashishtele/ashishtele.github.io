@@ -58,3 +58,5 @@ Finally, an interesting part is the multiplication pattern. It is symmetric alon
 <p align="center">
   <img width="350" height="200" src="/images/vedic4.jpeg">
 </p>
+
+Hope you like this technique of multiplication. 
