@@ -59,4 +59,4 @@ Finally, an interesting part is the multiplication pattern. It is symmetric alon
   <img width="350" height="200" src="/images/vedic4.jpeg">
 </p>
 
-Hope you like this technique of multiplication. 
+Hope you like this technique of multiplication. I will share a couple of more techniques for readers. 
