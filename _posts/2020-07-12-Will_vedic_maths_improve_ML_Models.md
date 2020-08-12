@@ -60,3 +60,5 @@ Finally, an interesting part is the multiplication pattern. It is symmetric alon
 </p>
 
 Hope you like this technique of multiplication. I will share a couple of more techniques for readers. 
+
+Thank you!
