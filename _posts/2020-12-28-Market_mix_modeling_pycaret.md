@@ -104,6 +104,8 @@ if __name__ == '__main__':
 ```
 Let's discuss each function in detail:
 
-1.**version_check:** It just checks the version of PyCaret installed. You can also check the package version in Pycharm as:
+1.**version_check():** It just checks the version of PyCaret installed. You can also check the package version in Pycharm as:
 
-<span style="color:red"> File -> Settings -> Python Interpreter -> (Package, Version, Latest version) </span>
+<span style="color:blue"> File -> Settings -> Python Interpreter -> (Package, Version, Latest version) </span>
+
+2.**load_data()**: I wrote this function to read the data from an Excel file. We can read the data in any format. There have been a few changes recently for reading the excel files. We can also explore the PyCaret through inbuilt datasets using <span style="color:blue> get_data() </span> function.
