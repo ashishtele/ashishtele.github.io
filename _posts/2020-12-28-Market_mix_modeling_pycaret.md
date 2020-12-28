@@ -102,3 +102,8 @@ if __name__ == '__main__':
     plot_model(tuned_lr, plot="residuals", save=True)
 
 ```
+Let's discuss each function in detail:
+
+1.**version_check:** It just checks the version of PyCaret installed. You can also check the package version in Pycharm as:
+
+<span style="color:red"> File -> Settings -> Python Interpreter -> (Package, Version, Latest version) </span>
