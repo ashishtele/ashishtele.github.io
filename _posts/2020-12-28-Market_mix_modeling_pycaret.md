@@ -48,3 +48,8 @@ def load_data():
     print(data.shape)
     return data
 ```
+The data does not contain any missing values. The dataset size is (200,5). 
+
+<p align="center">
+  <img width="250" height="200" src="/images/MMM2.PNG">
+</p>
