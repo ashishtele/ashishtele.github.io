@@ -1,6 +1,6 @@
 ---
 layout: single
-title: Maeket Mix Modeling using Pycaret and Streamlit!!
+title: Market Mix Modeling using Pycaret and Streamlit!!
 author: Ashish Tele
 excerpt: "MMM solutions are an integral part of the marketing analytics team. We need to develop, run, and deploy multiple models of MMM analysis. It makes expediting the market mix modeling important."
 description: "MMM solutions are an integral part of the marketing analytics team. We need to develop, run, and deploy multiple models of MMM analysis. It makes expediting the market mix modeling important."
@@ -68,5 +68,37 @@ def version_check():
     
 help(get_config)
 get_config('prep_pipe')
+
+```
+I set up the function pipeline in the required sequence. As it is a regression modeling problem, we can find the detailed documentation at [PyCaret](https://pycaret.readthedocs.io/en/latest/api/regression.html) site. 
+
+```ruby
+
+if __name__ == '__main__':
+    # Checking version
+    version_check()
+    data = load_data()
+
+    # check missing values
+    data.isna().sum()
+
+    # Data shape
+    data.shape
+
+    # column names
+    print(data.columns)
+
+    # Setup run
+    s = setup(data=data,
+              target='Sales',
+              ignore_features=['Sr'],
+              transformation=True,
+              transform_target=True,
+              normalize=True)
+
+    lr = create_model('lr')
+    tuned_lr = tune_model(lr)
+
+    plot_model(tuned_lr, plot="residuals", save=True)
 
 ```
