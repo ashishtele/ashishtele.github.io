@@ -54,6 +54,8 @@ The data does not contain any missing values. The dataset size is (200,5).
   <img width="250" height="200" src="/images/MMM2.PNG">
 </p>
 
+Let's import the required modules of pycaret. We can check the transformations and explore more about the pipeline using 'get_config()'.
+
 ```ruby
 # Importing the pycaret modules
 from pycaret.regression import *
