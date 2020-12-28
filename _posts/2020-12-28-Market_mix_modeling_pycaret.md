@@ -53,3 +53,18 @@ The data does not contain any missing values. The dataset size is (200,5).
 <p align="center">
   <img width="250" height="200" src="/images/MMM2.PNG">
 </p>
+
+```ruby
+# Importing the pycaret modules
+from pycaret.regression import *
+from pycaret.utils import version
+
+# Check version
+def version_check():
+    print(version())
+    return None
+    
+help(get_config)
+get_config('prep_pipe')
+
+```
