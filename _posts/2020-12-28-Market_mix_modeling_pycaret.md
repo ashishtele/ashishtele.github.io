@@ -108,7 +108,11 @@ Let's discuss each function in detail:
 
 <span style="color:blue"> File -> Settings -> Python Interpreter -> (Package, Version, Latest version) </span>
 
-2.**load_data()**: I wrote this function to read the data from an Excel file. We can read the data in any format. There have been a few changes recently for reading the excel files. We can also explore the PyCaret through inbuilt datasets using <span style="color:blue"> get_data() </span> function.
+2.**load_data():** I wrote this function to read the data from an Excel file. We can read the data in any format. There have been a few changes recently for reading the excel files. We can also explore the PyCaret through inbuilt datasets using <span style="color:blue"> get_data() </span> function.
 
-3.**setup():**As per the Pycaret documentation, this function initializes the training environment and creates the transformation pipeline. We set up the *nornmalize* parameter to *True* to apply *zscore* normalize method. Similarly, we set up the *transformation* parameter to *True* to apply *yeo-johnson* transformation to make data more Gaussian-like.
-We apply *Box-cox* transformation to the target variable *Sales*. The Box-cox transformation is suitable as our data has strictly positive values.
+3.**setup():** As per the Pycaret documentation, this function initializes the training environment and creates the transformation pipeline. We set up the *nornmalize* parameter to *True* to apply *zscore* normalize method. Similarly, we set up the *transformation* parameter to *True* to apply *yeo-johnson* transformation to make data more Gaussian-like.
+We apply *Box-cox* transformation to the target variable **Sales**. The Box-cox transformation is suitable as our data has strictly positive values.
+
+4.**create_model():** This function trains and evaluates the performance of **Linear Regression** (lr) using cross-validation. It returns a trained model.
+
+5.**plot_model():** It analyzes the performance of a trained model on holdout set. I saved the residuals plot graph by making *save* parameter *True*. The plot looks like:
