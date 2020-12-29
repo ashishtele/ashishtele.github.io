@@ -65,3 +65,76 @@ def load_data():
 3. **get_data_as_string():** We have a **show code** button on the web app which shows the python code once clicked. This function helps to pull the .py file as a string and decode it to 'utf-8'
 
 4. **load_data():** This function loads the input data. I leverage this data to get the upper and lower limits for the sliders. 
+
+```ruby
+data = load_data()
+
+min_TV = np.float(data['TV'].min())
+max_TV = np.float(data['TV'].max())
+
+min_Radio = np.float(data['Radio'].min())
+max_Radio = np.float(data['Radio'].max())
+
+min_News = np.float(data['Newspaper'].min())
+max_News = np.float(data['Newspaper'].max())
+```
+In the above snippet, we are finding the minimum and maximum values of each marketing feature so that we can leverage it for the slider range.
+
+```ruby
+
+def run():
+
+    image = Image.open("D:\Python Files\Image_MMM.PNG")
+
+    st.sidebar.markdown("# Selection")
+    add_selectbox = st.sidebar.selectbox("How would you like to predict?", ("Online","Batch"))
+
+    st.sidebar.info('This is to predict sales based on marketing components.')
+    st.sidebar.image(image, use_column_width=True)
+    st.sidebar.success('https://ashishtele.github.io/')
+
+    st.title("Market Mix Modeling")
+
+    if add_selectbox == 'Online':
+
+        TV = st.slider("Value for TV:",
+                       min_value=min_TV,
+                       max_value=max_TV)
+
+        Radio = st.slider("Value for Radio:",
+                       min_value=min_Radio,
+                       max_value=max_Radio)
+
+        News = st.slider("Value for News:",
+                          min_value=min_News,
+                          max_value=max_News)
+
+        output = ""
+
+        input_dict = {'TV': TV, 'Radio': Radio, 'Newspaper': News}
+        input_df = pd.DataFrame([input_dict])
+
+        if st.button('Predict'):
+            output = predict(model=model, input_df=input_df)
+            output = '$' + str(output)
+
+        st.success('The sales is {}'.format(output))
+
+    if add_selectbox == 'Batch':
+
+        file_upload = st.file_uploader("Upload csv file for predictions", type = ["csv"])
+
+        if file_upload is not None:
+            data = pd.read_csv(file_upload)
+            predictions = predict_model(estimator=model, data=data)
+            st.write(predictions)
+
+    if st.sidebar.button("Show Code"):
+        st.code(get_data_as_string(file))
+ ```
+ 
+ The above code snippet is self-explanatory. We are adding the different components to build the web app. We build a sidebar, add images and URLs. We provide a selection for 'online' or 'Batch' prediction. Based on the prediction type selection (Online, Batch), we execute either of two code blocks. 
+
+**Online type:** We collect the user input values in variables through sliders and create a pandas dataframe *input_df*. We pass it to *predict()* function and receive the point prediction. When we click on **Predict** button in the web app, the success message displays the result:
+
+<span style="color:green"> The sales is $X.XX </span>
