@@ -1,6 +1,6 @@
 ---
 layout: single
-title: Market Mix Modeling using Pycaret and Streamlit!!
+title: Market Mix Modeling using Pycaret and Streamlit (part 1)!!
 author: Ashish Tele
 excerpt: "MMM solutions are an integral part of the marketing analytics team. We need to develop, run, and deploy multiple models of MMM analysis. It makes expediting the market mix modeling important."
 description: "MMM solutions are an integral part of the marketing analytics team. We need to develop, run, and deploy multiple models of MMM analysis. It makes expediting the market mix modeling important."
@@ -120,3 +120,47 @@ We apply *Box-cox* transformation to the target variable **Sales**. The Box-cox 
 <p align="center">
   <img width="700" height="400" src="/images/Residuals.png">
 </p>
+
+Let's see the rest of the functions
+
+```ruby
+
+# Predictions on holdout sample
+    pred_holdout = predict_model(tuned_lr)
+
+    # Creating Line Graph
+    from matplotlib.pyplot import figure
+
+    figure(num=None, figsize=(15, 6), dpi=80, facecolor='w', edgecolor='k')
+
+    y1 = pred_holdout['Sales']
+    y2 = pred_holdout['Label']
+    plt.plot(y1, label='Actual')
+    plt.plot(y2, label='Predicted')
+    plt.legend()
+    plt.show()
+
+    final_lr = finalize_model(tuned_lr)
+
+    # saving the model for 'streamlit' app
+    save_model(final_lr, 'saved_MMM_lr')
+```
+The Actual vs. Predicted values on the holdout sample take the below shape:
+
+<p align="center">
+  <img width="700" height="400" src="/images/Prediction_on_holdout.png">
+</p>
+
+We can even interpret the tree-based model based on SHAP.
+
+<p align="center">
+  <img width="700" height="400" src="/images/SHAP.png">
+</p>
+
+6.**finalize_model():** It trains **Linear Regression** on the entire dataset including the holdout set.
+
+7.**save_model():** It saves the final model as *pickle* (.pkl) file with given name.
+
+In the next post, we will see how to create and run streamlit app. The web-based will run on the local system.
+
+Thank you for reading!!
