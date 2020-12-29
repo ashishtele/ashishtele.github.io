@@ -138,3 +138,23 @@ def run():
 **Online type:** We collect the user input values in variables through sliders and create a pandas dataframe *input_df*. We pass it to *predict()* function and receive the point prediction. When we click on **Predict** button in the web app, the success message displays the result:
 
 <span style="color:green"> The sales is $X.XX </span>
+
+**Batch type:** This option asks for uploading the .csv file. *predict_model()* funtion predicts the batch output and displays on the web app. 
+
+**'Show code' button:** Once clicked, it displays the PyCaret model code at the bottom. *st.code()* function displays the text data in the particular code language provided the language "python" name.
+
+<p align="center">
+  <img width="700" height="400" src="/images/code_snippet.PNG">
+</p>
+
+## Next Steps:
+
+1. Deploy the app on the server and make it available to a broader audience.
+
+2. Improve the MMM model by feature engineering. We don't have real-world features available in this dataset such as seasonality, Ad-Stock, price, promotions, etc. 
+
+3. Explore SHAP in more detail and find its implementation in my real-world work. MMM is a mandatory project in a consumer product company.
+
+Stay tune for the next steps!!
+
+Happy New Year to All...🎉🎊🥳
