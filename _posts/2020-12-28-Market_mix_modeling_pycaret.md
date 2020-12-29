@@ -116,3 +116,7 @@ We apply *Box-cox* transformation to the target variable **Sales**. The Box-cox 
 4.**create_model():** This function trains and evaluates the performance of **Linear Regression** (lr) using cross-validation. It returns a trained model.
 
 5.**plot_model():** It analyzes the performance of a trained model on holdout set. I saved the residuals plot graph by making *save* parameter *True*. The plot looks like:
+
+<p align="center">
+  <img width="700" height="400" src="/images/Residuals.png">
+</p>
