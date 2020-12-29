@@ -155,6 +155,6 @@ def run():
 
 3. Explore SHAP in more detail and find its implementation in my real-world work. MMM is a mandatory project in a consumer product company.
 
-Stay tune for the next steps!!
+Stay tuned for the next steps!!
 
 Happy New Year to All...🎉🎊🥳
