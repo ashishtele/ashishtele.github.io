@@ -55,7 +55,8 @@ select * from database.table_name
 2. We can convert a SQL dataframe to a Spark dataframe using following command.
 
 ```ruby
-Spark_df = spark.sql("database.table")
+Spark_df = spark.sql("select * from database.table") #OR
+Spark_df = table("table")
 ```
 3. Convert Spark dataframe to SQL dataframe using below command.
 
@@ -64,7 +65,7 @@ Spark_df.createOrReplaceTempView("SQL_table") #OR
 Spark_df.registerTempTable("SQL_table")
 ```
 
-4. Convert Spark dataframe to Padas dataframe:
+4. Convert Spark dataframe to Pandas dataframe:
 
 ```ruby
 Pandas_df = Spark_df.select("*").toPandas()
