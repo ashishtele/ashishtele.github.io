@@ -78,6 +78,28 @@ Spark_df = createDataFrame(Pandas_df)
 ```
 These are the few most used conversions. 
 
+*New update: Jan 18,2021*
+
+I came across a package named 'Koalas', a pandas API on Apache Spark. As per the documentation, **Koalas** package can immediately make you productive with Spark, with no learning curve, if you know pandas. I am a Databrick user. Koalas is pre-installed in Databricks 7.1 and above.
+
+6.Create a Koalas datafram from pandas dataframe
+
+```ruby
+import databricks.koalas as ks
+import pandas as pd
+
+K_df = ks.from_pandas(p_df)
+```
+
+7.Create a Koalas dataframe from Spark dataframe.
+
+```ruby
+K_df = spark_df.to_koalas()
+```
+
+We do have an option of reading and writing CSV, Parquet, Spark IO.
+Please visit the [github page](https://github.com/databricks/koalas) for more information.
+
 * You can follow an exhaustive list of code snippets at towardsdatascience.com by [Rahul](https://towardsdatascience.com/the-most-complete-guide-to-pyspark-dataframes-2702c343b2e8). I found it very useful and handy while coding. You can take the printed copy of it and clip it at the desk station.
 * An informative video by [Bryan Cafferky](https://www.youtube.com/watch?v=-vekHiJdQ1Y) on YouTube. Bryan was a great help to me.
 
