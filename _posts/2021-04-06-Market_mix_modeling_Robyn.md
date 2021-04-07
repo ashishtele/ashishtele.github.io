@@ -22,5 +22,5 @@ gallery:
 ---
 Hi All,
 
-Thanks for read.
+Thanks for reading.
 Ashish
