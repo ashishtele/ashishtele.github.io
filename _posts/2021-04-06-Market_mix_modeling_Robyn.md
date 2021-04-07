@@ -22,7 +22,7 @@ gallery:
 ---
 Hi All,
 
-Content is coming!!
+I am returning with a new post on Marketing Mix Modeling. I came across a new release on MMM from Facebook. According to FB team, Robyn reduces human bias, aligns with the ground-truth, enables actionable decision making, and ensures privacy. 
 
 Thanks for reading.
 Ashish
