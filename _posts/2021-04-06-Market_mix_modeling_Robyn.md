@@ -1,9 +1,9 @@
 ---
 layout: single
-title: Market Mix Modeling using Robyn!
+title: Automated Marketing Mix Modeling using Robyn!
 author: Ashish Tele
-excerpt: "MMM solutions are an integral part of the marketing analytics team. Robyn is an automated Marketing Mix Modeling code."
-description: "MMM solutions are an integral part of the marketing analytics team. Robyn is an automated Marketing Mix Modeling code."
+excerpt: "Robyn is an automated Marketing Mix Modeling code. It aims to reduce human bias by means of ridge regression and revolutionary algorithms."
+description: "Robyn is an automated Marketing Mix Modeling code. It aims to reduce human bias by means of ridge regression and revolutionary algorithms."
 comments: true
 tags: ["Data Science","R","Data Scientist","India","USA","MMM","Python","Market Mix Modeling"]
 published: true
@@ -22,5 +22,5 @@ gallery:
 ---
 Hi All,
 
-Thanks,
+Thanks for read.
 Ashish
