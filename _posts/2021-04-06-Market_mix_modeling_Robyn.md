@@ -25,9 +25,14 @@ Hi All,
 I am returning with a new post on Marketing Mix Modeling. I came across a new release on MMM from Facebook. According to FB team, Robyn reduces human bias by means of ridge regression and evolutionary algorithms, aligns with the ground-truth, enables actionable decision making providing a budget allocator and diminishing returns curves, and ensures privacy. 
 
 <p align="center">
-  <img width="750" height="350" src="/images/MMM12.PNG">
+  <img width="650" height="250" src="/images/MMM12.PNG">
 </p>
 
+I tried to create a process flow for an illustration purpose. You can refer [Robyn](https://github.com/facebookexperimental/Robyn) documentation which in itself is a great source. The entire process can be divided into 3 major parts:
+
+**1. Scripting files (.R) and data input files (.CSV):**
+
+The Facebook team has provided scripting files that contain feature engineering, modeling functions, budget allocation distribution, and plotting. The code is written in the R language. The other set of files are the raw data files. As shown in the diagram, the revenue and spend master file can be created using multiple in-house and third-party shared files. I have used data coming from multiple sources to generate the master file.
 
 Thanks for reading.
 Ashish
