@@ -34,5 +34,7 @@ I tried to create a process flow for an illustration purpose. You can refer [Rob
 
 The Facebook team has provided scripting files that contain feature engineering, modeling functions, budget allocation distribution, and plotting. The code is written in the R language. The other set of files are the raw data files. As shown in the diagram, the revenue and spend master file can be created using multiple in-house and third-party shared files. I have used data coming from multiple sources to generate the master file.
 
-Thanks for reading.
+Continued...
+
+Thanks for reading!
 Ashish
