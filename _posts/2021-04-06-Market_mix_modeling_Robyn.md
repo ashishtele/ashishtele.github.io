@@ -32,7 +32,7 @@ I tried to create a process flow for an illustration purpose. You can refer [Rob
 
 **1. Scripting files (.R) and data input files (.CSV):**
 
-The Facebook team has provided scripting files that contain feature engineering, modeling functions, budget allocation distribution, and plotting. The code is written in the R language. The other set of files are the raw data files. As shown in the diagram, the revenue and spend master file can be created using multiple in-house and third-party shared files. I have used data coming from multiple sources to generate the master file.
+The Facebook team has provided scripting files that contain feature engineering, modeling functions, budget allocation distribution, and plotting. The code is written in the R language. The other set of files are the raw data files. As shown in the diagram, the revenue and spend master file can be created using multiple in-house and third-party shared files. I have used data coming from multiple sources to generate the master file. The other file is for holidays and special events. We can add the special events as per our requirements and business needs. The holidays' file provided by Facebook is already exhaustive enough.
 
 Continued...
 
