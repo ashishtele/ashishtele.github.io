@@ -34,7 +34,12 @@ I tried to create a process flow for an illustration purpose. You can refer [Rob
 
 The Facebook team has provided scripting files that contain feature engineering, modeling functions, budget allocation distribution, and plotting. The code is written in the R language. The other set of files are the raw data files. As shown in the diagram, the revenue and spend master file can be created using multiple in-house and third-party shared files. I have used data coming from multiple sources to generate the master file with different marketing channels, investment, impressions to determine the size and impact of marketing campaigns. The other file is for holidays and special events. We can add the special events as per our requirements and business needs. The holidays' file provided by Facebook is already exhaustive enough.
 
-The next important thing is to set varibales..
+The next important thing is to set variables:
+ 1. Set Country
+ 2. Set Date variable
+ 3. Set dependent variable and type 
+ 4. Set Prophet and Baseline variables
+ 5. Set Media variable and Spend variable
 
 Continued...
 
