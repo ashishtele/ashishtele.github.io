@@ -41,6 +41,10 @@ The next important thing is to set variables:
  4. Set Prophet and Baseline variables
  5. Set Media variable and Spend variable
 
+**2. Global Model Parameters:**
+
+We can set the number of cores for parallel computing. The next step is to set the data training and validation sizes. The best thing I discovered is the [Bhattacharyya coefficient](https://en.wikipedia.org/wiki/Bhattacharyya_distance). It is of the amount of overlap between the two statistical samples. The higher the Bhattacharyya coefficient, the more similar the train and test data splits. We can choose an adstocking method between **Geometric** and **Weibull**. Robyn uses **Nevergrad** optimization library to find optimum values for coefficients. 
+
 Continued...
 
 Thanks for reading!
