@@ -45,6 +45,10 @@ The next important thing is to set variables:
 
 We can set the number of cores for parallel computing. The next step is to set the data training and validation sizes. The best thing I discovered is the [Bhattacharyya coefficient](https://en.wikipedia.org/wiki/Bhattacharyya_distance). It is of the amount of overlap between the two statistical samples. The higher the Bhattacharyya coefficient, the more similar the train and test data splits. We can choose an adstocking method between **Geometric** and **Weibull**. Robyn uses **Nevergrad** optimization library to find optimum values for coefficients. 
 
+**3. Result Plots:**
+
+Once we run the iterations, the model creates the different charts that will help assess the best models and scores for the contribution of marketing channels.
+
 Continued...
 
 Thanks for reading!
