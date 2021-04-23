@@ -45,9 +45,22 @@ The next important thing is to set variables:
 
 We can set the number of cores for parallel computing. The next step is to set the data training and validation sizes. The best thing I discovered is the [Bhattacharyya coefficient](https://en.wikipedia.org/wiki/Bhattacharyya_distance). It is of the amount of overlap between the two statistical samples. The higher the Bhattacharyya coefficient, the more similar the train and test data splits. We can choose an adstocking method between **Geometric** and **Weibull**. Robyn uses **Nevergrad** optimization library to find optimum values for coefficients. 
 
-**3. Result Plots:**
+**3. Result Plots and Budget Allocator:**
 
-Once we run the iterations, the model creates the different charts that will help assess the best models and scores for the contribution of marketing channels.
+Once we run the iterations, the model creates the different charts that will help assess the best models and scores for the contribution of marketing channels. Budget allocator (Optimizer) provides the optimal media mix, which maximizes the return out of a certain spend level. MMM uses a ridge regression method to address multicollinearity among many regressors and prevent overfitting. 
+
+**4. Variable Transformations:**
+
+Adstock: Not all effects of advertising are felt immediately-memory builds and people sometimes delay action and this awareness diminishes as time passes.
+
+The code provides two adstock techniques:
+1. Geometric
+2. Weibull
+
+Diminishing returns (Hill): Each additional unit of advertising increases the response, but at a declining rate. There are a variety of functions to model nonlinear response to a media variable such as a simple logarithm, a power, and S-curve transformation.
+
+
+
 
 Continued...
 
