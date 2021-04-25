@@ -64,5 +64,5 @@ Diminishing returns (Hill): Each additional unit of advertising increases the re
 
 Continued...
 
-Thanks for reading!
+Thanks for reading!!
 Ashish
