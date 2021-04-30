@@ -22,7 +22,7 @@ gallery:
 ---
 Hi All,
 
-I am returning with a new post on Marketing Mix Modeling. I came across a new release on MMM from Facebook. According to FB team, Robyn reduces human bias by means of ridge regression and evolutionary algorithms, aligns with the ground-truth, enables actionable decision making providing a budget allocator and diminishing returns curves, and ensures privacy. 
+I am returning with a new post on Marketing Mix Modeling. I came across a new release on MMM from Facebook. According to FB team, Robyn reduces human bias using ridge regression and evolutionary algorithms, aligns with the ground truth, enables actionable decision making providing a budget allocator and diminishing returns curves, and ensures privacy. 
 
 <p align="center">
   <img width="650" height="250" src="/images/MMM12.PNG">
@@ -32,7 +32,7 @@ I tried to create a process flow for an illustration purpose. You can refer [Rob
 
 **1. Scripting files (.R) and data input files (.CSV):**
 
-The Facebook team has provided scripting files that contain feature engineering, modeling functions, budget allocation distribution, and plotting. The code is written in the R language. The other set of files are the raw data files. As shown in the diagram, the revenue and spend master file can be created using multiple in-house and third-party shared files. I have used data coming from multiple sources to generate the master file with different marketing channels, investment, impressions to determine the size and impact of marketing campaigns. The other file is for holidays and special events. We can add the special events as per our requirements and business needs. The holidays' file provided by Facebook is already exhaustive enough.
+The Facebook team has provided scripting files that contain feature engineering, modeling functions, budget allocation distribution, and plotting. The code is written in the R language. The other set of files are the raw data files. As shown in the diagram, the revenue and spend master file can be created using multiple in-house and third-party shared files. I have used data coming from multiple sources to generate the master file with different marketing channels, investments, impressions to determine the size and impact of marketing campaigns. The other file is for holidays and special events. We can add the special events as per our requirements and business needs. The holidays' file provided by Facebook is already exhaustive enough.
 
 The next important thing is to set variables:
  1. Set Country
@@ -47,7 +47,7 @@ We can set the number of cores for parallel computing. The next step is to set t
 
 **3. Result Plots and Budget Allocator:**
 
-Once we run the iterations, the model creates the different charts that will help assess the best models and scores for the contribution of marketing channels. Budget allocator (Optimizer) provides the optimal media mix, which maximizes the return out of a certain spend level. MMM uses a ridge regression method to address multicollinearity among many regressors and prevent overfitting. 
+Once we run the iterations, the model creates the different charts that will help assess the best models and scores for the contribution of marketing channels. The budget allocator (Optimizer) provides the optimal media mix, which maximizes the return out of a certain spend level. MMM uses a ridge regression method to address multicollinearity among many regressors and prevent overfitting. 
 
 **4. Variable Transformations:**
 
@@ -57,12 +57,9 @@ The code provides two adstock techniques:
 1. Geometric
 2. Weibull
 
-Diminishing returns (Hill): Each additional unit of advertising increases the response, but at a declining rate. There are a variety of functions to model nonlinear response to a media variable such as a simple logarithm, a power, and S-curve transformation.
+Diminishing returns (Hill): Each additional unit of advertising increases the response but at a declining rate. There are a variety of functions to model nonlinear response to a media variable such as a simple logarithm, a power, and an S-curve transformation.
 
-
-
-
-Continued...
+I found this approach very helpful for my project. I still have to discover many things in the Robyn, but it is a promising start. 
 
 Thanks for reading!!
-Ashish
+
