@@ -4,11 +4,11 @@ comments: false
 tags: [about]
 ---
 
-I am a Data Scientist at Nestle Waters North America. I enjoy data storytelling and 
-sharing my experiences on Blog.
+I am a Senior Data Scientist at Cardinal Health. I worked as a Data Scientist at Nestle and Novartis before. I enjoy data storytelling and 
+sharing my experiences on the Blog.
 
 Previously, I studied Business Analytics & Project Management at UConn School of Business, where I received my Master's 
-Degree. I have experiences working for Analytical Consulting focusing Healthcare, Retail, and
+Degree. I have experience working for Analytical Consulting focusing on Healthcare, Retail, and
 Consumer Products domains.
 
 Core Competencies
@@ -26,7 +26,7 @@ Experienced in using statistical techniques with real-world data. Familiar with 
 
 Passionate about conducting knowledge transfer sessions for the technical and non-technical audience on emerging tools and techniques in analytics. Successfully conducted ‘Data Visualization: Storytelling’ and ‘Power BI’ sessions for company new hires.
 
-I enjoy coding in R and Python(Deep Learning). I like to focus on all the aspects of a predictive model building and model interpretability.
+I enjoy coding in R and Python(Deep Learning). I like to focus on all the aspects of predictive model building and model interpretability.
 
 
 About The Site
