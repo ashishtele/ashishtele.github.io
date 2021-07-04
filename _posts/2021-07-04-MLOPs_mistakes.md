@@ -11,8 +11,8 @@ comments: true
 author_profile: false
 header:
   teaserlogo:
-  teaser: /images/mlops.PNG
-  image: /images/mlops.PNG
+  teaser: /images/mlops.png
+  image: /images/mlops.png
   caption: "courtesy: https://www.arrikto.com/"
 gallery:
 
