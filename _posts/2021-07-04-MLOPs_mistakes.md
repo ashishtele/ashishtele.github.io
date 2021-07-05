@@ -23,4 +23,6 @@ gallery:
 
 Hi All,
 
+Recently I came across a paper on [Arxiv Sanity](http://www.arxiv-sanity.com/) named [Using AntiPatterns to avoid MLOps Mistakes](https://arxiv.org/abs/2107.00079v1). The authors describe the lessons learned from developing and deploying machine learning models at scale across the enterprise. BNY Mellon presented the learnings in the form of antipatterns. I think the lessons are vital for not only the financial analytics applications but also all the industries.
+
 Thanks
