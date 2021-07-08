@@ -25,6 +25,8 @@ Hi All,
 
 Recently I came across a paper on [Arxiv Sanity](http://www.arxiv-sanity.com/) named [Using AntiPatterns to avoid MLOps Mistakes](https://arxiv.org/abs/2107.00079v1). The authors describe the lessons learned from developing and deploying machine learning models at scale across the enterprise. BNY Mellon presented the learnings in the form of antipatterns. I think the lessons are vital for not only the financial analytics applications but also all the industries.
 
-I found a few points noteworthy to be noted. The authors mention "It is imperative that the part of a learning pipeline concerned with hyper-parameter optimization be explicitly and painstakingly documented so as to be reproducible and easily adaptable." From my experience, MLflow helped me to save the parameters and artifacts to track the model performance and help to reproduce the results.
+I found a few points noteworthy to be mentioned. The authors mention "It is imperative that the part of a learning pipeline concerned with hyper-parameter optimization be explicitly and painstakingly documented so as to be reproducible and easily adaptable." From my experience, MLflow helped me to save the parameters and artifacts to track the model performance and help reproduce the results.
+
+In the financial analytics context, the Authors found the KISS principle helpful. In their words, it encourages developers to try simple models first and conduct an exhaustive comparison of models before advocating for specific methodologies. KISS stands for 'Keep it simple, stupid. It is a design principle which states that designs should be as simple as possible. I think the KISS principle is valid for almost all the verticals. It may be because of multiple reasons such as complexity, incremental performance improvement, infrastructure limitations, latency and throughput trade-off, etc. 
 
 Thanks
