@@ -29,4 +29,6 @@ I found a few points noteworthy to be mentioned. The authors mention "It is impe
 
 In the financial analytics context, the Authors found the KISS principle helpful. In their words, it encourages developers to try simple models first and conduct an exhaustive comparison of models before advocating for specific methodologies. KISS stands for 'Keep it simple, stupid. It is a design principle which states that designs should be as simple as possible. I think the KISS principle is valid for almost all the verticals. It may be because of multiple reasons such as complexity, incremental performance improvement, infrastructure limitations, latency and throughput trade-off, etc. 
 
+Repeated testing against the known test set, modify their model accordingly to improve performance on the known test set is called [HARKing](https://en.wikipedia.org/wiki/HARKing) (Hypothesizing After Results are Known). It leads to implicit data leakage. It has potential effects of over-fitting and selection bias in performance evaluation. The acronym HARKing is borrowed from psychology.
+
 Thanks
