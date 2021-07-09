@@ -31,4 +31,6 @@ In the financial analytics context, the Authors found the KISS principle helpful
 
 Repeated testing against the known test set, modify their model accordingly to improve performance on the known test set is called [HARKing](https://en.wikipedia.org/wiki/HARKing) (Hypothesizing After Results are Known). It leads to implicit data leakage. It has potential effects of over-fitting and selection bias in performance evaluation. The acronym HARKing is borrowed from psychology.
 
+As per the Authors, In addition to explainability, **conveying uncertainty** can be a significant contributor to ensuring trust in ML pipelines. There has been a lot of research going on in the field of explainable AI/ML, but conveying uncertainty is equally important. Explainability can not be perfect as it will have a component of uncertainty in it.
+
 Thanks
