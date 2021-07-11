@@ -33,4 +33,16 @@ Repeated testing against the known test set, modify their model accordingly to i
 
 As per the Authors, In addition to explainability, **conveying uncertainty** can be a significant contributor to ensuring trust in ML pipelines. There has been a lot of research going on in the field of explainable AI/ML, but conveying uncertainty is equally important. Explainability can not be perfect as it will have a component of uncertainty in it.
 
-Thanks
+I am listing the recommendations directly from the paper. It highlights most of the learnings from the paper.
+
+1. Use assertions to track data quality across the enterprise. This is crucial since ML models can be so dependent on faulty or noisy data, and suitable checks and balances can ensure a safe operating environment for ML algorithms. 
+
+2. Document data lineage along with transformations to support the creation of ‘audit trails’ so models can be situated back in time and in specific data slices for re-training or re-tuning. 
+
+3. Use ensembles to maintain a palette of models including remedial and compensatory pipelines in the event of errors. Track model histories through the lifecycle of an application. 
+
+4. Ensure human-in-the-loop operational capability at multiple levels.
+
+All credit goes to the authors of this paper.  I just tried to list down the vital points related to my work. Do give a read to the [paper](https://arxiv.org/abs/2107.00079v1).
+
+Thanks!!
