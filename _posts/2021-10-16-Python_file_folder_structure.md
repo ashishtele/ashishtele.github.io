@@ -11,9 +11,9 @@ comments: true
 author_profile: false
 header:
   teaserlogo:
-  teaser: /images/mlops.png
-  image: /images/mlops.png
-  caption: "courtesy: "
+  teaser: /images/DS-project-layout.png
+  image: /images/DS-project-layout.png
+  caption: "courtesy: neptune.ai"
 gallery:
 
   - image_path: ''
