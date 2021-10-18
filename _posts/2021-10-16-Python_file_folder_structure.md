@@ -22,5 +22,5 @@ gallery:
 ---
 
 <p align="center">
-  <img width="650" height="250" src="/images/Folder_str.PNG">
+  <img width="650" height="450" src="/images/Folder_str.png">
 </p>
