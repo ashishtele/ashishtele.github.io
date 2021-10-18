@@ -20,3 +20,7 @@ gallery:
     url: ''
     title: ''
 ---
+
+<p align="center">
+  <img width="650" height="250" src="/images/Folder_str.PNG">
+</p>
