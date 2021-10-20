@@ -21,6 +21,13 @@ gallery:
     title: ''
 ---
 
+Hello,
+
+Hello,
+
+I recently made a transition from the Azure + Databricks platform to GCP (Google Cloud). So far I am enjoying the capabilities that GCP offer to Data Scientists and Machine Learning Engineers. Vertex AI and the recent introduction of the [Vertex AI workbench](https://cloud.google.com/vertex-ai/docs/workbench) show the commitment from Google towards ML/AI practitioners. 
+
 <p align="center">
   <img width="650" height="450" src="/images/Folder_str.png">
 </p>
+
