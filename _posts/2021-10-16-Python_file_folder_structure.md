@@ -49,6 +49,6 @@ df['end_date'] = pd.to_datetime(df['end_date'])
 I would try to have a function as follow and apply it to the dataframe.
 
 ```ruby
-def _to_datetime(row):
-    row[column_nm] = pd.to_datetime(row[column_nm], format = '%Y-%m-%d')
+def str_to_datetime(x):
+    return pd.to_datetime(x, format='%Y-%m-%d %H:%M:%S')
 ```
