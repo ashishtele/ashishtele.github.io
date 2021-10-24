@@ -37,3 +37,18 @@ Most of you must have come across ['cookiecutter'](https://github.com/cookiecutt
 
 I think most of us do it. Whenever we start working on any project, the first thing we do is to spin up the cluster, create a jupyter notebook, and start writing code. I put comments in markdown and working code in cells. The code is not necessarily optimized. Once I have a working prototype (data imports + EDA + Features + base model), I am good to go towards modularity.
 The sad part is that many keep their final code in the same format.
+
+## 2. Functions with inputs as data and parameters:
+
+Once the working prototype is ready, I look for the steps which can be converted into functions, e.g. I have steps as follow in my working code:
+
+```ruby
+df['start_date'] = pd.to_datetime(df['start_date'])
+df['end_date'] = pd.to_datetime(df['end_date'])
+```
+I would try to have a function as follow and apply it to the dataframe.
+
+```ruby
+def _to_datetime(row):
+    row[column_nm] = pd.to_datetime(row[column_nm], format = '%Y-%m-%d')
+```
