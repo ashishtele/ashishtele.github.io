@@ -33,3 +33,7 @@ Most of you must have come across ['cookiecutter'](https://github.com/cookiecutt
   <img width="650" height="450" src="/images/Folder_str.png">
 </p>
 
+## 1. Prototyping in Jupyter notebook:
+
+I think most of us do it. Whenever we start working on any project, the first thing we do is to spin up the cluster, create a jupyter notebook, and start writing code. I put comments in markdown and working code in cells. The code is not necessarily optimized. Once I have a working prototype (data imports + EDA + Features + base model), I am good to go towards modularity.
+The sad part is that many keep their final code in the same format.
