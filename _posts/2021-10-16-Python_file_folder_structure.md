@@ -61,3 +61,25 @@ Once I have the function ready, the next step is to validate it in the same jupy
 %%time
 ```
 
+## 4. Move function in 'src' folder
+
+The below [folder structure](https://dzone.com/articles/data-science-project-folder-structure) is used for the reference purpose. We can have our customized folder structure. Once we have a function returning desired output in the Jupyter notebook, it's time to move the code snippet to 'src' folder. If the function is a helper function, it can be moved under **helper.py** file. We can have the below scripts for dedicated pipelines:
+
+1. Data Import and Manipulation
+2. Feature Engineering
+3. EDA
+4. Model train
+5. Model test
+6. Helper Functions 
+
+<p align="center">
+  <img width="650" height="450" src="/images/folder_str_1.png">
+</p>
+
+Mostly these scripts are python files with **.py** extensions. One script can be imported into another as a module.
+
+```ruby
+import helper_func as hf
+
+df['x_new'] = hf.str_to_datetime(df['x'])
+``` 
