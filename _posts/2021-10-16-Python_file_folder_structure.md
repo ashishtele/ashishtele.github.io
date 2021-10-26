@@ -52,3 +52,12 @@ I would try to have a function as follow and apply it to the dataframe.
 def str_to_datetime(x):
     return pd.to_datetime(x, format='%Y-%m-%d %H:%M:%S')
 ```
+
+## 3. Test function in Jupyter notebook:
+
+Once I have the function ready, the next step is to validate it in the same jupyter notebook. So instead of converting the string to date one by one, apply the function in a loop. We can also try Lamda to access the performance. If you are working in a team, make sure to prioritize the readability. We can 'time' the cell by:
+
+```ruby
+%%time
+```
+
