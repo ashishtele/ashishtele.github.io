@@ -83,3 +83,23 @@ import helper_func as hf
 
 df['x_new'] = hf.str_to_datetime(df['x'])
 ``` 
+
+## 5. Import the function in Jupyter/.py notebook 
+
+Now we have dedicated scripts for different data science tasks as mentioned above. The first thing to pay attention while importing a function/class as a module in the main script is the path. Make sure the directory pointer is at the correct location. If we are importing a function/class from a Jupyter notebook to another Jupyter notebook and both the .ipynb files are in the same folder, the below snippet will work without any external package installed
+
+```ruby
+%run helper_func.ipynb
+
+df['x_new'] = str_to_datetime(df['x'])
+```
+
+The below code snippet should also run for a function import:
+
+```ruby
+# Helpful if the helper.ipynb file has a lot of functions defined
+
+%run helper_func.ipynb import str_to_datetime
+
+df['x_new'] = str_to_datetime(df['x'])
+```
