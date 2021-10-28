@@ -103,3 +103,11 @@ The below code snippet should also run for a function import:
 
 df['x_new'] = str_to_datetime(df['x'])
 ```
+
+If we have code snippets in .py file and want to import as a module in either .py or .ipynb file, the below snippet can be helpful:
+
+```ruby
+import helper_func as hf
+
+df['x_new'] = hf.str_to_datetime(df['x'])
+```
