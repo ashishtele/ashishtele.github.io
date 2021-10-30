@@ -111,3 +111,10 @@ import helper_func as hf
 
 df['x_new'] = hf.str_to_datetime(df['x'])
 ```
+
+## 6. Test the entire flow:
+
+The final step of the development phase is to test end-to-end flow. Once we have model_train.py file ready (code moved from model_train.ipynb), test the code flow using the below command in the terminal. Make sure you are at the correct directory path.
+```ruby
+python model_train.py
+```
