@@ -118,3 +118,5 @@ The final step of the development phase is to test end-to-end flow. Once we have
 ```ruby
 python model_train.py
 ```
+
+The next important thing is to set the MLOps pipeline!
