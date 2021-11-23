@@ -38,3 +38,26 @@ Steps are:
 1. Free W&B account creation and authorization key generation 
 2. Installing 'wandb'
 3. Log in to the W&B account using an API token
+
+Let's code a simple example and log the metrics, artifacts, etc. to check model performance. I have taken a simple classification example to predict whether a customer will change telco provider. The dataset is available on [kaggle](https://www.kaggle.com/c/customer-churn-prediction-2020/data?select=train.csv). The evaluation criterion is **Accuracy**. The below walkthrough does not include all columns from the raw dataset. Also, the basic models are fit to check the MLOps functionality without much hyperparameter tuning. 
+
+Let's import libraries required for data analysis, model building, and model tracking. 
+
+```ruby
+# Importing required libraries for analysis
+import json
+import yaml
+import joblib
+import argparse
+import wandb
+import numpy as np
+import pandas as pd
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.metrics import f1_score,recall_score,accuracy_score,precision_score,confusion_matrix,classification_report
+
+import warnings
+from sklearn.exceptions import ConvergenceWarning
+warnings.filterwarnings("ignore", category=ConvergenceWarning)
+```
+
