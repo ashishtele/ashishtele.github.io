@@ -1,5 +1,6 @@
 ---
 layout: single
+sidebar: true
 author_profile: true
 title: Hands-On Experience To Weights and Biases (MLOps)!
 excerpt: "Weights and Biases is a MLOps platform. It can be used for experiment tracking, dataset versioning, and model management."
@@ -8,7 +9,6 @@ comments: true
 tags: ["Data Science","R","Data Scientist","USA","MLOps","Machine Learning"]
 published: true
 comments: true
-author_profile: false
 header:
   teaserlogo:
   teaser: /images/wandb.png
