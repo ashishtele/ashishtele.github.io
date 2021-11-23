@@ -61,3 +61,80 @@ from sklearn.exceptions import ConvergenceWarning
 warnings.filterwarnings("ignore", category=ConvergenceWarning)
 ```
 
+Once we have 'wandb' installed, run the below line of code and enter the authorization key copied from the weights and biases portal.
+
+```ruby
+# wandb login with API token
+wandb.login()
+```
+
+All the required helper functions are included in a single python script for demonstration purposes. I added docstrings in functions to provide a brief overview. I am reading a config file, loading train, and test datasets, separating features and targets, and defining the **accuracy measures**.
+
+```ruby
+def read_params(config_path):
+    """
+    read parameters from the params.yaml file
+    input: params.yaml location
+    output: parameters as dictionary
+    """
+    with open(config_path) as yaml_file:
+        config = yaml.safe_load(yaml_file)
+    return config
+
+def accuracymeasures(y_test,predictions,avg_method):
+    """
+    calculate accuracy measures
+    input: y_test, predictions, avg_method
+    output: accuracy measures
+    """
+    accuracy = accuracy_score(y_test, predictions)
+    precision = precision_score(y_test, predictions, average=avg_method)
+    recall = recall_score(y_test, predictions, average=avg_method)
+    f1score = f1_score(y_test, predictions, average=avg_method)
+    target_names = ['0','1']
+    print("Classification report")
+    print("---------------------","\n")
+    print(classification_report(y_test, predictions,target_names=target_names),"\n")
+    print("Confusion Matrix")
+    print("---------------------","\n")
+    print(confusion_matrix(y_test, predictions),"\n")
+
+    print("Accuracy Measures")
+    print("---------------------","\n")
+    print("Accuracy: ", accuracy)
+    print("Precision: ", precision)
+    print("Recall: ", recall)
+    print("F1 Score: ", f1score)
+
+    return accuracy,precision,recall,f1score
+
+def get_featatures_and_target(df,target):
+    """
+    Get features and target variables seperately from given dataframe and target 
+    input: dataframe and target column
+    output: two dataframes for x and y 
+    """
+    x=df.drop(target,axis=1)
+    y=df[[target]]
+    return x,y    
+
+def split_data(config_path):
+    """
+    split data into train and test
+    input: config_path
+    output: train and test dataframes
+    """
+    config = read_params(config_path)
+    train_data_path = config["processed_data_config"]["train_data_csv"]
+    test_data_path = config["processed_data_config"]["test_data_csv"]
+    target = config["raw_data_config"]["target"]
+    max_depth=config["random_forest"]["max_depth"]
+    n_estimators=config["random_forest"]["n_estimators"]
+
+    train = pd.read_csv(train_data_path, sep=",")
+    test = pd.read_csv(test_data_path, sep=",")
+    train_x,train_y=get_featatures_and_target(train,target)
+    test_x,test_y=get_featatures_and_target(test,target)
+
+    return train_x,train_y,test_x,test_y,max_depth,n_estimators
+```
