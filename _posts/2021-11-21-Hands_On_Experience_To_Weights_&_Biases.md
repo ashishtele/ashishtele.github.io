@@ -31,3 +31,10 @@ Reproduce models
 Visualize results
 
 As a part of the End to End MLOps project, I worked on MLFlow to track the model artifacts, hyperparameters, etc. I have also worked on MLFlow + Databricks combo at the enterprise level and found it very helpful. [MLFlow](https://mlflow.org/) is one of the experiment tracking tools out there in the market. Neptune and Wandb.ai are the other two promising entries. I thought of giving a try to W&B to see its functionality. 
+
+The best thing about W&B that I found among many others is [quick setup](https://docs.wandb.ai/quickstart). The W&B team has made user onboarding hassle-free. It is very important to have smooth user onboarding and activation in the product journey where W&B has nailed it.
+
+Steps are:
+1. Free W&B account creation and API token 
+2. Installing 'wandb'
+3. Log in to the W&B account using an API token
