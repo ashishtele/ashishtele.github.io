@@ -138,3 +138,75 @@ def split_data(config_path):
 
     return train_x,train_y,test_x,test_y,max_depth,n_estimators
 ```
+The below code snippet runs the main code leveraging the mentioned helper functions. I built a random forest model with max depth and no. of estimators are hyperparameters. It also calculated the feature importance and its indices for a plot.
+
+```ruby
+if __name__=="__main__":
+    args = argparse.ArgumentParser()
+    args.add_argument("--config", default="params.yaml")
+    parsed_args = args.parse_args()
+
+    train_x,train_y,test_x,test_y,max_depth,n_estimators=split_data(config_path=parsed_args.config)
+
+    # Train the RF model
+    model = RandomForestClassifier(max_depth=max_depth,
+                                    n_estimators=n_estimators)
+    model.fit(train_x, train_y)
+    y_pred = model.predict(test_x)
+    y_probas = model.predict_proba(test_x)
+
+    importances = model.feature_importances_
+    indices = np.argsort(importances)[::-1]
+
+    accuracy,precision,recall,f1score = accuracymeasures(test_y,y_pred,'weighted')
+```
+
+The below code is dedicated to weights and biases run. I initiated the run by giving project and model names. I used **rf_model** to highlight the current model. I logged the model performance plots such as the learning curve, confusion matrix, ROC plot. The feature importance plot is also available for tree-based models. It helped me to log the model metrics and artifacts as shown in the code. The plot classifier function didn't run for me.
+
+```ruby
+# Initialize W&B run
+
+    run = wandb.init(project="churn_model", name="rf_model")
+
+    # Log the model plots
+    wandb.sklearn.plot_learning_curve(model,train_x,train_y)
+    wandb.sklearn.plot_roc(test_y, y_probas, np.unique(train_y))
+    wandb.sklearn.plot_confusion_matrix(test_y, y_pred, np.unique(train_y))
+    wandb.sklearn.plot_precision_recall(test_y, y_probas, np.unique(train_y))
+
+    # Class proportions
+    wandb.sklearn.plot_class_proportions(train_y, test_y, np.unique(train_y))
+
+    wandb.sklearn.plot_feature_importances(model, list(train_x.columns), indices)
+
+    test_data_at = wandb.Artifact("test_samples_" + str(wandb.run.id), type="Metrics")
+
+    test_table = wandb.Table(columns=["Accuracy","Precision","Recall","F1 Score"])
+    test_table.add_data(accuracy,
+                        precision,
+                        recall,
+                        f1score)
+
+    test_data_at.add(test_table, 'Metrics')
+    wandb.run.log_artifact(test_data_at)
+
+    wandb.log({"accuracy":accuracy,
+                "precision":precision,
+                "recall":recall,
+                "f1score":f1score, 
+                "max_depth":max_depth,
+                "n_estimators":n_estimators})
+
+    wandb.log({"table": pd.concat([test_y,test_x],axis=1)})
+    
+    """
+    wandb.sklearn.plot_classifier(model, 
+                              train_x, test_x,
+                              train_y, test_y,
+                              y_pred, y_probas,
+                              np.unique(train_y),
+                              is_binary=True, 
+                              model_name='rf_model')
+    """
+    wandb.finish()
+```
