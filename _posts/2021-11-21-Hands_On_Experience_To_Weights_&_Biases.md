@@ -267,3 +267,16 @@ I added a decision tree classifier model for comparison purposes. We can compare
     """
     wandb.finish()
 ```
+Once we run the script, the plots and artifacts get logged to the portal. The below screenshot depicts the model metrics for the random forest model.
+
+<p align="center">
+  <img width="650" height="450" src="/images/rf_model_wandb.PNG">
+</p>
+
+The comparison between the random forest and the decision tree models can be seen in the below chart. We can see the RF model outperforming the decision tree model. 
+
+<p align="center">
+  <img width="650" height="450" src="/images/compare_wandb.PNG">
+</p>
+
+We can create the reports from the workspace dashboards. The reports are highly customizable. We can add the context and comments to share with other team members. Overall, I enjoyed working on the W&B interface and liked the quick onboarding. I wish I would get a chance to work on this tool in the future. 
