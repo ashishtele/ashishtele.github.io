@@ -150,6 +150,8 @@ Once we run the flow and start the local agent, the flow gets registered at pref
   <img width="650" height="450" src="/images/prefect_1.png">
 </p>
 
+The overview page looks like as shown below. We can run each flow manually by clicking 'run'. There are options to schedule the runs for specific times, provided we have an active agent. An automation option is a great way to create flow dependency,e.g., when flow does this, then do this.
+
 <p align="center">
   <img width="650" height="350" src="/images/prefect_2.PNG">
 </p>
