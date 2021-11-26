@@ -12,7 +12,7 @@
 
 theme                  : "jekyll-theme-midnight"
 remote_theme           : pages-themes/midnight@v0.2.0
-minimal_mistakes_skin    : "default" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
+minimal_mistakes_skin    : "dark" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 
 # Site Settings
 locale                   : "en-US"
