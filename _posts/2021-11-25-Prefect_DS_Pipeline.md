@@ -149,3 +149,7 @@ Once we run the flow and start the local agent, the flow gets registered at pref
 <p align="center">
   <img width="650" height="450" src="/images/prefect_1.png">
 </p>
+
+<p align="center">
+  <img width="650" height="350" src="/images/prefect_2.PNG">
+</p>
