@@ -137,3 +137,15 @@ with Flow("Prefect_MLOps") as flow:
 flow.register(project_name="MLOps_run")
 
 ```
+The steps are straightforward to run prefect flow:
+
+```ruby
+> prefect create project MLOps_run
+> python script.py
+> prefect agent local start
+```
+Once we run the flow and start the local agent, the flow gets registered at prefect cloud. We have logs and a schematic available for the flow. It shows the dependencies and data flow overview.
+
+<p align="center">
+  <img width="650" height="450" src="/images/prefect_1.png">
+</p>
