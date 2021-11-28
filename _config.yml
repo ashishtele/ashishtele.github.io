@@ -21,7 +21,7 @@ title_separator          : " "
 name                     : "Ashish Tele"
 description              : "Data Science Portfolio"
 url                      : "https://ashishtele.github.io/"
-baseurl                  : 'tree/master/'
+baseurl                  : #'tree/master/'
 repository               : "ashishtele/ashishtele.github.io"
 logo                     : "/assets/images/image.PNG" #, e.g. "/assets/images/500x300.png"
 masthead_title           : "It's Ashish"
@@ -191,7 +191,7 @@ markdown_ext: "markdown,mkdown,mkdn,mkd,md"
 
 
 # Conversion
-markdown: GFM
+markdown: kramdown
 highlighter: rouge
 lsi: false
 excerpt_separator: "\n\n"
