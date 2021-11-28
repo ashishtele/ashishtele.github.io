@@ -37,3 +37,6 @@ If you see the original definition of GAM from [wikipedia](https://en.wikipedia.
 <p align="center">
   <img width="750" height="100" src="/images/EBM1.png">
 </p>
+
+
+![](https://github.com/ashishtele/ashishtele.github.io/tree/master/images/EBM_1.gif)
