@@ -38,8 +38,53 @@ If you see the original definition of GAM from [wikipedia](https://en.wikipedia.
   <img width="750" height="100" src="/images/EBM1.png">
 </p>
 
+Let's import the required libraries and datasets. I am using the same datasets that I have been using for the last few articles. The dataset is available at [Kaggle](https://www.kaggle.com/c/customer-churn-prediction-2020/data?select=train.csv). It is a simple classification example to predict whether a customer will change telco provider. I faced a setback while using **interpret** in python scripting (.py), so I used .ipynb for the scripting.
 
-Below gif added
+```ruby
+import numpy as np
+import ipykernel as ipy
+import pandas as pd
+import yaml
+import argparse
+import typing
+import matplotlib.pyplot as plt
+from sklearn.metrics import f1_score,recall_score,accuracy_score,precision_score,confusion_matrix,classification_report
+from interpret.glassbox import ExplainableBoostingClassifier
+from interpret import show
+from interpret.provider import InlineProvider
+from interpret import set_visualize_provider
+set_visualize_provider(InlineProvider())
+from interpret.data import ClassHistogram
+from interpret import show, preserve, show_link, set_show_addr
+```
+Import the train, test datasets, and split them into independent and dependent. 
+
+```ruby
+df = pd.read_csv('C:\\Users\\ashis\\OneDrive\\Desktop\\MLOps\\churn_model\\data\\processed\\churn_train.csv')
+df_test = pd.read_csv('C:\\Users\\ashis\\OneDrive\\Desktop\\MLOps\\churn_model\\data\\processed\\churn_test.csv')
+df.head()
+
+train_x = df[[col for col in df.columns if col not in ['churn']]]
+train_y = df['churn']
+test_x = df_test[[col for col in df_test.columns if col not in ['churn']]]
+test_y = df_test['churn']
+
+print(f'train shape: {train_x.shape}')
+print(f'test shape: {test_x.shape}')
+```
+Build a EBC and try a global explainability on the trained model. I had the set-up IP address and port number as the default address was different.
+
+```ruby
+# Fit an Explainable Boosting Machine
+ebm = ExplainableBoostingClassifier()
+ebm.fit(train_x, train_y)
+
+ebm_global = ebm.explain_global(name = 'EBM')
+#preserve(ebm_global, 'number_customer_service_calls', 'number_customer_service_calls.html')
+set_show_addr(("127.0.0.1", 5000))
+show(ebm_global)
+```
+The result is a plotly interactive graph. I created a gif to show various options available. When we select 'summary' option in the dropdown, it gives overall feature importance. The feature 'number_customer_service_calls' has the maximum feature importance. When we select 'number_customer_service_calls' in the dropdown, it gives a score for a complete feature range. As the 'number_customer_service_calls' value increases, the score also increases, i.e., higher chances of churning. 
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/ashishtele/ashishtele.github.io/master/images/EBM_1.gif" width=650>
