@@ -39,4 +39,4 @@ If you see the original definition of GAM from [wikipedia](https://en.wikipedia.
 </p>
 
 
-<img src="https://github.com/ashishtele/ashishtele.github.io/tree/master/images/EBM_1.gif" alt="zigzag" />
+<img src="https://github.com/ashishtele/ashishtele.github.io/tree/master/images/EBM_1.gif" width=650>
