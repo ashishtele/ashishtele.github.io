@@ -20,3 +20,10 @@ gallery:
     url: ''
     title: ''
 ---
+Hi All,
+
+InterpretML is an open-source package by Microsoft that encompasses SOTA ML interpretability techniques. It works for two categories:
+Glassbox models: The ML models that are designed for interpretability such as linear models, GAMs.
+Blackbox models: PDP, LIME techniques for explaining existing systems.
+
+Microsoft Research has developed an interpretable model named Explainable Boosting Machine (EBM). It is a GAMs + bagging/boosting (GAMs on steroids!) in simple terms. The link to the paper is [here](https://arxiv.org/pdf/1909.09223.pdf).
