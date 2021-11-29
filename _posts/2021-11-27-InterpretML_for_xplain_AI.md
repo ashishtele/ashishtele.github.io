@@ -87,5 +87,53 @@ show(ebm_global)
 The result is a plotly interactive graph. I created a gif to show various options available. When we select 'summary' option in the dropdown, it gives overall feature importance. The feature 'number_customer_service_calls' has the maximum feature importance. When we select 'number_customer_service_calls' in the dropdown, it gives a score for a complete feature range. As the 'number_customer_service_calls' value increases, the score also increases, i.e., higher chances of churning. 
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/ashishtele/ashishtele.github.io/master/images/EBM_1.gif" width=650>
+  <img src="https://raw.githubusercontent.com/ashishtele/ashishtele.github.io/master/images/EBM_1.gif" width=750>
 </p>
+
+The local explainability for a few records can be examined for a better understood as
+```ruby
+ebm_local = ebm.explain_local(train_x[:20], train_y[:20], name='EBM')
+show(ebm_local)
+```
+<p align="center">
+  <img width="750" height="450" src="/images/EBM_2.png">
+</p>
+
+The ROC performance can be accessed for the best model after the hyperparameter tuning by running below code:
+
+```ruby
+
+from interpret.glassbox import ExplainableBoostingClassifier
+from sklearn.model_selection import RandomizedSearchCV
+param_test = {'learning_rate': [0.001,0.005,0.01,0.02],
+              'interactions': [5,10,15],
+              'max_interaction_bins': [10,15,20],
+              'max_rounds': [500,1000,1500,2000],
+              'min_samples_leaf': [2,3,5],
+              'max_leaves': [3,5,10]}
+n_HP_points_to_test=10
+LGBM_clf = ExplainableBoostingClassifier(random_state=314, n_jobs=-1)
+LGBM_gs = RandomizedSearchCV(
+    estimator=LGBM_clf,
+    param_distributions=param_test,
+    n_iter=n_HP_points_to_test,
+    scoring="roc_auc",
+    cv=3,
+    refit=True,
+    random_state=314,
+    verbose=False,
+)
+LGBM_gs.fit(train_x, train_y)
+
+from interpret import perf
+roc = perf.ROC(LGBM_gs.best_estimator_.predict_proba, feature_names=train_x.columns)
+test_y = test_y.map({'yes':1,'no':0})
+roc_explanation = roc.explain_perf(test_x, test_y)
+show(roc_explanation)
+```
+
+<p align="center">
+  <img width="750" height="450" src="/images/EBM_3.png">
+</p>
+
+I think InterpretML can be a really important part of MLOps pipeline!!
