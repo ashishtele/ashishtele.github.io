@@ -136,4 +136,4 @@ show(roc_explanation)
   <img width="750" height="450" src="/images/EBM_3.png">
 </p>
 
-I think InterpretML can be a really important part of MLOps pipeline!!
+I think InterpretML can be a really important part of MLOps pipeline!! Sorry, Missed to mentioned and want to give a big shoutout to [Cockos](https://www.cockos.com/licecap/) for providing a lightweight tool for gif creation. 
