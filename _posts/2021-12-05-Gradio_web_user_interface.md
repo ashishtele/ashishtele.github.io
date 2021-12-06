@@ -11,8 +11,8 @@ published: true
 comments: true
 header:
   teaserlogo:
-  teaser: /images/interpret.png
-  image: /images/interpret.png
+  teaser: /images/gradio.png
+  image: /images/gradio.png
   caption: "courtesy: https://gradio.app/"
 gallery:
 
@@ -20,3 +20,4 @@ gallery:
     url: ''
     title: ''
 ---
+TBD
