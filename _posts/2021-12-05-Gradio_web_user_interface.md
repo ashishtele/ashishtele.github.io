@@ -25,3 +25,68 @@ Hey All,
 [Gradio](https://gradio.app/) is an open-source python library that allows us to create an easy-to-use, customizable user interface for our ML models in just a few lines of code. We can integrate the GUI into our Python script, or we can share the link with anyone.
 
 We have a couple of alternatives available such as Streamlit, Flask, etc to interface model outputs. I think having a UI for ML output provides a layer of translation from technical to layman language. It becomes very easy to demonstrate the power of the ML model to stakeholders by showing the working MVP (MLP !) by changing the values on the UI. I found Streamlit and Gradio very easy to code, quick to spin up, and flashy to impress!
+
+Let's start pulling in code snippets. The functions are self-defined and easy to understand. 
+
+```ruby
+
+# Importing required packages
+import gradio as gr
+import pickle
+import os
+import numpy as np
+import yaml
+import joblib
+
+# loading the trained model
+params_path = 'params.yaml'
+ 
+class NotANumber(Exception):
+    def __init__(self, message = "Values entered are not Numerical"):
+        self.message = message
+        super().__init__(self.message)
+
+# Read parameters from config file
+def read_params(config_path):
+    with open(config_path, 'r') as yaml_file:
+        config = yaml.safe_load(yaml_file)
+    return config
+
+def predict(data):
+    """
+    Dict. values to predict the output
+    output: yes/no
+    """
+    config = read_params(params_path)
+    model_dir_path = config['model_webapp_dir']
+    model = joblib.load(model_dir_path)
+    prediction = model.predict(data).tolist()[0]
+    return prediction  
+
+def validate_input(dict_request):
+    for _, val in dict_request.items():
+        try:
+            val = float(val)
+        except Exception as e:
+            raise NotANumber
+
+    return True
+
+def form_response(vmail_msg, tot_day_calls, tot_eve_min, tot_eve_chr, tot_int_min, cust_sev_calls):
+    dict_request = {'vmail_msg': vmail_msg, 
+                'tot_day_calls': tot_day_calls, 
+                'tot_eve_min': tot_eve_min, 
+                'tot_eve_chr': tot_eve_chr, 
+                'tot_int_min': tot_int_min, 
+                'cust_sev_calls': cust_sev_calls}
+    try:
+        if validate_input(dict_request):
+            data = dict_request.values()
+            data = [list(map(float, data))]
+            response = predict(data)
+            return response
+    except NotANumber as e:
+        response = str(e)
+        return response
+
+```
