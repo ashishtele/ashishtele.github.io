@@ -90,3 +90,19 @@ def form_response(vmail_msg, tot_day_calls, tot_eve_min, tot_eve_chr, tot_int_mi
         return response
 
 ```
+
+```ruby
+# Slider creation for Gradio
+vmail_msg = gr.inputs.Slider(label = 'Number vmail messages',minimum = 1, maximum = 30)
+tot_day_calls = gr.inputs.Slider(label = 'Total day calls',minimum = 1, maximum = 30)
+tot_eve_min = gr.inputs.Slider(label = 'Total eve minutes',minimum = 1, maximum = 30) 
+tot_eve_chr = gr.inputs.Slider(label = 'Total eve charge',minimum = 1, maximum = 30)
+tot_int_min = gr.inputs.Slider(label = 'Total Intl minutes',minimum = 1, maximum = 30)
+cust_sev_calls = gr.inputs.Slider(label = 'Customer service calls',minimum = 1, maximum = 30)
+
+
+gr.Interface(form_response,
+            inputs = [vmail_msg, tot_day_calls, tot_eve_min, tot_eve_chr, tot_int_min, cust_sev_calls],
+            outputs = 'label',
+            live = True).launch()
+```
