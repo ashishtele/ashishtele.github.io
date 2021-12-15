@@ -90,6 +90,7 @@ def form_response(vmail_msg, tot_day_calls, tot_eve_min, tot_eve_chr, tot_int_mi
         return response
 
 ```
+The code for Gradio is concise and very similar to Streamlit as we have seen in the previous post. I have created a set of sliders with minimum and maximum values. I then passed the slider values as a list to **form_response()** function under **Interface()**.
 
 ```ruby
 # Slider creation for Gradio
