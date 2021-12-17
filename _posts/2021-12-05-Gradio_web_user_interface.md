@@ -107,7 +107,7 @@ gr.Interface(form_response,
             outputs = 'label',
             live = True).launch()
 ```
-
+Let us a have a look an UI.
 
 <p align="center">
   <img width="750" height="450" src="/images/gradio_1.png">
