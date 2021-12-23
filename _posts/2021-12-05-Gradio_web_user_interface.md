@@ -107,8 +107,10 @@ gr.Interface(form_response,
             outputs = 'label',
             live = True).launch()
 ```
-Let us a have a look an UI.
+Let us a have a look an UI. Setting up a Gradio app is an easy deal. The code is concise and self-explainable.  
 
 <p align="center">
   <img width="750" height="450" src="/images/gradio_1.png">
 </p>
+
+Thank you!
