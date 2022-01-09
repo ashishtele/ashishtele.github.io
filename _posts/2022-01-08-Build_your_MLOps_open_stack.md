@@ -20,3 +20,9 @@ gallery:
     url: ''
     title: ''
 ---
+
+Hey All,
+
+First blog of 2022! 💪
+
+Let me put the latest web search trend of MLOps. It has been picking up in recent years. Any guesses which country is leading the march? CHINA! We have been witnessing MLOps explosive in the US, but unware of China.
