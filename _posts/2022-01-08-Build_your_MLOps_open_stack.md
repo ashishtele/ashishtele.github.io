@@ -31,3 +31,6 @@ Let me put the latest web search trend of MLOps. It has been picking up in recen
 
 The purpose of the data stack is to source data from an external system, load it in a warehouse/lakehouse, and massage it for the next journey. It can work in either of these fashions: ETL or ELT. Many companies are moving to ELT (Extract, Load, and Transform) paradigm for multiple reasons.
 
+<p align="center">
+  <img width="750" height="450" src="/images/mlops_data.PNG">
+</p>
