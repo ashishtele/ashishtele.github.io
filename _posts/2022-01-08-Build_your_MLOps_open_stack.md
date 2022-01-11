@@ -25,4 +25,9 @@ Hey All,
 
 First blog of 2022! 💪
 
-Let me put the latest web search trend of MLOps. It has been picking up in recent years. Any guesses which country is leading the march? CHINA! We have been witnessing MLOps explosive in the US, but unware of China.
+Let me put the latest web search trend of MLOps. It has been picking up in recent years. Any guesses which country is leading the march? CHINA! We have been witnessing MLOps explosive in the US, but unware of China. Let's try to see what are the open-source building blocks we have and how can we leverage them to build a reliable data & ML stack. We have multiple options at each stage, but we will keep it open-source-focused. 
+
+# Data Stack
+
+The purpose of the data stack is to source data from an external system, load it in a warehouse/lakehouse, and massage it for the next journey. It can work in either of these fashions: ETL or ELT. Many companies are moving to ELT (Extract, Load, and Transform) paradigm for multiple reasons.
+
