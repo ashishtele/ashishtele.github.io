@@ -35,6 +35,8 @@ I was researching the modern data stack and came across [Airbyte](https://airbyt
 
 We can take advantage of [dbt + Airflow + Great Expectations](https://github.com/spbail/dag-stack) trio. [Great Expectations](https://greatexpectations.io/) is an open-source data quality solution. I found it very helpful both for personal and professional work. I tried [TFDV](https://www.tensorflow.org/tfx/data_validation/get_started) and [Great Expectations](https://greatexpectations.io/) for data validation and data quality checks in my MLOps pipeline on GCP. I am looking after using [deepchecks](https://github.com/deepchecks/deepchecks) for upcoming projects. We can deploy this Airflow DAG on Cloud Composer.
 
+Now we have options such as [Looker](https://looker.com/google-cloud), [Superset](https://superset.apache.org/), and a recent addition of [Lightdash](https://github.com/lightdash/lightdash) for exploratory analysis. We can use [Tableau](https://www.tableau.com/) and/or [Power BI](https://powerbi.microsoft.com/en-us/) as well. A lot of options out there! I use [Data Studio](https://analytics.google.com/analytics/academy/course/10) and [Power BI](https://powerbi.microsoft.com/en-us/) for most of my work.
+
 <p align="center">
   <img width="750" height="450" src="/images/mlops_data.PNG">
 </p>
