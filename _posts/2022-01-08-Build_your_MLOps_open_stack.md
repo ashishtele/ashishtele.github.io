@@ -43,4 +43,6 @@ Now we have options such as [Looker](https://looker.com/google-cloud), [Superset
 
 # ML Stack
 
-Continue..
+<p align="center">
+  <img width="750" height="450" src="/images/mlops_data1.PNG">
+</p>
