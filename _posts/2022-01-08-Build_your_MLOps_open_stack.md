@@ -46,3 +46,5 @@ Now we have options such as [Looker](https://looker.com/google-cloud), [Superset
 <p align="center">
   <img width="750" height="450" src="/images/mlops_data1.PNG">
 </p>
+
+Let's assume we have structured data in Google BQ. We have multiple options to optimize the data storage in BQ based on the applications. The [materialized views](https://cloud.google.com/bigquery/docs/materialized-views-best-practices) are worth exploring for increased performance and efficiency. As per Google, "Queries that use materialized views are generally faster and consume fewer resources than queries that retrieve the same data only from the base table. Materialized views can significantly improve the performance of workloads that have the characteristic of common and repeated queries."
