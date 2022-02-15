@@ -55,4 +55,6 @@ Next comes Experimentation and scripting. We, Data Scientists, spend most of our
 
 When we run the final scripts using DVC/Airflow/Prefect in the Dev/Prod environment, the batch predictions can be persisted as a table in the database. I have used the BQ table to save the batch predictions. We can also persist the model pipelines and keep track of the best-performing models. We have a couple of examples for the model monitoring like [Vertex AI Monitoring](https://cloud.google.com/vertex-ai/docs/model-monitoring), [Evidently AI](https://evidentlyai.com/). Evidently AI can be used to run data and model checks as a part of MLFlow/Airflow pipeline. It also generates sharable reports for debugging. If we are generating any report such as CSV/Excel as an output, it should be pushed to the storage bucket. The model artifacts can be pushed to GCS bucket for versioning and automation purpose.
 
+When it comes to online inference, we have a bunch of tools for quick prototyping. [Streamlit](https://streamlit.io/) is easy to use and fast to build tool. 
+
 Continue..
