@@ -35,7 +35,7 @@ I was researching the modern data stack and came across [Airbyte](https://airbyt
 
 We can take advantage of [dbt + Airflow + Great Expectations](https://github.com/spbail/dag-stack) trio. [Great Expectations](https://greatexpectations.io/) is an open-source data quality solution. I found it very helpful both for personal and professional work. I tried [TFDV](https://www.tensorflow.org/tfx/data_validation/get_started) and [Great Expectations](https://greatexpectations.io/) for data validation and data quality checks in my MLOps pipeline on GCP. I am looking after using [deepchecks](https://github.com/deepchecks/deepchecks) for upcoming projects. We can deploy this Airflow DAG on Cloud Composer.
 
-Now we have options such as [Looker](https://looker.com/google-cloud), [Superset](https://superset.apache.org/), and a recent addition of [Lightdash](https://github.com/lightdash/lightdash) for exploratory analysis. We can use [Tableau](https://www.tableau.com/) and/or [Power BI](https://powerbi.microsoft.com/en-us/) as well. A lot of options out there! I use [Data Studio](https://analytics.google.com/analytics/academy/course/10) and [Power BI](https://powerbi.microsoft.com/en-us/) for most of my work.
+Now we have options such as [Looker](https://looker.com/google-cloud), [Superset](https://superset.apache.org/), and a recent addition of [Lightdash](https://github.com/lightdash/lightdash) for exploratory analysis. We can use [Tableau](https://www.tableau.com/) and/or [Power BI](https://powerbi.microsoft.com/en-us/) as well. A lot of options out there! I use [Data Studio](https://analytics.google.com/analytics/academy/course/10) and [Power BI](https://powerbi.microsoft.com/en-us/) for most of my work. [Superset](https://superset.apache.org/) is a great option to explore as well.
 
 <p align="center">
   <img width="750" height="450" src="/images/mlops_data2.PNG">
@@ -55,6 +55,6 @@ Next comes Experimentation and scripting. We, Data Scientists, spend most of our
 
 When we run the final scripts using DVC/Airflow/Prefect in the Dev/Prod environment, the batch predictions can be persisted as a table in the database. I have used the BQ table to save the batch predictions. We can also persist the model pipelines and keep track of the best-performing models. We have a couple of examples for the model monitoring like [Vertex AI Monitoring](https://cloud.google.com/vertex-ai/docs/model-monitoring), [Evidently AI](https://evidentlyai.com/). Evidently AI can be used to run data and model checks as a part of MLFlow/Airflow pipeline. It also generates sharable reports for debugging. If we are generating any report such as CSV/Excel as an output, it should be pushed to the storage bucket. The model artifacts can be pushed to GCS bucket for versioning and automation purpose.
 
-When it comes to online inference, we have a bunch of tools for quick prototyping. [Streamlit](https://streamlit.io/) is easy to use and fast to build tool. We do have FastAPI, high-performance web framework as a great alternative. FastAPI has a couple of advantages over Flask tool.
+When it comes to online inference, we have a bunch of tools for quick prototyping. [Streamlit](https://streamlit.io/) is easy to use and fast to build tool. We do have FastAPI, high-performance web framework as a great alternative. FastAPI has a couple of advantages over Flask tool. FastAPI is faster thanks to [ASGI](https://fastapi.tiangolo.com/benchmarks/), automatic docs, type declarations (for validation) !!
 
-Continue..
+Thank you..
