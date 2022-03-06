@@ -20,3 +20,4 @@ gallery:
     url: ''
     title: ''
 ---
+MLOps is a newly minted word. Companies are flocking to go behind it. Myriad PaaS startups are offering end-to-end services. 
