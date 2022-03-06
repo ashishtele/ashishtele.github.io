@@ -20,4 +20,4 @@ gallery:
     url: ''
     title: ''
 ---
-MLOps is a newly minted word. Companies are flocking to go behind it. Myriad PaaS startups are offering end-to-end services. 
+MLOps is a newly minted word. As per Wikipedia, "MLOps or ML Ops is a set of practices that aims to deploy and maintain machine learning models in production reliably and efficiently. The word is a compound of "machine learning" and the continuous development practice of DevOps in the software field". Companies are flocking to go behind it. Myriad PaaS startups are offering end-to-end services. MLOps market is projected to reach [$126 billion](https://neu.ro/2021-mlops-platforms-vendor-analysis-report/) by 2025.
