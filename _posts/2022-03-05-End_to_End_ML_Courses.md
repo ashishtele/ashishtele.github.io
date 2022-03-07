@@ -21,3 +21,5 @@ gallery:
     title: ''
 ---
 MLOps is a newly minted word. As per Wikipedia, "MLOps or ML Ops is a set of practices that aims to deploy and maintain machine learning models in production reliably and efficiently. The word is a compound of "machine learning" and the continuous development practice of DevOps in the software field". Companies are flocking to go behind it. Myriad PaaS startups are offering end-to-end services. MLOps market is projected to reach [$126 billion](https://neu.ro/2021-mlops-platforms-vendor-analysis-report/) by 2025.
+
+I want to highlight a few resources that are useful for the MLOps journey. I reached out to many people, searched on Github and Reddit, joined multiple Discord channels, followed many researchers on Twitter to gather some of these. I hope you will find it useful as well. If you have anything to append to this ever-growing list, please feel free to leave a comment.
