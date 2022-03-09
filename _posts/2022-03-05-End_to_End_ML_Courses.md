@@ -26,4 +26,8 @@ I want to highlight a few resources that are useful for the MLOps journey. I rea
 
 ## [CS 329S: Machine Learning Systems Design](https://stanford-cs329s.github.io/syllabus.html)
 
-This course is unquestionably the most unique, first-of-its-kind machine learning system design course. The course is taught by [Chip](https://twitter.com/chipro) at Stanford. It touches all aspects of ML system design with practical examples and significance. I found lecture notes comprehensive to refresh ML system design basics. We should be grateful to make it available for FREE.  
+This course is unquestionably the most unique, first-of-its-kind machine learning system design course. The course is taught by [Chip](https://twitter.com/chipro) at Stanford. It touches all aspects of ML system design with practical examples and significance. I found lecture notes comprehensive to refresh ML system design basics. We should be grateful to them for making it available for FREE.
+
+## [Hidden Technical Debt in Machine Learning Systems](https://proceedings.neurips.cc/paper/2015/file/86df7dcfd896fcaf2674f757a2463eba-Paper.pdf)
+
+People who are in the ML system design field or are interested in MLOps must have come across this paper or its reference. Many blogs give credit to this paper (2015) by Google for highlighting the importance of infrastructure in real-world ML systems. It explains that the maintenance costs in real-world ML systems are massive and can not be decoupled from the ML ecosystem.
