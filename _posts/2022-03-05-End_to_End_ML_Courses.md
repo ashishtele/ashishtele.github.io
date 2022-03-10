@@ -31,3 +31,7 @@ This course is unquestionably the most unique, first-of-its-kind machine learnin
 ## [Hidden Technical Debt in Machine Learning Systems](https://proceedings.neurips.cc/paper/2015/file/86df7dcfd896fcaf2674f757a2463eba-Paper.pdf)
 
 People who are in the ML system design field or are interested in MLOps must have come across this paper or its reference. Many blogs give credit to this paper (2015) by Google for highlighting the importance of infrastructure in real-world ML systems. It explains that the maintenance costs in real-world ML systems are massive and can not be decoupled from the ML ecosystem.
+
+<p align="center">
+  <img width="550" height="300" src="/images/mlops_res1.PNG">
+</p>
