@@ -35,3 +35,7 @@ People who are in the ML system design field or are interested in MLOps must hav
 <p align="center">
   <img width="550" height="300" src="/images/mlops_res1.PNG">
 </p>
+
+## [Machine Learning Operations by DTU MLOps](https://skaftenicki.github.io/dtu_mlops/)
+
+Continue...
