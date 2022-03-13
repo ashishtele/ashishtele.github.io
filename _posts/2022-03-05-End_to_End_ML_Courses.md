@@ -52,3 +52,7 @@ The course objectives:
 * Deploy machine learning models, both locally and in the cloud
 
 Bonus point: MEMES!!
+
+## [Machine Learning Ops Roundup](https://mlopsroundup.substack.com/p/issue-15-ai-for-self-driving-at-tesla?s=r&sort=community)
+
+Continue..
