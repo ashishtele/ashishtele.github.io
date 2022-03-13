@@ -51,3 +51,4 @@ The course objectives:
 * Demonstrate knowledge about different distributed training paradigms within machine learning and how to apply them (Distributed Data Loading, Distributed Training)
 * Deploy machine learning models, both locally and in the cloud
 
+Bonus point: MEMES!!
