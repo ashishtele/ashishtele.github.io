@@ -38,4 +38,16 @@ People who are in the ML system design field or are interested in MLOps must hav
 
 ## [Machine Learning Operations by DTU MLOps](https://skaftenicki.github.io/dtu_mlops/)
 
-Continue...
+One of the detailed MLOps courses is available for FREE at [DTU](https://kurser.dtu.dk/course/02476). The main focus is on exercises with emphasis on practical tools and coding skills for machine learning in production. It introduces a number of coding practices that will help organize, scale, monitor, and deploy machine learning models either in a research or production setting. It provides hands-on experience with a number of frameworks, both local and in the cloud, for doing large-scale machine learning models.
+
+The course objectives:
+
+* Organize code in an efficient way for easy maintainability and shareability (Git, Code structure, Debugging, Profiling, Experiment Logging)
+* Understand the importance of reproducibility and how to create reproducible containerized applications and experiments (Docker, Config files)
+* Capable of using version control to efficiently collaborate on code development (Github, DVC)
+* Knowledge of continuous integration (CI) and continuous machine learning (CML) for automating code development
+* Being able to debug, profile, visualize and monitor multiple experiments to assess model performance (GCP Monitoring)
+* Capable of using online cloud-based computing services to scale experiments (Local, Cloud deployment, Data Drifting)
+* Demonstrate knowledge about different distributed training paradigms within machine learning and how to apply them (Distributed Data Loading, Distributed Training)
+* Deploy machine learning models, both locally and in the cloud
+
