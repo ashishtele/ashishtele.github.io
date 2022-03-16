@@ -56,3 +56,5 @@ Bonus point: MEMES!!
 ## [Machine Learning Ops Roundup](https://mlopsroundup.substack.com/p/issue-15-ai-for-self-driving-at-tesla?s=r&sort=community)
 
 MLOps roundup is a monthly newsletter that brings together the best articles, news, and papers about ML resources. It is curated by [Nihit Desai](https://twitter.com/nihit_desai) and [Rishabh Bhargava](https://twitter.com/rish_bhargava).  I always found it a very informative and common placeholder for all the MLOps news and advancement. At the time of writing this part of the blog, there are 30 newsletters filled with a ton of information. It is a treat for an MLops nerd!
+
+## [University of Cincinnati Business Analytics Course](http://uc-r.github.io/predictive)
