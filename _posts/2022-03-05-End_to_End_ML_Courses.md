@@ -58,3 +58,5 @@ Bonus point: MEMES!!
 MLOps roundup is a monthly newsletter that brings together the best articles, news, and papers about ML resources. It is curated by [Nihit Desai](https://twitter.com/nihit_desai) and [Rishabh Bhargava](https://twitter.com/rish_bhargava).  I always found it a very informative and common placeholder for all the MLOps news and advancement. At the time of writing this part of the blog, there are 30 newsletters filled with a ton of information. It is a treat for an MLops nerd!
 
 ## [University of Cincinnati Business Analytics Course](http://uc-r.github.io/predictive)
+
+If you are a R nerd and looking for a quality course in machine learning, [UC R Programming](https://twitter.com/LindnerCollege) is the place. It has great explanations about all basic algorithms such as Linear Regression, Naive Bayes, Random Forest etc. [Preparing for Regression Problems](http://uc-r.github.io/regression_preparation) introduces crisp concepts necessary for any type of supervised machine learning model.
