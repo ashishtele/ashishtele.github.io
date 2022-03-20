@@ -60,3 +60,5 @@ MLOps roundup is a monthly newsletter that brings together the best articles, ne
 ## [University of Cincinnati Business Analytics Course](http://uc-r.github.io/predictive)
 
 If you are a R nerd and looking for a quality course in machine learning, [UC R Programming](https://twitter.com/LindnerCollege) is the place. It has great explanations about all basic algorithms such as Linear Regression, Naive Bayes, Random Forest etc. [Preparing for Regression Problems](http://uc-r.github.io/regression_preparation) introduces crisp concepts necessary for any type of supervised machine learning model.
+
+## [ML System Design by University of Minnesota](https://mlsystemdesign-6490.github.io/)
