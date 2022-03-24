@@ -62,3 +62,5 @@ MLOps roundup is a monthly newsletter that brings together the best articles, ne
 If you are a R nerd and looking for a quality course in machine learning, [UC R Programming](https://twitter.com/LindnerCollege) is the place. It has great explanations about all basic algorithms such as Linear Regression, Naive Bayes, Random Forest etc. [Preparing for Regression Problems](http://uc-r.github.io/regression_preparation) introduces crisp concepts necessary for any type of supervised machine learning model.
 
 ## [ML System Design by University of Minnesota](https://mlsystemdesign-6490.github.io/)
+
+The ML System Design is offered by the University of Minnesota and taught by [HAMZA FAROOQ](https://www.linkedin.com/in/hamzafarooq/). Hamza is a Data Science Manager at Google and an adjunct professor at the University of Minnesota. The last time when I emailed Hamza, he stated that the course material will be made available on Github.
