@@ -64,3 +64,5 @@ If you are a R nerd and looking for a quality course in machine learning, [UC R 
 ## [ML System Design by University of Minnesota](https://mlsystemdesign-6490.github.io/)
 
 The ML System Design is offered by the University of Minnesota and taught by [HAMZA FAROOQ](https://www.linkedin.com/in/hamzafarooq/). Hamza is a Data Science Manager at Google and an adjunct professor at the University of Minnesota. The last time when I emailed Hamza, he stated that the course material will be made available on Github.
+
+## [Machine Learning Design Patterns](https://www.amazon.com/Machine-Learning-Design-Patterns-Preparation/dp/1098115783/ref=pd_lpo_1?pd_rd_i=1098115783&psc=1)
