@@ -70,4 +70,9 @@ The ML System Design is offered by the University of Minnesota and taught by [HA
 It is one of the great books on MLOps. It provides solutions to Common Challenges in Data Preparation, Model Building, and MLOps. 
 The design patterns capture best practices and solutions to recurring problems in machine learning. It provides explanations of 30 patterns for data and problem representation, operationalization, repeatability, reproducibility, flexibility, explainability, and fairness.
 
+It will help you how to:
 
+* Identify and mitigate common challenges when training, evaluating and deploying ML models
+* Choose the right model type for specific problems
+* Deploy scalable ML systems that you can retrain and update to reflect new data
+* Interpret model predictions for stakeholders and ensure models are treating users fairly
