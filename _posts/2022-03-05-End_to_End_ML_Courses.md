@@ -66,3 +66,8 @@ If you are a R nerd and looking for a quality course in machine learning, [UC R 
 The ML System Design is offered by the University of Minnesota and taught by [HAMZA FAROOQ](https://www.linkedin.com/in/hamzafarooq/). Hamza is a Data Science Manager at Google and an adjunct professor at the University of Minnesota. The last time when I emailed Hamza, he stated that the course material will be made available on Github.
 
 ## [Machine Learning Design Patterns](https://www.amazon.com/Machine-Learning-Design-Patterns-Preparation/dp/1098115783/ref=pd_lpo_1?pd_rd_i=1098115783&psc=1)
+
+It is one of the great books on MLOps. It provides solutions to Common Challenges in Data Preparation, Model Building, and MLOps. 
+The design patterns capture best practices and solutions to recurring problems in machine learning. It provides explanations of 30 patterns for data and problem representation, operationalization, repeatability, reproducibility, flexibility, explainability, and fairness.
+
+
