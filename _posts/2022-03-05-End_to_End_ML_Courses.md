@@ -77,4 +77,16 @@ It will help you how to:
 * Deploy scalable ML systems that you can retrain and update to reflect new data
 * Interpret model predictions for stakeholders and ensure models are treating users fairly
 
+## [Machine Learning Operations](https://ml-ops.org/#gettingstarted)
+
+It provides an end-to-end ML development process to design, build and manage reproducible, testable, and evolvable ML-powered software.
+
+A few noteworthy reads on the website:
+
+1. Motivation for MLOps
+2. End-to-End ML workflow lifecycle
+3. MLOps Principles
+4. CRISP-ML
+5. ML Model Governance
+
 I will keep adding content to the same post!! Thank you for reading.
