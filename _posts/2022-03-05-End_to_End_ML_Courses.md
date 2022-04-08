@@ -92,3 +92,5 @@ A few noteworthy reads on the website:
 I will keep adding content to the same post!! Thank you for reading.
 
 ## [Made With ML](https://madewithml.com/)
+
+As the repository states "Learn how to apply ML to build a production-grade product and deliver value." It is a great resource for software engineers, data scientists, and product managers.
