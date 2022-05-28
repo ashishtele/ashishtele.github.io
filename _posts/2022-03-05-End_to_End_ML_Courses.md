@@ -107,3 +107,5 @@ As the repository states, "Learn how to apply ML to build a production-grade pro
 ## [MLOps Zoomcamp](https://github.com/DataTalksClub/mlops-zoomcamp)
 
 It teaches the practical aspects of productionizing ML services: collecting requirements to model deployment and monitoring. The course has just started!!
+
+Thank you!!
