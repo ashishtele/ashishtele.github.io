@@ -57,4 +57,7 @@ When we run the final scripts using DVC/Airflow/Prefect in the Dev/Prod environm
 
 When it comes to online inference, we have a bunch of tools for quick prototyping. [Streamlit](https://streamlit.io/) is easy to use and fast to build tool. We do have FastAPI, high-performance web framework as a great alternative. FastAPI has a couple of advantages over Flask tool. FastAPI is faster thanks to [ASGI](https://fastapi.tiangolo.com/benchmarks/), automatic docs, type declarations (for validation) !! I will keep appending the list as I come across new tools.
 
+Explore while working on project:
+1. requirements.in + pip-compile -> requirements.txt
+
 Thank you..
