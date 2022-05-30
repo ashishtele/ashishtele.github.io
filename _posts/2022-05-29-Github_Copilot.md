@@ -13,7 +13,7 @@ header:
   teaserlogo:
   teaser: /images/copilot.png
   image: /images/copilot.png
-  caption: "courtesy: [Github Copilot](https://copilot.github.com/)"
+  caption: "courtesy: https://copilot.github.com/"
 gallery:
 
   - image_path: ''
