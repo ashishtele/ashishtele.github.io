@@ -30,3 +30,7 @@ Those who don't know, it is an AI pair programmer that helps to code faster. It 
 A few of the peculiar use cases:
 
 1. Write a comment describing the logic you want and the copilot will assemble code for you. Consider a simple example of converting string to datetime. I wrote a comment in plain english and the copilot started suggesting the plausible options.
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/ashishtele/ashishtele.github.io/master/images/copilot1.gif" width=750>
+</p>
