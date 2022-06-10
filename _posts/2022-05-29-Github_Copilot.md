@@ -44,3 +44,5 @@ A few of the peculiar use cases:
 <p align="center">
   <img src="https://raw.githubusercontent.com/ashishtele/ashishtele.github.io/master/images/tests.gif" width=750>
 </p>
+
+5. Code without spending most of your times earching the web.
