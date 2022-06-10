@@ -45,4 +45,4 @@ A few of the peculiar use cases:
   <img src="https://raw.githubusercontent.com/ashishtele/ashishtele.github.io/master/images/tests.gif" width=750>
 </p>
 
-5. Code without spending most of your times earching the web.
+5. Code without spending most of your time searching the web.
