@@ -46,3 +46,7 @@ A few of the peculiar use cases:
 </p>
 
 5. Code without spending most of your time searching the web.
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/ashishtele/ashishtele.github.io/master/images/dis_plot.gif" width=750>
+</p>
