@@ -106,7 +106,12 @@ As the repository states, "Learn how to apply ML to build a production-grade pro
 
 ## [Designing Machine Learning Systems by Chip Huyen](https://www.amazon.com/Designing-Machine-Learning-Systems-Production-Ready/dp/1098107969/ref=sr_1_1?crid=2XAGDK8N25L35&keywords=designing+machine+learning+systems&qid=1655568948&s=books&sprefix=designing+ma%2Cstripbooks%2C98&sr=1-1)
 
-An interative process for production-ready applications
+DMLS: An interative process for production-ready applications. This book covers scenarios such as:
+
+1. Data Engineering and selection of the right metrics
+2. Automating the process for CD (continuous development), CE (evaluation), CD (continuous deployment).
+3. Development of production monitorng system
+4. Architecting an ML platform and responsible ML systems
 
 ## [MLOps Zoomcamp](https://github.com/DataTalksClub/mlops-zoomcamp)
 
