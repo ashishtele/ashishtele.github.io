@@ -29,23 +29,23 @@ Those who don't know, it is an AI pair programmer that helps to code faster. It 
 
 A few of the peculiar use cases:
 
-1. Write a comment describing the logic you want and the copilot will assemble code for you. Consider a simple example of converting string to datetime. I wrote a comment in plain english and the copilot started suggesting the plausible options.
+1.Write a comment describing the logic you want and the copilot will assemble code for you. Consider a simple example of converting string to datetime. I wrote a comment in plain english and the copilot started suggesting the plausible options.
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/ashishtele/ashishtele.github.io/master/images/copilot1.gif" width=750>
 </p>
 
-2. Produce a boilerplate and repetitive code by feeding a few examples.
+2.Produce a boilerplate and repetitive code by feeding a few examples.
 
-3. Getting an alternative to the written code.
+3.Getting an alternative to the written code.
 
-4. Writing unit tests using copilot suggestions is one of the most creative usages I found. Unit tests are time-consuming and hence mostly overlooked during MLOps. Copilot can be very handy in such scenarios. e.g., I have a read_params() function which takes config_path and returns a dictionary of parameters. Once I have the function defined, I wrote the comment for Copilot to suggest the unit test case(s) for the read_params() and the result is as below:
+4.Writing unit tests using copilot suggestions is one of the most creative usages I found. Unit tests are time-consuming and hence mostly overlooked during MLOps. Copilot can be very handy in such scenarios. e.g., I have a read_params() function which takes config_path and returns a dictionary of parameters. Once I have the function defined, I wrote the comment for Copilot to suggest the unit test case(s) for the read_params() and the result is as below:
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/ashishtele/ashishtele.github.io/master/images/tests.gif" width=750>
 </p>
 
-5. Code without spending most of your time searching the web. It is one of my favorite options. It saves a lot of time. As shown below, we need to write draw_distribution_plot() to get the code along with docstrings. 
+5.Code without spending most of your time searching the web. It is one of my favorite options. It saves a lot of time. As shown below, we need to write draw_distribution_plot() to get the code along with docstrings. 
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/ashishtele/ashishtele.github.io/master/images/dis_plot.gif" width=750>
