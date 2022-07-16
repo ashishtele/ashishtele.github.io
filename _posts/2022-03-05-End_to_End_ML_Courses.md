@@ -89,7 +89,6 @@ A few noteworthy reads on the website:
 4. CRISP-ML
 5. ML Model Governance
 
-I will keep adding content to the same post!! Thank you for reading.
 
 ## [Made With ML](https://madewithml.com/)
 
@@ -117,4 +116,4 @@ DMLS: An interative process for production-ready applications. This book covers 
 
 It teaches the practical aspects of productionizing ML services: collecting requirements to model deployment and monitoring. The course has just started!!
 
-Thank you!!
+I will keep adding content to the same post!! Thank you for reading.
