@@ -117,3 +117,5 @@ DMLS: An interative process for production-ready applications. This book covers 
 It teaches the practical aspects of productionizing ML services: collecting requirements to model deployment and monitoring. The course has just started!!
 
 I will keep adding content to the same post!! Thank you for reading.
+
+## [ML in Production](https://mlinproduction.com/why-i-started-mlinproduction/)
