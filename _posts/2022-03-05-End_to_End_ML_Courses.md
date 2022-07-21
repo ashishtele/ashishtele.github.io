@@ -119,3 +119,5 @@ It teaches the practical aspects of productionizing ML services: collecting requ
 I will keep adding content to the same post!! Thank you for reading.
 
 ## [ML in Production](https://mlinproduction.com/why-i-started-mlinproduction/)
+
+It showcases best practices for building real world machine learning systems.
