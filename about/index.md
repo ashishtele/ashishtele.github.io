@@ -4,7 +4,7 @@ comments: false
 tags: [about]
 ---
 
-I am a Senior Data Scientist at Cardinal Health. I worked as a Data Scientist at Nestle and Novartis before. I enjoy data storytelling and 
+I am a Senior Data Scientist (Manager) at Cardinal Health. I worked as a Data Scientist at Nestle and Novartis before. I enjoy data storytelling and 
 sharing my experiences on the Blog.
 
 Previously, I studied Business Analytics & Project Management at UConn School of Business, where I received my Master's 
