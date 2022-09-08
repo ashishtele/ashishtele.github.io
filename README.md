@@ -1,4 +1,4 @@
-# The site showcasing my work !!
+# The site showcasing my work !
 
 ## [Minimal Mistakes Jekyll theme](https://mmistakes.github.io/minimal-mistakes/)
 
