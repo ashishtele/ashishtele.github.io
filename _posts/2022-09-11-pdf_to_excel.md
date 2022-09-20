@@ -23,3 +23,45 @@ gallery:
 Hi All,
 
 We must have come across a situation at least once where we have to copy and paste rows of data out of PDF files. The manual approach of copy-paste works reasonably well for tabular data and a couple of pages. Tabula is a tool that allows extracting data into a CSV or Excel using simple interface. 
+
+```ruby
+# checking java version
+!java -version
+
+!pip install -q pdfplumber
+
+# Importing .pdf file
+import pdfplumber
+import pandas as pd
+
+pdf = pdfplumber.open("/content/All Admitted Candidates List MBBS_BDS & BSC NURSIN.pdf")
+p0 = pdf.pages[0]
+
+# Checking last page
+p0 = pdf.pages[3056]
+
+# Checking imported rows
+table = p0.extract_table()
+table[:3]
+
+# Checking rows and header
+df = pd.DataFrame(table[2:], columns=table[1])
+
+# Write a loop to combine the dataframes
+
+list_of_df = []
+
+for i in range(3057):
+  temp = pdf.pages[i]
+  table = temp.extract_table()
+  df = pd.DataFrame(table[2:], columns=table[1])
+  list_of_df.append(df)
+len(list_of_df)
+
+complete_df = pd.concat(list_of_df)
+complete_df.reset_index(drop=True, inplace= True)
+
+# Saving the results in excel
+complete_df.to_excel('MBBS_list.xlsx')
+
+```
