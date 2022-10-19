@@ -24,7 +24,7 @@ Hi All,
 
 We must have come across a situation at least once where we have to copy and paste rows of data out of PDF files. The manual approach of copy-paste works reasonably well for tabular data and a couple of pages. Tabula is a tool that allows extracting data into a CSV or Excel using simple interface. 
 
-I came across a scenario where I had to fetch tabular data from a pdf document of ~3000 pages. [Tabula](https://tabula.technology/) was my first choice to extract data, but it was difficult to get standard format. The main issue was with the table header. I came across a better option while researching named pdfplumber.
+I came across a scenario where I had to fetch tabular data from a pdf document of ~3000 pages. [Tabula](https://tabula.technology/) was my first choice to extract data, but it was difficult to get standard format. The main issue was with the table header. I came across a better option while researching named [pdfplumber](https://github.com/jsvine/pdfplumber).
 
 ```ruby
 # checking java version
