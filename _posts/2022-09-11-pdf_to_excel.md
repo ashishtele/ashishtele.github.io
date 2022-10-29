@@ -26,6 +26,14 @@ We must have come across a situation at least once where we have to copy and pas
 
 I came across a scenario where I had to fetch tabular data from a pdf document of ~3000 pages. [Tabula](https://tabula.technology/) was my first choice to extract data, but it was difficult to get standard format. The main issue was with the table header. I came across a better option while researching named [pdfplumber](https://github.com/jsvine/pdfplumber).
 
+As per the [pdfplumber](https://github.com/jsvine/pdfplumber), table extraction is borrowed from  [Anssi Nurminen's master's thesis](http://dspace.cc.tut.fi/dpub/bitstream/handle/123456789/21520/Nurminen.pdf?sequence=3). It works like:
+
+1. For any given PDF page, find the lines that are (a) explicitly defined and/or (b) implied by the alignment of words on the page.
+2. Merge overlapping or nearly-overlapping lines.
+3. Find the intersections of all those lines.
+4. Find the most granular set of rectangles (i.e., cells) that use these intersections as their vertices.
+5. Group contiguous cells into tables.
+
 ```ruby
 # checking java version
 !java -version
