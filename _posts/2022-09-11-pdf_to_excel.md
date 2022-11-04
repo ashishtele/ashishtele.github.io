@@ -34,6 +34,8 @@ As per the [pdfplumber](https://github.com/jsvine/pdfplumber), table extraction 
 4. Find the most granular set of rectangles (i.e., cells) that use these intersections as their vertices.
 5. Group contiguous cells into tables.
 
+Code:
+
 ```ruby
 # checking java version
 !java -version
