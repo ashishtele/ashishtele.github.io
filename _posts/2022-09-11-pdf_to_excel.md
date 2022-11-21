@@ -77,5 +77,6 @@ complete_df.reset_index(drop=True, inplace= True)
 complete_df.to_excel('MBBS_list.xlsx')
 
 ```
+The results are accurate when compared to Tabula's results.
 
 Thank you!!
