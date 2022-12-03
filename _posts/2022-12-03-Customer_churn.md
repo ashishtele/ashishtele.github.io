@@ -2,7 +2,7 @@
 layout: single
 sidebar: true
 author_profile: true
-title: Customer Churn in Healthcare.
+title: Customer Churn in Healthcare Industry.
 excerpt: ""
 description: ""
 comments: true
@@ -11,8 +11,8 @@ published: true
 comments: true
 header:
   teaserlogo:
-  teaser: /images/
-  image: /images/
+  teaser: /images/Churn-Prediction-scaled.jpg
+  image: /images/Churn-Prediction-scaled.jpg
   caption: "courtesy: https://analyticsvidhya.com/"
 gallery:
 
