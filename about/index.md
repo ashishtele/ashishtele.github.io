@@ -26,7 +26,7 @@ Experienced in using statistical techniques with real-world data. Familiar with 
 
 Passionate about conducting knowledge transfer sessions for the technical and non-technical audience on emerging tools and techniques in analytics. Successfully conducted ‘Data Visualization: Storytelling’ and ‘Power BI’ sessions for company new hires.
 
-I enjoy coding in R and Python(Deep Learning). I like to focus on all the aspects of predictive model building and model interpretability.
+I enjoy coding in R and Python (Deep Learning). I like to focus on all the aspects of predictive model building and model interpretability.
 
 
 About The Site
