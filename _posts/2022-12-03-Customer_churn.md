@@ -3,8 +3,8 @@ layout: single
 sidebar: true
 author_profile: true
 title: Customer Churn in Healthcare Industry
-excerpt: ""
-description: ""
+excerpt: "Customer churn is the percentage of customers that stopped using your company's product or service during a certain time frame"
+description: "Customer churn is the percentage of customers that stopped using your company's product or service during a certain time frame"
 comments: true
 tags: ["Python","Github","pdf","MLOps","Machine Learning","ML System Design"]
 published: true
