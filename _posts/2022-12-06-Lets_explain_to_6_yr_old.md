@@ -30,3 +30,13 @@ As we were building and expanding our India and US teams, I interviewed around 5
 In my experience, the best data scientists are able to take complex ideas and break them down into simple, easy-to-understand concepts. They can explain the basics of machine learning to someone with no technical background, create the stories from their surroundings, and can also dive deeper into the details for those who are more familiar with the subject.
 
 👉 If you can’t explain it to a 5-year-old, you don’t really understand it! 🧒
+
+__* Let's start with everyone's favorite p-value ✍️..__
+
+A p-value is a statistical measure that is used to evaluate the significance of a result. It is calculated based on the data that has been collected, and is a way of helping us figure out if something is real or just a fluke.
+
+In this way, a p-value is like a measure of how confident you can be in a result. If the p-value is low, then you can be more confident that the result is significant and not just due to chance. On the other hand, if the p-value is high, then you should be more skeptical of the result and consider the possibility that it occurred by chance.
+
+Let's say you're trying to figure out if a certain toy makes kids happier. You give the toy to a group of kids and ask them how happy they feel on a scale of 1-10. After playing with the toy for a while, the average happiness score for a group of kids is 8.5.
+Now, let's say you give the same toy to another group of kids and ask them to rate their happiness. This time, the average happiness score is only 6.5.
+If the p-value (some magic number 🪄) is low, it means that the difference between the two groups is probably not due to chance, and there's likely a real difference between the two groups (boys did not like the barbie doll 👸as much as girls adored it!)
