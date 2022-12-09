@@ -41,3 +41,8 @@ In this way, a p-value is like a measure of how confident you can be in a result
 Let's say you're trying to figure out if a certain toy makes kids happier. You give the toy to a group of kids and ask them how happy they feel on a scale of 1-10. After playing with the toy for a while, the average happiness score for a group of kids is 8.5.
 Now, let's say you give the same toy to another group of kids and ask them to rate their happiness. This time, the average happiness score is only 6.5.
 If the p-value (some magic number 🪄) is low, it means that the difference between the two groups is probably not due to chance, and there's likely a real difference between the two groups (boys did not like the barbie doll 👸as much as girls adored it!)
+
+__Gradient Descent ⛰️__
+=================
+
+Gradient descent is an algorithm that helps us find the best solution to a problem. Imagine you are standing on a hilly landscape and you want to get to the bottom of the biggest hill as quickly as possible. You can walk around, take a few steps, stop and look around to see how close you are to the bottom, and then look for the place where the ground is lowest beneath your feet. The best way to do this is to take small steps in the direction that will take you down the hill the fastest. If you are close to the bottom, you can keep going in the same direction. But if you are far away, you might want to try a different direction. This is like how gradient descent works - it uses math to figure out the best way to move towards the minimum point in a set of hills or valleys by taking small steps in different directions.
