@@ -31,7 +31,8 @@ In my experience, the best data scientists are able to take complex ideas and br
 
 👉 If you can’t explain it to a 5-year-old, you don’t really understand it! 🧒
 
-__* Let's start with everyone's favorite p-value ✍️..__
+__Let's start with everyone's favorite p-value ✍️..__
+=================
 
 A p-value is a statistical measure that is used to evaluate the significance of a result. It is calculated based on the data that has been collected, and is a way of helping us figure out if something is real or just a fluke.
 
