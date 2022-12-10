@@ -45,4 +45,12 @@ If the p-value (some magic number 🪄) is low, it means that the difference bet
 __Gradient Descent ⛰️__
 =================
 
+[ChatGPT](https://chat.openai.com/chat) Prompt: "In the scene, there is a large hill and a man is running down it. The man is moving quickly and is using his legs to propel himself forward as he descends the hill. He may be running for exercise, for fun, or for some other reason. The hill is steep and the man is using all of his strength and coordination to keep his balance as he runs down it. The scene is outdoors and the man is surrounded by nature, with trees and other vegetation visible in the background."
+
+[DALLE.E](https://openai.com/blog/dall-e-now-available-without-waitlist/) output is below:
+
+<p align="center">
+  <img width="350" height="300" src="/images/DALL_e_run.png">
+</p>
+
 Gradient descent is an algorithm that helps us find the best solution to a problem. Imagine you are standing on a hilly landscape and you want to get to the bottom of the biggest hill as quickly as possible. You can walk around, take a few steps, stop and look around to see how close you are to the bottom, and then look for the place where the ground is lowest beneath your feet. The best way to do this is to take small steps in the direction that will take you down the hill the fastest. If you are close to the bottom, you can keep going in the same direction. But if you are far away, you might want to try a different direction. This is like how gradient descent works - it uses math to figure out the best way to move towards the minimum point in a set of hills or valleys by taking small steps in different directions.
