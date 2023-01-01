@@ -6,7 +6,7 @@ title: Let's explain ML concepts to a 6-year-old or a business leader 💪👨�
 excerpt: "It is undoubtedly important to explain machine learning concepts to business stakeholders in layman's terms. It is a very underrated skill and is highly demanded today"
 description: "It is undoubtedly important to explain machine learning concepts to business stakeholders in layman's terms. It is a very underrated skill and is highly demanded today"
 comments: true
-tags: ["Python","Github","concepts","MLOps","Machine Learning","ML System Design"]
+tags: ["Python","Business","concepts","MLOps","Machine Learning","ML System Design"]
 published: true
 comments: true
 header:
