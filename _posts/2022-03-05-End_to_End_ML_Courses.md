@@ -120,5 +120,8 @@ It teaches the practical aspects of productionizing ML services: collecting requ
 
 It showcases best practices for building real world machine learning systems.
 
+## [Harvard CS197: AI Research Experiences](https://docs.google.com/document/d/1uvAbEhbgS_M-uDMTzmOWRlYxqCkogKRXdbKYYT98ooc/edit#heading=h.o3hogvl0ayc1)
+
+A free offering by Harvard CS197.
 
 I will keep adding content to the same post!! Thank you for reading.
