@@ -55,4 +55,4 @@ __Gradient Descent ⛰️__
 
 Gradient descent is an algorithm that helps us find the best solution to a problem. Imagine you are standing on a hilly landscape and you want to get to the bottom of the biggest hill as quickly as possible. You can walk around, take a few steps, stop and look around to see how close you are to the bottom, and then look for the place where the ground is lowest beneath your feet. The best way to do this is to take small steps in the direction that will take you down the hill the fastest. If you are close to the bottom, you can keep going in the same direction. But if you are far away, you might want to try a different direction. This is like how gradient descent works - it uses math to figure out the best way to move towards the minimum point in a set of hills or valleys by taking small steps in different directions.
 
-Thank you!
+Thank you! Happy New Year!!
