@@ -122,6 +122,6 @@ It showcases best practices for building real world machine learning systems.
 
 ## [Harvard CS197: AI Research Experiences](https://docs.google.com/document/d/1uvAbEhbgS_M-uDMTzmOWRlYxqCkogKRXdbKYYT98ooc/edit#heading=h.o3hogvl0ayc1)
 
-A free offering by Harvard CS197.
+A free offering by Harvard CS197. This course is designed to not only teach you how to utilize current technologies and tools in the field of artificial intelligence, but also to develop a comprehensive understanding of what it means to be a successful AI researcher. Through this course, you will learn how to effectively read and understand research papers, generate innovative ideas, and present your ideas through written papers or presentations. Additionally, you will gain valuable skills in project management and effective communication within a team, which are essential for top AI researchers.
 
 I will keep adding content to the same post!! Thank you for reading.
