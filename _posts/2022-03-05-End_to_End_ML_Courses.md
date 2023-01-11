@@ -120,6 +120,10 @@ It teaches the practical aspects of productionizing ML services: collecting requ
 
 It showcases best practices for building real world machine learning systems in production. It has content that helps readers build, deploy, and run ML systems. 
 
+## [Large Language Models](https://stanford-cs324.github.io/winter2022/)
+
+TBD
+
 ## [Product Management for AI](https://learning.oreilly.com/library/view/product-management-for/9781098104207/)
 
 * What you need to know about Product Management for AI
