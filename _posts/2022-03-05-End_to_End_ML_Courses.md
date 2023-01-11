@@ -122,7 +122,10 @@ It showcases best practices for building real world machine learning systems in 
 
 ## [Product Management for AI](https://learning.oreilly.com/library/view/product-management-for/9781098104207/)
 
-TBD
+* What you need to know about Product Management for AI
+* Practical skills for the AI Product Manager
+* Bringing an AI Product to Market
+* AI Product Management after Deployment
 
 ## [Harvard CS197: AI Research Experiences](https://docs.google.com/document/d/1uvAbEhbgS_M-uDMTzmOWRlYxqCkogKRXdbKYYT98ooc/edit#heading=h.o3hogvl0ayc1)
 
