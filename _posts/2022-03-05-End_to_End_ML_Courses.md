@@ -122,7 +122,7 @@ It showcases best practices for building real world machine learning systems in 
 
 ## [Large Language Models](https://stanford-cs324.github.io/winter2022/)
 
-TBD
+Stamford CS324 Course
 
 ## [Product Management for AI](https://learning.oreilly.com/library/view/product-management-for/9781098104207/)
 
