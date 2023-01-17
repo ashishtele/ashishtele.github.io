@@ -136,3 +136,5 @@ Stamford CS324 Course
 A free offering by Harvard CS197. This course is designed to not only teach you how to utilize current technologies and tools in the field of artificial intelligence, but also to develop a comprehensive understanding of what it means to be a successful AI researcher. Through this course, you will learn how to effectively read and understand research papers, generate innovative ideas, and present your ideas through written papers or presentations. Additionally, you will gain valuable skills in project management and effective communication within a team, which are essential for top AI researchers.
 
 I will keep adding content to the same post!! Thank you for reading.
+
+Thank you!
