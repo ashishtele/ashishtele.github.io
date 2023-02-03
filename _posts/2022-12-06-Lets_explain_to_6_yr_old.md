@@ -57,5 +57,3 @@ Gradient descent is an algorithm that helps us find the best solution to a probl
 
 Thank you! Happy New Year!!
 
-
-{% twitter https://twitter.com/ashishtele1 maxwidth=500 limit=3 %}
