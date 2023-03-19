@@ -124,6 +124,18 @@ It showcases best practices for building real world machine learning systems in 
 
 Stamford CS324 Course.
 
+## [Implementing MLOps in the Enterprise](https://learning.oreilly.com/library/view/implementing-mlops-in/9781098136574/)
+
+This practical guide helps your company bring data science to life for different real-world MLOps scenarios.
+
+* Learn the MLOps process, including its technological and business value
+* Build and structure effective MLOps pipelines
+* Efficiently scale MLOps across your organization
+* Explore common MLOps use cases
+* Build MLOps pipelines for hybrid deployments, real-time predictions, and composite AI
+* Learn how to prepare for and adapt to the future of MLOps
+* Effectively use pre-trained models like HuggingFace and OpenAI to complement your MLOps strategy
+
 ## [Product Management for AI](https://learning.oreilly.com/library/view/product-management-for/9781098104207/)
 
 * What you need to know about Product Management for AI
