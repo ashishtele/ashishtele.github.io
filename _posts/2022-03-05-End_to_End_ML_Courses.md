@@ -122,7 +122,7 @@ It showcases best practices for building real world machine learning systems in 
 
 ## [Large Language Models](https://stanford-cs324.github.io/winter2022/)
 
-Stamford CS324 Course.
+Stamford CS324 Course. It teaches the fundamentals about the modeling, theory, ethics, and systems aspects of large language models, as well as hands-on experience working with them.
 
 ## [Implementing MLOps in the Enterprise](https://learning.oreilly.com/library/view/implementing-mlops-in/9781098136574/)
 
