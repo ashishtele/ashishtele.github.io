@@ -27,6 +27,8 @@ If you are following the advancement in the field of AI recently, it is impossib
 
 In recent years, machine learning has seen significant advancements in the form of deep learning algorithms. These algorithms often involve working with high-dimensional data in the form of vectors. As a result, vector databases have become an important tool for machine learning practitioners and vector embedding is a key to it.
 
+Vector embedding allows us to convert text, images etc. into numbers that can be easily processed by computers. These numerical representations are designed in such a way that similar objects are represented by similar vectors, and the distance between the vectors reflects the degree of similarity between the objects. Vector embeddings are leveraged for tasks such as clustering, classification, recommendation etc.
+
 <p align="center">
   <img width="550" height="250" src="/images/VectorDB_1.PNG">
 </p>
