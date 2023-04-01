@@ -2,7 +2,7 @@
 layout: single
 sidebar: true
 author_profile: true
-title: From Document Retrieval to Deep Learning: The Evolution of Vector Databases.
+title: Document Retrieval to Deep Learning - The Evolution of Vector Databases.
 excerpt: "The Emergence of Vector Databases in the Age of Big Data."
 description: "The Emergence of Vector Databases in the Age of Big Data."
 comments: true
