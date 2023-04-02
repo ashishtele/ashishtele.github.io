@@ -32,3 +32,6 @@ Vector embedding allows us to convert text, images etc. into numbers that can be
 <p align="center">
   <img width="550" height="250" src="/images/VectorDB_1.PNG">
 </p>
+
+## History of Vector Databases 
+Vector databases have been around for [several decades](https://en.wikipedia.org/wiki/Vectorwise), but their use has increased significantly in recent years due to the rise of deep learning algorithms. The first vector database was introduced in the 1970s for use in information retrieval. The database stored document vectors to enable fast similarity searches. In the 1990s, vector databases were also used in data mining and clustering algorithms.
