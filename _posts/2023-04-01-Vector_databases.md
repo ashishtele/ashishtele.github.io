@@ -37,6 +37,9 @@ Vector embedding allows us to convert text, images etc. into numbers that can be
 Vector databases have been around for [several decades](https://en.wikipedia.org/wiki/Vectorwise), but their use has increased significantly in recent years due to the rise of deep learning algorithms. The first vector database was introduced in the 1970s for use in information retrieval. The database stored document vectors to enable fast similarity searches. In the 1990s, vector databases were also used in data mining and clustering algorithms.
 
 ## Need for Vector Databases in Machine Learning 
-Vector databases are essential for many machine learning algorithms, particularly those that involve working with high-dimensional data. These algorithms require efficient similarity searches, classification, and clustering of data points, which can be achieved using vector databases. For example, in image retrieval, deep learning models can learn to represent images as high-dimensional vectors and vector databases can be used to efficiently search for similar images based on these representations.
+Vector databases are essential for many machine learning algorithms, particularly those that involve working with high-dimensional data. These algorithms require efficient similarity searches, classification, and clustering of data points, which can be achieved using vector databases. For example, in image retrieval, deep learning models can learn to represent images as high-dimensional vectors and vector databases can be used to efficiently search for similar images based on these representations. I have leveraged the below image from my [previous blog](https://ashishtele.github.io/2020/02/AI_Image_Restoration_using_Excel_and_R.html). Any image can be represented as a collection (high-dimensional vector) of numbers.
 
+<p align="center">
+  <img width="700" height="300" src="/images/kernel1.PNG">
+</p>
 
