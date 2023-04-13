@@ -62,4 +62,4 @@ There are several search algorithms for efficient retrieval of similar vectors o
 
 6. [Hierarchical Navigable Small World Graphs (HNSW)](https://www.pinecone.io/learn/hnsw/): HNSW is a graph-based algorithm for approximate nearest neighbor search that organizes vectors in a hierarchical graph structure. The algorithm constructs a graph of vectors by connecting similar vectors with edges, and organizes the graph in multiple levels of resolution. HNSW allows for efficient navigation and pruning of the search space, and is known for its high search efficiency and scalability.
 
-Thank you
+Thank you!!
