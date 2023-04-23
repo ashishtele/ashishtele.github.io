@@ -35,9 +35,9 @@ A few of the peculiar use cases:
   <img src="https://raw.githubusercontent.com/ashishtele/ashishtele.github.io/master/images/copilot1.gif" width=750>
 </p>
 
-2. Produce a boilerplate and repetitive code by feeding a few examples.
+2. Produce a boilerplate and repetitive code by feeding a few examples e.g. list of months, SQL CTE, code indentation, etc.
 
-3. Getting an alternative to the written code.
+3. Getting an alternative to the written code. There are a couple of options to get the next suggestion. We can see the alternative option or multiple suggestions using 'Ctrl+Enter'.
 
 4. Writing unit tests using copilot suggestions is one of the most creative usages I found. Unit tests are time-consuming and hence mostly overlooked during MLOps. Copilot can be very handy in such scenarios. e.g., I have a read_params() function which takes config_path and returns a dictionary of parameters. Once I have the function defined, I wrote the comment for Copilot to suggest the unit test case(s) for the read_params() and the result is as below:
 
@@ -51,4 +51,8 @@ A few of the peculiar use cases:
   <img src="https://raw.githubusercontent.com/ashishtele/ashishtele.github.io/master/images/dis_plot.gif" width=750>
 </p>
 
+[GitHub Copilot X](https://github.blog/2023-03-22-github-copilot-x-the-ai-powered-developer-experience/) is adopting OpenAI’s new GPT-4 model. They are introducing chat and voice for Copilot, and bringing Copilot to pull requests, the command line, and docs to answer questions on your projects
+
 I will keep adding the use cases if I come across any!
+
+Thank you!!
