@@ -45,7 +45,7 @@ A few of the peculiar use cases:
   <img src="https://raw.githubusercontent.com/ashishtele/ashishtele.github.io/master/images/tests.gif" width=750>
 </p>
 
-5.Code without spending most of your time searching the web. It is one of my favorite options. It saves a lot of time. As shown below, we need to write draw_distribution_plot() to get the code along with docstrings. 
+5. Code without spending most of your time searching the web. It is one of my favorite options. It saves a lot of time. As shown below, we need to write draw_distribution_plot() to get the code along with docstrings. 
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/ashishtele/ashishtele.github.io/master/images/dis_plot.gif" width=750>
