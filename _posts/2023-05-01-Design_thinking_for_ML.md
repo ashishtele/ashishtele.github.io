@@ -23,3 +23,9 @@ gallery:
 
 Hi All,
 
+Design thinking is a problem-solving approach focusing on creating innovative solutions that meet the needs and desires of users. When applied to machine learning problems, it involves identifying the key challenges and opportunities associated with a problem, generating creative ideas for potential solutions, and then prototyping and testing these solutions to refine and improve them.
+
+Design thinking can be applied to problems related to making large language models more accessible to users in large companies. Here are the stages involved in applying design thinking to LLM problem:
+
+Thank you!!
+
