@@ -27,5 +27,14 @@ Design thinking is a problem-solving approach focusing on creating innovative so
 
 Design thinking can be applied to problems related to making large language models more accessible to users in large companies. Here are the stages involved in applying design thinking to LLM problem:
 
+**Empathize:** The first stage of design thinking involves understanding the needs and challenges of users who work in large companies and may face barriers in accessing large language models. 
+This could include:
+1. Employees from different departments or teams with varying levels of access controls
+2. Employees with different job roles or responsibilities
+3. Employees with different levels of technical expertise 
+4. Security and Compliance concers to avoid propritory data leakage to LLM API service providers
+
+Product team may need to conduct user research or engage with stakeholders to understand their respective needs and challenges.
+
 Thank you!!
 
