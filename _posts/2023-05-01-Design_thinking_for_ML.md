@@ -27,6 +27,16 @@ Design thinking is a problem-solving approach that focus on creating innovative 
 
 Design thinking can be applied to problems related to making large language models more accessible to stakeholders in large companies. Things look different when we are building solutions for internal stakeholders or designing products for external customers. Here are the stages involved in applying design thinking to an LLM problem:
 
+
+**Leader Group:**
+
+The LLM engagement project involves analyzing unstructured data and identifying potential risks. This will require a diverse team of leaders, including:
+
+1. Data scientists and machine learning experts
+2. Security and compliance experts
+3. Data governance experts
+4. Business leaders
+
 **Empathize:**
 
 The first stage of design thinking involves *understanding the needs and challenges of stakeholders* who work in large companies and may face barriers in accessing large language models. 
