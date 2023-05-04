@@ -3,7 +3,7 @@ layout: single
 sidebar: true
 author_profile: true
 title: Design Thinking in machine learning lifecycle
-excerpt: "Design Thinking in machine learning lifecycle."
+excerpt: "Design thinking is a problem-solving approach that involves understanding the needs and desires of users, generating creative ideas, and prototyping and testing potential solutions."
 description: "Design thinking is a problem-solving approach that involves understanding the needs and desires of users, generating creative ideas, and prototyping and testing potential solutions."
 comments: true
 tags: ["Python","Data Scientist","USA","Design Thinking","Machine Learning","ML System Design"]
