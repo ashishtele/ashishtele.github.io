@@ -23,10 +23,10 @@ gallery:
 
 Hi All,
 
-1. [LLM University by Cohere](https://docs.cohere.com/docs/llmu)
+* [LLM University by Cohere](https://docs.cohere.com/docs/llmu)
 
 The comprehensive NLP curriculum covers the basics to advanced topics in large language models (LLMs). The curriculum is designed for learners from all backgrounds, with hands-on exercises to help you build and deploy your own models. They cover everything from semantic search, generation, classification, embeddings, and more. Their curriculum is one-size-fits-all, so you can pick your own path based on your previous knowledge and goals.
 
-2. [Full Stack LLM Bootcamp](https://fullstackdeeplearning.com/llm-bootcamp/)
+* [Full Stack LLM Bootcamp](https://fullstackdeeplearning.com/llm-bootcamp/)
 
 Thank you!
