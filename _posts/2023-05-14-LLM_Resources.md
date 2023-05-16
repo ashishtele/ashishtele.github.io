@@ -29,4 +29,6 @@ The comprehensive NLP curriculum covers the basics to advanced topics in large l
 
 * [Full Stack LLM Bootcamp](https://fullstackdeeplearning.com/llm-bootcamp/)
 
+* [Advances in Foundation Models](https://stanford-cs324.github.io/winter2023/)
+
 Thank you!
