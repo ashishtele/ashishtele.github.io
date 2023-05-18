@@ -31,6 +31,11 @@ The blog "The Illustrated Transformer" by [Jay Alammar](https://twitter.com/JayA
 
 * [Story of Large Language Models](https://www.assemblyai.com/blog/the-full-story-of-large-language-models-and-rlhf/)
 
+AssemblyAI's blog, "The Full Story of Large Language Models and RLHF," explores the innovations and advancements in large language models (LLMs) and Reinforcement Learning from Human Feedback (RLHF). The blog delves into the history and development of LLMs, such as GPT-3, and outlines their capabilities and limitations. It highlights the role of RLHF in fine-tuning LLMs and discusses its potential for improving their performance and addressing biases. Additionally, the blog provides insights into cutting-edge techniques used in training and refining LLMs, which showcases the ongoing innovation in the field. Other informative blogs from AssemblyAI:
+
+1. [Introduction to LLM](https://www.assemblyai.com/blog/introduction-large-language-models-generative-ai/)
+2. [Introduction to Generative AI](https://www.assemblyai.com/blog/introduction-generative-ai/)
+
 * [Finetuning LLM](https://lightning.ai/pages/category/tutorial/)
 
 * [Introduction to Large Language Models](https://www.cloudskillsboost.google/course_templates/539)
