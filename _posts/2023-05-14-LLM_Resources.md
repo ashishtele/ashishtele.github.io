@@ -27,6 +27,8 @@ The internet is awash with information about large language models (LLMs). Every
 
 * [The Illustrated Transformer](https://jalammar.github.io/illustrated-transformer/)
 
+The blog "The Illustrated Transformer" by [Jay Alammar](https://twitter.com/JayAlammar)  provides a concise and visually appealing explanation of the Transformer model, a basic building block for the current revolution in NLP. It covers the key components and operations of the Transformer, including self-attention and positional encoding, in the best possible way. The blog's illustrations help clarify the model's inner workings, making it accessible and informative for readers interested in understanding the Transformer architecture. If you are a visual learner like me, this should be the starting point for you!
+
 * [Story of Large Language Models](https://www.assemblyai.com/blog/the-full-story-of-large-language-models-and-rlhf/)
 
 * [Finetuning LLM](https://lightning.ai/pages/category/tutorial/)
