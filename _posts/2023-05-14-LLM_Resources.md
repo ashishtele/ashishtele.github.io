@@ -23,6 +23,8 @@ gallery:
 
 Hi All,
 
+The internet is awash with information about large language models (LLMs). Every day, a plethora of papers are published on LLMs, advancing the state-of-the-art (SOTA) benchmarks. I personally found it overwhelming to keep up with the research and the rapid pace of development. I am listing a few resources that I found helpful and will keep on adding to this list.
+
 * [The Illustrated Transformer](https://jalammar.github.io/illustrated-transformer/)
 
 * [Story of Large Language Models](https://www.assemblyai.com/blog/the-full-story-of-large-language-models-and-rlhf/)
