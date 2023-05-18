@@ -38,6 +38,8 @@ AssemblyAI's blog, "The Full Story of Large Language Models and RLHF," explores 
 
 * [Finetuning LLM](https://lightning.ai/pages/category/tutorial/)
 
+[Sebastian Raschka](https://twitter.com/rasbt) is known for writing some of the best AI-based blogs. He consistently delivers great content through his [blog](https://magazine.sebastianraschka.com/p/understanding-large-language-models) and more recently through Lightning AI. He provides highly informative content on topics such as [Low-Rank Adaptation (LoRA)](https://lightning.ai/pages/community/tutorial/lora-llm/) and [Parameter-Efficient Finetuning](https://lightning.ai/pages/community/tutorial/lora-llm/). The blogs feature pseudocode and visual representations, enhancing the understanding of the concepts.
+
 * [Introduction to Large Language Models](https://www.cloudskillsboost.google/course_templates/539)
 
 * [LLM University by Cohere](https://docs.cohere.com/docs/llmu)
