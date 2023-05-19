@@ -54,6 +54,8 @@ The Full Stack Deep Learning LLM Bootcamp teaches participants how to build and 
 
 * [Product Search with LLM](https://www.databricks.com/blog/enhancing-product-search-large-language-models-llms.html)
 
+Large language models can be used to improve product search by understanding natural language queries and providing more relevant results. This blog post discusses the challenges of traditional search systems and how LLMs can be used to overcome them. It also provides real-world examples of how LLMs are being used to improve product search.
+
 * [Advances in Foundation Models](https://stanford-cs324.github.io/winter2023/)
 
 Thank you!
