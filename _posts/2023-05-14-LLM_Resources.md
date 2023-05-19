@@ -58,4 +58,6 @@ Large language models can be used to improve product search by understanding nat
 
 * [Advances in Foundation Models](https://stanford-cs324.github.io/winter2023/)
 
+This course focuses on the fundamental principles and concepts of distributed systems. It covers topics such as distributed algorithms, consistency and replication, fault tolerance, and distributed storage. It teaches the fundamentals about the modeling, systems and ethical aspects of foundation models. It is a great offering from Stanford.
+
 Thank you!
