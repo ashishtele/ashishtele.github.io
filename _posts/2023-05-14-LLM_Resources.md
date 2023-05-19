@@ -50,6 +50,8 @@ The comprehensive NLP curriculum covers the basics to advanced topics in large l
 
 * [Full Stack LLM Bootcamp](https://fullstackdeeplearning.com/llm-bootcamp/)
 
+The Full Stack Deep Learning LLM Bootcamp teaches participants how to build and deploy applications with Large Language Models (LLMs). The bootcamp covers a wide range of topics, including prompt engineering, LLMops, and user experience design. It is open to anyone with an interest in LLMs, regardless of their level of experience with machine learning. The [videos](https://www.youtube.com/@The_Full_Stack) are available on YouTube.
+
 * [Product Search with LLM](https://www.databricks.com/blog/enhancing-product-search-large-language-models-llms.html)
 
 * [Advances in Foundation Models](https://stanford-cs324.github.io/winter2023/)
