@@ -42,6 +42,8 @@ AssemblyAI's blog, "The Full Story of Large Language Models and RLHF," explores 
 
 * [Introduction to Large Language Models](https://www.cloudskillsboost.google/course_templates/539)
 
+This learning guides you through a curated collection of content on Generative AI products and technologies, from the fundamentals of Large Language Models to how to create and deploy generative AI solutions on Google Cloud. It is a growing list.
+
 * [LLM University by Cohere](https://docs.cohere.com/docs/llmu)
 
 The comprehensive NLP curriculum covers the basics to advanced topics in large language models (LLMs). The curriculum is designed for learners from all backgrounds, with hands-on exercises to help you build and deploy your own models. They cover everything from semantic search, generation, classification, embeddings, and more. Their curriculum is one-size-fits-all, so you can pick your own path based on your previous knowledge and goals.
