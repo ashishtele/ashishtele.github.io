@@ -60,4 +60,6 @@ Large language models can be used to improve product search by understanding nat
 
 This course focuses on the fundamental principles and concepts of distributed systems. It covers topics such as distributed algorithms, consistency and replication, fault tolerance, and distributed storage. It teaches the fundamentals about the modeling, systems and ethical aspects of foundation models. It is a great offering from Stanford.
 
+* [Prompt Engineering Guide by Brex](https://github.com/brexhq/prompt-engineering)
+
 Thank you!
