@@ -62,4 +62,6 @@ This course focuses on the fundamental principles and concepts of distributed sy
 
 * [Prompt Engineering Guide by Brex](https://github.com/brexhq/prompt-engineering)
 
+Prompt engineering is the art of writing prompts that get large language models (LLMs) to do what you want them to do. This guide was created by Brex for internal purposes and covers the history of LLMs, as well as strategies, guidelines, and safety recommendations for working with and building programmatic systems on top of LLMs.
+
 Thank you!
