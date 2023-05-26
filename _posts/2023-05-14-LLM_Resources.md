@@ -64,4 +64,6 @@ This course focuses on the fundamental principles and concepts of distributed sy
 
 Prompt engineering is the art of writing prompts that get large language models (LLMs) to do what you want them to do. This guide was created by Brex for internal purposes and covers the history of LLMs, as well as strategies, guidelines, and safety recommendations for working with and building programmatic systems on top of LLMs.
 
+* [State of GPT](https://www.youtube.com/watch?v=bZQun8Y4L2A&ab_channel=MicrosoftDeveloper)
+
 Thank you!
