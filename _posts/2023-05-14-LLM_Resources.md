@@ -68,4 +68,6 @@ Prompt engineering is the art of writing prompts that get large language models 
 
 [Andrej Karpathy](https://twitter.com/karpathy) delivered the "State of GPT" session for the Microsoft Build 2023 event. He explained the GPT assistant training pipeline, which includes pretraining, supervised fine-tuning (SFT), reward modeling, and reinforcement learning. I particularly liked the recommendations at the end of the video. Great [summary thread](https://twitter.com/altryne/status/1661236778458832896)!
 
+* [LLM in Customer Service and Support](https://d1r5llqwmkrl74.cloudfront.net/notebooks/RCG/diy-llm-qa-bot/index.html#diy-llm-qa-bot_1.html)
+
 Thank you!
