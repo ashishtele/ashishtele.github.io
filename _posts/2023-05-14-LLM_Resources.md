@@ -54,7 +54,7 @@ The Full Stack Deep Learning LLM Bootcamp teaches participants how to build and 
 
 * [Product Search with LLM](https://www.databricks.com/blog/enhancing-product-search-large-language-models-llms.html)
 
-Large language models can be used to improve product search by understanding natural language queries and providing more relevant results. This blog post discusses the challenges of traditional search systems and how LLMs can be used to overcome them. It also provides real-world examples of how LLMs are being used to improve product search.
+Large language models can be used to improve product search by understanding natural language queries and providing more relevant results. This blog post discusses the challenges of traditional search systems and how LLMs can be used to overcome them. It also provides real-world examples of how LLMs are being used to improve product search. [LLM: Application through Production](https://www.edx.org/course/large-language-models-application-through-production) is aimed at developers, data scientists, and engineers looking to build LLM-centric applications with the latest and most popular frameworks.
 
 * [Advances in Foundation Models](https://stanford-cs324.github.io/winter2023/)
 
@@ -72,4 +72,4 @@ Prompt engineering is the art of writing prompts that get large language models 
 
 It shows how we can leverage a large language model in combination with own data to create an interactive application capable of answering questions specific to a particular domain or subject area. The core pattern behind this is the delivery of a question along with a document or document fragment that provides relevant context for answering that question to the model. The model will then respond with an answer that takes into consideration both the question and the context.
 
-Thank you!!
+Thank you!!!
