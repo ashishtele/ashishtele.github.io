@@ -23,7 +23,7 @@ gallery:
 
 Hi All,
 
-[Design thinking](https://www.mckinsey.com/featured-insights/mckinsey-explainers/what-is-design-thinking) is a problem-solving approach that focus on creating innovative solutions that meet the needs and desires of users. When applied to machine learning problems, it involves identifying the key challenges and opportunities associated with a problem, generating creative ideas for potential solutions, and then prototyping and testing these solutions to refine and improve them.
+[Design thinking](https://www.mckinsey.com/featured-insights/mckinsey-explainers/what-is-design-thinking) is a problem-solving approach that focuses on creating innovative solutions that meet the needs and desires of users. When applied to machine learning problems, it involves identifying the key challenges and opportunities associated with a problem, generating creative ideas for potential solutions, and then prototyping and testing these solutions to refine and improve them.
 
 Design thinking can be applied to problems related to making large language models more accessible to stakeholders in large companies. Things look different when we are building solutions for internal stakeholders or designing products for external customers. Here are the stages involved in applying design thinking to an LLM problem:
 
@@ -69,21 +69,21 @@ Once potential solutions have been identified, the next step is to *create low-f
 
 **Test:**
 
-The final stage of design thinking involves testing the prototypes with users to gather feedback and refine the design. This feedback can then be used to further iterate and improve the solution.
+The final stage of design thinking involves testing the prototypes with users to gather feedback and refine the design. This feedback can then be used to iterate further and improve the solution.
 
 Some key considerations when applying design thinking to problems related to making large language models more accessible to users in large companies include:
 
 **Addressing integration challenges:**
 
-Large language models may need to be integrated with existing systems or workflows to be useful to employees. Product team should consider how to address integration challenges, such as by developing APIs or integrating the language model into existing software platforms.
+Large language models may need to be integrated with existing systems or workflows to be useful to employees. The product team should consider how to address integration challenges, such as by developing APIs or integrating the language model into existing software platforms.
 
 **Ensuring scalability:**
 
-Large companies may have many employees who need to access the language model. Build team should consider how to ensure that the solution is scalable and can support a large number of users.
+Large companies may have many employees who need to access the language model. The build team should consider how to ensure that the solution is scalable and can support many users.
 
 **Addressing security concerns:**
 
-Large language models may contain sensitive or proprietary information. Security team should work to ensure that the solution is secure and complies with any relevant regulations or policies.
+Large language models may contain sensitive or proprietary information. The security team should work to ensure that the solution is secure and complies with any relevant regulations or policies.
 
 Thank you!!
 
