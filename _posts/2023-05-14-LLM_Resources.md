@@ -72,4 +72,6 @@ Prompt engineering is the art of writing prompts that get large language models 
 
 It shows how we can leverage a large language model in combination with own data to create an interactive application capable of answering questions specific to a particular domain or subject area. The core pattern behind this is the delivery of a question along with a document or document fragment that provides relevant context for answering that question to the model. The model will then respond with an answer that takes into consideration both the question and the context.
 
+* [Emerging Architectures for LLM Applications](https://a16z.com/2023/06/20/emerging-architectures-for-llm-applications/)
+
 Thank you!!!
