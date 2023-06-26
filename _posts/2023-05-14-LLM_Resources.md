@@ -25,6 +25,10 @@ Hi All,
 
 The internet is awash with information about large language models (LLMs). Every day, a plethora of papers are published on LLMs, advancing the state-of-the-art (SOTA) benchmarks. I personally found it overwhelming to keep up with the research and the rapid pace of development. I am listing a few resources that I found helpful and will keep on adding to this list.
 
+* [A Very Gentle Introduction to Large Language Models without the Hype](https://mark-riedl.medium.com/a-very-gentle-introduction-to-large-language-models-without-the-hype-5f67941fa59e)
+
+The best explanation of LLM for non-tech people. This article provides an excellent introduction to the world of large models, making it accessible to beginners.
+
 * [The Illustrated Transformer](https://jalammar.github.io/illustrated-transformer/)
 
 The blog "The Illustrated Transformer" by [Jay Alammar](https://twitter.com/JayAlammar)  provides a concise and visually appealing explanation of the Transformer model, a basic building block for the current revolution in NLP. It covers the key components and operations of the Transformer, including self-attention and positional encoding, in the best possible way. The blog's illustrations help clarify the model's inner workings, making it accessible and informative for readers interested in understanding the Transformer architecture. If you are a visual learner like me, this should be the starting point for you!
