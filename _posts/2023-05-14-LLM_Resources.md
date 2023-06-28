@@ -27,7 +27,7 @@ The internet is awash with information about large language models (LLMs). Every
 
 * [A Very Gentle Introduction to Large Language Models without the Hype](https://mark-riedl.medium.com/a-very-gentle-introduction-to-large-language-models-without-the-hype-5f67941fa59e)
 
-The best explanation of LLM for non-tech people. This article provides an excellent introduction to the world of large models, making it accessible to beginners.
+The best explanation of LLM for non-tech people. This article provides an excellent introduction to the world of large models, making it accessible to beginners. I found it very helpful to understand the self-attention part in layman's terms.
 
 * [The Illustrated Transformer](https://jalammar.github.io/illustrated-transformer/)
 
