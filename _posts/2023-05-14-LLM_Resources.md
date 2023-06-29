@@ -80,4 +80,6 @@ It shows how we can leverage a large language model in combination with our own 
 
 [a16z](https://a16z.com/ai/) has shared a reference architecture for the emerging LLM app stack. It shows the most common systems, tools, and design patterns they have seen used by AI startups and sophisticated tech companies.
 
+* [Generative AI with Large Language Models](https://www.coursera.org/learn/generative-ai-with-llms)
+
 Thank you!!!
