@@ -82,4 +82,6 @@ It shows how we can leverage a large language model in combination with our own 
 
 * [Generative AI with Large Language Models](https://www.coursera.org/learn/generative-ai-with-llms)
 
+This course provides a comprehensive understanding of generative AI, covering key aspects of the LLM-based generative AI lifecycle, from data gathering to deployment. Participants will learn about the transformer architecture behind LLMs, their training process, and the adaptability of fine-tuning to specific use cases. The course also focuses on optimizing the model's objective function using empirical scaling laws and applying state-of-the-art techniques for training, tuning, and deployment. Participants will gain insights into the challenges and opportunities that generative AI presents for businesses through industry stories shared by researchers and practitioners.
+
 Thank you!!!
