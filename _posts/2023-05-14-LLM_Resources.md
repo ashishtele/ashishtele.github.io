@@ -31,6 +31,7 @@ The best explanation of LLM for non-tech people. This article provides an excell
 
 * [Visual Guide to Transformer Neural Networks](https://www.youtube.com/@HeduMathematicsofIntelligence/videos)
 
+One of the best visual guides out there for transformers.
 
 * [The Illustrated Transformer](https://jalammar.github.io/illustrated-transformer/)
 
