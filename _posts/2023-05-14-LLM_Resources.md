@@ -29,7 +29,7 @@ The internet is awash with information about large language models (LLMs). Every
 
 The best explanation of LLM for non-tech people. This article provides an excellent introduction to the world of large models, making it accessible to beginners. I found it very helpful to understand the self-attention part in layman's terms.
 
-* [Visual Guide to Transformer Neural Networks](https://www.youtube.com/@HeduMathematicsofIntelligence/videos)
+* [Visual Guide to Transformer Neural Networks](https://www.youtube.com/@HeduAI)
 
 One of the best visual guides out there for transformers. There are 3 videos: Position Embeddings, Multi-Head and Self-Attention, and Decoder's Masked Attention.
 
