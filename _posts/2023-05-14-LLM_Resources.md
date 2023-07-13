@@ -31,7 +31,7 @@ The best explanation of LLM for non-tech people. This article provides an excell
 
 * [Visual Guide to Transformer Neural Networks](https://www.youtube.com/@HeduAI)
 
-One of the best visual guides out there for transformers. There are 3 videos: Position Embeddings, Multi-Head and Self-Attention, and Decoder's Masked Attention.
+One of the best visual guides out there for transformers is available in three videos: "Position Embeddings," "Multi-Head and Self-Attention," and "Decoder's Masked Attention." These videos highlight fundamental concepts. 
 
 * [The Illustrated Transformer](https://jalammar.github.io/illustrated-transformer/)
 
