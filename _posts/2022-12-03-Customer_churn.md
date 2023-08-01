@@ -83,4 +83,6 @@ Second, healthcare organizations can work to make their services more affordable
 Third, healthcare organizations can use data and analytics to better understand their customers' needs and preferences. By analyzing customer data, organizations can identify trends and patterns that can help them provide more personalized care and prevent customer churn.
 Finally, healthcare organizations can invest in customer relationship management (CRM) software and other tools that can help them track and manage customer interactions and feedback. By using these tools, organizations can gain valuable insights into their customer's needs and preferences and take steps to prevent customer churn.
 
-Thank you!
+Prediction task vs Causal task: 
+
+Thank you!!
