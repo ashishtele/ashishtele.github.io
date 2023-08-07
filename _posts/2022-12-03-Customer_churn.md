@@ -84,6 +84,6 @@ Second, healthcare organizations can work to make their services more affordable
 Third, healthcare organizations can use data and analytics to understand their customers' needs and preferences better. By analyzing customer data, organizations can identify trends and patterns that can help them provide more personalized care and prevent customer churn.
 Finally, healthcare organizations can invest in customer relationship management (CRM) software and other tools that can help them track and manage customer interactions and feedback. By using these tools, organizations can gain valuable insights into their customer's needs and preferences and take steps to prevent customer churn.
 
-Prediction task vs Causal task: The original goal of the model is important to decide between prediction and causal tasks. 
+Prediction task vs Causal task: The original goal of the model is important to decide between prediction and causal tasks. In a predictive scenario, the aim is to anticipate a result *Y* using a collection of attributes *X*. An essential aspect of prediction involves ensuring that the forecasting *model(X)* closely resembles *Y* within datasets comparable to our training data. A basic **correlation between X and Y** can provide valuable assistance in such prediction tasks
 
 Thank you!!
