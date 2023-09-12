@@ -90,4 +90,6 @@ This course provides a comprehensive understanding of generative AI, covering ke
 
 * [Prompt Guide](https://olickel.com/everything-i-know-about-prompting-llms)
 
+I found this guide useful and practical. I have been experimenting with a few of its suggestions, and it serves as a good starting point that you can build upon and iterate.
+
 Thank you!
