@@ -92,4 +92,6 @@ This course provides a comprehensive understanding of generative AI, covering ke
 
 I found this guide useful and practical. I have been experimenting with a few of its suggestions, and it serves as a good starting point that you can build upon and iterate.
 
+* [Building RAG-based LLM Applications for Production](https://www.anyscale.com/blog/a-comprehensive-guide-for-building-rag-based-llm-applications-part-1)
+
 Thank you!
