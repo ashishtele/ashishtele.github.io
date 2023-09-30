@@ -66,7 +66,7 @@ Large language models can be used to improve product search by understanding nat
 
 * [Advances in Foundation Models](https://stanford-cs324.github.io/winter2023/)
 
-This course focuses on the fundamental principles and concepts of distributed systems. It covers topics such as distributed algorithms, consistency and replication, fault tolerance, and distributed storage. It teaches the fundamentals about the modeling, systems and ethical aspects of foundation models. It is a great offering from Stanford.
+This course focuses on the fundamental principles and concepts of distributed systems. It covers topics such as distributed algorithms, consistency and replication, fault tolerance, and distributed storage. It teaches the fundamentals about the modeling, systems, and ethical aspects of foundation models. It is a great offering from Stanford.
 
 * [Prompt Engineering Guide by Brex](https://github.com/brexhq/prompt-engineering)
 
@@ -93,5 +93,7 @@ This course provides a comprehensive understanding of generative AI, covering ke
 I found this guide useful and practical. I have been experimenting with a few of its suggestions, and it serves as a good starting point that you can build upon and iterate.
 
 * [Building RAG-based LLM Applications for Production](https://www.anyscale.com/blog/a-comprehensive-guide-for-building-rag-based-llm-applications-part-1)
+
+A practical guide on how to develop a RAG-based LLM application from scratch, scale, evaluate, and serve the application in a highly scalable manner.
 
 Thank you!
