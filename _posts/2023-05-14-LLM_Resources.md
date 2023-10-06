@@ -94,6 +94,6 @@ I found this guide useful and practical. I have been experimenting with a few of
 
 * [Building RAG-based LLM Applications for Production](https://www.anyscale.com/blog/a-comprehensive-guide-for-building-rag-based-llm-applications-part-1)
 
-A practical guide on how to develop a RAG-based LLM application from scratch, scale, evaluate, and serve the application in a highly scalable manner.
+A practical guide on how to develop a RAG-based LLM application from scratch, scale, evaluate, and serve the application in a highly scalable manner. A great read from Goku Mohandas.
 
 Thank you!
