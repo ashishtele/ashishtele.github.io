@@ -20,3 +20,38 @@ gallery:
     url: ''
     title: ''
 ---
+Hi All,
+
+In machine learning, tackling challenges often involves employing an iterative approach. This approach entails experimenting with various data processing, data exploration, and model selection methods before arriving at a definitive solution. The goal is to identify the most efficient cost, effectiveness, and accuracy solution. In this article, we delve into the fascinating world of Named Entity Recognition (NER) but with a twist. We’re not discussing standard NER where we aim to extract common entities from a given sentence or corpus. Instead, we’re exploring custom-named Named Entity Recognition, where we define the words or variations that are considered entities and endeavor to extract them.
+
+Why Custom Named Entity Recognition, you may ask? 
+
+This approach proves invaluable when our objective is to evaluate, enhance, and manage product data. We can construct a solution that deals with a wide array of product-related information, including products, items, assets, SKUs, and other product data variations, spanning various industries. Conventional product data is often unstructured, non-standard, and frequently lacks crucial information. Custom NER comes to the rescue by enabling us to establish consistent and reliable product data.
+
+While there are several traditional tools available in the market that perform NER tasks, they tend to rely on rule-based or semantic-based approaches. In the era of machine learning, we’re exploring innovative ways to tackle this problem, and yes, a large language model (LLM) is part of our arsenal.
+
+Let’s envision a scenario: You are working for an e-commerce company, and your mission is to maintain the quality of data obtained from upstream databases. The task is to identify specific attributes from the given input data.
+
+
+| Input      | Output | 
+| :---        |    :----:   |
+| Smartphone Apple iPhone 13 Pro 6.1" Super Retina XDR display 128GB Pacific Blue Ceramic Shield A15 Bionic Chip 5G iOS 15 Face ID Water and Dust Resistant      | Product Type: Smartphone, Brand: Apple, Model: iPhone 13 Pro, Screen Size: 6.1 inches, Display Type: Super Retina XDR, Storage Capacity: 128GB, Color: Pacific Blue, Display Protection: Ceramic Shield, Processor: A15 Bionic Chip, Connectivity: 5G, Operating System: iOS 15, Security Feature: Face ID, Water and Dust Resistance, Primary Color: Pacific Blue       |
+| Running Shoes Nike Air Zoom Pegasus 38 Men’s Size 10 Black/White Mesh Upper Cushioned Insole Zoom Air Unit Durable Rubber Outsole Lace-Up Closure   | Product Type: Running Shoes, Brand: Nike, Model: Air Zoom Pegasus 38, Target Audience: Men, Size: 10, Color: Black/White, Upper Material: Mesh, Insole: Cushioned, Cushioning Technology: Zoom Air Unit, Outsole Material: Durable Rubber, Closure Type: Lace-Up        |
+
+These examples represent just two variations, showcasing the attributes of two distinct categories: smartphones and running shoes. However, these variations can differ based on the placement of attributes, missing values, redundancy, and other factors.
+
+Before delving into the solution, let’s consider the data required for this endeavor. If you are building a solution for multiple categories, you need three sets of data:
+
+* **Training Data:** This set includes both input and output data.
+
+* **Validation Data:** It can be extracted from the training data for validation purposes.
+
+* **Test Data:** This set contains only input strings, which we will use for attribute extraction.
+
+Now that you have a clear understanding of the problem statement, let’s explore the approaches. While working on this use case, we primarily pursue three approaches to determine which one would yield the best results:
+
+* Entity Recognition Using AutoML on Google Cloud Platform (GCP).
+* Fine-tuning of large language model(LLM).
+* Prompt Engineering on PALM 2.
+
+This blog post was co-written by [Vikrant Singh](https://www.linkedin.com/in/vkrntkmrsngh/). You can also visit his [medium articles](https://medium.com/@vkrntkmrsngh).
