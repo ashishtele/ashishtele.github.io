@@ -11,8 +11,8 @@ published: true
 comments: true
 header:
   teaserlogo:
-  teaser: /images/LLM_automl.jpg
-  image: /images/LLM_automl.jpg
+  teaser: /images_1/LLM_automl.jpg
+  image: /images_1/LLM_automl.jpg
   caption: "courtesy: neo4j.com"
 gallery:
 
