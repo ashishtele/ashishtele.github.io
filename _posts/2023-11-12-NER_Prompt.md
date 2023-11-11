@@ -11,9 +11,9 @@ published: true
 comments: true
 header:
   teaserlogo:
-  teaser: /images_1/LLM_automl.jpg
-  image: /images_1/LLM_automl.jpg
-  caption: "courtesy: LLM.com"
+  teaser: /images_1/prompt_LLM.PNG
+  image: /images_1/prompt_LLM.PNG
+  caption: "courtesy: Google.com"
 gallery:
 
   - image_path: ''
