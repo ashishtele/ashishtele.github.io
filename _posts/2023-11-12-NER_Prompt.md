@@ -42,4 +42,10 @@ Large language models pre-trained on diverse datasets can handle a wide range of
 
 LLMs with more parameters can capture intricate patterns in the data. Fine-tuning a large model on a specific entity extraction task often leads to better performance compared to smaller models.
 
+What are the prompting techniques we have at our disposal:
+1. Zero-shot prompting
+2. Few-shot prompting
+
+Stay tuned for more in-depth articles in collaboration with [Vikrant Singh](https://www.linkedin.com/in/vkrntkmrsngh/). You can also visit his [medium articles](https://medium.com/@vkrntkmrsngh)
+
 Thank you!!
