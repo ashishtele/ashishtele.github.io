@@ -46,6 +46,9 @@ What are the prompting techniques we have at our disposal:
 1. Zero-shot prompting
 2. Few-shot prompting
 
+## Zero-shot Prompting:
+Zero-shot prompting is the method of using natural language prompts to guide pre-trained LLMs on downstream tasks without any gradient updates, fine-tuning of the model, or providing any sample input-output example.
+
 Stay tuned for more in-depth articles in collaboration with [Vikrant Singh](https://www.linkedin.com/in/vkrntkmrsngh/). You can also visit his [medium articles](https://medium.com/@vkrntkmrsngh)
 
 Thank you!!
