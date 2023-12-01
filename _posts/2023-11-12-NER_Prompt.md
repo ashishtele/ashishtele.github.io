@@ -55,6 +55,7 @@ Zero-shot prompting is the method of using natural language prompts to guide pre
 
 Our observations with the zero-shot prompting technique for NER:
 
+1. LLMs find it challenging to generalize based solely on context. We have observed that the attribute sequence is neither constant nor reproducible. Additionally, the constraints are loose. 
 
 Stay tuned for more in-depth articles in collaboration with [Vikrant Singh](https://www.linkedin.com/in/vkrntkmrsngh/). You can also visit his [medium articles](https://medium.com/@vkrntkmrsngh)
 
