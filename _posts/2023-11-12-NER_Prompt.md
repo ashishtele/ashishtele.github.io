@@ -59,6 +59,8 @@ Our observations with the zero-shot prompting technique for NER:
 2. As context length increases, the output reproducibility becomes increasingly difficult.
 3. LLM does not understand/follow the hard constraints every time.
 
+## Few-shot Prompting:
+
 Stay tuned for more in-depth articles in collaboration with [Vikrant Singh](https://www.linkedin.com/in/vkrntkmrsngh/). You can also visit his [medium articles](https://medium.com/@vkrntkmrsngh)
 
 Thank you!!
