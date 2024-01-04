@@ -62,6 +62,10 @@ Our observations with the zero-shot prompting technique for NER:
 ## Few-shot Prompting:
 Few-shot prompting is a technique that leverages the capabilities of Large Language Models (LLMs) to perform specific tasks. By providing a few examples, known as "shots," the model can be conditioned to generate desired outputs, such as text, code, or images
 
+<p align="center">
+  <img width="600" height="450" src="/images_1/few_shot.PNG">
+</p>
+
 Stay tuned for more in-depth articles in collaboration with [Vikrant Singh](https://www.linkedin.com/in/vkrntkmrsngh/). You can also visit his [medium articles](https://medium.com/@vkrntkmrsngh)
 
 Thank you!!
