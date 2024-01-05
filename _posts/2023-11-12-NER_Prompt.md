@@ -66,6 +66,8 @@ Few-shot prompting is a technique that leverages the capabilities of Large Langu
   <img width="600" height="450" src="/images_1/few_shot.PNG">
 </p>
 
+Our observations with the few-shot prompting technique for NER:
+
 Stay tuned for more in-depth articles in collaboration with [Vikrant Singh](https://www.linkedin.com/in/vkrntkmrsngh/). You can also visit his [medium articles](https://medium.com/@vkrntkmrsngh)
 
 Thank you!!
