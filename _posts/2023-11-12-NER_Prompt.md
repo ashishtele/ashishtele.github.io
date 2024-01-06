@@ -60,13 +60,15 @@ Our observations with the zero-shot prompting technique for NER:
 3. LLM does not understand/follow the hard constraints every time.
 
 ## Few-shot Prompting:
-Few-shot prompting is a technique that leverages the capabilities of Large Language Models (LLMs) to perform specific tasks. By providing a few examples, known as "shots," the model can be conditioned to generate desired outputs, such as text, code, or images
+Few-shot prompting is a technique that leverages the capabilities of Large Language Models (LLMs) to perform specific tasks. By providing a few examples, known as "shots," the model can be conditioned to generate desired outputs, such as text, code, or images.
 
 <p align="center">
   <img width="600" height="450" src="/images_1/few_shot.PNG">
 </p>
 
 Our observations with the few-shot prompting technique for NER:
+
+1. A few diverse examples help LLM to learn the attribute sequence.
 
 Stay tuned for more in-depth articles in collaboration with [Vikrant Singh](https://www.linkedin.com/in/vkrntkmrsngh/). You can also visit his [medium articles](https://medium.com/@vkrntkmrsngh)
 
