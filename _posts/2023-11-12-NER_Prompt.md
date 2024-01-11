@@ -74,4 +74,4 @@ Our observations with the few-shot prompting technique for NER:
 
 Stay tuned for more in-depth articles in collaboration with [Vikrant Singh](https://www.linkedin.com/in/vkrntkmrsngh/). You can also visit his [medium articles](https://medium.com/@vkrntkmrsngh)
 
-Thank you!!
+Thank you!
