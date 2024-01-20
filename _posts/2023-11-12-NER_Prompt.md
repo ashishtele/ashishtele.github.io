@@ -73,6 +73,7 @@ Our observations with the few-shot prompting technique for NER:
 3. Diversity in examples plays an important role.
 4. The attribute sequence in all examples needs to be the same and it is critical for the result reproducibility.
 
+## Relevant Few-shot Prompting:
 
 Stay tuned for more in-depth articles in collaboration with [Vikrant Singh](https://www.linkedin.com/in/vkrntkmrsngh/). You can also visit his [medium articles](https://medium.com/@vkrntkmrsngh)
 
