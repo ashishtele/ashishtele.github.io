@@ -77,8 +77,8 @@ Our observations with the few-shot prompting technique for NER:
 
 In the course of our exploration into few-shot prompting, a prominent challenge has emerged, primarily stemming from the constrained number of examples available within a given context. This limitation poses a restriction on the diversity of examples at our disposal. The static nature of examples incorporated into prompts introduces a potential drawback – their efficacy is not universal across all input descriptions. While these examples demonstrate optimal performance when the input descriptions closely align with or bear similarity to the prompt examples in context, their effectiveness diminishes when confronted with inputs characterized by distinct prompt examples. In essence, the adaptability of static examples within prompts is contingent on the contextual proximity between the provided examples and the input descriptions. 
 
-A better option is to have dynamic examples wrapped inside prompts that are closely aligned with input descriptions. We can achieve this by grounding the training data.
+A better option is to have dynamic examples wrapped inside prompts that are closely aligned with input descriptions. We can achieve this by grounding the training data. 
 
 Stay tuned for more in-depth articles in collaboration with [Vikrant Singh](https://www.linkedin.com/in/vkrntkmrsngh/). You can also visit his [medium articles](https://medium.com/@vkrntkmrsngh)
 
-Thank you!
+Thank you!!
