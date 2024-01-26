@@ -79,6 +79,10 @@ In the course of our exploration into few-shot prompting, a prominent challenge 
 
 A better option is to have dynamic examples wrapped inside prompts that are closely aligned with input descriptions. We can achieve this by grounding the training data. 
 
+<p align="center">
+  <img width="800" height="400" src="/images_1/RAG_Few_shot.PNG">
+</p>
+
 Stay tuned for more in-depth articles in collaboration with [Vikrant Singh](https://www.linkedin.com/in/vkrntkmrsngh/). You can also visit his [medium articles](https://medium.com/@vkrntkmrsngh)
 
 Thank you!!
