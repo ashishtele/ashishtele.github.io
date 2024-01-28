@@ -96,4 +96,6 @@ I found this guide useful and practical. I have been experimenting with a few of
 
 A practical guide on how to develop a RAG-based LLM application from scratch, scale, evaluate, and serve the application in a highly scalable manner. A great read from Goku Mohandas.
 
+* [Seven Failure Points When Engineering a Retrieval Augmented Generation System](https://arxiv.org/pdf/2401.05856.pdf)
+
 Thank you!
