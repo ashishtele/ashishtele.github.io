@@ -77,11 +77,16 @@ Our observations with the few-shot prompting technique for NER:
 
 In the course of our exploration into few-shot prompting, a prominent challenge has emerged, primarily stemming from the constrained number of examples available within a given context. This limitation poses a restriction on the diversity of examples at our disposal. The static nature of examples incorporated into prompts introduces a potential drawback – their efficacy is not universal across all input descriptions. While these examples demonstrate optimal performance when the input descriptions closely align with or bear similarity to the prompt examples in context, their effectiveness diminishes when confronted with inputs characterized by distinct prompt examples. In essence, the adaptability of static examples within prompts is contingent on the contextual proximity between the provided examples and the input descriptions. 
 
-A better option is to have dynamic examples wrapped inside prompts that are closely aligned with input descriptions. We can achieve this by grounding the training data. We can build a vectorDB like AlloyBD to host {Input, Output, Input Embeddings} for retrieval. 
 
 <p align="center">
   <img width="800" height="400" src="/images_1/RAG_Few_shot.PNG">
 </p>
+
+An optimal approach involves incorporating dynamic examples encapsulated within prompts that closely align with input descriptions. This can be achieved through the implementation of grounded training data. By establishing a vector database (vectorDB) akin to AlloyDB, utilizing technologies such as PostgreSQL in conjunction with pgvector for hosting {Input, Output, Input Embeddings} tuples, we create a platform for efficient retrieval.
+
+When a new input is introduced, it undergoes a conversion into embeddings, facilitating a similarity search within vectorDB. This search involves comparing the input embeddings to those stored in the database. The top-k most similar {input + Output} examples are subsequently extracted and integrated into the prompt context as few-shot examples.
+
+The modified context, enriched with relevant examples closely mirroring the input, is then presented to the Language Model (LLM) along with the original input, as illustrated in the accompanying diagram. This innovative approach is anticipated to yield superior results in comparison to the conventional static few-shot prompting method.
 
 Stay tuned for more in-depth articles in collaboration with [Vikrant Singh](https://www.linkedin.com/in/vkrntkmrsngh/). You can also visit his [medium articles](https://medium.com/@vkrntkmrsngh)
 
