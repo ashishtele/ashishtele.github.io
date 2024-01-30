@@ -4,17 +4,17 @@ comments: false
 tags: [about]
 ---
 
-As a Senior Data Scientist (Manager) at Cardinal Health, I have a wealth of experience in the field of analytics, having previously worked as a Data Scientist at Nestle and Novartis. I am passionate about data storytelling and sharing my experiences through writing, and I enjoy contributing to industry blogs and publications.
+As a Senior Data Scientist (Manager) at Cardinal Health, I have extensive experience in the analytics field. Previously, I held the position of Data Scientist at Nestle, Novartis, and ZS. My passion for data storytelling drives me to share my insights through writing, and I actively contribute to industry blogs and publications, aiming to enrich the discourse in the field of data science.
 
 I have a Master's Degree in Business Analytics & Project Management from the UConn School of Business, where I gained a strong foundation in analytical thinking and problem-solving. In addition, my experience working in analytical consulting has given me a deep understanding of the Healthcare, Retail, and Consumer Products domains.
 
-In my current role at Cardinal Health, I am responsible for leading a team of data scientists in delivering high-impact analytics solutions to a range of business problems. I am always looking for new and exciting challenges, and I am passionate about driving innovation and growth through the use of data and analytics.
+In my current role at Cardinal Health, I collaborate with a team of data scientists in delivering high-impact analytics solutions to a range of business problems. I am always looking for new and exciting challenges, and I am passionate about driving innovation and growth through the use of data and analytics.
 
 ## Core Competencies
 
 **Analytical Thinking:**
 
-As a data enthusiast, I am passionate about uncovering insights hidden within complex sets of data. I am proficient in mastering new knowledge and techniques quickly, allowing me to stay on the cutting-edge of data science and analysis.
+As a data enthusiast, I am passionate about uncovering insights hidden within complex sets of data. I am proficient in mastering new knowledge and techniques quickly, allowing me to stay on the cutting edge of data science and analysis.
 
 My ability to understand and articulate the limitations and potential of a given dataset has enabled me to effectively guide others in the development of data-driven solutions. I have a strong background in statistical analysis, machine learning, and data visualization, and I am constantly seeking to improve my skills and stay up-to-date with the latest developments in the field.
 
