@@ -100,4 +100,8 @@ A practical guide on how to develop a RAG-based LLM application from scratch, sc
 
 * [SELF-DISCOVER: Large Language Models Self-Compose Reasoning Structures](https://arxiv.org/pdf/2402.03620.pdf)
 
+  <p align="center">
+  <img width="600" height="350" src="/images_1/LLM_self.PNG">
+</p>
+
 Thank you!
