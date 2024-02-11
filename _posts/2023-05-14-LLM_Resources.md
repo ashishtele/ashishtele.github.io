@@ -98,9 +98,13 @@ A practical guide on how to develop a RAG-based LLM application from scratch, sc
 
 * [Seven Failure Points When Engineering a Retrieval Augmented Generation System](https://arxiv.org/pdf/2401.05856.pdf)
 
+<p align="center">
+  <img width="600" height="350" src="/images_1/LLM_fail.PNG">
+</p>
+
 * [SELF-DISCOVER: Large Language Models Self-Compose Reasoning Structures](https://arxiv.org/pdf/2402.03620.pdf)
 
-  <p align="center">
+<p align="center">
   <img width="600" height="350" src="/images_1/LLM_self.PNG">
 </p>
 
