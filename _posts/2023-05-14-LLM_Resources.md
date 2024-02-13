@@ -98,6 +98,8 @@ A practical guide on how to develop a RAG-based LLM application from scratch, sc
 
 * [Seven Failure Points When Engineering a Retrieval Augmented Generation System](https://arxiv.org/pdf/2401.05856.pdf)
 
+This paper describes 7 most common failure points while implementing RAG system.
+
 <p align="center">
   <img width="600" height="350" src="/images_1/LLM_fail.PNG">
 </p>
