@@ -106,6 +106,12 @@ This paper describes 7 most common failure points while implementing RAG system.
 
 * [SELF-DISCOVER: Large Language Models Self-Compose Reasoning Structures](https://arxiv.org/pdf/2402.03620.pdf)
 
+The SELF-DISCOVER framework presents a significant advancement in enhancing the performance of language models like GPT-4 and PaLM 2 across demanding reasoning benchmarks such as BigBench-Hard, grounded agent reasoning, and MATH. Its impact is noteworthy, showcasing improvements of up to 32% when compared to the Chain of Thought (CoT) approach.
+
+Moreover, SELF-DISCOVER demonstrates superiority over inference-intensive methodologies like CoT-Self-Consistency by surpassing their performance by over 20%, all while demanding substantially less inference compute, typically in the range of 10-40 times fewer computations.
+
+Additionally, the research illustrates that the reasoning structures self-discovered by this framework exhibit universality across various model families. They seamlessly translate from models like PaLM 2-L to GPT-4 and from GPT-4 to Llama2, displaying similarities with patterns observed in human reasoning processes.
+
 <p align="center">
   <img width="600" height="350" src="/images_1/LLM_self.PNG">
 </p>
