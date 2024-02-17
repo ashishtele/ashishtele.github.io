@@ -11,9 +11,9 @@ published: true
 comments: true
 header:
   teaserlogo:
-  teaser: /images_1/prompt_LLM.PNG
-  image: /images_1/prompt_LLM.PNG
-  caption: "courtesy: Google.com"
+  teaser: /images_1/pair_pro.jpg
+  image: /images_1/pair_pro.jpg
+  caption: "courtesy: Gemini"
 gallery:
 
   - image_path: ''
