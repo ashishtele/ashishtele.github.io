@@ -25,7 +25,80 @@ Hi All,
 
 I recently completed a course titled "Pair Programming with an LLM" offered by [Laurence Moroney](https://laurencemoroney.com/), available on deeplearning.ai. The course proved immensely beneficial, providing valuable insights into collaborative programming with Language Models (LLMs).
 
-Within our organization, which heavily utilizes Google technologies, we rely on PaLM and Gemini frameworks for addressing various generative AI use cases. Laurence shared practical insights that I can implement and upskill others at the organization. 
+Within our organization, which heavily utilizes Google technologies, we rely on PaLM and Gemini frameworks for addressing various generative AI use cases. Laurence imparted practical insights that I can readily implement within the organization, empowering me to enhance my skills and effectively train others.
+
+```python
+from google.api_core import retry
+@retry.Retry()
+def generate_text(prompt,
+                  model=model_bison,
+                  temperature=0.0):
+    return palm.generate_text(prompt=prompt,
+                              model=model,
+                              temperature=temperature)
+
+prompt = "Show me how to iterate across a list in Python."
+VS
+prompt = "write code to iterate across a list in Python"
+
+completion = generate_text(prompt)
+print(completion.result)
+```
+
+A few suggestions and recommendations:
+
+1. `generateText` is currently recommended for coding-related prompts
+
+2. The `@retry` decorator helps you to retry the API call if it fails
+
+3. Set the `temperature` to `0.0` so that the model returns the same output (completion) if given the same input (the prompt)
+
+4. The words `"show me"`tend to encourage the PaLM LLM to give more details and explanations compared to if you were to ask `"write code to ...`
+
+```python
+from google.api_core import retry
+
+# The @retry decorator helps you to retry the API call if it fails.
+@retry.Retry()
+def generate_text(prompt, 
+                  model=model_bison, 
+                  temperature=0.0):
+    return palm.generate_text(prompt=prompt,
+                              model=model,
+                              temperature=temperature)
+
+## Prompt template							  
+prompt_template = """
+{priming}
+
+{question}
+
+{decorator}
+
+Your solution:
+"""
+
+priming_text = "You are an expert at writing clear, concise, Python code."
+
+question = "create a doubly linked list"
+
+# Option 1:
+decorator = "Work through it step by step, and show your work. One step per line."
+
+# Option 2:
+decorator = "Insert comments for each line of code."
+
+
+prompt = prompt_template.format(priming=priming_text,
+                                question=question,
+                                decorator=decorator)
+								
+								
+print(prompt)
+completion = generate_text(prompt)
+print(completion.result)
+
+```
 
 Thanks,
 Ashish
