@@ -99,6 +99,14 @@ completion = generate_text(prompt)
 print(completion.result)
 
 ```
+Prompt template:-
+
+1. **Priming:** Getting the LLM ready for the type of task you'll ask it to do.
+
+2. **Question:** The specific task.
+
+3. **Decorator:** How to provide or format the output.
+
 
 Thanks,
 Ashish
