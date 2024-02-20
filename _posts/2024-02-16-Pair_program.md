@@ -107,6 +107,7 @@ Prompt template:-
 
 3. **Decorator:** How to provide or format the output.
 
+For generating code, we may want to experiment with other wording that would make sense if we were asking a developer the same question.
 
 Thanks,
 Ashish
