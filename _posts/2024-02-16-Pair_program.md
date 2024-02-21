@@ -109,6 +109,52 @@ Prompt template:-
 
 For generating code, we may want to experiment with other wording that would make sense if we were asking a developer the same question.
 
+## Improving Existing Code
+
+An LLM can help you rewrite your code in the way that's recommended for that particular language.
+
+```python
+from google.api_core import retry
+
+@retry.Retry()
+def generate_text(prompt, 
+                  model=model_bison, 
+                  temperature=0.0):
+    return palm.generate_text(prompt=prompt,
+                              model=model,
+                              temperature=temperature)
+
+# Option 1:
+prompt_template = """
+I don't think this code is the best way to do it in Python, can you help me?
+
+{question}
+
+Please explain, in detail, what you did to improve it.
+"""
+
+# Option 2:
+prompt_template = """
+I don't think this code is the best way to do it in Python, can you help me?
+
+{question}
+
+Please explore multiple ways of solving the problem, and explain each.
+"""
+
+question = """
+def func_x(array)
+  for i in range(len(array)):
+    print(array[i])
+"""
+
+completion = generate_text(
+    prompt = prompt_template.format(question=question)
+)
+print(completion.result)
+
+```
+
 Thanks,
 Ashish
 
