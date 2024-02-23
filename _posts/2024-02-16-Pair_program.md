@@ -155,6 +155,10 @@ print(completion.result)
 
 ```
 
+## Simplify code
+
+
+
 Thanks,
 Ashish
 
