@@ -157,6 +157,41 @@ print(completion.result)
 
 ## Simplify code
 
+```python
+prompt_template = """
+Can you please simplify this code for a linked list in Python? \n
+You are an expert in Pythonic code.
+
+{question}
+
+Please comment on each line in detail, \n
+and explain in detail what you did to modify it, and why.
+"""
+
+question = """
+class Node:
+  def __init__(self, dataval=None):
+    self.dataval = dataval
+    self.nextval = None
+
+class SLinkedList:
+  def __init__(self):
+    self.headval = None
+
+list1 = SLinkedList()
+list1.headval = Node("Mon")
+e2 = Node("Tue")
+e3 = Node("Wed")
+list1.headval.nextval = e2
+e2.nextval = e3
+"""
+
+completion = generate_text(
+    prompt = prompt_template.format(question=question)
+)
+print(completion.result)
+
+```
 
 
 Thanks,
