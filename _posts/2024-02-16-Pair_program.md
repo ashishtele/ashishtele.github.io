@@ -157,6 +157,7 @@ print(completion.result)
 
 ## Simplify code
 
+
 ```python
 prompt_template = """
 Can you please simplify this code for a linked list in Python? \n
