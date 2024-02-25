@@ -194,6 +194,53 @@ print(completion.result)
 
 ```
 
+## Write test cases and make code more efficient
+
+```python
+prompt_template_1 = """
+Can you please create test cases in code for this Python code?
+
+{question}
+
+Explain in detail what these test cases are designed to achieve.
+"""
+
+prompt_template_2 = """
+Can you please make this code more efficient?
+
+{question}
+
+Explain in detail what you changed and why.
+"""
+
+question = """
+class Node:
+  def __init__(self, dataval=None):
+    self.dataval = dataval
+    self.nextval = None
+
+class SLinkedList:
+  def __init__(self):
+    self.head = None
+
+def create_linked_list(data):
+  head = Node(data[0])
+  for i in range(1, len(data)):
+    node = Node(data[i])
+    node.nextval = head
+    head = node
+  return head
+
+list1 = create_linked_list(["Mon", "Tue", "Wed"])
+"""
+
+
+completion = generate_text(
+    prompt = prompt_template.format(question=question)
+)
+print(completion.result)
+```
+
 
 Thanks,
 Ashish
