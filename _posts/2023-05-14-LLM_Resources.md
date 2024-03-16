@@ -116,4 +116,6 @@ Additionally, the research illustrates that the reasoning structures self-discov
   <img width="600" height="350" src="/images_1/LLM_self.PNG">
 </p>
 
+* [Advanced Basics](https://huggingface.co/blog/hrishioa/retrieval-augmented-generation-1-basics)
+
 Thank you!
