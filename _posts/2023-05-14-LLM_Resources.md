@@ -118,4 +118,6 @@ Additionally, the research illustrates that the reasoning structures self-discov
 
 * [Advanced Basics](https://huggingface.co/blog/hrishioa/retrieval-augmented-generation-1-basics)
 
+I found this 3 post series very useful and practical. It talks about the real world problems we are facing while building the applications.
+
 Thank you!
