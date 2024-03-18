@@ -118,6 +118,7 @@ Additionally, the research illustrates that the reasoning structures self-discov
 
 * [Advanced Basics](https://huggingface.co/blog/hrishioa/retrieval-augmented-generation-1-basics)
 
-I found this 3 post series very useful and practical. It talks about the real world problems we are facing while building the applications.
+I found this three-part series very useful and practical. It addresses the real-world problems we face when building applications. 
+Part 1 covers the basics and some considerations in system design, key concerns such as question complexity, and the need for new solutions.
 
 Thank you!
