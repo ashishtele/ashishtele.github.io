@@ -36,7 +36,7 @@ entire code repository within the context window of these models, we can greatly
 and understanding of the codebase.
 
 <p align="center">
-  <img width="600" height="450" src="/images_1/LLM_flow.PNG">
+  <img width="500" height="200" src="/images_1/LLM_flow.PNG">
 </p>
 
 
