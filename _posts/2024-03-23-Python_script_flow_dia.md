@@ -35,6 +35,8 @@ with their expansive context windows, we have a powerful resource at our disposa
 entire code repository within the context window of these models, we can greatly simplify our exploration
 and understanding of the codebase.
 
-
+<p align="center">
+  <img width="600" height="450" src="/images_1/LLM_flow.PNG">
+</p>
 
 
