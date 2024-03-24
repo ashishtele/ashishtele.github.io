@@ -109,9 +109,104 @@ graph LR
 
 [Mermaidflow](https://www.mermaidflow.app/editor)
 
+
+<p align="center">
+  <img width="650" height="275" src="/images_1/mermaid.PNG">
+</p>
+
+
 ## Graphviz
 
+[Graphviz](https://graphviz.org/) is a powerful open-source graph visualization software. It provides a collection of tools for creating and manipulating graphs and diagrams. Graphviz uses the DOT language to describe graphs, which is a simple text-based language for specifying the structure of graphs.
+
+Graphviz can be used to visualize various types of graphs, including:
+
+1. Directed and undirected graphs
+2. Trees and hierarchical structures
+3. Flowcharts and network diagrams
+4. Entity-relationship diagrams
+
+With Graphviz, you can generate high-quality visual representations of complex data structures and relationships, which can be useful for analysis, communication, and documentation purposes.
+
+```python
+digraph ModulesFlow {
+    // Nodes
+    node [shape=box, style=filled, color=lightblue1];
+    "backend_pre_start.py";
+    "crud.py";
+    "initial_data.py";
+    "main.py";
+    "models.py";
+    "tests_pre_start.py";
+    "utils.py";
+    "deps.py";
+    "items.py";
+    "login.py";
+    "users.py";
+    "config.py";
+    "db.py";
+    "security.py";
+
+
+    // Dependencies
+    "backend_pre_start.py" -> "db.py";
+    "db.py" -> "initial_data.py";
+    "initial_data.py" -> "db.py";
+    "db.py" -> "main.py";
+    "main.py" -> "utils.py";
+    "main.py" -> "items.py";
+    "main.py" -> "login.py";
+    "main.py" -> "users.py";
+    "items.py" -> "deps.py";
+    "items.py" -> "models.py";
+    "login.py" -> "deps.py";
+    "login.py" -> "utils.py";
+    "login.py" -> "models.py";
+    "users.py" -> "deps.py";
+    "users.py" -> "utils.py";
+    "users.py" -> "models.py";
+    "utils.py" -> "config.py";
+    "test_backend_pre_start.py" -> "backend_pre_start.py";
+    "test_test_pre_start.py" -> "tests_pre_start.py";
+    "test_items.py" -> "items.py";
+    "test_login.py" -> "login.py";
+    "test_users.py" -> "users.py";
+    "test_user.py" -> "security.py";
+
+    // Source nodes
+    node [shape=ellipse, style=filled, color=lightgreen];
+    "backend_pre_start.py";
+    "config.py";
+
+    // Other nodes
+    node [shape=box, style=filled, color=lightblue1];
+    "deps.py";
+    "models.py";
+    "security.py";
+    "tests_pre_start.py";
+    "test_items.py";
+    "test_login.py";
+    "test_user.py";
+    "test_users.py";
+    "test_backend_pre_start.py";
+    "test_test_pre_start.py";
+
+
+    // Additional settings
+    edge [color=gray40];
+    edge [color=gray40];
+}
+```
+<p align="center">
+  <img width="650" height="275" src="/images_1/graphviz.PNG">
+</p>
+
+
 ## D2
+
+<p align="center">
+  <img width="650" height="275" src="/images_1/d2.PNG">
+</p>
 
 ## LLM Hallucination
 
