@@ -76,6 +76,25 @@ Contents of file3.txt
 
 The massive context window of Gemini 1.5 Pro is enough to pass mid-size repository content. You can upload the `.txt` file to Gemini 1.5 Pro and ask LLM to provide the dependency flow of modules. 
 
+**Prompt**
+~~~
+List of files to analyze is given between <list_files></list_files>. They must be in output.
+Create the flow dependency among the modules carefully. Think step by step and then traverse. 
+Follow import statements carefully to link modules. 
+No need to include third-party modules such as fastapi, pydantic, jinja, jose etc
+
+You can avoid tests, alembic folder. 
+
+<example>
+models.py does not import any module from app. (first-party module),so it becomes source node
+config.py does not import any module from app. (first-party module),so it becomes source node
+security.py imports only from app.core.config (first-party module),so flow becomes congig.py -> security.py
+crud.py imports from app.core.security and app.models (both part of first-party modules), so flow becomes congig.py -> security.py -> crud.py and models.py -> crud.py
+</example>
+
+Generate DOT code based on the <context>
+~~~
+
 ```python
 graph LR
     subgraph app
@@ -107,11 +126,15 @@ graph LR
 
 ## Mermaid Code
 
-[Mermaidflow](https://www.mermaidflow.app/editor)
+[Mermaid](https://mermaid.js.org/intro/) lets you create diagrams and visualizations using text and code.
+
+It is a JavaScript-based diagramming and charting tool that renders Markdown-inspired text definitions to create and modify diagrams dynamically.
+
+[Mermaidflow](https://www.mermaidflow.app/editor) is an online editor to play with the code.
 
 
 <p align="center">
-  <img width="650" height="275" src="/images_1/mermaid.PNG">
+  <img width="750" height="350" src="/images_1/mermaid.PNG">
 </p>
 
 
@@ -147,7 +170,6 @@ digraph ModulesFlow {
     "db.py";
     "security.py";
 
-
     // Dependencies
     "backend_pre_start.py" -> "db.py";
     "db.py" -> "initial_data.py";
@@ -173,24 +195,9 @@ digraph ModulesFlow {
     "test_users.py" -> "users.py";
     "test_user.py" -> "security.py";
 
-    // Source nodes
-    node [shape=ellipse, style=filled, color=lightgreen];
-    "backend_pre_start.py";
-    "config.py";
-
-    // Other nodes
-    node [shape=box, style=filled, color=lightblue1];
-    "deps.py";
-    "models.py";
-    "security.py";
-    "tests_pre_start.py";
-    "test_items.py";
-    "test_login.py";
-    "test_user.py";
-    "test_users.py";
-    "test_backend_pre_start.py";
-    "test_test_pre_start.py";
-
+    ||
+    //
+    ||
 
     // Additional settings
     edge [color=gray40];
@@ -198,14 +205,16 @@ digraph ModulesFlow {
 }
 ```
 <p align="center">
-  <img width="650" height="275" src="/images_1/graphviz.PNG">
+  <img width="750" height="350" src="/images_1/graphviz.PNG">
 </p>
 
 
 ## D2
 
+[Declarative Diagramming](https://d2lang.com/) is the fastest and easiest way to get a mental model from your head onto the screen. We can generate the D2 code by providing the same `prompt` and `<context>` by changing just one word. There are multiple free [online editors](https://play.d2lang.com/) to create with D2.
+
 <p align="center">
-  <img width="650" height="275" src="/images_1/d2.PNG">
+  <img width="750" height="350" src="/images_1/d2.PNG">
 </p>
 
 ## LLM Hallucination
