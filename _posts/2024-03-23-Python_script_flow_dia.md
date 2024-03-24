@@ -38,13 +38,13 @@ and understanding of the codebase.
 Let's understand the process as shown below:
 
 <p align="center">
-  <img width="500" height="200" src="/images_1/LLM_flow.PNG">
+  <img width="650" height="275" src="/images_1/LLM_flow.PNG">
 </p>
 
 ## Files to Prompt
 
 x.com is the best source of resources for like-minded people provided you follow the right people. I discovered the post related to `files-to-prompt` repo. by [simon](https://twitter.com/simonw). It is a lightweight module to concatenate a 
-directory full of files into a single prompt. I just had to modify it to save the prompt as a text file. You can find the module at [repo](https://github.com/simonw/files-to-prompt/tree/main). It takes the path/to/directory and saves the prompt file with minimum modification. 
+directory full of files into a single prompt. I just had to modify it to save the prompt as a text file. You can find the module at [repo](https://github.com/simonw/files-to-prompt/tree/main). It takes the path/to/directory and saves the prompt file with minimum modification. I do have a version of an output file with `imports` only.
 
 If you have a directory structure as below:
 ```python
@@ -108,5 +108,15 @@ graph LR
 ## Mermaid Code
 
 [Mermaidflow](https://www.mermaidflow.app/editor)
+
+## Graphviz
+
+## D2
+
+## LLM Hallucination
+
+##
+
+
 
 
