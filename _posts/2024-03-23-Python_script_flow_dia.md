@@ -219,6 +219,8 @@ digraph ModulesFlow {
 
 ## LLM Hallucination
 
+* Gemini 1.5 Pro: The current version of `Gemini 1.5 Pro` through `Google AI Studio` hallucinates a lot. It has a default `temperature` of 2 and can not be adjusted. It apologizes a lot!
+
 ## Pydeps
 
 > pydeps --max-bacon 4 --exclude fastapi starlette pydantic pydantic_core typing_extensions --show-dot --no-show main.py > githb.dot
