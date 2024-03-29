@@ -36,6 +36,7 @@ The LLM engagement project involves analyzing unstructured data and identifying 
 2. Security and compliance experts
 3. Data governance experts
 4. Business leaders and/or consulting partners
+5. Full-Stack developers
 
 **Empathize:**
 
