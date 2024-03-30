@@ -80,11 +80,11 @@ Large language models may need to be integrated with existing systems or workflo
 
 **Ensuring scalability:**
 
-Large companies may have many employees who need to access the language model. The build team should consider how to ensure that the solution is scalable and can support many users.
+Large companies may have many employees who need to access the language models. The build team should consider how to ensure that the solution is scalable and can support many users. Privacy is the most concerning part of it.
 
 **Addressing security concerns:**
 
-Large language models may contain sensitive or proprietary information. The security team should work to ensure that the solution is secure and complies with any relevant regulations or policies.
+Large language models may contain sensitive or proprietary information. The security team should work to ensure that the solution is secure and complies with any relevant regulations or policies. Companies work on creating AI Policies and compliance training for employees. 
 
 Thank you!!
 
