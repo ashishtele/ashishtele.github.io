@@ -64,15 +64,16 @@ The ideation stage involves *generating creative ideas for potential solutions*.
 **Prototype:**
 
 Once potential solutions have been identified, the next step is to *create low-fidelity prototypes that can be tested and refined*. This could include:
+
 1. Building MVP/MLP (minimum lovable product) using open-source, commercially usable LLM models
 2. Developing a new interface or integration that can be tested with employees
-3. Creating a pilot program to test the effectiveness of new training programs or workflows.
+3. Creating a pilot program to test the effectiveness of new training programs or workflows
+4. Understanding the diverse user groups within the company, their roles, skill levels, and specific requirements when interacting with LLMs. Create user personas to represent these different groups and their needs
 
 **Test:**
 
 The final stage of design thinking involves testing the prototypes with users to gather feedback and refine the design. This feedback can then be used to iterate further and improve the solution.
 
-Some key considerations when applying design thinking to problems related to making large language models more accessible to users in large companies include:
 
 **Addressing integration challenges:**
 
