@@ -81,11 +81,11 @@ Large language models may need to be integrated with existing systems or workflo
 
 **Ensuring scalability:**
 
-Large companies may have many employees who need to access the language models. The build team should consider how to ensure that the solution is scalable and can support many users. Privacy is the most concerning part of it.
+Large companies may have many employees who need to access the language models. The build team should consider how to ensure that the solution is scalable and can support many users.
 
 **Addressing security concerns:**
 
-Large language models may contain sensitive or proprietary information. The security team should work to ensure that the solution is secure and complies with any relevant regulations or policies. Companies work on creating AI Policies and compliance training for employees. 
+Employees may unknowingly share sensitive and proprietary information with language models while prompting. Most LLM service providers offer an option to opt-out of data collection, but the risk remains elevated. The security and compliance team should collaborate closely with the GenAI task force to ensure the solution is secure and compliant with relevant regulations and policies. Companies should develop AI policies and provide compliance training for employees.
 
 Thank you!!
 
