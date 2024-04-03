@@ -81,7 +81,7 @@ Large language models may need to be integrated with existing systems or workflo
 
 **Ensuring scalability:**
 
-Large companies may have many employees who need to access the language models. The build team should consider how to ensure that the solution is scalable and can support many users.
+Large companies have many employees requiring access to the language models. The development team must prioritize scalability and robust support for a high volume of users when devising the solution. The team can follow a modular approach starting from the MVP phase which helps to pivot the design.
 
 **Addressing security concerns:**
 
