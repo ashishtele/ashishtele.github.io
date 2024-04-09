@@ -72,7 +72,7 @@ Once potential solutions have been identified, the next step is to *create low-f
 
 **Test:**
 
-The final stage of design thinking involves testing the prototypes with users to gather feedback and refine the design. This feedback can then be used to iterate further and improve the solution. Testing can be user-based or system-based.
+The final stage of design thinking involves testing the prototypes with users to gather feedback and refine the design. This feedback can then be used to iterate further and improve the solution. Testing can be user-based or system-based. Also, it differs for ML and LLM-based solutions.
 
 
 **Addressing integration challenges:**
