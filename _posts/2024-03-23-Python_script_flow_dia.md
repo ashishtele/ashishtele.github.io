@@ -219,8 +219,9 @@ digraph ModulesFlow {
 
 ## LLM Hallucination
 
-* Gemini 1.5 Pro: The current version of `Gemini 1.5 Pro` through `Google AI Studio` hallucinates a lot. It has a default `temperature` of 2 (date: 03/23/2024) and can not be adjusted. It apologizes a lot!
+* Gemini 1.5 Pro: The current version of `Gemini 1.5 Pro` through `Google AI Studio` hallucinates a lot. It has a default `temperature` of 2 (date: 03/23/2024) and can not be adjusted. It apologized a lot!
 * ChatGPT: It did good work at generating a `DOT` file.
+* Claude 2: Claude followed prompt diligently and generated `mermaid` code with minimum changes.
 
 ## Pydeps
 
