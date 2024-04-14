@@ -42,6 +42,33 @@ Let's say you're trying to figure out if a certain toy makes kids happier. You g
 Now, let's say you give the same toy to another group of kids and ask them to rate their happiness. This time, the average happiness score is only 6.5.
 If the p-value (some magic number 🪄) is low, it means that the difference between the two groups is probably not due to chance, and there's likely a real difference between the two groups (boys did not like the Barbie doll 👸as much as girls adored it!)
 
+One more story:
+
+In the bustling city of Mumbai, Katrina found herself tangled in the web of suspicion. Her boyfriend, Salman, seemed to be drifting away, his excuses for late nights and mysterious outings stacking up like bricks in a wall of doubt. Concerned, Katrina decided to unravel the truth.
+
+She enlisted the help of a renowned private investigator, Detective Byomkesh Bakshy, whose sharp eye and keen intuition were legendary in the city's shadows. Detective Byomkesh trailed Salman discreetly, documenting every rendezvous, every whispered conversation, and every lingering glance.
+
+Finally, armed with a dossier of evidence, Katrina sat down with Detective Byomkesh to decipher the clues. The report revealed a startling pattern – Salman was meeting another woman, Aish, at a cozy café with alarming frequency.
+
+Now, faced with two unsettling possibilities, Katrina grappled with uncertainty:
+
+Scenario 1: Salman is innocent, and his meetings with Aish are purely innocent, perhaps work-related or platonic.
+Scenario 2: Salman is indeed betraying Katrina's trust, engaging in an affair with Aish behind her back.
+
+But how could Katrina discern the truth amidst the tangled threads of suspicion? Enter the enigmatic concept of the p-value.
+
+The p-value, whispered Detective Byomkesh, was the key to unlocking the mystery. It served as a compass, guiding Katrina through the murky waters of uncertainty.
+
+A low p-value, like a shimmering beacon in the darkness, would signal that the evidence – Salman's frequent meetings with Aish – was highly improbable if he were innocent. It would suggest that scenario 2, the betrayal, loomed ominously on the horizon.
+
+Conversely, a high p-value would cast doubt on the significance of the evidence, hinting that scenario 1, innocence, was still a plausible explanation.
+
+In Katrina's case, a minuscule p-value would tip the scales decisively, suggesting that Salman's innocence was a mere illusion, shattered by the weight of damning evidence.
+
+Yet, Detective Byomkesh cautioned, the p-value alone was not a verdict but a compass needle, pointing toward truth or deception. Katrina would need to weigh other factors and consider additional evidence, before reaching a final judgment.
+
+In Katrina's journey through the labyrinth of suspicion, the p-value illuminated a path, revealing the stark reality hidden beneath the veneer of deceit.
+
 __Gradient Descent ⛰️__
 =================
 
