@@ -89,7 +89,7 @@ Imagine that you are a happily married man of 10 years. One day, out of nowhere,
 
 > 'Sweetie, do you remember all our anniversary celebrations?'
 
-This seemingly simple question can turn your life into chaos. You must remember all 10 anniversaries accurately. `Recall` is the ratio of the number of anniversary celebrations you can accurately remember to the total number of your anniversaries. So, if you can recall 8 out of 10 anniversary venues, your recall ratio is 0.8. Beware! You missed 2.
+This seemingly simple question can turn your life into chaos. You must remember all 10 anniversaries accurately. `Recall` is the ratio of the number of anniversary celebrations you can accurately remember to the total number of your anniversaries. So, if you can recall 8 out of 10-anniversary venues, your recall ratio is 0.8. Beware! You missed 2.
 
 If you claim to have celebrated 11 anniversaries together and can remember 10 with great effort, your precision is 0.91. Therefore, `precision` is the ratio of the number of events you can correctly recall to the total number of events you recall (a mix of correct (10) and incorrect recalls (1)). In other words, it measures how precise your recall is. In this scenario, too, you are in danger, as you claimed to have celebrated 11 anniversaries!!
 
