@@ -44,7 +44,7 @@ Let's understand the process as shown below:
 ## Files to Prompt
 
 x.com is the best source of resources for like-minded people provided you follow the right people. I discovered the post related to `files-to-prompt` repo. by [simon](https://twitter.com/simonw). It is a lightweight module to concatenate a 
-directory full of files into a single prompt. I just had to modify it to save the prompt as a text file. You can find the module at [repo](https://github.com/simonw/files-to-prompt/tree/main). It takes the path/to/directory and saves the prompt file with minimum modification. I do have a version of an output file with `imports` only. Find the [script](https://github.com/ashishtele/ashishtele.github.io/blob/master/_data/github2file.py) here.
+directory full of files into a single prompt. I just had to modify it to save the prompt as a text file. You can find the module at [repo](https://github.com/simonw/files-to-prompt/tree/main). It takes the path/to/directory and saves the prompt file with minimum modification. I do have a version of an output file with `imports` only. Find the [script](https://github.com/ashishtele/ashishtele.github.io/blob/master/_data/github2file.py) here..
 
 If you have a directory structure as below:
 ```python
