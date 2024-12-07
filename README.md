@@ -1,4 +1,4 @@
-## The site showcases my work
+### The site showcases my work
 
 ### [Minimal Mistakes Jekyll theme](https://mmistakes.github.io/minimal-mistakes/)
 
