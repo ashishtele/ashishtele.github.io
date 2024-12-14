@@ -11,8 +11,8 @@ published: true
 comments: true
 header:
   teaserlogo:
-  teaser: /images_1/pair_pro.jpg
-  image: /images_1/pair_pro.jpg
+  teaser: /images_1/superintel.jpg
+  image: /images_1/superintel.jpg
   caption: "courtesy: Gemini"
 gallery:
 
