@@ -31,7 +31,7 @@ One of the key ideas of deep learning is connectionism, which holds that a large
 
 Sutskever then shifted his focus to the longer term, speculating about the future of superintelligence. He mentioned two potential developments: agents and synthetic data. Agents are AI systems that can act autonomously, while synthetic data is artificially generated data that can be used to train AI models. He sees both of these as promising areas for future research.
 
-Finally, Sutskever touched on the concept of superintelligence. He believes that superintelligence will be qualitatively different from what we have today, and that it will be characterized by the following properties:
+Finally, Sutskever touched on the concept of superintelligence. He believes that superintelligence will be qualitatively different from what we have today and that it will be characterized by the following properties:
 
 * Agentic: Superintelligent systems will be able to act autonomously in the world.
 * Reasons: They will be able to reason and understand things in a way that is far beyond current AI systems.
@@ -41,4 +41,5 @@ Finally, Sutskever touched on the concept of superintelligence. He believes that
 Sutskever acknowledges that it is impossible to predict exactly what superintelligence will look like. However, he believes that it will be a radical departure from current AI systems and that it will have incredible and amazing capabilities. He encourages people to reflect on these possibilities and to imagine what the future of AI might hold.
 
 Thanks,
+
 Ashish
