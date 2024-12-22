@@ -33,7 +33,7 @@ Sutskever then shifted his focus to the longer term, speculating about the futur
 
 Finally, Sutskever touched on the concept of superintelligence. He believes that superintelligence will be qualitatively different from what we have today and that it will be characterized by the following properties:
 
-* Agentic: Superintelligent systems will be able to act autonomously in the world.
+* Agentic: Superintelligent systems will be able to act autonomously in the world. Recently Satya proclaimed on [BG2](https://www.youtube.com/watch?v=9NtsnzRFJ_o&ab_channel=Bg2Pod) that "SaaS are CRUD databases with business logic. As AI Agents take over that logic, SaaS will collapse". The agentic paradigm might not collapse SaaS in totality, but most of the wrapper startups will vanish.
 * Reasons: They will be able to reason and understand things in a way that is far beyond current AI systems.
 * Understands: They will be able to understand from limited data, without getting confused.
 * Is self-aware: This could be a useful feature, as our sense of self is part of our own world models.
