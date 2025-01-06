@@ -41,4 +41,5 @@ Finally, Sutskever touched on the concept of superintelligence. He believes that
 Sutskever acknowledges that it is impossible to predict exactly what superintelligence will look like. However, he believes that it will be a radical departure from current AI systems and that it will have incredible and amazing capabilities. He encourages people to reflect on these possibilities and to imagine what the future of AI might hold.
 
 Thanks,
+
 Ashish
