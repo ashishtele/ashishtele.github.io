@@ -31,6 +31,8 @@ Let's have a list of common scenarios we come across and a way we can resolve th
 
 ```bash
 git reset HEAD~1 # Undo the commit but keep the changes staged.
+OR
+git reset --hard HEAD~1  # Undo last commit, discard changes
 git switch <correct-branch> # Switch to the correct branch.
 git commit -m "Moved to correct branch" # Commit the changes to the correct branch
 ```
