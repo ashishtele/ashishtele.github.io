@@ -82,4 +82,5 @@ git revert <commit-hash> # Create a new commit that reverts the changes of the s
 ```
 
 Thanks,
+
 Ashish
