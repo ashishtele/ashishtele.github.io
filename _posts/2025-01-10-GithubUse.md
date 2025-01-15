@@ -6,7 +6,7 @@ title: "Most common Github scenarios and Commands"
 excerpt: "Github."
 description: "Github."
 comments: true
-tags: ["Superintelligence","LLM", "Machine Learning", "ML System Design"]
+tags: ["Superintelligence", "LLM", "Machine Learning", "ML System Design"]
 published: true
 comments: true
 header:
