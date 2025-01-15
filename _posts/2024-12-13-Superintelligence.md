@@ -21,7 +21,7 @@ gallery:
     title: ''
 ---
 
-Hi There,
+Hi all,
 
 [NeurIPS 2024](https://blog.neurips.cc/2024/11/27/announcing-the-neurips-2024-test-of-time-paper-awards/) awarded `Test of Time` to `Sequence to Sequence Learning with Neural Networks` and Llya gave a great [talk](https://x.com/vincentweisser/status/1867719020444889118).
 
