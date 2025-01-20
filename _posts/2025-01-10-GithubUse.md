@@ -3,8 +3,8 @@ layout: single
 sidebar: true
 author_profile: true
 title: "Most common Github scenarios and Commands"
-excerpt: "Github."
-description: "Github."
+excerpt: "Github commands at our disposable."
+description: "Github commands at our disposable."
 comments: true
 tags: ["Superintelligence", "LLM", "Machine Learning", "ML System Design"]
 published: true
@@ -80,6 +80,75 @@ git reset --merge ORIG_HEAD # Undo the merge but keep changes staged.
 ```bash
 git revert <commit-hash> # Create a new commit that reverts the changes of the specified commit. Safe for public repositories.
 ```
+
+## 7. Find the Difference Between Two Branches
+* Scenario: You want to see what changes are in one branch but not in another.
+* Resolution:
+
+```bash
+git diff <branch-1>..<branch-2>
+```
+
+## 8. Check for Unpushed Commits
+* Scenario: You want to see if you have any commits that haven’t been pushed yet.
+* Resolution:
+
+```bash
+git log --branches --not --remotes
+```
+
+## 9. Revert a Merge Commit
+* Scenario: You merged a branch but want to undo the merge.
+* Resolution:
+
+```bash
+# Find the merge commit hash
+git log --oneline
+
+# Revert the merge commit
+git revert -m 1 <merge-commit-hash>
+```
+
+## 10. Check Out a Pull Request Locally
+* Scenario: You want to test or review a pull request locally.
+* Resolution:
+
+```bash
+# Fetch the pull request
+git fetch origin pull/<PR-number>/head:<local-branch-name>
+
+# Switch to the new branch
+git switch <local-branch-name>
+```
+
+## 11. Rename a Branch
+* Scenario: You want to rename a branch locally and on the remote.
+* Resolution:
+
+```bash
+# Rename the branch locally
+git branch -m <old-branch-name> <new-branch-name>
+
+# Delete the old branch on the remote
+git push origin --delete <old-branch-name>
+
+# Push the new branch to the remote
+git push origin <new-branch-name>
+```
+
+## 12. Amend the Last Commit
+* Scenario: You want to add changes to the last commit or update its message.
+* Resolution:
+
+```bash
+# Add changes to the last commit
+git add <file-name>
+git commit --amend
+
+# Update the commit message only
+git commit --amend -m "New commit message"
+```
+
 
 Thanks,
 
