@@ -151,5 +151,4 @@ git commit --amend -m "New commit message"
 
 
 Thanks,
-
 Ashish
