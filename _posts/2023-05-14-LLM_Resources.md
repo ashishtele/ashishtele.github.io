@@ -23,7 +23,13 @@ gallery:
 
 Hi All,
 
-The internet is awash with information about large language models (LLMs). Every day, a plethora of papers are published on LLMs, advancing the state-of-the-art (SOTA) benchmarks. I personally found it overwhelming to keep up with the research and the rapid pace of development. I am listing a few resources that I found helpful and will keep on adding to this list.
+The internet is awash with information about large language models (LLMs). Every day, a plethora of papers are published on LLMs, advancing the state-of-the-art (SOTA) benchmarks. I found it overwhelming to keep up with the research and the rapid pace of development. I am listing a few resources that I found helpful and will keep on adding to this list.
+
+* [Chain of Agents: Large language models collaborating on long-context tasks](https://openreview.net/pdf?id=LuCLf4BJsr)
+
+<video width="320" height="240" controls loop="" muted = "" autoplay="">  
+<source src="https://storage.googleapis.com/gweb-research2023-media/media/CoA-1-Overview.mp4">  
+</video>
 
 * [A Very Gentle Introduction to Large Language Models without the Hype](https://mark-riedl.medium.com/a-very-gentle-introduction-to-large-language-models-without-the-hype-5f67941fa59e)
 
