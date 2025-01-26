@@ -26,6 +26,8 @@ Hi All,
 The internet is awash with information about large language models (LLMs). Every day, a plethora of papers are published on LLMs, advancing the state-of-the-art (SOTA) benchmarks. I found it overwhelming to keep up with the research and the rapid pace of development. I am listing a few resources that I found helpful and will keep on adding to this list.
 
 * [Chain of Agents: Large language models collaborating on long-context tasks](https://openreview.net/pdf?id=LuCLf4BJsr)
+
+Chain-of-Agents (CoA) is a novel framework that enables large language models (LLMs) to collaboratively tackle long-context tasks by dividing the workload across specialized agents. Unlike traditional methods like RAG (retrieval-augmented generation) or expanding LLM context windows—which risk missing critical information or struggling with focus—CoA employs worker agents to process text segments sequentially and a manager agent to synthesize their insights into a coherent output. This approach allows LLMs to maintain precision by handling shorter contexts while aggregating knowledge across the entire input, addressing the "lost in the middle" problem seen in long-context models. Evaluations on tasks like question answering, summarization, and code completion show CoA outperforming RAG and other multi-agent frameworks by up to 10%, demonstrating its efficiency and scalability without requiring additional training. Combining modular reasoning with collaborative synthesis allows CoA to offer a versatile solution for applications requiring deep, accurate analysis of lengthy documents.
   
 <div style="text-align: center; margin: 20px auto;">
  <video width="640" height="480" controls loop="" muted = "" autoplay="">  
