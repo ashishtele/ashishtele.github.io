@@ -11,9 +11,9 @@ published: true
 comments: true
 header:
   teaserlogo:
-  teaser: /images_1/superintel.jpg
-  image: /images_1/superintel.jpg
-  caption: "courtesy: Gemini"
+  teaser: /images_1/big-feature-branch.jpg
+  image: /images_1/big-feature-branch.jpg
+  caption: "courtesy: Google"
 gallery:
 
   - image_path: ''
