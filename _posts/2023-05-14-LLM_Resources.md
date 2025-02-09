@@ -35,6 +35,10 @@ Chain-of-Agents (CoA) is a novel framework that enables large language models (L
  </video>
 </div>
 
+* [ReAG - Reasoning Augmented Generation](https://github.com/superagent-ai/reag)
+
+Traditional Retrieval-Augmented Generation (RAG) systems rely on a two-step process: first, semantic search retrieves documents based on surface-level similarities; then, a language model generates answers from those documents. While this method works, it often misses deeper contextual insights and can pull in irrelevant information. ReAG – Reasoning Augmented Generation – offers a robust alternative by feeding raw documents directly to the language model, allowing it to assess and integrate the full context. This unified approach leads to more accurate, nuanced, and context-aware responses.
+
 * [A Very Gentle Introduction to Large Language Models without the Hype](https://mark-riedl.medium.com/a-very-gentle-introduction-to-large-language-models-without-the-hype-5f67941fa59e)
 
 The best explanation of LLM for non-tech people. This article provides an excellent introduction to the world of large models, making it accessible to beginners. I found it very helpful to understand the self-attention part in layman's terms.
