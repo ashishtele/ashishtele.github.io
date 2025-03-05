@@ -139,4 +139,6 @@ Part 1 covers the basics and some considerations in system design, key concerns 
 
 Retrieval-Augmented Generation (RAG) systems enhance language models by integrating retrieval mechanisms for more accurate responses, yet the impact of their components and configurations remains understudied, necessitating deeper analysis for optimization. This paper introduces advanced RAG designs, including query expansion, novel retrieval strategies, and Contrastive In-Context Learning, systematically evaluating factors like model size, prompt design, chunk size, and multilingual knowledge bases through experiments. The findings provide actionable insights for balancing contextual richness and efficiency, advancing adaptable RAG frameworks for real-world applications, with code and implementation details made publicly available
 
+* [Infinite Retrieval: Attention Enhanced LLMs in Long-Context Processing](https://arxiv.org/pdf/2502.12962)
+
 Thank you!
