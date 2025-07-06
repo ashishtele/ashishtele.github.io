@@ -30,6 +30,12 @@ Context engineering means preparing the AI’s workspace – loading its “desk
 ## Prompt vs. Context Engineering: A Paradigm Shift
 In classic prompt engineering, we focus on phrasing the question well. Context engineering is a bigger picture: it focuses on all the information around that question. Unlike a static prompt, context engineering is dynamic and multi-layered. It may involve retrieving fresh data at runtime, maintaining conversation memory, and orchestrating tool calls behind the scenes. In short, we’ve moved from “just give me a better prompt” to “build the whole stage on which the AI performs.” For example, Karpathy contrasts the two by noting that people often think of prompts as short task descriptions, but real LLM applications demand “task descriptions and explanations, few-shot examples, RAG, related (possibly multimodal) data, tools, state and history” – all carefully packed into the context window. Prompt engineering is like supplying a single clue; context engineering is like supplying the detective’s entire case file.
 
+I liked the way Sebastian framed it below. When I am building a consumer-facing application, I want my end user to get the best results with minimal but relevant content. It is my responsibility as a builder to handle all the nuances (RAG, HyDE, grounding, etc.) to generate quality results.
+
+<p align="center">
+  <img width="450" height="200" src="/images_1/context1.PNG">
+</p>
+
 ## Managing LLM Context Windows
 LLMs are powerful but stateless – they only know what you feed them. In practice, an AI model only “knows” whatever information is in its context window at inference time. If you give it an empty or incomplete window, it simply guesses (often hallucinating). That’s why context is critical: with good context, the model has the facts and history it needs; without it, the model becomes like a genius locked in isolation. Modern LLMs have enormously large context windows (Gemini 2.5 Pro with 1m tokens), but they are still finite. We must curate that space carefully. Strategies include summarizing or compressing earlier conversations, filtering out irrelevant details, and using external memory stores. These tactics turn a limited context window into a continuously useful knowledge base. By contrast, without such context engineering an LLM might forget earlier details or hallucinate about unknown facts.
 
