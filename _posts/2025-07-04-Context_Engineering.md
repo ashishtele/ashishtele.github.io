@@ -35,9 +35,12 @@ LLMs are powerful but stateless – they only know what you feed them. In practi
 
 ## Techniques and Tools for Context Engineering
 Context engineering uses several key techniques to give LLMs real-world knowledge and persistence:
-Retrieval & Tool Calls (RAG): Connect the LLM to search indexes, databases, or APIs. At runtime the system fetches relevant documents or computes answers (via tools like calculators) and injects these into the context. For example, an AI assistant might query a company’s document store for the latest policy and then include that text in the prompt so the model’s answer is grounded in up-to-date facts. 
-Memory & Long-Term State: Maintain ongoing context beyond one chat turn. Agents keep track of conversation history and user data; they summarize or store key points so the AI “remembers” them later. This way, a customer support bot remembers your device details across a session, or a research assistant carries over facts from one question to the next. The model’s context is continuously updated, not reset on each query.
-Multi-Modal Context: Go beyond text. Modern systems can feed images, audio, or even sensor data into the AI. For instance, an app might use your phone’s camera or microphone, turning visual or auditory information into context that the LLM can understand. (Karpathy specifically notes that high-end context may include “possibly multimodal” data
+
+*Retrieval & Tool Calls (RAG):* Connect the LLM to search indexes, databases, or APIs. At runtime the system fetches relevant documents or computes answers (via tools like calculators) and injects these into the context. For example, an AI assistant might query a company’s document store for the latest policy and then include that text in the prompt so the model’s answer is grounded in up-to-date facts. 
+
+*Memory & Long-Term State:* Maintain ongoing context beyond one chat turn. Agents keep track of conversation history and user data; they summarize or store key points so the AI “remembers” them later. This way, a customer support bot remembers your device details across a session, or a research assistant carries over facts from one question to the next. The model’s context is continuously updated, not reset on each query.
+
+*Multi-Modal Context:* Go beyond text. Modern systems can feed images, audio, or even sensor data into the AI. For instance, an app might use your phone’s camera or microphone, turning visual or auditory information into context that the LLM can understand. (Karpathy specifically notes that high-end context may include “possibly multimodal” data
 .) This grounds AI output in real-world inputs – an AI can answer not just from text prompts, but from pictures or live readings.
 
 In practice, frameworks like LangChain and LlamaIndex have emerged to automate these patterns. They let developers plug in memory components and vector databases so that chains of prompts, tools, and data retrieval happen automatically. Using these libraries, engineers don’t have to build context pipelines from scratch – the tools handle caching, retrieval, and memory management under the hood.
