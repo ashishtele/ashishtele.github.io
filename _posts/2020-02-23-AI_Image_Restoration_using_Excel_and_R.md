@@ -130,4 +130,13 @@ I came across an article that has listed a comprehensive list of researches and 
 3. SC-FEGAN
 4. Generative Multi-column Convolutional Neural Networks
 
+Fast forward to `09/2025`. Google dropped Nano banana (Gemini 2.5 Flash Image) model and with below prompt, it regenerated the image. WOW !
+
+`remove the paint spots from the photo and maintain all the original features and hues
+`
+
+<p align="center">
+  <img width="300" height="453" src="/images_1/me2.jpeg.png">
+</p>
+
 See you in the next post!!
