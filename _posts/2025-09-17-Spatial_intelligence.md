@@ -11,9 +11,9 @@ published: true
 comments: true
 header:
   teaserlogo:
-  teaser: /images_1/MCP.png
-  image: /images_1/MCP.png
-  caption: "courtesy: www.anthropic.com"
+  teaser: /images_1/spatial.png
+  image: /images_1/spatial.png
+  caption: "courtesy: www.gemini.google.com"
 gallery:
 
   - image_path: ''
