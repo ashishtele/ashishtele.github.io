@@ -57,3 +57,21 @@ Spatial intelligence isn’t just another capability – it’s the foundation f
 **Agentic AI and Wearables:** The World Economic Forum highlights that AI is moving off screens “into the physical world” with wearables and robots. Future AI assistants might live in AR glasses or robot companions. These AI agents must have spatial awareness: they’ll need to “observe, adapt and collaborate” in real time. For example, AR glasses rely on understanding the layout of a room to overlay directions or information seamlessly. This requires spatial models fed by sensors (cameras, LiDAR, etc.) to build a live 3D map.
 
 In short, without spatial intelligence, an ASI would be like a scholar who never learned to walk. It could answer questions and solve puzzles on paper, but it couldn’t pour coffee, explore Mars, or understand the physics of a collapsed bridge. Spatial understanding bridges “seeing” and “doing”, enabling AI not just to describe the world, but to truly inhabit it.
+
+## Real-World and Emerging Applications
+
+Spatial intelligence is already making strides in practical domains:
+
+Autonomous Navigation: Self-driving cars, drones, and robots rely on spatial AI to build maps and plan routes. They use SLAM (simultaneous localization and mapping) and 3D perception to avoid obstacles and understand road geometry. Companies like Tesla, Waymo, and DJI leverage neural networks for point-cloud processing and scene reconstruction.
+
+Robotics and Manipulation: Warehouse robots, home assistants, and factory arms need spatial awareness to pick, place, and assemble objects. For example, an AI with spatial reasoning can “see” a tool (like a screwdriver), understand its 3D shape, and compute the force and angle needed to use it. Li points out that spatial intelligence allows robots not just to recognize objects, but to understand precisely how to use them (calculating balance, friction, etc.)
+
+AR/VR and Gaming: Virtual reality worlds and augmented reality applications demand detailed world models. Current AR glasses can overlay directions on a wall only because they map the room’s geometry in real time. Future VR/AR experiences will rely on AI-generated 3D content. Li notes that until spatial AI improves, many virtual environments “don’t respect the law of physics and geometry,” breaking immersion. Spatial models would let game engines build dynamic, physics-aware worlds on the fly. In fact, World Labs’s Marble model already generates complete 3D scenes from a single photo, enabling users to explore the room beyond the image
+
+3D Design and Digital Twins: Architects, urban planners, and engineers use spatial AI to create and analyze large 3D structures. NVIDIA’s fVDB and NeRF techniques enable building digital twins of entire cities, so planners can simulate traffic, wind, and sunlight in a virtual cityscape. In creative industries, spatial generative models could draft building layouts that are both aesthetically coherent and physically sound (walls holding up ceilings, chairs at realistic heights)
+
+Healthcare and Education: In hospitals, spatially intelligent sensors can track patient movement and ensure safety without manual surveillance. In education, VR/AR lessons can teach concepts by letting students “step inside” molecular structures or historical sites, all thanks to spatial modeling.
+
+Smart Devices and Wearables: Even everyday gadgets are integrating spatial computing. For example, spatial AI on smart glasses can interpret gestures or eye movement in 3D space, making interfaces more natural. Autonomous drones or home sensors need spatial understanding to operate safely around humans.
+
+These applications highlight a key theme: any context where AI must interact with the real or simulated world – from navigating streets to creating immersive virtual worlds – requires spatial intelligence.
