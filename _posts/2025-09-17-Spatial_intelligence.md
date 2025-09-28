@@ -24,8 +24,7 @@ Hi All,
 
 Imagine an AI that doesn’t just read text or recognize images, but lives in its environment – navigating rooms, using tools, and even building new worlds. That capability comes from spatial intelligence: the ability to form internal 3D maps of the world. In humans, spatial intelligence lets us read maps, rotate Tetris pieces in our mind, or rearrange furniture without seeing it. In AI, it means perceiving depth, understanding geometry and physics, and reasoning about objects in space. As Fei-Fei Li puts it, today’s AI often “remains trapped on a flat plane, using 2D inputs to build intelligence for a 3D world”. Spatial intelligence is the key to fixing that mismatch.
 
-
-<video width="530" height="350" src="https://github-production-user-asset-6210df.s3.amazonaws.com/14126898/494812905-b3ce6c14-125b-467c-be4b-53641e1704b6.mp4?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20250928%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250928T023834Z&X-Amz-Expires=300&X-Amz-Signature=940edca99775c749a8b50ee286f66e83ccf7f66dbd3ebdc05815054536e5df2c&X-Amz-SignedHeaders=host"></video>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/w5GeU9wpWGg?si=hTKxcKldZLcyRRah" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 
 ## What is Spatial Intelligence?
