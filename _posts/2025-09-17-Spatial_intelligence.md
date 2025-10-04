@@ -2,7 +2,7 @@
 layout: single
 sidebar: true
 author_profile: true
-title: "Spatial Intelligence is the future"
+title: "Spatial Intelligence is the future!"
 excerpt: " Spatial intelligence also helps us create, and bring forth pictures in our mind's eye into the physical world."
 description: " Spatial intelligence also helps us create, and bring forth pictures in our mind's eye into the physical world."
 comments: true
