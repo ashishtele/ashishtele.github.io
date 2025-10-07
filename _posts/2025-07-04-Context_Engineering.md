@@ -3,8 +3,8 @@ layout: single
 sidebar: true
 author_profile: true
 title: "Why does context engineering matter?"
-excerpt: "Context engineering was always there."
-description: "Context engineering was always there."
+excerpt: "Context engineering was always there. We just rediscovered it."
+description: "Context engineering was always there. We just rediscovered it."
 comments: true
 tags: ["Superintelligence", "LLM", "Machine Learning", "ML System Design"]
 published: true
