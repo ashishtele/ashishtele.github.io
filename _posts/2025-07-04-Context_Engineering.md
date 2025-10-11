@@ -60,5 +60,7 @@ We’re just scratching the surface of what context-aware AI can do. Tomorrow’
 
 * `09/29/2025` - Anthropic released a [blog](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents) elaborating on the context enginnering for AI agents. 
 
+The latest research on [Agentic Context Engineering (ACE)](https://arxiv.org/html/2510.04618v1) proposes evolving LLM contexts as adaptive playbooks—not just static prompts. Instead of losing valuable insights to brevity, ACE’s modular, incremental updates ensure detailed knowledge persists and improves over time. By mimicking human learning through autonomous generation, reflection, and curation, this approach future-proofs LLM agents for self-improvement and enables practical, scalable deployment in specialized domains.
+
 Thanks,
 Ashish
