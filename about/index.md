@@ -4,7 +4,7 @@ comments: false
 tags: [about]
 ---
 
-As a Senior Data Scientist (Manager) at Cardinal Health, I have extensive experience in the analytics field. Previously, I held the position of Data Scientist at Nestle, Novartis, and ZS. My passion for data storytelling drives me to share my insights through writing, and I actively contribute to industry blogs and publications, aiming to enrich the discourse in the field of data science.
+Previously, I held the position of Data Scientist at Cardinal Health, Nestle, Novartis, and ZS. My passion for data storytelling drives me to share my insights through writing, and I actively contribute to industry blogs and publications, aiming to enrich the discourse in the field of data science.
 
 I have a Master's Degree in Business Analytics & Project Management from the UConn School of Business, where I gained a strong foundation in analytical thinking and problem-solving. In addition, my experience working in analytical consulting has given me a deep understanding of the Healthcare, Retail, and Consumer Products domains.
 
