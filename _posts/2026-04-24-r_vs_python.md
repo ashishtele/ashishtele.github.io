@@ -13,9 +13,9 @@ published: true
 comments: true
 header:
   teaserlogo:
-  teaser: /images_1/agent_21.png
-  image: /images_1/agent_21.png
-  caption: "courtesy: Hermes Agent"
+  teaser: /images_1/agent_3.png
+  image: /images_1/agent_3.png
+  caption: "courtesy: OpenAI"
 gallery:
 
   - image_path: ''
