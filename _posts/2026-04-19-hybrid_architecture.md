@@ -23,7 +23,7 @@ gallery:
 
 Hi All,
 
-In [Part 1](/https://ashishtele.github.io/2026/04/agent_framework_gap.html), we looked at the agent framework gap between Python and R. The conclusion? It's not a problem — it's a trade-off.
+In [Part 1](/https://ashishtele.github.io/2026/04/hybrid_architecture.html), we looked at the agent framework gap between Python and R. The conclusion? It's not a problem — it's a trade-off.
 
 But here's the thing: what if you don't have to choose? What if you could have Python's ease of use *and* R's auditability? What if you could build an agent that's both fast to develop *and* FDA-ready?
 
