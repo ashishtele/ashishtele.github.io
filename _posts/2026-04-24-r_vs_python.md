@@ -70,24 +70,9 @@ What happened inside? The LLM was called. Tools were executed. State was mutated
 
 ### 2. Mutable State
 
-```python
-class Agent:
-    def __init__(self):
-        self.state = {}
-    
-    def run(self, input):
-        self.state["history"].append(input)  # Mutation!
-        self.state["result"] = self.llm.generate(input)  # More mutation!
-```
-
 The state changes in place. If something goes wrong, you can't rewind. You can't replay. You can't prove what the state was at step 3 vs step 4. For debugging, that's painful. For compliance, that's unacceptable.
 
 ### 3. Implicit Dependencies
-
-```python
-agent.config = {"temperature": 0.7}
-result = agent.run("Do something")
-```
 
 The result depends on `agent.config`. But where's that config stored? In the agent's internal state. How do you capture it for reproducibility? You need to manually extract it. Or hope you documented it. Or hope you didn't change it between runs.
 
