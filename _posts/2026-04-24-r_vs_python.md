@@ -32,18 +32,6 @@ I keep thinking the same question:
 The answer is more interesting than "yes, R is behind." Let me walk you through why this gap exists — and more importantly, what you actually give up with each approach. 
 Because here's the thing: **there's no free lunch.** Python's speed comes with a cost. R's transparency comes with a cost. The question is which cost you're willing to pay.
 
-## The Timeline Nobody Talks About
-
-Here's what happened, in order:
-
-- **2015-2019:** Python becomes the default for deep learning. TensorFlow, PyTorch, JAX. R is still doing statistics.
-- **2020-2022:** LLMs explode. GPT-3, GPT-3.5. Python libraries dominate (transformers, litellm, langchain).
-- **2023:** LangChain ships. Suddenly everyone's building agents. Python has 50+ agent frameworks. R has... `ellmer` in beta.
-- **2024-2025:** Multi-agent systems, agent swarms, autonomous workflows. Python's ecosystem is mature. R is catching up.
-
-The gap isn't accidental. It's the result of Python being the default for ML infrastructure for a decade. 
-By the time R developers looked up from their regression models, Python had already built the entire stack.
-
 ## The Cultural Divide
 
 After working in both ecosystems, I've noticed something fundamental:
@@ -64,43 +52,7 @@ Those priorities shape what gets built. When LangChain came out, Python develope
 
 ## The Technical Debt Problem
 
-Here's the thing about Python's agent frameworks: they're built on Python's strengths.
-
-**Python's OOP model** makes stateful agents easy. You have an `Agent` class with `self.state`. Methods mutate that state. Simple.
-
-```python
-# Python agent (LangChain style)
-class Agent:
-    def __init__(self):
-        self.state = {"history": []}
-    
-    def run(self, input):
-        # State mutation happens inside
-        self.state["history"].append(input)
-        result = self.llm.generate(input)
-        self.state["last_result"] = result
-        return result
-```
-
-Where's the audit trail? It's in `self.state`. But `self.state` is mutable. It can change. It's not immutable.
-
-Now compare to R's approach:
-
-```r
-# R agent (functional style)
-run_agent <- function(input, state) {
-  state |>
-    add_to_history(input) |>
-    call_llm() |>
-    update_result()
-}
-
-# Returns NEW state, doesn't mutate
-```
-
-The difference is intentional. R's functional model forces immutability. Python's OOP model encourages mutation.
-
-Neither is "better." But they lead to different architectures. And different architectures have different costs.
+Here's the thing about Python's agent frameworks: they're built on Python's strengths. Python's OOP model encourages mutation; R's functional model enforces immutability. Neither is better — they lead to different architectures with different costs.
 
 ## Python's Hidden Costs
 
@@ -113,11 +65,6 @@ When you use LangChain or AutoGen, you get:
 But you also get:
 
 ### 1. Opaque State
-
-```python
-agent = Agent()
-result = agent.run("Analyze this data")
-```
 
 What happened inside? The LLM was called. Tools were executed. State was mutated. But where's the record? You're digging through logs trying to reconstruct the execution path. Or you're hoping the framework captured everything. In a regulated environment, that's a problem. We are getting tracebility as a part of managed service.
 
