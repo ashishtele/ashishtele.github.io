@@ -22,9 +22,7 @@ gallery:
 
 Hi All,
 
-## The Problem
-
-I was building an AI agent that explores codebases. It creates files, reads them, modifies them, repeats. Standard stuff.
+I was building an AI agent that explores codebases for my use cases. It creates files, reads them, modifies them, repeats.
 
 Then I hit this:
 
