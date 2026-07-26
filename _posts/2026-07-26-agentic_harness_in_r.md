@@ -10,8 +10,8 @@ published: true
 comments: true
 header:
   teaserlogo:
-  teaser: /images_1/reasoning.png
-  image: /images_1/reasoning.png
+  teaser: /images_1/R_harness.png
+  image: /images_1/R_harness.png
   caption: "courtesy: OpenAI"
 gallery:
 
