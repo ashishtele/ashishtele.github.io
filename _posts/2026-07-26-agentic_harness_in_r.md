@@ -22,6 +22,6 @@ gallery:
 
 Hi All,
 
-Gathering all thoughts...will be back 
+Everyone is building agents. Far fewer people are thinking about what holds those agents together. The more I worked with AI agents, the more I realized that building an agent is only half the problem. An LLM can reason, call tools, write code, and make decisions—but turning those capabilities into a reliable agentic system requires a lot more: context management, tool orchestration, state, memory, retries, observability, and compaction. I started thinking of this surrounding layer as an agentic harness: the infrastructure that turns a capable model into a reliable, usable system. And then came the obvious question for me: **why not build that harness in R?**
 
 Thank you!!
