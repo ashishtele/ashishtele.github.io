@@ -75,8 +75,9 @@ canvas {
 }
 
 .container {
-  max-width: 800px;
+  max-width: 1200px;
   margin: 60px auto;
+  padding: 0 20px; /* keep side padding */
 }
 
 .rainbow-letters {
