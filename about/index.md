@@ -4,11 +4,9 @@ comments: false
 tags: [about]
 ---
 
-Previously, I held the position of Data Science and AI specialist at Cardinal Health, Nestle, Novartis, and ZS. My passion for data storytelling drives me to share my insights through writing, and I actively contribute to industry blogs and publications, aiming to enrich the discourse in the field of data science.
+Previously, I held the position of Data Science and AI leader at Cardinal Health, Nestle, Novartis, and ZS. My passion for data storytelling drives me to share my insights through writing, and I actively contribute to industry blogs and publications, aiming to enrich the discourse in the field of data science.
 
 I have a Master's Degree in Data Science & Project Management from the UConn School of Business, where I gained a strong foundation in analytical thinking and problem-solving. In addition, my experience working in analytical consulting has given me a deep understanding of the Healthcare, Retail, and Consumer Products domains.
-
-In my current role at Cardinal Health, I collaborate with a team of data scientists in delivering high-impact analytics solutions to a range of business problems. I am always looking for new and exciting challenges, and I am passionate about driving innovation and growth through the use of data and analytics.
 
 ## Core Competencies
 
