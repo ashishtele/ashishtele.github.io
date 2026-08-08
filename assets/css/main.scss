@@ -18,16 +18,67 @@ body {
 }
 
 .masthead {
-  background-color: #08101f;
+  background: linear-gradient(160deg, rgba(8, 15, 31, 0.98) 0%, rgba(17, 24, 39, 0.96) 100%);
+  border-bottom: 1px solid rgba(148, 163, 184, 0.12);
+}
+
+.masthead__menu {
+  padding: 1.1rem 0;
 }
 
 .masthead .site-title {
   font-weight: 800;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+}
+
+.masthead a {
+  color: #cbd5e1;
+}
+
+.masthead a:hover,
+.masthead a:focus {
+  color: #ffffff;
 }
 
 .page__header {
   min-height: 72vh;
+}
+
+.homepage-highlights {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.25rem;
+  margin: 3rem auto 0;
+  max-width: 1160px;
+  padding: 0 1rem 2rem;
+}
+
+.highlight-card {
+  background: rgba(15, 23, 42, 0.88);
+  border: 1px solid rgba(148, 163, 184, 0.14);
+  border-radius: 24px;
+  padding: 2rem;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.22);
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.highlight-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(59, 130, 246, 0.45);
+  box-shadow: 0 32px 80px rgba(0, 0, 0, 0.28);
+}
+
+.highlight-card h3 {
+  margin-bottom: 0.85rem;
+  color: #f8fafc;
+  font-size: 1.2rem;
+}
+
+.highlight-card p {
+  color: #cbd5e1;
+  line-height: 1.85;
 }
 
 .archive__subtitle {
@@ -36,9 +87,8 @@ body {
   color: #94a3b8;
 }
 
-@media only screen and (max-width: 800px) {
-  .homepage-intro {
-    padding: 1.6rem;
-    margin-bottom: 2rem;
+@media only screen and (max-width: 980px) {
+  .homepage-highlights {
+    grid-template-columns: 1fr;
   }
 }
