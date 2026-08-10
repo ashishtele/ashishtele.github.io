@@ -36,4 +36,6 @@ The model decides what it wants to do. The harness makes that decision executabl
 
 This distinction becomes increasingly important as agents become more capable.
 
+Lets take an example of Pi (my favorite) agent harness. 
+
 Thank you!!
