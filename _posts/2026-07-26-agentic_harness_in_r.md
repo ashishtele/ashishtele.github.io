@@ -36,6 +36,6 @@ The model decides what it wants to do. The harness makes that decision executabl
 
 This distinction becomes increasingly important as agents become more capable.
 
-Lets take an example of Pi (my favorite) agent harness. It exposes minimal required tools 
+Lets take an example of Pi (my favorite) agent harness. It exposes minimal required tools and is much performant when compared to other harnesses. (TBD) 
 
 Thank you!!
