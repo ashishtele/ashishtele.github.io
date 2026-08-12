@@ -2,7 +2,7 @@
 layout: single
 sidebar: true
 author_profile: true
-title: "Why I Thought of Building an Agentic Harness in R"
+title: "Why Building a Harness Is an Art"
 excerpt: "Why I Thought of Building an Agentic Harness in R"
 description: "R ecosystem is behind when compared with Python in terms of harness engineering. There are many reasons to it.."
 tags: ["LLM", "AGI", "Python", "R"]
@@ -36,6 +36,12 @@ The model decides what it wants to do. The harness makes that decision executabl
 
 This distinction becomes increasingly important as agents become more capable.
 
-Lets take an example of Pi (my favorite) agent harness. It exposes minimal required tools and is much performant when compared to other harnesses. (TBD) 
+Lets take an example of Pi (my favorite) agent harness. It exposes only four core tools, has less than 1000 tokens of system prompt, and supports high extensibility. I closely observed and played with many coding agents and harnesses. I have [Hermes agent](https://github.com/nousresearch/hermes-agent), running 24X7 (it has its own machine). Each harness has its own pros and cons, but we should look out for the trade off. 
+
+If we observe in industry, all AI labs are coming up with their own harnesses. Many companies are adopting Claude code, Codex for running coding agents and trying to optimize for the LLM usage. But there is a more nuanced underlying pattern. Lets have a look at this chart:
+
+<p align="center">
+  <img width="750" height="500" src="/images_1/LLM_cost.PNG">
+</p>
 
 Thank you!!
