@@ -46,4 +46,6 @@ If we observe in industry, all AI labs are coming up with their own harnesses. M
 
 *Pi agent is ~7x cheaper compared to Claude code keeping the model same per successful task!*
 
+So only switching the models and keeping the harness same does not see to be optimized strategy.
+
 Thank you!!
