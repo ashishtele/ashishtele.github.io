@@ -44,4 +44,6 @@ If we observe in industry, all AI labs are coming up with their own harnesses. M
   <img width="750" height="500" src="/images_1/LLM_cost.PNG">
 </p>
 
+*Pi agent is ~7x cheaper compared to Claude code keeping the model same per successful task!*
+
 Thank you!!
