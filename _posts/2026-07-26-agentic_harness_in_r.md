@@ -46,6 +46,6 @@ If we observe in industry, all AI labs are coming up with their own harnesses. M
 
 *Pi agent is ~7x cheaper compared to Claude code keeping the model same per successful task!*
 
-So only switching the models and keeping the harness same does not see to be optimized strategy.
+So only switching the models and keeping the harness same does not look an optimized strategy. I observed user traces and observed it follows pareto chart in terms of complexity of questions asked. Most of the user questions are very simple and can be answered by frontier-1 tier models like Gemini 3.7 flash, GPT 5.5 nano etc. Developers do ask some complex questions where SOTA models are required but then pairing it with herness like Pi can optimize for intelligence per dollar
 
 Thank you!!
