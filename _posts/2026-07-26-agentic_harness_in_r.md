@@ -48,6 +48,123 @@ If we observe in industry, all AI labs are coming up with their own harnesses. M
 
 So only switching the models and keeping the harness same does not look an optimized strategy. I observed user traces and observed it follows pareto chart in terms of complexity of questions asked. Most of the user questions are very simple and can be answered by frontier-1 tier models like Gemini 3.7 flash, GPT 5.5 nano etc. Developers do ask some complex questions where SOTA models are required but then pairing it with herness like Pi can optimize for intelligence per dollar.
 
-Pi and many other harnesses provided a lot of valuable implementation patterns.
+Pi and many other harnesses provided a lot of valuable implementation patterns. What I found interesting was that good harnesses are often surprisingly small at the core.
+
+This led me to a simple realization:
+
+**The goal of a harness is not to make the agent more complicated. It is to make the model more effective.**
+
+Every feature has a cost.
+
+* More tools → larger decision space.
+  
+* More context → more tokens and noise.
+
+* More memory → more irrelevant information.
+
+* More agents → more coordination overhead.
+  
+* More orchestration → more things to debug.
+
+So the interesting problem is not *how many capabilities can we add?*
+
+It is:
+
+> **What is the minimum machinery required to make the model reliably useful?**
+
+That is what I mean by harness engineering.
+
+### The harness as a control system
+
+I think of the harness as a relatively thin control layer around the model:
+
+```text
+              ┌──────────────┐
+              │     Model    │
+              │    Reason    │
+              └───────┬──────┘
+                      │
+                      ▼
+              ┌──────────────┐
+              │   Harness    │
+              │              │
+              │ Context      │
+              │ Tools        │
+              │ State        │
+              │ Control loop │
+              │ Compaction   │
+              │ Observability│
+              └───────┬──────┘
+                      │
+             ┌────────┼────────┐
+             ▼        ▼        ▼
+           Files     R      Database
+```
+
+The model decides. The harness makes the decision executable. It decides what the model sees, what it can do, what happens after a tool call, what gets remembered, what gets discarded, and when the loop should stop.
+
+### Context is probably the hardest part
+
+The more I work with agents, the less I think about "prompt engineering" and the more I think about **context engineering**.
+
+The question is no longer:
+
+> What prompt should I give the model?
+
+It is:
+
+> **What should the model know at this exact moment?**
+
+A coding agent may have thousands of lines of conversation, tool output, files, errors, and previous decisions available. Sending everything back is wasteful. Summarizing everything is dangerous. The harness needs to preserve the information that matters for the next decision. This is why compaction is not simply summarization.
+
+It is **state compression**.
+
+### And then there is model economics
+
+The other thing I find fascinating is that we are increasingly treating model selection as a harness problem. Not every task deserves the smartest model. A typical user trace probably looks something like a Pareto distribution: lots of simple requests and a small number of genuinely difficult ones.
+
+Why spend frontier-model inference on:
+
+> "Rename this variable."
+
+when a much cheaper model can do it? But when the task becomes:
+
+> "Understand this unfamiliar codebase, identify the architectural problem, refactor it, run the tests, and fix the failures."
+
+then spending more inference compute makes sense. So the harness can become a **model router**.
+
+```text
+User
+ │
+ ▼
+Harness
+ │
+ ├── simple ──► cheap/fast model
+ │
+ └── complex ─► frontier model
+```
+
+The interesting metric is therefore not simply intelligence. It is something closer to:
+
+**useful intelligence / dollar**
+
+And this is where harnesses can create surprisingly large differences even when using the same underlying model.
+
+### Why R?
+
+This brings me back to the original question. Why build this in R? Not because R needs to become Python and definitely not because R needs another giant agent framework. I think R has a more interesting opportunity.
+
+R already lives where a large class of agents will eventually operate: **data**.
+
+Tables.
+Databases.
+Statistics.
+Visualization.
+Experiments.
+Reports.
+Reproducible analysis.
+
+The missing layer is the runtime that lets an LLM reliably operate on all of this. That is the harness. 
+
 
 Thank you!
