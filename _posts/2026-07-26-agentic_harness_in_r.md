@@ -146,7 +146,7 @@ Harness
 
 The interesting metric is therefore not simply intelligence. It is something closer to:
 
-**useful intelligence / dollar**
+**Useful Intelligence / dollar**
 
 And this is where harnesses can create surprisingly large differences even when using the same underlying model.
 
