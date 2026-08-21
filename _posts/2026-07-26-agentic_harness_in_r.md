@@ -152,9 +152,7 @@ And this is where harnesses can create surprisingly large differences even when 
 
 ### Why R?
 
-This brings me back to the original question. Why build this in R? Not because R needs to become Python and definitely not because R needs another giant agent framework. I think R has a more interesting opportunity.
-
-R already lives where a large class of agents will eventually operate: **data**.
+This brings me back to the original question. Why build this in R? Not because R needs to become Python and definitely not because R needs another giant agent framework. I think R has a more interesting opportunity. R already lives where a large class of agents will eventually operate: **data**.
 
 Tables.
 Databases.
