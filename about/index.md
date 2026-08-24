@@ -4,28 +4,29 @@ comments: false
 tags: [about]
 ---
 
-Previously, I held the position of Data Science and AI leader at Cardinal Health, Nestle, Novartis, and ZS. My passion for data storytelling drives me to share my insights through writing, and I actively contribute to industry blogs and publications, aiming to enrich the discourse in the field of data science.
+# About Me
 
-I have a Master's Degree in Data Science & Project Management from the UConn School of Business, where I gained a strong foundation in analytical thinking and problem-solving. In addition, my experience working in analytical consulting has given me a deep understanding of the Healthcare, Retail, and Consumer Products domains.
+I am a **Data Science & AI leader** focused on turning AI into practical, scalable business solutions. Over my career at **Cardinal Health, Nestlé, Novartis, and ZS**, I have worked across AI, data science, analytics, and strategy, primarily in Healthcare, Life Sciences, Retail, and Consumer Products.
+
+My focus is on **AI strategy, GenAI, agentic systems, machine learning, and AI product development**—from identifying high-value opportunities to designing architectures and building solutions that move from prototype to production.
+
+I remain deeply hands-on with **Python and R** and enjoy working at the intersection of business, technology, and AI. I believe strong AI leadership requires both **strategic thinking and technical depth**: knowing where AI can create value, how to build it, and how to scale it responsibly.
 
 ## Core Competencies
 
-**Analytical Thinking:**
+* **AI Strategy & Transformation** — AI roadmaps, use-case prioritization, and scaling AI capabilities
+* **Generative AI & Agents** — LLM applications, agentic workflows, orchestration, RAG, and evaluation
+* **Data Science & ML** — predictive modeling, statistical analysis, feature engineering, and decision science
+* **AI Product & Architecture** — translating business problems into scalable AI products and systems
+* **Executive Communication** — simplifying complex technology into clear business narratives
+* **Healthcare & Life Sciences** — deep experience applying analytics and AI to complex business problems
 
-As a data enthusiast, I am passionate about uncovering insights hidden within complex sets of data. I am proficient in mastering new knowledge and techniques quickly, allowing me to stay on the cutting edge of data science and analysis.
+## Education
 
-My ability to understand and articulate the limitations and potential of a given dataset has enabled me to effectively guide others in the development of data-driven solutions. I have a strong background in statistical analysis, machine learning, and data visualization, and I am constantly seeking to improve my skills and stay up-to-date with the latest developments in the field.
+Master’s in **Data Science & Project Management**, University of Connecticut School of Business.
 
-In my previous roles, I have helped companies across a range of industries unlock the potential of their data and make informed decisions that drive business growth.
+**My goal is simple: build AI systems that are useful, scalable, and grounded in real business problems—not hype.**
 
-
-**Communication:**
-
-As a passionate advocate for knowledge transfer and education, I have a strong interest in conducting sessions and workshops on emerging tools and techniques in analytics. I have successfully conducted sessions on Data Visualization: Storytelling and Power BI for new hires at my company, helping to onboard and educate them on these important topics.
-
-In terms of technical expertise, I am skilled in coding in both R and Python, with a particular focus on decision science techniques. I enjoy focusing on all aspects of predictive model building, from data preparation and feature engineering to model selection and interpretation.
-
-In addition to my technical abilities, I am a strong communicator and presenter, able to convey complex ideas and concepts to both technical and non-technical audiences in an accessible and engaging way.
 
 
 About The Site
