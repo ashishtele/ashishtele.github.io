@@ -164,4 +164,4 @@ Reproducible analysis.
 
 The missing layer is the runtime that lets an LLM reliably operate on all of this. That is the harness. 
 
-Thank you!!
+Thank you!
