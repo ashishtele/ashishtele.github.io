@@ -39,3 +39,33 @@ OpenEvidence is a natural-language question-answering engine over peer-reviewed 
 
 The correctness constraint is the load-bearing wall of the entire design. It dictates retrieval-first architecture, citation enforcement at generation time, and fail-degraded failure semantics. Most consumer RAG systems treat citations as decoration; OpenEvidence treats them as a *precondition for emitting a token*. That single decision propagates through every layer below.
 
+## 2. Capacity Estimation (Back of Envelope)
+
+All numbers derivable from public claims:
+
+```
+Consults            27M/month          → 6.3M/week       → ~104/sec average
+Peak multiplier     ~5x (clinical diurnal pattern)        → ~520 consults/sec peak
+
+Model calls         "billions/week" (Baseten)
+Implied fan-out     2B / 6.3M ≈ 300+ internal calls per consultation
+                    (embedding, multi-pass retrieval, rerank batches,
+                     generation chunks, citation verification)
+
+Sustained call rate 3,300/sec avg → ~16,500/sec peak
+```
+
+**Embedding layer sizing [I]:**
+Batched embedding inference on H100-class hardware: ~3K inf/s/node.
+At peak, if ~40% of calls are query embeddings: `16,500 × 0.4 / 3,000` ≈ **7 nodes**, ×3 redundancy ≈ 20 GPUs. Trivial.
+
+**Generation layer sizing [I]:**
+Little's Law: concurrent requests = arrival rate × duration = `(27M/30/86,400) × 5 peaks × 13s` ≈ **680 concurrent streams**.
+At ~75 streamed generations per GPU node (continuous batching, ~800-token outputs): **~9 nodes**, ×3 multi-cloud redundancy ≈ **27 H100 nodes total fleet**.
+
+**Cost [I]:**
+27 nodes × 24h × 30d × $2.50/hr ≈ $50K/mo generation + embeddings/rerank overhead → **<$1M/month total inference** against $8.3M/month revenue. Cost per consult: **$0.02–0.05 against $3.70 revenue** (>98% gross margin).
+
+> [!important] The headline finding
+> There is no hidden supercomputer. The entire serving fleet fits in a single rack's power budget. If they run frontier-class models instead of ~70B fine-tunes, multiply by 2–4x — still under 10% of revenue. The infrastructure was never the moat.
+
