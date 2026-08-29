@@ -69,3 +69,56 @@ At ~75 streamed generations per GPU node (continuous batching, ~800-token output
 > [!important] The headline finding
 > There is no hidden supercomputer. The entire serving fleet fits in a single rack's power budget. If they run frontier-class models instead of ~70B fine-tunes, multiply by 2–4x — still under 10% of revenue. The infrastructure was never the moat.
 
+
+---
+
+## 3. High-Level Architecture
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│  EDGE / CLIENT                                                  │
+│  Next.js app on Vercel · edge CDN · streaming render            │
+│  Web + mobile apps · Epic EHR embed via FHIR smart-app launch   │
+└───────────────┬─────────────────────────────────────────────────┘
+                │ HTTPS / WSS
+┌───────────────▼─────────────────────────────────────────────────┐
+│  API GATEWAY                                                    │
+│  NPI verification (identity) · authz · rate limiting            │
+│  HIPAA audit logging (async, never on critical path)            │
+└───────────────┬─────────────────────────────────────────────────┘
+                │
+┌───────────────▼─────────────────────────────────────────────────┐
+│  QUERY ORCHESTRATOR (Python/FastAPI on GCP Kubernetes)          │
+│                                                                 │
+│  1. Query understanding [I]: intent class, specialty routing,   │
+│     sub-question decomposition                                  │
+│  2. Cache lookup (semantic + exact) ─── HIT → return in <500ms  │
+│  3. Retrieval fan-out (parallel per evidence section)           │
+│  4. Generation w/ citation enforcement                          │
+│  5. Stream tokens to client                                     │
+└───┬──────────────────────┬──────────────────────────────────────┘
+    │                      │
+    ▼                      ▼
+┌────────────────┐   ┌─────────────────────────────────────────────┐
+│ RETRIEVAL      │   │ GENERATION                                   │
+│ Elasticsearch  │   │ Fine-tuned open-weight LLM + LoRA adapters  │
+│ (~35M papers)  │   │ Served on Baseten multi-cloud GPU pool      │
+│ hybrid BM25+   │   │ Streaming · backup endpoints · MCM failover │
+│ kNN            │   │                                             │
+│ + reranker     │   │                                             │
+│ (GPU pods)     │   │                                             │
+└───────┬────────┘   └─────────────────────────────────────────────┘
+        ▲
+        │ precomputed embeddings (offline)
+┌───────┴─────────────────────────────────────────────────────────┐
+│ INGESTION PIPELINE (async, Kafka-driven)                        │
+│ Licensed feeds: NEJM · JAMA Network ×11 · Nature · NCCN · FDA   │
+│ CDC · ACC · AAFP · ADA · drug labels                            │
+│ parse → chunk → embed (batch) → index → recency metadata        │
+└─────────────────────────────────────────────────────────────────┘
+
+Sidecar paths (never block queries):
+  Kafka → analytics · ad serving · email digests · model feedback loop
+```
+
+---
