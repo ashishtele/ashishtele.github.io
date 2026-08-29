@@ -23,7 +23,7 @@ Hi All,
 
 As I am building more and more AI products, I feel understanding some well crafted products help learn a lot. [OpenEvidence](https://www.openevidence.com/) is one THE products.
 
-## 1. The Product, Stated as a System Contract
+## <span style="color: #FF6B6B;">1. The Product, Stated as a System Contract</span>
 
 OpenEvidence is a natural-language question-answering engine over peer-reviewed medical literature, used at the point of care. Strip away the medicine and the system contract reads like this:
 
@@ -37,9 +37,9 @@ OpenEvidence is a natural-language question-answering engine over peer-reviewed 
 | Scale | 27M consults/month, ~650K US clinicians + 1.2M intl | [C] Company claims |
 | Compliance | HIPAA, SOC 2 Type II, encryption in transit/at rest, BAAs | [C] |
 
-The correctness constraint is the load-bearing wall of the entire design. It dictates retrieval-first architecture, citation enforcement at generation time, and fail-degraded failure semantics. Most consumer RAG systems treat citations as decoration; OpenEvidence treats them as a *precondition for emitting a token*. That single decision propagates through every layer below.
+The correctness constraint is the load-bearing wall of the entire design. It dictates retrieval-first architecture, citation enforcement at generation time, and fail-degraded failure semantics.
 
-## 2. Capacity Estimation (Back of Envelope)
+## <span style="color: #4ECDC4;">2. Capacity Estimation (Back of Envelope)</span>
 
 All numbers derivable from public claims:
 
@@ -64,14 +64,14 @@ Little's Law: concurrent requests = arrival rate × duration = `(27M/30/86,400) 
 At ~75 streamed generations per GPU node (continuous batching, ~800-token outputs): **~9 nodes**, ×3 multi-cloud redundancy ≈ **27 H100 nodes total fleet**.
 
 **Cost [I]:**
-27 nodes × 24h × 30d × $2.50/hr ≈ $50K/mo generation + embeddings/rerank overhead → **<$1M/month total inference** against $8.3M/month revenue. Cost per consult: **$0.02–0.05 against $3.70 revenue** (>98% gross margin).
+27 nodes × 24h × 30d × $2.50/hr ≈ $50K/mo generation + embeddings/rerank overhead → **<$1M/month total inference** against $8.3M/month revenue. Cost per consult: **$0.02–0.05 against $3.70 revenue**.
 
 > [!important] The headline finding
-> There is no hidden supercomputer. The entire serving fleet fits in a single rack's power budget. If they run frontier-class models instead of ~70B fine-tunes, multiply by 2–4x — still under 10% of revenue. The infrastructure was never the moat.
-
+> There is no hidden supercomputer. The entire serving fleet fits in a single rack's power budget. If they run frontier-class models instead of ~70B fine-tunes, multiply by 2–4x — still under 10% of revenue.
 
 ---
-## 3. High-Level Architecture
+
+## <span style="color: #95E1D3;">3. High-Level Architecture</span>
 
 ![Hybrid Architecture](/images_1/openevidence.png)
 
