@@ -39,7 +39,7 @@ OpenEvidence is a natural-language question-answering engine over peer-reviewed 
 
 The correctness constraint is the load-bearing wall of the entire design. It dictates retrieval-first architecture, citation enforcement at generation time, and fail-degraded failure semantics.
 
-## <span style="color: #4ECDC4;">2. Capacity Estimation (Back of Envelope)</span>
+## <span style="color: #FF6B6B;">2. Capacity Estimation (Back of Envelope)</span>
 
 All numbers derivable from public claims:
 
@@ -71,8 +71,98 @@ At ~75 streamed generations per GPU node (continuous batching, ~800-token output
 
 ---
 
-## <span style="color: #95E1D3;">3. High-Level Architecture</span>
+## <span style="color: #FF6B6B;">3. High-Level Architecture</span>
 
 ![Hybrid Architecture](/images_1/openevidence.png)
 
 ---
+## <span style="color: #FF6B6B;">4. Component Deep Dives</span>
+
+### 4.1 Edge & Frontend
+
+* **Stack:** Next.js on Vercel (frontend) + Python on GCP (backend). The split mirrors
+team composition — mostly Python/ML engineers, one small frontend team — and keeps
+each team's deploy surface separate: the frontend team never touches GCP, the
+backend team never touches Vercel config.
+
+* **Fluid compute as a scaling lever:**
+Vercel's [Fluid compute](https://vercel.com/fluid) keeps functions warm between requests instead of spinning up
+a fresh container per call. After enabling it, OpenEvidence saw serverless spend drop
+90%, with fewer cold starts and no reliability tradeoff [1]. The mechanism: billing
+shifts from wall-clock time to active-CPU time, which matters a lot for a workload
+that's mostly waiting on an LLM stream rather than computing.
+
+* **Deploy velocity as a reliability property, not just a DX nicety:**
+Every commit gets a preview URL; prod deploys take minutes, not hours.
+For a small team absorbing viral growth, this matters structurally: fixes ship
+before problems compound, rather than queuing behind a slow release cycle. Velocity
+*is* the mitigation for a team too small to run extensive pre-release QA.
+
+* **Perceived latency ≈ time-to-first-token:**
+The frontend shell renders instantly and streams tokens as they arrive. Because the
+UI never blocks on the full response, perceived latency tracks time-to-first-token,
+not total generation time — which is the right metric to optimize for in a
+streaming-LLM product, and different from what you'd optimize for in a traditional
+request/response API.
+
+* **EHR embed and its downstream effect on 4.2:**
+OpenEvidence is embedded inside Epic via FHIR-based integrations, live at Sutter
+Health and Mount Sinai [2][3]. This isn't just a distribution channel — it reshapes
+the query distribution the backend sees: queries arrive mid-chart, short, urgent,
+and clustered by clinical specialty. That skew is what motivates [the caching /
+model-routing strategy in 4.2] — worth a forward pointer here so the reader knows
+why this detail is in an infra section at all.
+
+---
+[1] Vercel customer case study, "How OpenEvidence built a healthcare AI that
+    physicians actually trust" (2026)
+    
+[2] Beckers Hospital Review / Sutter Health press release, Feb 2026
+
+[3] Healthcare IT News, Mount Sinai enterprise Epic integration, Mar 2026
+
+### 4.2 Identity & Trust Layer
+
+Unique among consumer AI products: every user is a **verified clinician** via NPI number [C]. This is simultaneously:
+
+1. **An abuse firewall** — no anonymous scraping of a corpus that cost millions to license
+2. **A regulatory posture** — the product gives information to professionals, not medical advice to consumers
+3. **A business asset** — pharma advertisers pay $70–150 CPMs precisely because the audience is verified prescribers
+4. **A query-distribution prior** — knowing the specialty and role of every queryer improves routing [I]
+
+### 4.3 Query Understanding & Orchestration
+
+A clinical question rarely decomposes to one retrieval pass. *"Should this 68yo with CKD get metformin?"* implies sub-queries across dosing, renal contraindications, guideline position, and recent trial evidence. Observable product behavior (multi-section answers, mixed source types per section) implies:
+
+- **Sub-question decomposition** — the orchestrator splits complex questions into evidence-seeking sub-queries
+- **Parallel retrieval fan-out** — each sub-query runs its own retrieve→rerank cycle concurrently; total retrieval latency = slowest branch, not sum of branches
+- **Specialty routing** — queries route toward specialty-weighted indexes/adapters. The "hub-and-spoke conductor + specialist models" topology described in secondary analyses lives somewhere around here; treat specifics as unverified, but *some* routing layer must exist to hit quality bars across 160+ subspecialties
+- **Cache check happens early** — see §4.6, it's the biggest lever in the whole system
+
+### 4.4 The Retrieval Stack (where latency is won or lost)
+
+RAG latency compounds: every millisecond added upstream delays first token downstream. OpenEvidence's known investments concentrate exactly here.
+
+* **Corpus [C]:** ~35M papers plus licensed full-text (NEJM, JAMA Network ×11 journals, Nature portfolio, NCCN Guidelines, FDA labels, CDC, ACC, AAFP, ADA). The licensing point cannot be overstated: abstract-level indexing (what everyone else has legally) vs full-text-with-figures-and-tables (what JAMA/Nature deals grant) is a retrieval-quality chasm competitors can't close with money alone — the content isn't for sale to them.
+
+* **Index [I built on C fragments]:** Elasticsearch (confirmed via engineer profile), horizontally sharded, hybrid BM25 + dense vector search. Hybrid because clinical vocabulary is adversarial to pure-vector search: drug names, dosing shorthand, and abbreviation-heavy queries need lexical precision; paraphrase ("heart attack" ↔ "myocardial infarction") needs semantic match.
+
+* **Embeddings — the 700ms→160ms story [C]:**
+
+| Before | After |
+|---|---|
+| Self-managed GPU inference | Baseten Embeddings Inference (BEI) |
+| >700ms end-to-end | 160ms end-to-end (78% cut) |
+| Python client | Rust performance client, 10x client throughput |
+| Weeks-long deploy cycles | <1 hour, one engineer |
+
+Three compounding optimizations: a runtime tuned specifically for embedding-shaped workloads (small models, huge batches), a Rust client eliminating Python serialization overhead, and continuous batching that keeps GPU utilization near saturation.
+
+* **The precomputation trick — the most important design decision in the stack [I]:**
+35M documents were embedded *once*, offline, and incrementally maintained via the ingestion pipeline. At query time only the *query* gets embedded live. Consequences:
+
+1. Corpus can grow 100x with zero effect on query-side embedding latency
+2. Embedding compute scales with *new content* (GBs/day), not *traffic* (billions of queries)
+3. Index updates are async through Kafka — freshness lags slightly, latency never pays for freshness
+
+* **Reranking [I]:** A fine-tuned cross-encoder reranker re-scores top-K candidates for clinical relevance. Cross-encoders are accurate but expensive — O(query×doc) forward passes — so they run on dedicated GPU pods, isolated from generation traffic so neither queues behind the other. Reranking quality is where generic RAG feels generic and domain RAG feels expert; this is likely one of their most valuable fine-tunes.
