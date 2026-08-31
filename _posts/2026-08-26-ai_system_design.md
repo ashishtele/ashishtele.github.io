@@ -116,9 +116,7 @@ why this detail is in an infra section at all.
 ---
 [1] Vercel customer case study, "How OpenEvidence built a healthcare AI that
     physicians actually trust" (2026)
-    
 [2] Beckers Hospital Review / Sutter Health press release, Feb 2026
-
 [3] Healthcare IT News, Mount Sinai enterprise Epic integration, Mar 2026
 
 ### 4.2 Identity & Trust Layer
