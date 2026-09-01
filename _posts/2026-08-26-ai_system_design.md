@@ -164,3 +164,27 @@ Three compounding optimizations: a runtime tuned specifically for embedding-shap
 3. Index updates are async through Kafka — freshness lags slightly, latency never pays for freshness
 
 * **Reranking [I]:** A fine-tuned cross-encoder reranker re-scores top-K candidates for clinical relevance. Cross-encoders are accurate but expensive — O(query×doc) forward passes — so they run on dedicated GPU pods, isolated from generation traffic so neither queues behind the other. Reranking quality is where generic RAG feels generic and domain RAG feels expert; this is likely one of their most valuable fine-tunes.
+
+### 4.5 Generation
+
+* **Model provenance [C core, I details]:**
+
+Baseten confirms "**billions of custom, fine-tuned LLM calls per week**" and use of Baseten Training. In-house fine-tuned open-weight base model + LoRA/PEFT adapters — almost certainly separate adapters (or separate small models) for rerank, synthesis, and grounding behavior. Raw lab-API wrapping is ruled out by unit economics (300 calls/consult × frontier-API pricing > revenue), latency control requirements, and the behavioral-consistency requirement below.
+
+* **Citation enforcement at the architecture level [C behavior, I mechanism]:**
+
+The product guarantee is "no uncited claims." Prompting can't reliably deliver that at billions of calls. The plausible mechanisms, roughly in order of likelihood:
+
+1. *Constrained generation*: output grammar requires citation spans referencing retrieved document IDs; uncited continuations are structurally disallowed
+2. *Post-hoc verification pass*: generated claims checked against retrieved evidence before emission; unverifiable sentences dropped
+3. *Fine-tuned refusal behavior*: model trained to abstain when retrieved context is insufficient ("evidence is inconclusive")
+
+Observable behavior supports all three coexisting: inline citations resolve to specific papers, low-evidence topics produce explicit abstentions, and hard-coded refusals exist for policy domains (the vaccines/autism case Polevikov dissects).
+
+* **Serving [C]:**
+
+Baseten Multi-Cloud Capacity Management — GPU capacity pooled across clouds and regions; traffic spikes or hardware failures fail over instead of queueing; no multi-year GPU commitments. This is how a 30-person company absorbs 1000x demand spikes without owning capacity planning as a discipline.
+
+* **Failure semantics [C philosophy, I implementation]:**
+
+Degrade capability, don't degrade trust. Slow retrieval → "still searching," never an uncited guess. Backup model endpoints sit on the critical path. Contrast with consumer chatbots whose guardrails come *off* under failure — inverted design.
