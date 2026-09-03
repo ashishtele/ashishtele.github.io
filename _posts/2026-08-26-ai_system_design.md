@@ -188,3 +188,6 @@ Baseten Multi-Cloud Capacity Management — GPU capacity pooled across clouds an
 * **Failure semantics [C philosophy, I implementation]:**
 
 Degrade capability, don't degrade trust. Slow retrieval → "still searching," never an uncited guess. Backup model endpoints sit on the critical path. Contrast with consumer chatbots whose guardrails come *off* under failure — inverted design.
+
+Thank you
+Ashish
