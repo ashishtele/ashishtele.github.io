@@ -189,5 +189,41 @@ Baseten Multi-Cloud Capacity Management — GPU capacity pooled across clouds an
 
 Degrade capability, don't degrade trust. Slow retrieval → "still searching," never an uncited guess. Backup model endpoints sit on the critical path. Contrast with consumer chatbots whose guardrails come *off* under failure — inverted design.
 
-Thank you
+### 4.6 Caching
+
+Clinical questions are ferociously repetitive: hundreds of thousands of clinicians ask overlapping questions daily. **[I]** Plausible cache layers:
+
+| Layer | Key | TTL logic |
+|---|---|---|
+| Exact-match | normalized question hash | invalidate on corpus update affecting sources |
+| Semantic | embedding similarity above threshold | same, with conservative threshold |
+| Section-level | sub-query → evidence bundle | reusable across different full questions |
+| Citation metadata | DOI → resolved link/metadata | effectively permanent |
+
+If half of consultations hit any cache layer, effective real-time load halves — which is exactly how "billions of requests/week" reconciles with a ~27-node GPU fleet. Cache invalidation ties to ingestion: new guideline published → affected-topic entries flushed.
+
+### 4.7 Ingestion & Freshness Pipeline
+
+**[C corpus, I mechanics]** Medical knowledge doubles every [~73 days](https://pmc.ncbi.nlm.nih.gov/articles/PMC3116346/). The pipeline:
+
+```
+licensed feed (API/bulk) → parse PDF/XML → chunk (structure-aware:
+sections, tables, figures kept atomic) → batch embed offline
+→ upsert ES index → attach recency/journal-tier metadata
+→ trigger targeted cache invalidation
+```
+
+Recency flags matter clinically: recommendations based on superseded literature must say so.
+
+### 4.8 Async Sidecars
+
+Everything non-latency-critical rides Kafka off the synchronous path [C components confirmed via engineer profile: event-driven microservices]:
+
+- Analytics & usage dashboards
+- Ad serving (the business model — ads rendered alongside answers, never inside the evidence chain)
+- Email digest / "deep consultation" follow-ups (hours-scale SLA, zero latency budget)
+- Physician feedback signals → fine-tuning data flywheel
+
+Thank you,
+
 Ashish
