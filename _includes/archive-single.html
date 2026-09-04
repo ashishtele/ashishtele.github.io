@@ -12,15 +12,17 @@
 
 <div class="{{ include.type | default: "list" }}__item">
   <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    {% if include.type == "grid" and teaser %}
+    {% if include.type == "grid" or page.entries_layout == "grid" %}
       <div class="archive__item-teaser">
-        <img src=
-          {% if teaser contains "://" %}
-            "{{ teaser }}"
-          {% else %}
-            "{{ teaser | relative_url }}"
-          {% endif %}
-          alt="">
+        <a href="{{ post.url | relative_url }}" rel="permalink" aria-hidden="true" tabindex="-1">
+          <img src=
+            {% if teaser contains "://" %}
+              "{{ teaser }}"
+            {% else %}
+              "{{ teaser | relative_url }}"
+            {% endif %}
+            alt="{{ title | strip_html | escape }}" loading="lazy">
+        </a>
       </div>
     {% endif %}
     <h2 class="archive__item-title" itemprop="headline">
@@ -30,27 +32,23 @@
         <a href="{{ post.url | relative_url }}" rel="permalink">{{ title }}</a>
       {% endif %}
     </h2>
-    {% if post.read_time %}
+    {% if post.date or post.read_time %}
       <p class="page__meta">
-        <!--
-          Original content
-        -->
-        <!--{% include read-time.html %}-->
-
-        <!--
-          Add date of the post
-        -->
-        {% if site.custom.landingpage.publisheddate and include.type != "grid" %}
-          <i class="fas fa-calendar-alt" aria-hidden="true"></i> {{ post.date | date: "%Y/%m/%d" }} |
+        {% if post.date %}
+          <span class="page__meta-date"><i class="fas fa-calendar-alt" aria-hidden="true"></i> {{ post.date | date: "%b %d, %Y" }}</span>
         {% endif %}
-
-        <!--
-          ReadTime
-        -->
-        <i class="far fa-clock" aria-hidden="true"></i>
-        {% include read-time.html %}
+        {% if post.read_time %}
+          <span class="page__meta-readtime"><i class="far fa-clock" aria-hidden="true"></i> {% include read-time.html %}</span>
+        {% endif %}
       </p>
     {% endif %}
-    {% if post.excerpt %}<p class="archive__item-excerpt" itemprop="description">{{ post.excerpt | markdownify | strip_html | truncate: 160 }}</p>{% endif %}
+    {% if post.excerpt %}<p class="archive__item-excerpt" itemprop="description">{{ post.excerpt | markdownify | strip_html | truncate: 140 }}</p>{% endif %}
+    {% if post.tags %}
+      <p class="archive__item-tags">
+        {% for tag in post.tags limit:3 %}
+          <a class="tag-pill" href="{{ '/tags/#' | append: tag | slugify | relative_url }}">{{ tag }}</a>
+        {% endfor %}
+      </p>
+    {% endif %}
   </article>
 </div>

@@ -1,12 +1,50 @@
 ---
 layout: archive
 ---
+
 {{ content }}
+
+{% comment %} Featured: latest post with an image {% endcomment %}
+{% assign featured = site.posts | where_exp: "p", "p.header.teaser or p.header.image" | first %}
+{% if featured and paginator.page == 1 %}
+<section class="homepage-featured">
+  <div class="homepage-featured__card">
+    {% if featured.header.teaser %}
+      <a class="homepage-featured__media" href="{{ featured.url | relative_url }}" aria-hidden="true" tabindex="-1">
+        <img src="{{ featured.header.teaser | relative_url }}" alt="{{ featured.title | strip_html | escape }}" loading="eager">
+      </a>
+    {% endif %}
+    <div class="homepage-featured__body">
+      <p class="homepage-eyebrow">Featured &middot; {{ featured.date | date: "%b %d, %Y" }}</p>
+      <h2 class="homepage-featured__title"><a href="{{ featured.url | relative_url }}">{{ featured.title }}</a></h2>
+      {% if featured.excerpt %}
+        <p class="homepage-featured__excerpt">{{ featured.excerpt | markdownify | strip_html | truncate: 180 }}</p>
+      {% endif %}
+      <p><a href="{{ featured.url | relative_url }}" class="btn btn--primary">Read the deep dive</a></p>
+    </div>
+  </div>
+</section>
+{% endif %}
+
+{% comment %} Browse by popular tags {% endcomment %}
+{% if site.tags.size > 0 and paginator.page == 1 %}
+<section class="homepage-topics">
+  <h3 class="archive__subtitle">Browse by topic</h3>
+  <div class="topic-pills">
+    {% assign sorted_tags = site.tags | sort %}
+    {% for tag in sorted_tags limit:8 %}
+      <a class="topic-pill" href="{{ '/tags/#' | append: tag[0] | slugify | relative_url }}">{{ tag[0] }} <span>{{ tag[1].size }}</span></a>
+    {% endfor %}
+  </div>
+</section>
+{% endif %}
 
 <h3 id="recent-posts" class="archive__subtitle">{{ site.data.ui-text[site.locale].recent_posts | default: "Recent Posts" }}</h3>
 
+<div class="entries-grid">
 {% for post in paginator.posts %}
-  {% include archive-single.html %}
+  {% include archive-single.html type="grid" %}
 {% endfor %}
+</div>
 
 {% include paginator.html %}
