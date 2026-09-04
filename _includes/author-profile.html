@@ -1,6 +1,13 @@
 {% assign author = page.author | default: page.authors[0] | default: site.author %}
 {% assign author = site.data.authors[author] | default: author %}
 
+{% comment %} Inline social SVGs (FA kit lacks these glyphs) {% endcomment %}
+{% capture svg_email %}<path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>{% endcapture %}
+{% capture svg_github %}<path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>{% endcapture %}
+{% capture svg_linkedin %}<path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/>{% endcapture %}
+{% capture svg_tableau %}<line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/>{% endcapture %}
+{% capture svg_wordpress %}<circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>{% endcapture %}
+
 <div itemscope itemtype="https://schema.org/Person">
 
   {% if author.avatar %}
@@ -44,14 +51,28 @@
     <ul class="author__urls social-icons">
       {% if author.location %}
         <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
-          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">{{ author.location }}</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.15em;margin-right:0.4em"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span itemprop="name">{{ author.location }}</span>
         </li>
       {% endif %}
 
       {% if author.links %}
         {% for link in author.links %}
           {% if link.label and link.url %}
-            <li><a href="{{ link.url }}" rel="nofollow noopener noreferrer"><i class="{{ link.icon | default: 'fas fa-link' }}" aria-hidden="true"></i> {{ link.label }}</a></li>
+            {% case link.label %}
+              {% when 'Email' %}
+                {% assign social_svg = svg_email %}
+              {% when 'GitHub' %}
+                {% assign social_svg = svg_github %}
+              {% when 'LinkedIn' %}
+                {% assign social_svg = svg_linkedin %}
+              {% when 'Tableau' %}
+                {% assign social_svg = svg_tableau %}
+              {% when 'Wordpress' %}
+                {% assign social_svg = svg_wordpress %}
+              {% else %}
+                {% assign social_svg = '' %}
+            {% endcase %}
+            <li><a href="{{ link.url }}" rel="nofollow noopener noreferrer">{% if social_svg != '' %}<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.15em;margin-right:0.4em">{{ social_svg }}</svg>{% else %}<i class="{{ link.icon | default: 'fas fa-link' }}" aria-hidden="true"></i> {% endif %}{{ link.label }}</a></li>
           {% endif %}
         {% endfor %}
       {% endif %}

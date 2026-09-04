@@ -53,6 +53,8 @@
   --series-2: rgba(15, 23, 42, 0.7);
   --series-border: rgba(56, 189, 248, 0.25);
   --subtitle-border: rgba(148, 163, 184, 0.15);
+  --particle-color: #38bdf8;
+  --particle-opacity: 0.65;
 }
 
 :root[data-theme="light"] {
@@ -95,6 +97,8 @@
   --series-2: rgba(241, 245, 249, 0.9);
   --series-border: rgba(2, 132, 199, 0.3);
   --subtitle-border: rgba(15, 23, 42, 0.12);
+  --particle-color: #1d4ed8;
+  --particle-opacity: 0.75;
 }
 
 :root[data-theme="dusk"] {
@@ -137,6 +141,8 @@
   --series-2: rgba(28, 19, 48, 0.7);
   --series-border: rgba(167, 139, 250, 0.3);
   --subtitle-border: rgba(196, 181, 253, 0.18);
+  --particle-color: #c4b5fd;
+  --particle-opacity: 0.65;
 }
 
 body {
@@ -225,12 +231,60 @@ body {
 }
 
 .page__hero--overlay {
-  padding: 6em 0;
+  position: relative;
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+  padding: 5em 0;
+  background-size: cover;
+  animation: hero-drift 45s ease-in-out infinite alternate;
+}
+
+/* Directional cinematic gradient over the theme's flat tint */
+.page__hero--overlay::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(3, 6, 14, 0.88) 0%, rgba(3, 6, 14, 0.55) 45%, rgba(3, 6, 14, 0.22) 100%);
+  pointer-events: none;
+}
+
+.page__hero--overlay .wrapper {
+  position: relative;
+  z-index: 1;
+}
+
+/* Full-page ambient particle canvas (injected by JS, homepage only) */
+.hero-particles {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+  pointer-events: none;
+  opacity: var(--particle-opacity);
+}
+
+@keyframes hero-drift {
+  from {
+    background-position: 30% 50%;
+  }
+  to {
+    background-position: 70% 50%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page__hero--overlay {
+    animation: none;
+  }
 }
 
 .page__hero--overlay .page__title {
   font-weight: 800;
   letter-spacing: -0.02em;
+  font-size: clamp(2rem, 5vw, 3.4rem);
+  line-height: 1.1;
 }
 
 .page__hero--overlay .page__lead {
@@ -558,6 +612,7 @@ body {
   }
   .page__hero--overlay {
     padding: 4em 0;
+    min-height: 70vh;
   }
   .homepage-featured__body {
     padding: 1.4rem;

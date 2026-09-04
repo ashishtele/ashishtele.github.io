@@ -22,6 +22,128 @@
   })();
 </script>
 
+<script>
+  /* Cursor-reactive particle field across the whole homepage (no dependencies) */
+  document.addEventListener('DOMContentLoaded', function () {
+    if (!document.querySelector('.layout--home') || !window.CanvasRenderingContext2D) return;
+    var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    var canvas = document.createElement('canvas');
+    canvas.className = 'hero-particles';
+    canvas.setAttribute('aria-hidden', 'true');
+    document.body.appendChild(canvas);
+    var ctx = canvas.getContext('2d');
+
+    var W = 0, H = 0, parts = [], mouse = { x: -9999, y: -9999 };
+    var LINK = 150, MOUSE_R = 170;
+
+    function accent() {
+      var v = getComputedStyle(document.documentElement).getPropertyValue('--particle-color');
+      return (v && v.trim()) || '#38bdf8';
+    }
+    var color = accent();
+    var themeBtn = document.getElementById('theme-toggle');
+    if (themeBtn) themeBtn.addEventListener('click', function () {
+      setTimeout(function () { color = accent(); }, 50);
+    });
+
+    function resize() {
+      var dpr = Math.min(window.devicePixelRatio || 1, 1.5);
+      W = window.innerWidth; H = window.innerHeight;
+      canvas.width = Math.max(1, Math.floor(W * dpr));
+      canvas.height = Math.max(1, Math.floor(H * dpr));
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      seed();
+    }
+
+    function seed() {
+      var n = Math.max(40, Math.min(130, Math.floor((W * H) / 22000)));
+      parts = [];
+      for (var i = 0; i < n; i++) {
+        parts.push({
+          x: Math.random() * W,
+          y: Math.random() * H,
+          vx: (Math.random() - 0.5) * 0.35,
+          vy: (Math.random() - 0.5) * 0.35,
+          r: 1.0 + Math.random() * 1.4
+        });
+      }
+    }
+
+    function track(e) {
+      var cx = (e.touches && e.touches[0]) ? e.touches[0].clientX : e.clientX;
+      var cy = (e.touches && e.touches[0]) ? e.touches[0].clientY : e.clientY;
+      mouse.x = cx; mouse.y = cy;
+    }
+    function untrack() { mouse.x = -9999; mouse.y = -9999; }
+    window.addEventListener('mousemove', track, { passive: true });
+    document.addEventListener('mouseleave', untrack);
+    window.addEventListener('touchmove', track, { passive: true });
+    window.addEventListener('touchend', untrack);
+
+    function step() {
+      var i, p, dx, dy, d2;
+      for (i = 0; i < parts.length; i++) {
+        p = parts[i];
+        dx = p.x - mouse.x; dy = p.y - mouse.y; d2 = dx * dx + dy * dy;
+        if (d2 < MOUSE_R * MOUSE_R && d2 > 1) {
+          var d = Math.sqrt(d2), f = (MOUSE_R - d) / MOUSE_R * 0.6;
+          p.vx += (dx / d) * f; p.vy += (dy / d) * f;
+        }
+        p.vx *= 0.985; p.vy *= 0.985;
+        if (Math.abs(p.vx) < 0.05) p.vx += (Math.random() - 0.5) * 0.06;
+        if (Math.abs(p.vy) < 0.05) p.vy += (Math.random() - 0.5) * 0.06;
+        p.x += p.vx; p.y += p.vy;
+        if (p.x < 0) p.x = W; else if (p.x > W) p.x = 0;
+        if (p.y < 0) p.y = H; else if (p.y > H) p.y = 0;
+      }
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, W, H);
+      var i, j, p, q, dx, dy, d2, a;
+      ctx.lineWidth = 1;
+      for (i = 0; i < parts.length; i++) {
+        p = parts[i];
+        for (j = i + 1; j < parts.length; j++) {
+          q = parts[j];
+          dx = p.x - q.x; dy = p.y - q.y; d2 = dx * dx + dy * dy;
+          if (d2 < LINK * LINK) {
+            a = (1 - Math.sqrt(d2) / LINK) * 0.45;
+            ctx.strokeStyle = color;
+            ctx.globalAlpha = a;
+            ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(q.x, q.y); ctx.stroke();
+          }
+        }
+      }
+      ctx.globalAlpha = 0.85;
+      ctx.fillStyle = color;
+      for (i = 0; i < parts.length; i++) {
+        p = parts[i];
+        ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, 6.2832); ctx.fill();
+      }
+      ctx.globalAlpha = 1;
+    }
+
+    var running = false, raf = 0;
+    function loop() { step(); draw(); raf = requestAnimationFrame(loop); }
+    function play() { if (!running && !reduceMotion) { running = true; loop(); } }
+    function pause() { running = false; cancelAnimationFrame(raf); }
+
+    document.addEventListener('visibilitychange', function () {
+      if (document.hidden) pause(); else play();
+    });
+
+    var rt = 0;
+    window.addEventListener('resize', function () {
+      clearTimeout(rt); rt = setTimeout(resize, 200);
+    });
+
+    resize();
+    if (reduceMotion) { draw(); } else { play(); }
+  });
+</script>
+
 <!-- For all browsers -->
 <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
 

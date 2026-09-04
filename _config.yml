@@ -108,7 +108,7 @@ author:
   name             : "Ashish Tele"
   avatar           : "/images/pic.jpg"
   bio              : "Data Science Portfolio"
-  location         : "Stamford, CT"
+  location         :
   email            : #ashish.tele@uconn.edu
   links:
     - label: "Email"
