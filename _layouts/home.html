@@ -9,9 +9,13 @@ layout: archive
 {% if featured == nil %}
   {% assign featured = site.posts.first %}
 {% endif %}
-{% if featured and paginator.page == 1 %}
+{% assign show_home_extras = true %}
+{% if paginator and paginator.page and paginator.page != 1 %}
+  {% assign show_home_extras = false %}
+{% endif %}
+{% if featured and show_home_extras %}
 <section class="homepage-featured">
-  <div class="homepage-featured__card">
+  <div class="homepage-featured__card{% unless featured.header.teaser %} homepage-featured__card--no-media{% endunless %}">
     {% if featured.header.teaser %}
       <a class="homepage-featured__media" href="{{ featured.url | relative_url }}" aria-hidden="true" tabindex="-1">
         <img src="{{ featured.header.teaser | relative_url }}" alt="{{ featured.title | strip_html | escape }}" loading="eager">
@@ -29,25 +33,18 @@ layout: archive
 </section>
 {% endif %}
 
-{% comment %} Browse by popular tags {% endcomment %}
-{% if site.tags.size > 0 and paginator.page == 1 %}
-<section class="homepage-topics">
-  <h3 class="archive__subtitle">Browse by topic</h3>
-  <div class="topic-pills">
-    {% assign sorted_tags = site.tags | sort %}
-    {% for tag in sorted_tags limit:8 %}
-      <a class="topic-pill" href="{{ '/tags/#' | append: tag[0] | slugify | relative_url }}">{{ tag[0] }} <span>{{ tag[1].size }}</span></a>
-    {% endfor %}
-  </div>
-</section>
-{% endif %}
-
 <h3 id="recent-posts" class="archive__subtitle">{{ site.data.ui-text[site.locale].recent_posts | default: "Recent Posts" }}</h3>
 
 <div class="entries-grid">
-{% for post in paginator.posts %}
-  {% include archive-single.html type="grid" %}
+{% assign home_posts = paginator.posts | default: site.posts %}
+{% comment %} Skip the featured post here — it's already showcased above {% endcomment %}
+{% for post in home_posts limit:10 %}
+  {% unless show_home_extras and post.url == featured.url %}
+    {% include archive-single.html type="grid" %}
+  {% endunless %}
 {% endfor %}
 </div>
 
-{% include paginator.html %}
+{% if paginator %}
+  {% include paginator.html %}
+{% endif %}

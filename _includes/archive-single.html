@@ -1,7 +1,7 @@
 {% if post.header.teaser %}
   {% capture teaser %}{{ post.header.teaser }}{% endcapture %}
 {% else %}
-  {% assign teaser = site.teaser %}
+  {% assign teaser = site.teaser | default: "/images/sit_1.png" %}
 {% endif %}
 
 {% if post.id %}
@@ -9,10 +9,11 @@
 {% else %}
   {% assign title = post.title %}
 {% endif %}
+{% assign card_type = include.type | default: page.entries_layout | default: "list" %}
 
-<div class="{{ include.type | default: "list" }}__item">
+<div class="{{ card_type }}__item">
   <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    {% if include.type == "grid" or page.entries_layout == "grid" %}
+    {% if card_type == "grid" %}
       <div class="archive__item-teaser">
         <a href="{{ post.url | relative_url }}" rel="permalink" aria-hidden="true" tabindex="-1">
           <img src=
@@ -46,7 +47,7 @@
     {% if post.tags %}
       <p class="archive__item-tags">
         {% for tag in post.tags limit:3 %}
-          <a class="tag-pill" href="{{ '/tags/#' | append: tag | slugify | relative_url }}">{{ tag }}</a>
+          <span class="tag-pill">{{ tag }}</span>
         {% endfor %}
       </p>
     {% endif %}

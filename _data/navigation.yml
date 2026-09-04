@@ -2,11 +2,3 @@
 main:
   - title: "About Me"
     url: /about/
-  - title: "Tags"
-    url: /tags/
-  - title: "Categories"
-    url: /categories/
-  - title: "Archive"
-    url: /year-archive/
-  - title: "Search"
-    url: /search/
