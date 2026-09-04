@@ -23,6 +23,43 @@
 </script>
 
 <script>
+  /* Hero typewriter: cycles headline phrases on the homepage */
+  document.addEventListener('DOMContentLoaded', function () {
+    var h1 = document.querySelector('.layout--home #page-title');
+    if (!h1) return;
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var phrases = [
+      'Ashish here…',
+      'I build systems I write about…',
+      'From prototype to production.'
+    ];
+    var caret = document.createElement('span');
+    caret.className = 'type-caret';
+    caret.setAttribute('aria-hidden', 'true');
+    h1.textContent = '';
+    h1.appendChild(caret);
+    var text = document.createTextNode('');
+    h1.insertBefore(text, caret);
+    var pi = 0, ci = 0, deleting = false;
+    function tick() {
+      var phrase = phrases[pi];
+      if (!deleting) {
+        ci++;
+        text.textContent = phrase.slice(0, ci);
+        if (ci >= phrase.length) { deleting = true; return void setTimeout(tick, 1800); }
+        setTimeout(tick, 70);
+      } else {
+        ci--;
+        text.textContent = phrase.slice(0, ci);
+        if (ci <= 0) { deleting = false; pi = (pi + 1) % phrases.length; return void setTimeout(tick, 400); }
+        setTimeout(tick, 35);
+      }
+    }
+    setTimeout(tick, 600);
+  });
+</script>
+
+<script>
   /* Cursor-reactive particle field across the whole homepage (no dependencies) */
   document.addEventListener('DOMContentLoaded', function () {
     if (!document.querySelector('.layout--home') || !window.CanvasRenderingContext2D) return;

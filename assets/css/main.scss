@@ -287,6 +287,29 @@ body {
   line-height: 1.1;
 }
 
+/* Typewriter caret */
+.type-caret {
+  display: inline-block;
+  width: 0.12em;
+  height: 1em;
+  margin-left: 0.08em;
+  vertical-align: -0.12em;
+  background: var(--acc-1);
+  animation: caret-blink 1s step-end infinite;
+}
+
+@keyframes caret-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .type-caret {
+    animation: none;
+    display: none;
+  }
+}
+
 .page__hero--overlay .page__lead {
   max-width: 42rem;
   font-size: 1.15rem;
