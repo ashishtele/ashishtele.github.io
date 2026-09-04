@@ -9,6 +9,8 @@ comments: true
 tags: ["R", "LLM", "AGI", "Python"]
 published: true
 comments: true
+series: agent-framework-gap
+series_title: "The Agent Framework Gap"
 header:
   teaserlogo:
   teaser: /images_1/agent_21.png

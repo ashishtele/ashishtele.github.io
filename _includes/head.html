@@ -11,8 +11,23 @@
   document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
 </script>
 
+<script>
+  /* Set theme before first paint to avoid a flash of the wrong palette */
+  (function () {
+    try {
+      var t = localStorage.getItem('site-theme');
+      if (!t && window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) t = 'light';
+      document.documentElement.setAttribute('data-theme', t || 'dark');
+    } catch (e) { document.documentElement.setAttribute('data-theme', 'dark'); }
+  })();
+</script>
+
 <!-- For all browsers -->
 <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+
+<!-- Favicons -->
+<link rel="icon" type="image/svg+xml" href="{{ '/assets/images/favicon.svg' | relative_url }}">
+<link rel="alternate icon" href="{{ '/images/sit_1.png' | relative_url }}">
 
 <!--[if IE]>
   <style>

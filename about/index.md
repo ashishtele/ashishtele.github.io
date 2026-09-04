@@ -4,8 +4,6 @@ comments: false
 tags: [about]
 ---
 
-# About Me
-
 I am a **Data Science & AI leader** focused on turning AI into practical, scalable business solutions. Over my career at **Cardinal Health, Nestlé, Novartis, and ZS**, I have worked across AI, data science, analytics, and strategy, primarily in Healthcare, Life Sciences, Retail, and Consumer Products.
 
 My focus is on **AI strategy, GenAI, agentic systems, machine learning, and AI product development**—from identifying high-value opportunities to designing architectures and building solutions that move from prototype to production.

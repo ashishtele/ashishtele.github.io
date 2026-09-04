@@ -1,12 +1,50 @@
 ---
 layout: archive
 ---
+
 {{ content }}
+
+{% comment %} Featured: latest post with a teaser image {% endcomment %}
+{% assign featured = site.posts | where_exp: "p", "p.header.teaser" | first %}
+{% if featured == nil %}
+  {% assign featured = site.posts.first %}
+{% endif %}
+{% assign show_home_extras = true %}
+{% if paginator and paginator.page and paginator.page != 1 %}
+  {% assign show_home_extras = false %}
+{% endif %}
+{% if featured and show_home_extras %}
+<section class="homepage-featured">
+  <div class="homepage-featured__card{% unless featured.header.teaser %} homepage-featured__card--no-media{% endunless %}">
+    {% if featured.header.teaser %}
+      <a class="homepage-featured__media" href="{{ featured.url | relative_url }}" aria-hidden="true" tabindex="-1">
+        <img src="{{ featured.header.teaser | relative_url }}" alt="{{ featured.title | strip_html | escape }}" loading="eager">
+      </a>
+    {% endif %}
+    <div class="homepage-featured__body">
+      <p class="homepage-eyebrow">Featured &middot; {{ featured.date | date: "%b %d, %Y" }}</p>
+      <h2 class="homepage-featured__title"><a href="{{ featured.url | relative_url }}">{{ featured.title }}</a></h2>
+      {% if featured.excerpt %}
+        <p class="homepage-featured__excerpt">{{ featured.excerpt | markdownify | strip_html | truncate: 180 }}</p>
+      {% endif %}
+      <p><a href="{{ featured.url | relative_url }}" class="btn btn--primary">Read the deep dive</a></p>
+    </div>
+  </div>
+</section>
+{% endif %}
 
 <h3 id="recent-posts" class="archive__subtitle">{{ site.data.ui-text[site.locale].recent_posts | default: "Recent Posts" }}</h3>
 
-{% for post in paginator.posts %}
-  {% include archive-single.html %}
+<div class="entries-grid">
+{% assign home_posts = paginator.posts | default: site.posts %}
+{% comment %} Skip the featured post here — it's already showcased above {% endcomment %}
+{% for post in home_posts limit:10 %}
+  {% unless show_home_extras and post.url == featured.url %}
+    {% include archive-single.html type="grid" %}
+  {% endunless %}
 {% endfor %}
+</div>
 
-{% include paginator.html %}
+{% if paginator %}
+  {% include paginator.html %}
+{% endif %}

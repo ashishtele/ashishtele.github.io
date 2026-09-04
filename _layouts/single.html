@@ -84,6 +84,25 @@ layout: default
 
       {% if page.share %}{% include social-share.html %}{% endif %}
 
+      {% comment %} Series navigator: ordered Parts list when page belongs to a series {% endcomment %}
+      {% if page.series %}
+        {% assign series_posts = site.posts | where: "series", page.series | sort: "date" %}
+        {% if series_posts.size > 1 %}
+          <nav class="series-nav" aria-label="Article series">
+            <p class="series-nav__label"><i class="fas fa-layer-group" aria-hidden="true"></i> {{ page.series_title | default: "Part of a series" }}</p>
+            <ol class="series-nav__list">
+              {% for sp in series_posts %}
+                {% if sp.url == page.url %}
+                  <li class="series-nav__current" aria-current="step"><span>{{ sp.title }}</span></li>
+                {% else %}
+                  <li><a href="{{ sp.url | relative_url }}">{{ sp.title }}</a></li>
+                {% endif %}
+              {% endfor %}
+            </ol>
+          </nav>
+        {% endif %}
+      {% endif %}
+
       {% include post_pagination.html %}
     </div>
 
@@ -117,3 +136,22 @@ layout: default
     </div>
   {% endif %}
 </div>
+
+{% comment %} Reading progress bar (posts only) {% endcomment %}
+{% if page.id %}
+  <div class="reading-progress" id="reading-progress" aria-hidden="true"></div>
+  <script>
+    (function () {
+      var bar = document.getElementById('reading-progress');
+      if (!bar) return;
+      function update() {
+        var el = document.documentElement;
+        var max = el.scrollHeight - el.clientHeight;
+        var p = max > 0 ? ((el.scrollTop || document.body.scrollTop) / max) * 100 : 0;
+        bar.style.width = p + '%';
+      }
+      document.addEventListener('scroll', update, { passive: true });
+      update();
+    })();
+  </script>
+{% endif %}
