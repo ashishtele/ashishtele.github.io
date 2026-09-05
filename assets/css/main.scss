@@ -165,7 +165,12 @@ body {
 }
 
 .masthead__menu {
-  padding: 0.8rem 0;
+  padding: 0.35rem 0;
+}
+
+.masthead__inner-wrap {
+  padding-top: 0.35em;
+  padding-bottom: 0.35em;
 }
 
 .masthead .greedy-nav {
@@ -176,7 +181,7 @@ body {
   font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  font-size: 1.2rem;
+  font-size: 1rem;
   background: linear-gradient(90deg, var(--title-1) 20%, var(--title-2) 80%);
   -webkit-background-clip: text;
   background-clip: text;
@@ -329,9 +334,10 @@ body {
   display: flex;
   align-items: center;
   overflow: hidden;
-  border-radius: 20px;
-  border: 1px solid var(--card-border);
-  margin-bottom: 2rem;
+  border-radius: 0;
+  border: none;
+  border-bottom: 1px solid var(--card-border);
+  margin-bottom: 0;
   background:
     radial-gradient(1200px 600px at 70% 30%, rgba(56, 189, 248, 0.08), transparent 60%),
     var(--page-bg);
@@ -357,8 +363,10 @@ body {
 .constellation-hero .wrapper {
   position: relative;
   z-index: 2;
-  max-width: 34rem;
-  padding: 2rem;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem 1em;
 }
 
 .constellation-hero .page__title {
