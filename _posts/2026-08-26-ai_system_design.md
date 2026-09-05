@@ -25,19 +25,21 @@ As I am building more and more AI products, I feel understanding some well craft
 
 ## <span style="color: #FF6B6B;">1. The Product, Stated as a System Contract</span>
 
-OpenEvidence is a natural-language question-answering engine over peer-reviewed medical literature, used at the point of care. Strip away the medicine and the system contract reads like this:
+30 people, 27M consults a month, no supercomputer. OpenEvidence is a natural-language question-answering engine over peer-reviewed medical literature, used at the point of care. Here is the contract that makes it possible:
 
-| Requirement | Target | Basis |
-|---|---|---|
-| Latency (p50) | ≤ 15s for a complete cited answer | [C] Measured mean 13s (medRxiv study); vs 259s manual lookup |
-| Latency (perceived) | First token visible in ~1s | [I] Streaming UI behavior |
-| Availability | 99.99% | [C] Engineer-attributed uptime figure |
-| Correctness constraint | **No claim without a citation.** Refusal is acceptable; fabrication is not | [C] Stated product guarantee; enforced architecturally |
-| Traffic shape | Extreme diurnal spikes (7–9am rounds, conference surges, viral events) | [C] Documented 1000x surge survival |
-| Scale | 27M consults/month, ~650K US clinicians + 1.2M intl | [C] Company claims |
-| Compliance | HIPAA, SOC 2 Type II, encryption in transit/at rest, BAAs | [C] |
+Legend: [C] = confirmed public claim, [I] = inferred from behavior.
 
-The correctness constraint is the load-bearing wall of the entire design. It dictates retrieval-first architecture, citation enforcement at generation time, and fail-degraded failure semantics.
+| Requirement | Target | Basis | Drives |
+|---|---|---|---|
+| Latency (complete answer) | ≤ 15s | [C] ~13s mean observed (medRxiv study); vs 259s manual lookup | §4.4, §4.5 |
+| Latency (perceived) | First token in ~1s | [I] Streaming UI behavior | §4.1 |
+| Availability | 99.99% / month | [C] Engineer-attributed figure | §5 |
+| Correctness constraint | **No claim without a citation.** Refusal is fine; fabrication is not | [C] Stated product guarantee | §4.5 |
+| Traffic shape | 5x diurnal peak (7–9am rounds); 1000x viral headroom | [C] Documented 1000x surge survival | §5, §4.6 |
+| Scale (Aug 2026) | 27M consults/mo, ~650K US + 1.2M intl clinicians | [C] Company claims | §2 |
+| Compliance | HIPAA, SOC 2 Type II, encryption in transit/at rest, BAAs | [C] Company trust center | §5 |
+
+The correctness constraint is the load-bearing wall. It forces retrieval-first architecture, citation enforcement at generation time, and degrade-capability-never-trust failure semantics.
 
 ## <span style="color: #FF6B6B;">2. Capacity Estimation (Back of Envelope)</span>
 
