@@ -43,14 +43,15 @@ The correctness constraint is the load-bearing wall. It forces retrieval-first a
 
 ## <span style="color: #FF6B6B;">2. Capacity Estimation (Back of Envelope)</span>
 
-All numbers derivable from public claims:
+All numbers derivable from public claims (company-reported, unaudited — April 2026 figures):
 
 ```
-Consults            27M/month          → 6.3M/week       → ~104/sec average
-Peak multiplier     ~5x (clinical diurnal pattern)        → ~520 consults/sec peak
+Consults            27M in April 2026 (~900k/day)         → ~10/sec average
+Peak day            1M consults (Mar 10, 2026) → ~12/sec  → ~55/sec at 5x diurnal peak
 
-Model calls         "billions/week" (Baseten)
-Implied fan-out     2B / 6.3M ≈ 300+ internal calls per consultation
+Model calls         "billions/week" (Baseten; CTO: "billions of custom,
+                    fine-tuned LLM calls per week")
+Implied fan-out     2B / 6.3M ≈ 300+ internal calls per consultation (lower bound)
                     (embedding, multi-pass retrieval, rerank batches,
                      generation chunks, citation verification)
 
@@ -59,17 +60,18 @@ Sustained call rate 3,300/sec avg → ~16,500/sec peak
 
 **Embedding layer sizing [I]:**
 Batched embedding inference on H100-class hardware: ~3K inf/s/node.
-At peak, if ~40% of calls are query embeddings: `16,500 × 0.4 / 3,000` ≈ **7 nodes**, ×3 redundancy ≈ 20 GPUs. Trivial.
+At peak, if ~40% of calls are query embeddings (assumption): `16,500 × 0.4 / 3,000` ≈ **2–3 nodes**, ×3 redundancy ≈ **7 nodes**. Trivial.
 
 **Generation layer sizing [I]:**
 Little's Law: concurrent requests = arrival rate × duration = `(27M/30/86,400) × 5 peaks × 13s` ≈ **680 concurrent streams**.
 At ~75 streamed generations per GPU node (continuous batching, ~800-token outputs): **~9 nodes**, ×3 multi-cloud redundancy ≈ **27 H100 nodes total fleet**.
+Note: assumes the ~13s quick-consult path. Since Sep 2026 the lineup is bimodal — Osler ~5s, Sackett ~30s, Snow ~5min — deeper models ride a separate slower pool.
 
 **Cost [I]:**
-27 nodes × 24h × 30d × $2.50/hr ≈ $50K/mo generation + embeddings/rerank overhead → **<$1M/month total inference** against $8.3M/month revenue. Cost per consult: **$0.02–0.05 against $3.70 revenue**.
+27 nodes × 24h × 30d × $2.50/hr (typical H100 rental) ≈ $50K/mo generation + embeddings/rerank overhead → **<$1M/month total inference** against ~$8.3M/month revenue (CEO: topped $100M annualized in 2025, CNBC Jan 2026; Sacra estimates $150M end-'25 → $300M Jul-'26). Cost per consult: **$0.02–0.05 against ~$3.70 revenue**.
 
 > [!important] The headline finding
-> There is no hidden supercomputer. The entire serving fleet fits in a single rack's power budget. If they run frontier-class models instead of ~70B fine-tunes, multiply by 2–4x — still under 10% of revenue.
+> There is no hidden supercomputer. The entire serving fleet fits in a few racks' power budget (~150kW at 27 H100 nodes). If they run frontier-class models instead of ~70B fine-tunes, multiply by 2–4x — still under 10% of revenue.
 
 ---
 
