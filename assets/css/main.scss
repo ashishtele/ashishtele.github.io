@@ -694,6 +694,20 @@ body {
   margin: 0;
 }
 
+/* author sidebar GitHub badges */
+.author__badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.7rem;
+  line-height: 0;
+}
+
+.author__badges img {
+  height: 20px;
+  width: auto;
+}
+
 /* search + pagination polish */
 .search-input {
   background: var(--input-bg);

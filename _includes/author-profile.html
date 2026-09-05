@@ -44,6 +44,14 @@
         {{ author.bio | markdownify }}
       </div>
     {% endif %}
+    {% if site.repository contains "/" %}
+      {% assign repo_parts = site.repository | split: "/" %}
+      <div class="author__badges">
+        <a href="https://github.com/{{ repo_parts[0] }}" rel="nofollow noopener noreferrer" aria-label="GitHub followers"><img src="https://img.shields.io/github/followers/{{ repo_parts[0] }}?label=Follow&style=social" alt="GitHub followers" loading="lazy"></a>
+        <a href="https://github.com/{{ site.repository }}" rel="nofollow noopener noreferrer" aria-label="Repository stars"><img src="https://img.shields.io/github/stars/{{ site.repository }}?style=social" alt="GitHub stars" loading="lazy"></a>
+        <a href="https://github.com/{{ site.repository }}/network/members" rel="nofollow noopener noreferrer" aria-label="Repository forks"><img src="https://img.shields.io/github/forks/{{ site.repository }}?style=social" alt="GitHub forks" loading="lazy"></a>
+      </div>
+    {% endif %}
   </div>
 
   <div class="author__urls-wrapper">
