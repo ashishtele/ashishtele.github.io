@@ -234,7 +234,7 @@ function fit() {
   renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
   renderer.setSize(w, h, false);
   camera.aspect = w / h;
-  group.position.x = camera.aspect > 1.15 ? 2.2 : 0;
+  group.position.x = camera.aspect > 1.15 ? 3.4 : 0;
   camera.updateProjectionMatrix();
 }
 window.addEventListener('resize', fit);

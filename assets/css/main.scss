@@ -369,6 +369,12 @@ body {
   padding: 2rem 1em;
 }
 
+.constellation-hero .page__title,
+.constellation-hero .page__lead,
+.constellation-hero .homepage-eyebrow {
+  max-width: 36rem;
+}
+
 .constellation-hero .page__title {
   font-weight: 800;
   letter-spacing: -0.02em;
@@ -378,7 +384,7 @@ body {
 }
 
 .constellation-hero .page__lead {
-  max-width: 42rem;
+  max-width: 36rem;
   font-size: 1.15rem;
   color: #e2e8f0;
 }
