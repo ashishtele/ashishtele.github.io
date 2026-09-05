@@ -224,6 +224,78 @@ Everything non-latency-critical rides Kafka off the synchronous path [C componen
 - Email digest / "deep consultation" follow-ups (hours-scale SLA, zero latency budget)
 - Physician feedback signals → fine-tuning data flywheel
 
+---
+
+## <span style="color: #FF6B6B;">5. Reliability Engineering</span>
+
+| Failure mode | Behavior | Why |
+|---|---|---|
+| Model endpoint down/slow | Failover to backup provider/region (MCM pool) | [C] Redundancy was an explicit Baseten requirement |
+| Retrieval degraded | "Still searching" state; cached results bridge | Never generate without evidence |
+| Traffic spike (viral/conference) | Absorb via multi-cloud burst + autoscale | [C] TikTok surge: logs stayed green, nobody provisioned anything |
+| Audit log write failure | Must buffer-and-retry, never drop | HIPAA/compliance trail is legally required |
+| Corpus update bad batch | Canary index swap; rollback path | A poisoned index poisons every answer downstream |
+
+Uptime claim: 99.99% [C] ≈ 4.4 minutes/month downtime budget. Achievable precisely because every hard part is someone else's managed service.
+
+---
+
+## <span style="color: #FF6B6B;">6. Design Philosophy — What Makes This Buildable by 30 People</span>
+
+1. **Asymmetry of read/write.** ~95% of request work is read-only retrieval over precomputed structures. Reads scale linearly and cheaply; only generation touches GPUs.
+2. **Precompute everything that can be precomputed.** Corpus embeddings, citation resolution, journal metadata — all offline. The hot path does the minimum possible novel work per query.
+3. **Buy every non-differentiating layer.** Vercel, GCP, Elastic, Kafka, K8s, Baseten. Vendor case studies read like an org chart for a 200-person infra team that doesn't exist.
+4. **Concentrate engineers only on compounding assets:** the licensed corpus, the embedding/rerank quality, the citation-grounded generation behavior, and the clinician distribution network.
+5. **Make trust architectural, not aspirational.** Refusal paths, citation constraints, and degradation modes are structure, not policy documents.
+
+## <span style="color: #FF6B6B;">7. Honest Limits of This Analysis</span>
+
+- The multi-agent "conductor + specialist" topology comes from secondary analysis, unconfirmed by the company
+- Polevikov's counter-reading — "a retrieval-summarizer with a marketing department," where "no hallucinations" is architecturally impossible and refusals are hard-coded policy dressed as humility — deserves weight; both readings agree on the mechanical stack and disagree on framing
+- All GPU/cost figures assume ~70B-class fine-tunes at standard batching efficiency; frontier-class serving would shift numbers 2–4x without changing conclusions
+- Cache hit rates, adapter counts, and orchestration internals are reconstruction, not observation
+
+## <span style="color: #FF6B6B;">8. If You Were Building This From Scratch</span>
+
+The transferable playbook, stripped of healthcare:
+
+1. Make your correctness constraint *structural*, not prompt-level
+2. Precompute embeddings offline; make corpus growth free for query latency
+3. Put a semantic cache in front of everything; measure its hit rate obsessively
+4. Isolate latency-critical GPU workloads (embed, rerank, generate) into separate pools so they never queue behind each other
+5. Rent elasticity across clouds rather than owning peak capacity
+6. Push every async concern behind a queue, no exceptions
+7. Spend your headcount only where it compounds; outsource the rest
+
+---
+
+## <span style="color: #FF6B6B;">9. Transferable Lessons from the Competitive Landscape</span>
+
+What each player in the clinical-AI market (2026) teaches for system design, independent of healthcare:
+
+### From OpenEvidence
+1. **Precompute everything offline** — corpus embeddings built once, updated async via queue; query path does minimum novel work. Query latency stays flat as corpus grows 100x.
+2. **Make the correctness constraint structural** — citations/refusals enforced by output grammar or verification pass, never by prompt. Any high-stakes domain bakes guarantees into architecture.
+3. **Semantic caching as a first-class layer** — repetitive-question domains get 50–70% hit rates; biggest combined cost + latency lever in RAG.
+4. **Isolate GPU workloads into separate pools** — embed / rerank / generation never queue behind each other; no cross-stage backpressure.
+
+### From ChatGPT for Clinicians (OpenAI)
+5. **Model moat vs corpus moat is a strategic fork** — capability-first vs data-first demand different stacks. Decide early whether your advantage is *what you know* or *how well you reason*.
+6. **Verification as onboarding** — one cheap identity check (NPI) = abuse protection + audience quality + query-routing prior simultaneously.
+
+### From UpToDate
+7. **Curated beats comprehensive for trust** — human-in-the-loop curation pipeline feeding the index outranks raw retrieval quality in high-stakes domains.
+
+### From DynaMed
+8. **Evidence grading as ingestion-time metadata** — quality scores attached to documents at index time let ranking weigh sources mechanically, not at query time.
+
+### From Doximity
+9. **Distribution you own beats distribution you build** — embed where users already are (their EHR play) rather than building destination apps.
+
+> [!important] Meta-lesson
+> Every winner's architecture mirrors its moat: OpenEvidence precomputed indexes because its asset is a static corpus; OpenAI optimizes serving because its asset is the model; UpToDate invests in editorial tooling because its asset is authorship. Start with "what compounds here?" and infrastructure decisions mostly make themselves.
+
+---
 Thank you,
 
 Ashish
