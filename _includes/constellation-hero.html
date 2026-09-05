@@ -234,7 +234,9 @@ function fit() {
   renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
   renderer.setSize(w, h, false);
   camera.aspect = w / h;
-  group.position.x = camera.aspect > 1.15 ? 3.4 : 0;
+  // Push the sphere right of the text column without clipping off-screen
+  const halfW = Math.tan(THREE.MathUtils.degToRad(camera.fov / 2)) * camera.position.z * camera.aspect;
+  group.position.x = camera.aspect > 1.15 ? Math.min(4.5, Math.max(0, halfW - R - 1.2)) : 0;
   camera.updateProjectionMatrix();
 }
 window.addEventListener('resize', fit);
