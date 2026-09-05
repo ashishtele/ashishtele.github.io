@@ -14,11 +14,15 @@ layout: default
   {% endunless %}
 {% endif %}
 
+{% if page.constellation %}
+  {% include constellation-hero.html %}
+{% endif %}
+
 <div id="main" role="main">
   {% include sidebar.html %}
 
   <div class="archive">
-    {% unless page.header.overlay_color or page.header.overlay_image %}
+    {% unless page.header.overlay_color or page.header.overlay_image or page.constellation %}
       <h1 id="page-title" class="page__title">{{ page.title }}</h1>
     {% endunless %}
     {{ content }}
