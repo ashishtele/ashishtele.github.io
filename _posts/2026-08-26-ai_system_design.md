@@ -84,38 +84,15 @@ Note: assumes the ~13s quick-consult path. Since Sep 2026 the lineup is bimodal 
 
 ### 4.1 Edge & Frontend
 
-* **Stack:** Next.js on Vercel (frontend) + Python on GCP (backend). The split mirrors
-team composition — mostly Python/ML engineers, one small frontend team — and keeps
-each team's deploy surface separate: the frontend team never touches GCP, the
-backend team never touches Vercel config.
+The frontend is Next.js on Vercel and the backend is Python on GCP [C]. This looks like team Conway's law — a small frontend team and a mostly Python/ML backend — but the real reason is trust isolation. The edge handles the app shell, authentication, and token streaming, while everything that touches PHI stays inside GCP. Neither team touches the other's deploy surface, which means a bad frontend push can't take down retrieval and a backend experiment can't break the shell. For a 30-person team, that blast-radius separation matters more than code aesthetics.
 
-* **Fluid compute as a scaling lever:**
-Vercel's [Fluid compute](https://vercel.com/fluid) keeps functions warm between requests instead of spinning up
-a fresh container per call. After enabling it, OpenEvidence saw serverless spend drop
-90%, with fewer cold starts and no reliability tradeoff [1]. The mechanism: billing
-shifts from wall-clock time to active-CPU time, which matters a lot for a workload
-that's mostly waiting on an LLM stream rather than computing.
+What the edge actually sells is perception, not truth. The shell renders instantly and streams tokens as they arrive, so perceived latency tracks time-to-first-token rather than the ~13s full answer [I]. But the citation guarantee complicates streaming: you cannot emit claims before they are verified against retrieved evidence. The plausible design is that time-to-first-token pays for first retrieval plus the first verified span, and everything after that feels instant because the expensive work already happened upstream.
 
-* **Deploy velocity as a reliability property, not just a DX nicety:**
-Every commit gets a preview URL; prod deploys take minutes, not hours.
-For a small team absorbing viral growth, this matters structurally: fixes ship
-before problems compound, rather than queuing behind a slow release cycle. Velocity
-*is* the mitigation for a team too small to run extensive pre-release QA.
+Vercel's [Fluid compute](https://vercel.com/fluid) is the one infrastructure detail here that earns its place. It keeps functions warm between requests and shifts billing from wall-clock time to active-CPU time [C vendor claim, unaudited [1]]. That matters specifically because OpenEvidence's edge workload is mostly idle-waiting on an LLM stream, not computing. The claimed 90% serverless spend drop follows directly from that shape — do not read it as a general serverless win.
 
-* **Perceived latency ≈ time-to-first-token:**
-The frontend shell renders instantly and streams tokens as they arrive. Because the
-UI never blocks on the full response, perceived latency tracks time-to-first-token,
-not total generation time — which is the right metric to optimize for in a
-streaming-LLM product, and different from what you'd optimize for in a traditional
-request/response API.
+Authentication and rate-limiting happen at the edge for cost reasons, not just hygiene. Every user is NPI-verified (§4.2), and that check gates the ~300x internal fan-out before any embedding, retrieval, or generation fires. Rejecting a scraper at Vercel costs fractions of a cent; rejecting it after the backend has already fanned out costs dollars.
 
-* **EHR embed and its downstream effect on 4.2:**
-OpenEvidence is embedded inside Epic via FHIR-based integrations, live at Sutter
-Health and Mount Sinai [2][3]. This isn't just a distribution channel — it reshapes
-the query distribution the backend sees: queries arrive mid-chart, short, urgent,
-and clustered by clinical specialty. That skew is what motivates [the caching /
-model-routing strategy in 4.2] — worth a forward pointer here so the reader knows
-why this detail is in an infra section at all.
+Deploy velocity functions as the reliability plan. Every commit gets a preview URL and production ships in minutes [C]. A team this small cannot staff extensive pre-release QA, so it compensates by fixing forward fast — which is structurally what allowed it to survive the documented 1000x surge without a formal capacity-planning discipline. The Epic/FHIR embeds at Sutter Health and Mount Sinai [2][3] then reshape what that backend must absorb: queries arrive mid-chart, short and urgent and clustered by specialty, which is exactly the skew that motivates the routing in §4.3 and the caching in §4.6. The honest caveat is that Vercel is a single point of failure — if the edge is down, a healthy backend is unreachable, and there is no public failover story [I from absence].
 
 ---
 [1] Vercel customer case study, "How OpenEvidence built a healthcare AI that
