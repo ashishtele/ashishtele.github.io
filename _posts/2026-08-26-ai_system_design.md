@@ -102,12 +102,18 @@ Deploy velocity functions as the reliability plan. Every commit gets a preview U
 
 ### 4.2 Identity & Trust Layer
 
-Unique among consumer AI products: every user is a **verified clinician** via NPI number [C]. This is simultaneously:
+Most AI products treat identity as a login form. OpenEvidence treats it as load-bearing infrastructure. Every user is a verified clinician via NPI number [C] — checked against the federal registry at signup, then cached for sessions after [I mechanics].
 
-1. **An abuse firewall** — no anonymous scraping of a corpus that cost millions to license
-2. **A regulatory posture** — the product gives information to professionals, not medical advice to consumers
-3. **A business asset** — pharma advertisers pay $70–150 CPMs precisely because the audience is verified prescribers
-4. **A query-distribution prior** — knowing the specialty and role of every queryer improves routing [I]
+One cheap check buys four expensive things at once:
+
+1. **An abuse firewall.** The corpus cost millions to license. Anonymous access would mean anonymous scraping. NPI gating kills that at the edge, before the ~300x internal fan-out fires (§4.1). This is the cheapest request in the system protecting the most expensive one.
+2. **A regulatory posture.** The product gives information to professionals, not medical advice to consumers. That single distinction shapes liability and every paragraph of the terms of service.
+3. **A business asset.** Pharma advertisers pay $70–150 CPMs precisely because the audience is verified prescribers, not traffic. Identity *is* the ad inventory.
+4. **Free context about who's asking.** Knowing specialty and role before retrieval is context no prompt can recover. A cardiologist asking about "AFib management" and a nephrologist asking the same words need different evidence weighted differently. That feeds the routing in §4.3 and partitions the cache in §4.6 [I].
+
+The tradeoff is deliberate friction. Signup takes minutes, not seconds, and students, patients, and ex-US clinicians without NPI-equivalents hit a wall. OpenEvidence accepts slower growth for a corpus that can't be scraped, an audience advertisers overpay for, and queries that arrive pre-labeled.
+
+Limitation: NPI proves credential, not intent. A verified account can still scrape slowly, and there is no public story on re-verification cadence or stolen-credential detection [I from absence].
 
 ### 4.3 Query Understanding & Orchestration
 
