@@ -88,8 +88,12 @@ const nodeMeshes = [];
 const nodeGeo = new THREE.SphereGeometry(0.09, 12, 12);
 const latestGeo = new THREE.SphereGeometry(0.17, 16, 16);
 let accent = themeColor('--acc-1', '#38bdf8');
-const nodeMat = new THREE.MeshBasicMaterial({ color: new THREE.Color(accent), transparent: true, opacity: 0.95 });
-const latestMat = new THREE.MeshBasicMaterial({ color: new THREE.Color('#f472b6'), transparent: true, opacity: 1 });
+const NODE_RED = '#ff5040';
+const LATEST_RED = '#ff1e1e';
+const EDGE_RED = '#ff6a4d';
+const HL_RED = '#ffb199';
+const nodeMat = new THREE.MeshBasicMaterial({ color: new THREE.Color(NODE_RED), transparent: true, opacity: 0.95 });
+const latestMat = new THREE.MeshBasicMaterial({ color: new THREE.Color(LATEST_RED), transparent: true, opacity: 1 });
 
 for (let i = 0; i < N; i++) {
   const y = N === 1 ? 0 : 1 - (i / (N - 1)) * 2;
@@ -120,14 +124,14 @@ for (let i = 0; i < N; i++) {
 const edgeGeo = new THREE.BufferGeometry();
 const edgePos = new Float32Array(edges.length * 6);
 edgeGeo.setAttribute('position', new THREE.BufferAttribute(edgePos, 3));
-const edgeMat = new THREE.LineBasicMaterial({ color: new THREE.Color(accent), transparent: true, opacity: 0.22 });
+const edgeMat = new THREE.LineBasicMaterial({ color: new THREE.Color(EDGE_RED), transparent: true, opacity: 0.22 });
 const edgeLines = new THREE.LineSegments(edgeGeo, edgeMat);
 group.add(edgeLines);
 
 const hlGeo = new THREE.BufferGeometry();
 const hlPos = new Float32Array(Math.max(6, N * 6));
 hlGeo.setAttribute('position', new THREE.BufferAttribute(hlPos, 3));
-const hlMat = new THREE.LineBasicMaterial({ color: new THREE.Color(accent), transparent: true, opacity: 0.8 });
+const hlMat = new THREE.LineBasicMaterial({ color: new THREE.Color(HL_RED), transparent: true, opacity: 0.8 });
 const hlLines = new THREE.LineSegments(hlGeo, hlMat);
 hlLines.visible = false;
 group.add(hlLines);
@@ -222,14 +226,15 @@ hero.addEventListener('click', (e) => {
 
 function applyTheme() {
   accent = themeColor('--acc-1', '#38bdf8');
-  nodeMat.color.set(accent);
-  edgeMat.color.set(accent);
-  hlMat.color.set(accent);
+  nodeMat.color.set(NODE_RED);
+  latestMat.color.set(LATEST_RED);
+  edgeMat.color.set(EDGE_RED);
+  hlMat.color.set(HL_RED);
 }
 const themeBtn = document.getElementById('theme-toggle');
 if (themeBtn) themeBtn.addEventListener('click', () => setTimeout(applyTheme, 50));
 
-// Comet intro state — declared early so fit() can use it (once per session)
+// Comet intro state — declared early so fit() can use it (every page load)
 let cometTargetX = 0;
 let introT = 1;
 const COMET_START = { x: -14, y: 4.5, z: -18, s: 0.25 };
@@ -251,25 +256,100 @@ const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-mo
 let running = true;
 const clock = new THREE.Clock();
 
-// Full-comet fly-in: streaks from deep off-screen left, tail dissolves, once per session
-const COMET_KEY = 'constellation-comet-done';
+// Full-comet fly-in: streaks from deep off-screen left, tail dissolves, every page load
 const INTRO_DUR = 2.2;
-let cometDone = reduceMotion;
-try { if (sessionStorage.getItem(COMET_KEY)) cometDone = true; } catch (e) {}
-introT = cometDone ? 1 : 0;
+introT = reduceMotion ? 1 : 0;
 const BASE_OP = { node: 0.95, edge: 0.22, hl: 0.8, latest: 1 };
 let introStart = performance.now();
 
-// Tail: trail of past centers, lives in scene (not group) so it lags behind
-const TAIL_N = 42;
+// Real-comet tail: curved dust cone with soft shader (no hard silhouette) + straight ion core line
+const TAIL_N = 110;
 const tailPos = new Float32Array(TAIL_N * 3);
+const tailCol = new Float32Array(TAIL_N * 3);
 const tailGeo = new THREE.BufferGeometry();
 tailGeo.setAttribute('position', new THREE.BufferAttribute(tailPos, 3));
-const tailMat = new THREE.LineBasicMaterial({ color: new THREE.Color(accent), transparent: true, opacity: 0 });
+tailGeo.setAttribute('color', new THREE.BufferAttribute(tailCol, 3));
+const _tc = { head: new THREE.Color('#ffe8d6'), mid: new THREE.Color('#ff5a2a'), tail: new THREE.Color('#7a0d0d'), tmp: new THREE.Color() };
+for (let k = 0; k < TAIL_N; k++) {
+  const f = k / (TAIL_N - 1);
+  if (f < 0.25) _tc.tmp.lerpColors(_tc.head, _tc.mid, f / 0.25);
+  else _tc.tmp.lerpColors(_tc.mid, _tc.tail, (f - 0.25) / 0.75);
+  tailCol[k * 3] = _tc.tmp.r; tailCol[k * 3 + 1] = _tc.tmp.g; tailCol[k * 3 + 2] = _tc.tmp.b;
+}
+const tailMat = new THREE.LineBasicMaterial({ vertexColors: true, transparent: true, opacity: 0, blending: THREE.AdditiveBlending, depthWrite: false });
 const tailLine = new THREE.Line(tailGeo, tailMat);
 tailLine.frustumCulled = false;
 scene.add(tailLine);
+
+// Broad curved dust tail: rigid bent cone, soft fresnel edges + axial fade via shader.
+// Real comets = diffuse fan (dust, curved) + straight narrow streamer (ion); hard cone edges are what looked fake.
+const CONE_LEN = 11;
+const coneGeo = new THREE.CylinderGeometry(2.3, 0.22, CONE_LEN, 24, 12, true);
+coneGeo.rotateZ(Math.PI / 2);
+coneGeo.translate(-CONE_LEN / 2, 0, 0);
+{
+  // gentle scimitar bend like a real dust tail lagging along the orbit
+  const posA = coneGeo.attributes.position;
+  for (let i = 0; i < posA.count; i++) {
+    const f = Math.min(1, Math.max(0, -posA.getX(i) / CONE_LEN));
+    posA.setY(i, posA.getY(i) - 1.5 * f * f);
+    posA.setZ(i, posA.getZ(i) + 0.5 * f * f);
+  }
+  posA.needsUpdate = true;
+  coneGeo.computeVertexNormals();
+}
+const coneMat = new THREE.ShaderMaterial({
+  transparent: true,
+  blending: THREE.AdditiveBlending,
+  depthWrite: false,
+  side: THREE.DoubleSide,
+  uniforms: {
+    uOpacity: { value: 0 },
+    uTime: { value: 0 },
+    uHead: { value: new THREE.Color('#ffe8d6') },
+    uMid: { value: new THREE.Color('#ff5a2a') },
+    uTail: { value: new THREE.Color('#7a0d0d') },
+    uLen: { value: CONE_LEN }
+  },
+  vertexShader: [
+    'varying float vF;',
+    'varying vec3 vN;',
+    'varying vec3 vV;',
+    'uniform float uLen;',
+    'void main() {',
+    '  vF = clamp(-position.x / uLen, 0.0, 1.0);',
+    '  vec4 wp = modelMatrix * vec4(position, 1.0);',
+    '  vN = normalize(mat3(modelMatrix) * normal);',
+    '  vV = normalize(cameraPosition - wp.xyz);',
+    '  gl_Position = projectionMatrix * viewMatrix * wp;',
+    '}'
+  ].join('\n'),
+  fragmentShader: [
+    'varying float vF;',
+    'varying vec3 vN;',
+    'varying vec3 vV;',
+    'uniform float uOpacity;',
+    'uniform float uTime;',
+    'uniform vec3 uHead;',
+    'uniform vec3 uMid;',
+    'uniform vec3 uTail;',
+    'void main() {',
+    '  vec3 col = mix(uHead, uMid, smoothstep(0.0, 0.35, vF));',
+    '  col = mix(col, uTail, smoothstep(0.3, 1.0, vF));',
+    '  float axial = pow(1.0 - vF, 1.7);',
+    '  float soft = abs(dot(normalize(vN), normalize(vV)));',
+    '  soft = pow(soft, 1.4);',
+    '  float flick = 0.85 + 0.15 * sin(uTime * 6.0 + vF * 14.0);',
+    '  float a = uOpacity * axial * soft * flick;',
+    '  gl_FragColor = vec4(col * a, a);',
+    '}'
+  ].join('\n')
+});
+const cone = new THREE.Mesh(coneGeo, coneMat);
+cone.frustumCulled = false;
+scene.add(cone);
 let tailHistory = [];
+let tailFade = 0;
 const _v = new THREE.Vector3();
 function cometEase(t) { return 1 - Math.pow(1 - t, 3); }
 function setFade(f) {
@@ -290,12 +370,97 @@ function render() {
   renderer.render(scene, camera);
 }
 
+// Red sparks + fumes: soft round sprite texture
+function makeSoftTexture() {
+  const s = 64;
+  const cv = document.createElement('canvas');
+  cv.width = s; cv.height = s;
+  const ctx = cv.getContext('2d');
+  const g = ctx.createRadialGradient(s / 2, s / 2, 0, s / 2, s / 2, s / 2);
+  g.addColorStop(0, 'rgba(255,255,255,1)');
+  g.addColorStop(0.35, 'rgba(255,255,255,0.7)');
+  g.addColorStop(1, 'rgba(255,255,255,0)');
+  ctx.fillStyle = g;
+  ctx.fillRect(0, 0, s, s);
+  const tex = new THREE.CanvasTexture(cv);
+  return tex;
+}
+const softTex = makeSoftTexture();
+
+const SPARK_N = 240;
+const sparkPos = new Float32Array(SPARK_N * 3);
+const sparkVel = new Float32Array(SPARK_N * 3);
+const sparkLife = new Float32Array(SPARK_N);
+const sparkMax = new Float32Array(SPARK_N);
+for (let i = 0; i < SPARK_N; i++) { sparkPos[i * 3 + 1] = -999; }
+const sparkGeo = new THREE.BufferGeometry();
+sparkGeo.setAttribute('position', new THREE.BufferAttribute(sparkPos, 3));
+const sparkMat = new THREE.PointsMaterial({ size: 0.22, map: softTex, color: new THREE.Color('#ff5a36'), transparent: true, opacity: 0.95, blending: THREE.AdditiveBlending, depthWrite: false });
+const sparks = new THREE.Points(sparkGeo, sparkMat);
+sparks.frustumCulled = false;
+scene.add(sparks);
+let sparkCursor = 0;
+
+const FUME_N = 70;
+const fumePos = new Float32Array(FUME_N * 3);
+const fumeVel = new Float32Array(FUME_N * 3);
+const fumeLife = new Float32Array(FUME_N);
+const fumeMax = new Float32Array(FUME_N);
+for (let i = 0; i < FUME_N; i++) { fumePos[i * 3 + 1] = -999; }
+const fumeGeo = new THREE.BufferGeometry();
+fumeGeo.setAttribute('position', new THREE.BufferAttribute(fumePos, 3));
+const fumeMat = new THREE.PointsMaterial({ size: 0.9, map: softTex, color: new THREE.Color('#c41d1d'), transparent: true, opacity: 0.22, blending: THREE.AdditiveBlending, depthWrite: false });
+const fumes = new THREE.Points(fumeGeo, fumeMat);
+fumes.frustumCulled = false;
+scene.add(fumes);
+let fumeCursor = 0;
+
+// Big coma glow at the head — makes it read as a real sky comet
+const comaMat = new THREE.SpriteMaterial({ map: softTex, color: new THREE.Color('#ff4a22'), transparent: true, opacity: 0, blending: THREE.AdditiveBlending, depthWrite: false });
+const coma = new THREE.Sprite(comaMat);
+coma.scale.set(4.5, 4.5, 1);
+scene.add(coma);
+
+function spawnSpark(boost) {
+  const i = sparkCursor;
+  sparkCursor = (sparkCursor + 1) % SPARK_N;
+  group.getWorldPosition(_v);
+  const sc = group.scale.x || 1;
+  const th = Math.random() * Math.PI * 2;
+  const ph = Math.acos(2 * Math.random() - 1);
+  const rr = (1.5 + Math.random() * 3.0) * sc;
+  sparkPos[i * 3] = _v.x + Math.sin(ph) * Math.cos(th) * rr;
+  sparkPos[i * 3 + 1] = _v.y + Math.cos(ph) * rr * 0.7;
+  sparkPos[i * 3 + 2] = _v.z + Math.sin(ph) * Math.sin(th) * rr;
+  sparkVel[i * 3] = -(2.0 + Math.random() * 4.5) * boost;
+  sparkVel[i * 3 + 1] = (Math.random() - 0.3) * 1.6;
+  sparkVel[i * 3 + 2] = (Math.random() - 0.5) * 1.6;
+  sparkMax[i] = sparkLife[i] = 0.6 + Math.random() * 0.9;
+}
+function spawnFume(boost) {
+  const i = fumeCursor;
+  fumeCursor = (fumeCursor + 1) % FUME_N;
+  group.getWorldPosition(_v);
+  const sc = group.scale.x || 1;
+  fumePos[i * 3] = _v.x + (Math.random() - 0.5) * 3.0 * sc;
+  fumePos[i * 3 + 1] = _v.y + (Math.random() - 0.5) * 3.0 * sc;
+  fumePos[i * 3 + 2] = _v.z + (Math.random() - 0.5) * 3.0 * sc;
+  fumeVel[i * 3] = -(0.8 + Math.random() * 1.8) * boost;
+  fumeVel[i * 3 + 1] = 0.4 + Math.random() * 0.8;
+  fumeVel[i * 3 + 2] = (Math.random() - 0.5) * 0.8;
+  fumeMax[i] = fumeLife[i] = 1.2 + Math.random() * 1.2;
+}
+
+let lastFrame = performance.now();
 function loop() {
   if (!running) return;
   requestAnimationFrame(loop);
+  const now = performance.now();
+  const dt = Math.min(0.05, (now - lastFrame) / 1000 || 0.016);
+  lastFrame = now;
   const t = clock.getElapsedTime();
   if (introT < 1) {
-    const raw = Math.min(1, (performance.now() - introStart) / (INTRO_DUR * 1000));
+    const raw = Math.min(1, (now - introStart) / (INTRO_DUR * 1000));
     const e = cometEase(raw);
     group.position.x = COMET_START.x + (cometTargetX - COMET_START.x) * e;
     group.position.y = COMET_START.y * (1 - e) * (1 - e);
@@ -303,31 +468,76 @@ function loop() {
     group.scale.setScalar(COMET_START.s + (1 - COMET_START.s) * e);
     setFade(Math.min(1, raw * 1.6));
     group.rotation.y += 0.02 * (1 - e) + 0.0012;
-    // record trail, stretch it behind the direction of travel
+    // smooth centerline for the thin core line (visual only; cone is the main tail)
     group.getWorldPosition(_v);
     tailHistory.unshift(_v.clone());
     if (tailHistory.length > TAIL_N) tailHistory.pop();
     for (let k = 0; k < TAIL_N; k++) {
       const p = tailHistory[Math.min(k, tailHistory.length - 1)] || _v;
-      const lag = Math.min(1, k / 10);
-      tailPos[k * 3] = p.x - lag * (2.5 * (1 - e) + 0.4);
-      tailPos[k * 3 + 1] = p.y - lag * 0.6 * (1 - e);
-      tailPos[k * 3 + 2] = p.z - lag * 1.2 * (1 - e);
+      const lag = Math.min(1, k / 14);
+      tailPos[k * 3] = p.x - lag * (7.0 * (1 - e) + 1.2);
+      tailPos[k * 3 + 1] = p.y - lag * 1.8 * (1 - e);
+      tailPos[k * 3 + 2] = p.z - lag * 3.0 * (1 - e);
     }
     tailGeo.attributes.position.needsUpdate = true;
-    tailMat.opacity = 0.55 * (1 - raw) + 0.1;
+    // rigid cone follows the head — fixed orientation, grows with the comet, no flutter
+    cone.position.copy(_v);
+    cone.scale.setScalar(Math.max(0.001, group.scale.x));
+    tailMat.opacity = 0.95 * (1 - raw) + 0.25;
+    coneMat.uniforms.uOpacity.value = 0.85 * (1 - raw) + 0.35;
+    coneMat.uniforms.uTime.value = now / 1000;
+    tailFade = 1;
+    group.getWorldPosition(coma.position);
+    const comaS = 5.5 * (1 - e * 0.4) * group.scale.x + 2.0;
+    coma.scale.set(comaS, comaS, 1);
+    comaMat.opacity = 0.9;
+    for (let s = 0; s < 6; s++) spawnSpark(1.6 * (1 - e) + 0.6);
+    for (let s = 0; s < 2; s++) spawnFume(1.6 * (1 - e) + 0.6);
     if (raw >= 1) {
       introT = 1;
       group.position.set(cometTargetX, 0, 0);
       group.scale.setScalar(1);
       setFade(1);
-      tailMat.opacity = 0;
       tailHistory = [];
-      try { sessionStorage.setItem(COMET_KEY, '1'); } catch (e2) {}
     }
   } else {
     group.rotation.y += 0.0012;
+    // fade the clean cone out softly after landing
+    if (tailFade > 0) {
+      tailFade = Math.max(0, tailFade - dt / 0.8);
+      tailMat.opacity = tailFade * 0.9;
+      coneMat.uniforms.uOpacity.value = tailFade * 0.85;
+      coneMat.uniforms.uTime.value = now / 1000;
+      comaMat.opacity = tailFade * 0.9;
+      group.getWorldPosition(coma.position);
+      cone.position.copy(coma.position);
+      if (tailFade === 0) { tailHistory = []; comaMat.opacity = 0; coneMat.uniforms.uOpacity.value = 0; }
+    }
+    // gentle continuous red sparks/fumes from the rotating sphere
+    spawnSpark(0.5);
+    if (Math.random() < 0.3) spawnFume(0.5);
   }
+  // update sparks
+  for (let i = 0; i < SPARK_N; i++) {
+    if (sparkLife[i] <= 0) continue;
+    sparkLife[i] -= dt;
+    if (sparkLife[i] <= 0) { sparkPos[i * 3 + 1] = -999; continue; }
+    sparkVel[i * 3] *= (1 - 1.6 * dt);
+    sparkVel[i * 3 + 1] += 0.6 * dt;
+    sparkPos[i * 3] += sparkVel[i * 3] * dt;
+    sparkPos[i * 3 + 1] += sparkVel[i * 3 + 1] * dt;
+    sparkPos[i * 3 + 2] += sparkVel[i * 3 + 2] * dt;
+  }
+  sparkGeo.attributes.position.needsUpdate = true;
+  for (let i = 0; i < FUME_N; i++) {
+    if (fumeLife[i] <= 0) continue;
+    fumeLife[i] -= dt;
+    if (fumeLife[i] <= 0) { fumePos[i * 3 + 1] = -999; continue; }
+    fumePos[i * 3] += fumeVel[i * 3] * dt;
+    fumePos[i * 3 + 1] += fumeVel[i * 3 + 1] * dt;
+    fumePos[i * 3 + 2] += fumeVel[i * 3 + 2] * dt;
+  }
+  fumeGeo.attributes.position.needsUpdate = true;
   for (let i = 0; i < N; i++) {
     const m = nodeMeshes[i];
     m.position.y = m.userData.base.y + Math.sin(t * m.userData.speed + m.userData.phase) * 0.15;
