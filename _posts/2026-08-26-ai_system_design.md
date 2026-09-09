@@ -117,12 +117,23 @@ Limitation: NPI proves credential, not intent. A verified account can still scra
 
 ### 4.3 Query Understanding & Orchestration
 
-A clinical question rarely decomposes to one retrieval pass. *"Should this 68yo with CKD get metformin?"* implies sub-queries across dosing, renal contraindications, guideline position, and recent trial evidence. Observable product behavior (multi-section answers, mixed source types per section) implies:
+A doctor never asks one question. *"Should this 68yo with CKD get metformin?"* is really four: what's the dose, what does kidney disease change, what do guidelines say, what's new in trials?
 
-- **Sub-question decomposition** — the orchestrator splits complex questions into evidence-seeking sub-queries
-- **Parallel retrieval fan-out** — each sub-query runs its own retrieve→rerank cycle concurrently; total retrieval latency = slowest branch, not sum of branches
-- **Specialty routing** — queries route toward specialty-weighted indexes/adapters. The "hub-and-spoke conductor + specialist models" topology described in secondary analyses lives somewhere around here; treat specifics as unverified, but *some* routing layer must exist to hit quality bars across 160+ subspecialties
-- **Cache check happens early** — see §4.6, it's the biggest lever in the whole system
+OpenEvidence splits it up before it searches [I from answer shape — multi-section answers with mixed source types per section]. Think triage nurse, not search box.
+
+1. **Split.** One messy question becomes 3-4 sharp evidence questions. Bad split = generic answer. Generic = doctors leave.
+2. **Route.** A cardiologist and a nephrologist typing the same words don't get the same weighting. The NPI check in §4.2 already told the system who's asking — free context no prompt can recover.
+3. **Run at once, not in sequence.** All four searches run in parallel. The slowest one sets the pace, not the sum. That's a big chunk of how a deep answer still lands in ~13s.
+4. **Check memory first.** Before any search fires, check if we've answered this — or a piece of it — before (see §4.6). With 27M overlapping consults a month, this is the margin lever. It's why 300 internal calls still cost $0.02-0.05 per consult (§2).
+
+Two things this layer *refuses* to do, and both are business decisions:
+
+- **No ads in the chain.** The orchestrator merges evidence, never ad copy. Ads ride the Kafka sidecar in §4.8, rendered alongside — never inside. That separation is what lets OpenEvidence charge $70-150 CPMs without torching trust. Break it once, lose the audience that *is* the inventory.
+- **No guessing.** Slow piece? Drop it and say "evidence is inconclusive." Same rule as §4.5: lose capability, never lose trust. Liability still sits with the physician — the product is information, not advice — but honesty is why they come back mid-chart.
+
+That mid-chart part matters. Since the Epic embeds at Sutter Health and Mount Sinai, queries arrive short, urgent, clustered by specialty — "afib dosing ckd" at 7am rounds, not full sentences. Routing plus section-level cache is what makes those 3-word queries answerable. Distribution changed the workload; orchestration absorbed it.
+
+Limitation: the "conductor + specialist models" topology in secondary analyses is unconfirmed [I]. *Some* routing must exist to hold quality across 160+ subspecialties — shape is reconstruction, need is not.
 
 ### 4.4 The Retrieval Stack (where latency is won or lost)
 
