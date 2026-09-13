@@ -126,6 +126,8 @@ OpenEvidence splits it up before it searches [I from answer shape — multi-sect
 3. **Run at once, not in sequence.** All four searches run in parallel. The slowest one sets the pace, not the sum. That's a big chunk of how a deep answer still lands in ~13s.
 4. **Check memory first.** Before any search fires, check if we've answered this — or a piece of it — before (see §4.6). With 27M overlapping consults a month, this is the margin lever. It's why 300 internal calls still cost $0.02-0.05 per consult (§2).
 
+**Why parallel, not sequential [I]:** a 300-call fan-out sounds reckless until you see the error math. Sequential agent loops multiply per-step accuracy: 0.95¹⁰ ≈ 0.60 — ten careful steps still fail 40% of the time. Parallel sub-queries don't compound that way; the slowest sets latency, a dropped section degrades gracefully ("evidence is inconclusive") instead of poisoning everything downstream. The design implication: cap sequential depth (max steps, max spend per consult), let breadth fan out. That §2 cost figure only works because the calls are wide, cheap, and cacheable — not a long chain of frontier reasoning steps.
+
 Two things this layer *refuses* to do, and both are business decisions:
 
 - **No ads in the chain.** The orchestrator merges evidence, never ad copy. Ads ride the Kafka sidecar in §4.8, rendered alongside — never inside. That separation is what lets OpenEvidence charge $70-150 CPMs without torching trust. Break it once, lose the audience that *is* the inventory.
@@ -138,6 +140,18 @@ Limitation: the "conductor + specialist models" topology in secondary analyses i
 ### 4.4 The Retrieval Stack (where latency is won or lost)
 
 RAG latency compounds: every millisecond added upstream delays first token downstream. OpenEvidence's known investments concentrate exactly here.
+
+**Latency budget — where the ~13s goes [C total, I split]:**
+
+| Stage | Budget | Basis |
+|---|---|---|
+| Query embed (BEI) | ~160ms | [C] Baseten case study: 700ms→160ms |
+| Hybrid retrieval (ES, sharded) | low-100s ms | [I] lexical+dense over precomputed index; corpus growth never touches this path (§4.4) |
+| Cross-encoder rerank (top-K) | mid-100s ms | [I] isolated GPU pool so rerank never queues behind generation |
+| First verified token | ~1s perceived | [I] streaming UI; first token pays for first retrieval + first verified span (§4.1) |
+| Full answer (~800-token streams, parallel sections) | ~13s mean | [C] medRxiv-measured mean |
+
+The budget is the argument for streaming: with multi-second generation, waiting for the full answer before emitting anything would blow perceived latency 10x. Streaming isn't a UI nicety — it falls out of the arithmetic.
 
 * **Corpus [C]:** ~35M papers plus licensed full-text (NEJM, JAMA Network ×11 journals, Nature portfolio, NCCN Guidelines, FDA labels, CDC, ACC, AAFP, ADA). The licensing point cannot be overstated: abstract-level indexing (what everyone else has legally) vs full-text-with-figures-and-tables (what JAMA/Nature deals grant) is a retrieval-quality chasm competitors can't close with money alone — the content isn't for sale to them.
 
@@ -222,6 +236,18 @@ Everything non-latency-critical rides Kafka off the synchronous path [C componen
 - Email digest / "deep consultation" follow-ups (hours-scale SLA, zero latency budget)
 - Physician feedback signals → fine-tuning data flywheel
 
+### 4.9 Safety Stack (ordered, innermost first)
+
+Guardrails scattered across sections read like a checklist. They're a stack — each layer catches what the one inside it missed, and order matters [C guarantees, I mechanism]:
+
+1. **Alignment (model weights).** The fine-tuned base refuses policy domains and abstains on thin evidence ("evidence is inconclusive"). Jailbreaks attack here, at the prompt.
+2. **Injection defense (context).** Retrieved papers and web snippets are untrusted input. Malicious or superseded text ("override your instructions…") enters through RAG, not the user — so retrieval metadata (recency flags, journal tier, §4.7) doubles as a trust signal before generation ever sees it.
+3. **Input/output filters.** PII scrubbing on the way in; citation-presence checks and refusal-policy checks on the way out (§4.5). Cheap, deterministic, no LLM call required.
+4. **Sandbox + capability caps.** Generation can read the corpus but can't act on the world — no prescribing, no ordering, no writes outside the answer pane. Liability stays with the physician by construction, not by terms-of-service wording.
+5. **Human gates (outermost, rarest).** Audit-logged, HIPAA-traced (§5). Humans never review routine consults — they handle corpus curation (UpToDate lesson, §9) and policy-domain appeals. If layer 5 is firing often, layers 1–4 are broken.
+
+Every layer trades the same four dials — quality, cost, latency, safety. A stricter filter buys safety with latency and sometimes quality (false refusals). The stack works because the cheap layers (1–3) absorb ~everything, so the expensive one (5) stays affordable.
+
 ---
 
 ## <span style="color: #FF6B6B;">5. Reliability Engineering</span>
@@ -245,6 +271,7 @@ Uptime claim: 99.99% [C] ≈ 4.4 minutes/month downtime budget. Achievable preci
 3. **Buy every non-differentiating layer.** Vercel, GCP, Elastic, Kafka, K8s, Baseten. Vendor case studies read like an org chart for a 200-person infra team that doesn't exist.
 4. **Concentrate engineers only on compounding assets:** the licensed corpus, the embedding/rerank quality, the citation-grounded generation behavior, and the clinician distribution network.
 5. **Make trust architectural, not aspirational.** Refusal paths, citation constraints, and degradation modes are structure, not policy documents.
+6. **Climb the escalation ladder only on evidence.** Prompt a base model first; add RAG when knowledge goes stale (weekly guideline churn forced it here); add tools/agent loops only for multi-step actions; fine-tune for *behavior* (citation discipline, refusal style — §4.5), never for facts that change weekly. Each rung multiplies cost and failure surface — 90→95% is hard, 99.1→99.3% is brutal. OpenEvidence lives on rung 2 (RAG + fine-tuned behavior) and rents everything below it.
 
 ## <span style="color: #FF6B6B;">7. Honest Limits of This Analysis</span>
 
