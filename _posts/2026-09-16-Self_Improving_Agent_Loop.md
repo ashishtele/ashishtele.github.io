@@ -1,10 +1,23 @@
 ---
-layout: post
+layout: single
+sidebar: true
+author_profile: true
 title: "Postgres Remembers, Claude Diagnoses: Our LangGraph Self-Heal Loop"
-date: 2026-09-16
-categories: [agents, evals, langgraph]
-tags: [self-improving-loop, traces, postgres, azure-monitor, claude]
 excerpt: "LangGraph traces died in Azure Monitor. We piped them to Postgres, let Claude perform the autopsy, and turned failures into evals."
+description: "Self improving loop can benefit a long way"
+tags: ["LLM", "AGI", "Python", "systemdesign"]
+published: true
+comments: true
+header:
+  teaserlogo:
+  teaser: /images_1/openevidence.png
+  image: /images_1/openevidence.png
+  caption: "courtesy: OpenAI"
+gallery:
+
+  - image_path: ''
+    url: ''
+    title: ''
 ---
 
 ## The problem: demo worked, prod rotted
