@@ -10,8 +10,8 @@ published: true
 comments: true
 header:
   teaserlogo:
-  teaser: /images_1/openevidence.png
-  image: /images_1/openevidence.png
+  teaser: /images_1/llm_eval.jpg
+  image: /images_1/llm_eval.jpg
   caption: "courtesy: OpenAI"
 gallery:
 
