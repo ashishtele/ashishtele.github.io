@@ -86,7 +86,7 @@ const ring = new THREE.Mesh(
 ring.rotation.x = Math.PI / 2.6;
 group.add(ring);
 
-const STAR_N = 450;
+const STAR_N = 220;
 const starPos = new Float32Array(STAR_N * 3);
 for (let i = 0; i < STAR_N; i++) {
   starPos[i * 3] = (Math.random() - 0.5) * 40;
@@ -118,7 +118,7 @@ window.addEventListener('pointermove', (e) => {
 }, { passive: true });
 
 function fit() {
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.25));
   renderer.setSize(window.innerWidth, window.innerHeight, false);
   camera.aspect = window.innerWidth / window.innerHeight;
   group.position.x = camera.aspect > 1.2 ? 4.2 : 0;
@@ -140,9 +140,12 @@ if (!reduceMotion) {
     running = !document.hidden;
     if (running) { loop(); }
   });
+  let frame = 0;
   (function loop() {
     if (!running) { return; }
     requestAnimationFrame(loop);
+    frame += 1;
+    if (frame % 2) { return; }
     const t = clock.getElapsedTime();
     mx += (tx - mx) * 0.03;
     my += (ty - my) * 0.03;
