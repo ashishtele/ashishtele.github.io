@@ -150,14 +150,6 @@ That's it. No prompt rewriting. No taxonomy mutation. No autonomous skill update
 
 This boundary matters: production behavior improves through evidence and review, not silent self-modification.
 
-## Bucket → fix: closing the loop (the part most posts skip)
-
-- tool-arg fails → added JSON-schema verifier eval, reject before execute
-- planner loops → added step-count guard + "try different approach" nudge
-- retriever misses → turned 50 prod misses into golden eval set, test every embedding change against it
-
-**One number that moved:** [add your metric — pass rate, cost per task, p95 latency. One number beats ten adjectives.]
-
 ## What I learned
 
 1. **Batch beats realtime for learning.** Nightly Claude job > streaming classifier.
@@ -179,6 +171,5 @@ Postgres + Azure Monitor give you 1 & 2. The analysis skill closes the loop by m
 
 That's how traces become more than debugging artifacts: they become the evidence base for building a safer, more reliable, more understandable agent.
 
----
-
-*The nightly classifier prompt, the stream consumer skeleton, and the materialized view definition — say the word and I'll publish them.*
+Thanks,
+Ashish
