@@ -2,8 +2,8 @@
 layout: single
 sidebar: true
 author_profile: true
-title: "Postgres Remembers, Claude Diagnoses: Our LangGraph Self-Heal Loop"
-excerpt: "LangGraph traces died in Azure Monitor. We piped them to Postgres, let Claude perform the autopsy, and turned failures into evals."
+title: "Postgres Remembers, Claude Diagnoses: My LangGraph Self-Heal Loop"
+excerpt: "LangGraph traces died in Azure Monitor. I piped them to Postgres, let Claude perform the autopsy, and turned failures into evals."
 description: "Self improving loop can benefit a long way"
 tags: ["LLM", "AGI", "Python", "systemdesign"]
 published: true
@@ -20,24 +20,11 @@ gallery:
     title: ''
 ---
 
-## The problem: demo worked, prod rotted
+Hi All,
 
-Our LangGraph agent passed manual QA. Then real users touched it.
-
-No single bug. Death by a thousand weird traces — wrong tool args here, planner loop there, retriever miss somewhere else. Azure Monitor had logs. Nobody was learning from them.
+My LangGraph agent passed manual QA and cleared dev deployment. Then real users hit it in a higher environment. There was no single bug — instead, thousands of odd traces: the orchestrator routing to the wrong corpus in one case, the retriever missing entirely in another. Azure Monitor was capturing all of it. Nobody was learning from it.
 
 > Traces without a loop are just expensive receipts.
-
-## The loop in one diagram
-
-```
-LangGraph run
-  -> Postgres (structured traces: runs, steps, tool_calls, latency, tokens)
-  -> Azure Monitor (logs / metrics / alerts)
-  -> Claude pathologist (nightly job: read traces, categorize failures)
-  -> Failure buckets -> new evals / prompt guards / router fixes
-  -> redeploy -> repeat
-```
 
 Postgres is memory. Azure is eyes. Claude is brain.
 
@@ -68,7 +55,7 @@ CREATE TABLE agent_steps (
 );
 ```
 
-Azure Monitor keeps the raw logs + KQL for spikes. Postgres keeps the queryable truth.
+Azure Monitor keeps the raw logs. Postgres keeps the queryable truth.
 
 ## Claude the pathologist
 
@@ -88,12 +75,6 @@ categorize each failed run into ONE bucket:
 Return JSON: {run_id, bucket, evidence_step_ids, one-line cause, suggested fix}
 ```
 
-**TODO (Ashish: paste your real top 3 buckets here with % + 1 redacted trace each)**
-
-- Bucket 1: [e.g. tool-arg hallucinations — 40%] — example trace snippet
-- Bucket 2: [e.g. planner loops — 25%] — example trace snippet
-- Bucket 3: [e.g. retriever misses — 20%] — example trace snippet
-
 ## Bucket -> fix: closing the loop
 
 This is the part most posts skip. Don't.
@@ -102,8 +83,6 @@ This is the part most posts skip. Don't.
 - planner loops -> added step-count guard + "try different approach" nudge
 - retriever misses -> turned 50 prod misses into golden eval set, test every embedding change against it
 
-**TODO: add your one number that moved** — pass rate, cost per task, p95 latency. One number beats ten adjectives.
-
 ## What I learned
 
 1. Batch beats realtime for learning. Nightly Claude job > streaming classifier.
@@ -111,11 +90,5 @@ This is the part most posts skip. Don't.
 3. Humans moved up-stack: we stopped writing envs, now we just review Claude's buckets and bless fixes.
 4. Your eval set should be stolen from prod. Ours is.
 
-## The real question
-
-> When your agent fails at 2am, does it leave a lesson or just a log?
-
-Ours leaves both now.
-
----
-*Next: full code for the Postgres hook + Claude categorizer script? Say the word and I'll publish it.*
+Thanks,
+Ashish
