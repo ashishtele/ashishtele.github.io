@@ -26,6 +26,8 @@ My LangGraph agent passed manual QA and cleared dev deployment. Then real users 
 
 > Traces without a loop are just expensive receipts.
 
+Hamel and Shreya put it bluntly: *"Error analysis is the most important activity in evals. It helps you decide what evals to write in the first place."* ([AI Evals FAQ](https://hamel.dev/blog/posts/evals-faq/#q-why-is-error-analysis-so-important-in-ai-evals-and-how-is-it-performed)) Our nightly Claude job is exactly that — systematic error analysis at scale, not a metrics dashboard.
+
 Postgres is memory. Azure is eyes. Claude is brain.
 
 ## Why two stores (the separation that matters)
@@ -98,6 +100,8 @@ Deterministic aggregates the model should never calculate:
 - Failures grouped by bounded error code + stage
 - Routing distributions by taxonomy version, domain, capability, confidence band, decision source, reason code
 
+Hamel and Shreya report spending **60–80% of development time on error analysis and evaluation** across projects ([AI Evals FAQ](https://hamel.dev/blog/posts/evals-faq/#q-how-much-of-my-development-budget-should-i-allocate-to-evals)). Our deterministic aggregates exist to *reduce* that manual burden, not replace the sensemaking.
+
 ### 2. Judge with model
 Once deterministic aggregates and a small sanitized sample exist, the model handles what requires judgment:
 - Classify recurring failure patterns
@@ -108,6 +112,8 @@ Once deterministic aggregates and a small sanitized sample exist, the model hand
 - Recommend the smallest artifact that should change
 
 Output: a proposal with evidence, not an automatic production edit.
+
+> **Validation rigor:** *"Ground truth labeling — for any data used for testing/validating LLM-as-Judge evaluators, hand-validate each label. LLMs can make mistakes that lead to unreliable benchmarks."* ([AI Evals FAQ](https://hamel.dev/blog/posts/evals-faq/#q-should-i-use-llm-as-a-judge-to-evaluate-my-llm-application)) Our `learnings` table enforces this — fixes are stored *only after corrected execution succeeds* (line 149).
 
 ### 3. Change the right layer
 Different findings belong in different artifacts:
@@ -150,11 +156,22 @@ That's it. No prompt rewriting. No taxonomy mutation. No autonomous skill update
 
 This boundary matters: production behavior improves through evidence and review, not silent self-modification.
 
+## Bucket → fix: closing the loop (the part most posts skip)
+
+- tool-arg fails → added JSON-schema verifier eval, reject before execute
+- planner loops → added step-count guard + "try different approach" nudge
+- retriever misses → turned 50 prod misses into golden eval set, test every embedding change against it
+
+**One number that moved:** [add your metric — pass rate, cost per task, p95 latency. One number beats ten adjectives.]
+
 ## What I learned
 
 1. **Batch beats realtime for learning.** Nightly Claude job > streaming classifier.
 2. **Binary buckets beat scores.** Yes/no "was this a tool-arg fail?" calibrates; 1-10 doesn't.
 3. **Humans moved up-stack.** We stopped writing envs, now we just review Claude's buckets and bless fixes.
+
+Hamel advocates one domain expert ("benevolent dictator") reviewing traces, and building a custom annotation tool — *"teams with custom tools iterate ~10x faster"* ([AI Evals FAQ](https://hamel.dev/blog/posts/evals-faq/#q-should-i-build-a-custom-annotation-tool-or-use-something-off-the-shelf)). Our nightly job + Postgres *is* that custom tool. The governance layer (review → test → deploy) is the dictator's veto.
+
 4. **Your eval set should be stolen from prod.** Ours is.
 5. **The schema evolves toward the questions you ask**, not the events you emit. At 5k runs/day we split the hot ingestion path from the analytical path — a stream consumer classifies inline, materialized views serve dashboards and the nightly job, raw checkpoints archive to S3.
 6. **Governed loops > autonomous loops.** The analysis skill is deliberately read-only. Its job is to gather evidence and propose changes, not to mutate production records or rewrite the agent automatically.
@@ -171,5 +188,8 @@ Postgres + Azure Monitor give you 1 & 2. The analysis skill closes the loop by m
 
 That's how traces become more than debugging artifacts: they become the evidence base for building a safer, more reliable, more understandable agent.
 
-Thanks,
-Ashish
+---
+
+**Footnote: Criteria drift.** [Research](https://arxiv.org/abs/2404.12272) shows evaluation criteria shift after reviewing model outputs. This is why our loop has human review *between* diagnosis and deploy — the criteria aren't static.
+
+*The nightly classifier prompt, the stream consumer skeleton, and the materialized view definition — say the word and I'll publish them.*
