@@ -19,7 +19,7 @@ locale                   : "en-US"
 title                    : "It's Ashish"
 title_separator          : " "
 name                     : "Ashish Tele"
-description              : "Data Science Portfolio"
+description              : "AI and DS Portfolio"
 url                      : "https://ashishtele.github.io/"
 baseurl                  : #'tree/master/'
 repository               : "ashishtele/ashishtele.github.io"
