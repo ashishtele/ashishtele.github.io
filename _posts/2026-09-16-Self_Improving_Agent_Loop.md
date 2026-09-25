@@ -191,3 +191,6 @@ That's how traces become more than debugging artifacts: they become the evidence
 ---
 
 **Footnote: Criteria drift.** [Research](https://arxiv.org/abs/2404.12272) shows evaluation criteria shift after reviewing model outputs. This is why our loop has human review *between* diagnosis and deploy — the criteria aren't static.
+
+Thanks,
+Ashish
