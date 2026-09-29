@@ -51,6 +51,8 @@ A single telemetry store is tempting. But traces and logs answer different quest
 
 They overlap deliberately. Correlation happens via `request_id` + `interaction_id` — not by duplicating everything into both systems.
 
+**Adversarial sampling, done right.** Most evals sample where *today's model fails* — measuring that model's fingerprint, not task difficulty. Our nightly job does the opposite: it samples where *production actually failed*. Real users, real data, real routing mistakes, real retriever misses. The failure distribution in Postgres *is* the adversarial set — curated by reality, not by a model's weaknesses. The principle is simple: [pick hard cases because a human (production) judged them hard](https://claude.dev/blog/automating-eval-design-and-hillclimbing/#adversarial-sampling), not because a model stumbled. Our eval set is stolen from prod for a reason: it's the only distribution that matters.
+
 ## The schema that survives contact
 
 Two tables worked at 100 runs/day. At 5k/day, the questions we asked outgrew the schema. The pattern that scales:
