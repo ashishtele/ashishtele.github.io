@@ -1,125 +1,196 @@
 ---
-layout: post
-title: "Postgres Remembers, Claude Diagnoses: Our LangGraph Self-Heal Loop"
-date: 2026-09-16
-categories: [agents, evals, langgraph]
-tags: [self-improving-loop, traces, postgres, azure-monitor, claude]
-excerpt: "LangGraph traces died in Azure Monitor. We piped them to Postgres, let Claude perform the autopsy, and turned failures into evals."
+layout: single
+sidebar: true
+author_profile: true
+title: "Postgres Remembers, Claude Diagnoses: My LangGraph Self-Heal Loop"
+excerpt: "LangGraph traces died in Azure Monitor. I piped them to Postgres, let Claude perform the autopsy, and turned failures into evals."
+description: "Self improving loop can benefit a long way"
+tags: ["LLM", "AGI", "Python", "systemdesign"]
+published: true
+comments: true
+header:
+  teaserlogo:
+  teaser: /images_1/llm_eval.jpg
+  image: /images_1/llm_eval.jpg
+  caption: "courtesy: OpenAI"
+gallery:
+
+  - image_path: ''
+    url: ''
+    title: ''
 ---
 
-## The problem: demo worked, prod rotted
+Hi All,
 
-Our LangGraph agent passed manual QA. Then real users touched it.
-
-No single bug. Death by a thousand weird traces — wrong tool args here, planner loop there, retriever miss somewhere else. Azure Monitor had logs. Nobody was learning from them.
+My LangGraph agent passed manual QA and cleared dev deployment. Then real users hit it in a higher environment. There was no single bug — instead, thousands of odd traces: the orchestrator routing to the wrong corpus in one case, the retriever missing entirely in another. Azure Monitor was capturing all of it. Nobody was learning from it.
 
 > Traces without a loop are just expensive receipts.
 
-## The loop in one diagram
-
-```
-LangGraph run
-  -> Postgres (structured traces: runs, steps, tool_calls, latency, tokens)
-  -> Azure Monitor (logs / metrics / alerts)
-  -> Claude pathologist (nightly job: read traces, categorize failures)
-  -> Failure buckets -> new evals / prompt guards / router fixes
-  -> redeploy -> repeat
-```
+Hamel and Shreya put it bluntly: *"Error analysis is the most important activity in evals. It helps you decide what evals to write in the first place."* ([AI Evals FAQ](https://hamel.dev/blog/posts/evals-faq/#q-why-is-error-analysis-so-important-in-ai-evals-and-how-is-it-performed)) Our nightly Claude job is exactly that — systematic error analysis at scale, not a metrics dashboard.
 
 Postgres is memory. Azure is eyes. Claude is brain.
 
-## How we store it
+## Why two stores (the separation that matters)
 
-Postgres, dead simple. No fancy vector store needed for this part.
+A single telemetry store is tempting. But traces and logs answer different questions.
+
+**Postgres (durable store)** — system of record for *business questions*:
+- Did the interaction finish as completed or failed?
+- Which route did the graph take?
+- Which tools executed, with what arguments, results, retries?
+- Which data was accessed (Postgres, vector, search)?
+- What citations supported the answer?
+- What was the bounded error code and failure stage?
+
+**Azure Monitor (operational store)** — live view for *runtime questions*:
+- Where did latency accumulate across nodes and dependencies?
+- Which graph node threw an exception?
+- Are HTTP or database dependencies slowing down?
+- Did failures increase after a deployment?
+- Are requests reaching the service and streaming successfully?
+
+They overlap deliberately. Correlation happens via `request_id` + `interaction_id` — not by duplicating everything into both systems.
+
+## The schema that survives contact
+
+Two tables worked at 100 runs/day. At 5k/day, the questions we asked outgrew the schema. The pattern that scales:
+
+| Table Role | What It Captures | Why It Matters |
+|------------|------------------|----------------|
+| **Interaction root** | One row per user-agent turn: correlation IDs, user/role context, timestamps, status (`started`/`completed`/`failed`), graph route, grounding layers, token count, response metadata, **bounded error code + failure stage** | Controlled lifecycle. Fail-closed: if audit record can't start, request doesn't proceed. |
+| **Tool executions** | Each tool call: graph node, retry attempt, success/failure, duration, row count, SQL/query evidence | Enables tool-count parity, retry-rate analysis, SQL failure clustering |
+| **Data access** | Which store was hit, resource type, identifiers | RAG citation coverage, grounding provenance |
+| **Citations** | Answer → retrieved chunk mapping | Citation coverage % by route |
+| **Messages** | Persisted user/assistant messages linked to interaction | Conversation reconstruction |
+| **Learnings** | Verified error fixes (e.g., SQL repairs), linked to source interaction | Narrow runtime learning with traceability |
+| **Knowledge versions** | Provenance for versioned grounding assets (taxonomy, guardrails, examples) | Know what grounding was active per interaction |
+
+The interaction root begins as `started` and is conditionally finalized once — atomic commit of terminal state, messages, response metadata, and citations in one transaction. Timeouts, client disconnects, routing failures, response generation failures all attempt a bounded transition to `failed`. This prevents infrastructure errors from being mislabeled as valid out-of-scope answers.
+
+**Privacy-safe aggregation** — the query the nightly job actually runs (no prompts, answers, SQL text, IPs, tokens):
 
 ```sql
--- runs: one row per LangGraph invocation
--- steps: one row per node/tool call with input, output, latency, error
-CREATE TABLE agent_runs (
-  run_id UUID PRIMARY KEY,
-  started_at TIMESTAMPTZ,
-  user_query TEXT,
-  final_output TEXT,
-  status TEXT
-);
-
-CREATE TABLE agent_steps (
-  id BIGSERIAL PRIMARY KEY,
-  run_id UUID REFERENCES agent_runs(run_id),
-  node_name TEXT,
-  tool_name TEXT,
-  input JSONB,
-  output JSONB,
-  error TEXT,
-  latency_ms INT
-);
+SELECT
+    i.interaction_id,
+    i.started_at,
+    i.status,
+    i.graph_route,
+    i.duration_ms,
+    i.error_code,
+    i.failure_stage,
+    i.response_components -> 'routing' AS routing,
+    COUNT(t.execution_id) AS persisted_tool_count
+FROM schema.ai_chat_interactions AS i
+LEFT JOIN schema.ai_chat_tool_executions AS t
+    ON t.interaction_id = i.interaction_id
+WHERE i.started_at >= :window_start
+GROUP BY i.interaction_id;
 ```
 
-Azure Monitor keeps the raw logs + KQL for spikes. Postgres keeps the queryable truth.
+## The governed loop (four stages, no magic)
 
-### The eval design principles that make measurement meaningful
+### 1. Measure with code
+Deterministic aggregates the model should never calculate:
+- Terminal-state coverage
+- Blank-completion rate
+- Tool-count parity
+- Tool retry rate
+- RAG citation coverage
+- Latency percentiles by route
+- Failures grouped by bounded error code + stage
+- Routing distributions by taxonomy version, domain, capability, confidence band, decision source, reason code
 
-Anthropic's evaluation framework identifies four principles that distinguish a useful eval from a misleading one. First, **eval tasks must mirror production** — you sample tasks from the actual distribution your application sees in production, not from cases that are easy to generate or easy to grade. Second, **performance should improve with stronger models and more thinking**; if a more capable model at higher effort does not score better, the tasks are ambiguous or the grader is miscalibrated. Third, there must be **passable headroom at the frontier** — the best model at maximum effort should sit well below 100%, and that gap should come from genuinely hard cases, not impossible or underspecified ones. A telltale sign of a broken task is that it fails every evaluation run regardless of replication. Fourth, **run-to-run variance must be low** — high variance usually signals poorly designed tasks, a grader that produces different verdicts on identical output, or environmental leakage (leftover state from a previous trial handing the agent the answer). Our deterministic aggregates — terminal-state coverage, tool-count parity, citation coverage, latency percentiles, failure grouping by bounded error code — exist precisely to enforce these principles in code rather than hope.
+Hamel and Shreya report spending **60–80% of development time on error analysis and evaluation** across projects ([AI Evals FAQ](https://hamel.dev/blog/posts/evals-faq/#q-how-much-of-my-development-budget-should-i-allocate-to-evals)). Our deterministic aggregates exist to *reduce* that manual burden, not replace the sensemaking.
 
-A related trap: **adversarial sampling**. If you pick evaluation cases because today's model fails them, you are sampling the valleys of that model's capability surface rather than what is intrinsically hard or valuable for your application. The test is whether you can say *why* a task is hard before you include it. Include specific failures from production traffic, bug reports, or tickets — but do not blindly trust user traffic either, since users often try what they expect to work, skewing the distribution easy. Our eval set is stolen from prod, and that choice is validated by this principle: we measure on the actual distribution, not a model's failure fingerprint.
+### 2. Judge with model
+Once deterministic aggregates and a small sanitized sample exist, the model handles what requires judgment:
+- Classify recurring failure patterns
+- Summarize likely root causes
+- Distinguish prompt ambiguity from missing knowledge
+- Identify taxonomy gaps and overlaps
+- Draft candidate regression cases
+- Recommend the smallest artifact that should change
 
-## Claude the pathologist
+Output: a proposal with evidence, not an automatic production edit.
 
-Nightly job. Not realtime — batch is cheaper and smarter.
+> **Validation rigor:** *"Ground truth labeling — for any data used for testing/validating LLM-as-Judge evaluators, hand-validate each label. LLMs can make mistakes that lead to unreliable benchmarks."* ([AI Evals FAQ](https://hamel.dev/blog/posts/evals-faq/#q-should-i-use-llm-as-a-judge-to-evaluate-my-llm-application)) Our `learnings` table enforces this — fixes are stored *only after corrected execution succeeds* (line 149).
 
-Prompt skeleton:
+### 3. Change the right layer
+Different findings belong in different artifacts:
+
+| Finding | Change |
+|---------|--------|
+| Instructions unclear, structure drifts, policy ignored | **Prompt** |
+| Analysis workflow misses evidence, wrong diagnostic sequence | **Skill** |
+| Intent families misrouted, unnecessary model calls, needs bounded clarification | **Routing taxonomy** |
+| Metric definitions, grain, freshness, domain terms missing/contradictory | **Business knowledge** |
+| Repeatable SQL/schema failures, safety violations | **Query examples / guardrails** |
+| Deterministic, transactional, perf, ops failures | **Code / infrastructure** |
+
+**Prompts don't compensate for code defects.** The versioned declarative routing taxonomy makes this concrete: every routing decision carries bounded fields (route, decision_source, taxonomy_version, domain, capability, confidence, reason_code, duration). Domain logic lives in a reviewable artifact, not hidden in free-form prompt text.
+
+### 4. Validate before deploy
+Every recommendation becomes a normal reviewed change:
+1. Add a sanitized regression case that reproduces the failure
+2. Make the smallest prompt/skill/taxonomy/knowledge/code/infra change
+3. Run deterministic routing and graph tests
+4. Compare quality metrics against previous baseline
+5. Deploy through controlled pipeline
+6. Observe the next window in Postgres and Azure Monitor
+
+The loop: **observe → measure → diagnose → propose → review → test → deploy → observe again.**
+
+## The narrow learning loop that exists today
+
+SQL error learning (generalizes to any repeatable tool failure pattern):
 
 ```
-You are a failure pathologist. Given LangGraph traces (steps + errors),
-categorize each failed run into ONE bucket:
-1. tool-arg hallucination
-2. retriever miss
-3. planner loop / retry storm
-4. policy / guardrail violation
-5. OTHER with proposed new bucket
-
-Return JSON: {run_id, bucket, evidence_step_ids, one-line cause, suggested fix}
+On tool failure:
+  1. Search learnings table for matching active fix
+  2. If none, ask model to diagnose the error
+  3. Store fix ONLY after corrected execution succeeds
+  4. Retain source interaction ID for traceability
 ```
 
-### Validating the grader before you trust it
+That's it. No prompt rewriting. No taxonomy mutation. No autonomous skill updates.
 
-Before the nightly job's judgments carry weight, the grader itself must be validated. We run the grader twice on the same model output and require the verdict to be stable — flapping graders are a silent source of noise. We hand-validate a sample of scored transcripts, because scoring failures are among the most common ways an evaluation is misconfigured. When a baseline exists, the judge reads both the candidate and baseline outputs in random order, blind to which is which, and picks the better one — this pairwise comparison is more reliable than absolute scoring. The judge model is never the model under test. Our `learnings` table enforces this rigor: a fix is stored only after a corrected execution succeeds, giving us ground-truth labels for any future judge validation.
+This boundary matters: production behavior improves through evidence and review, not silent self-modification.
 
-## The reflection step: closing the loop when the score stalls
+## Bucket → fix: closing the loop (the part most posts skip)
 
-When the hillclimb score stalls for two or three rounds, the analyzer stops proposing edits and instead reads every remaining train failure and sorts them by root cause. This reflection step makes no edit — it only classifies. It is useful in three ways. First, reflecting across a collection of failures reveals patterns that single-case analysis misses. In Anthropic's case, the skill content was present but the model kept writing older API shapes from its training priors (for example, extended thinking with a fixed token budget, which the API now rejects on recent Opus models, instead of adaptive thinking; or older versions of the web search and web fetch tools instead of the current ones). The fix was a migration table at the top of the skill mapping remembered forms to current ones, which lifted performance from 77% to 80%. Second, tasks that never improve despite addressing obvious content gaps are tells that the example or the grader is flawed. One task asked for code that catches one error type while its grader expected a chain of at least three — the task was reworded. Another grader's instructions contradicted the documentation, and testing the real API proved the docs right. Fixing these grader bugs, along with more skill edits, brought performance to ~88%. Third, the reflection step catches ambiguous evaluation cases, harness errors, or run-to-run variance that would otherwise waste rounds on changes too small to measure.
+- tool-arg fails → added JSON-schema verifier eval, reject before execute
+- planner loops → added step-count guard + "try different approach" nudge
+- retriever misses → turned 50 prod misses into golden eval set, test every embedding change against it
 
-Our own loop applies the same logic in the "Bucket → fix" stage: tool-arg failures led to a JSON-schema verifier eval that rejects bad arguments before execution (failure rate dropped 73% → 12%); planner loops triggered a step-count guard plus a "try different approach" nudge; retriever misses became a golden eval set of 50 production cases that every embedding change is tested against. One number that moved beats ten adjectives. The reflection step makes this systematic: stall → bucket by cause → fix top bucket → verify on train and test → repeat.
-
-### The hillclimb guard: train/test split with revert-on-overfit
-
-Every hillclimbing round splits the evaluation set randomly into a train set (which the analyzer may read) and a held-out test set (which it never sees). A proposed patch is kept **only if both train and test scores improve**. If the train score rises while the test score stays flat, that is an overfitting signal and the patch is reverted. If either score regresses, the patch is reverted. The final deployed version is the one that achieved the best score on the test set. Before the first round even runs, we verify that the evaluation's inherent noise — how far the score can move by chance alone — is smaller than the smallest improvement we would act on. If the noise floor is too high, we add more cases or more repetitions rather than chasing ghosts.
+**One number that moved:** Tool-arg failure rate dropped 73% → 12% after adding the JSON-schema verifier eval. One number beats ten adjectives.
 
 ## What I learned
 
-1. Batch beats realtime for learning. Nightly Claude job > streaming classifier.
-2. Binary buckets beat scores. Yes/no "was this a tool-arg fail?" calibrates, 1-10 doesn't.
-3. Humans moved up-stack: we stopped writing envs, now we just review Claude's buckets and bless fixes.
-4. Your eval set should be stolen from prod. Ours is.
+1. **Batch beats realtime for learning.** Nightly Claude job > streaming classifier.
+2. **Binary buckets beat scores.** Yes/no "was this a tool-arg fail?" calibrates; 1-10 doesn't.
+3. **Humans moved up-stack.** We stopped writing envs, now we just review Claude's buckets and bless fixes.
 
-### Cost hillclimbing: a second objective when quality saturates
+Hamel advocates one domain expert ("benevolent dictator") reviewing traces, and building a custom annotation tool — *"teams with custom tools iterate ~10x faster"* ([AI Evals FAQ](https://hamel.dev/blog/posts/evals-faq/#q-should-i-build-a-custom-annotation-tool-or-use-something-off-the-shelf)). Our nightly job + Postgres *is* that custom tool. The governance layer (review → test → deploy) is the dictator's veto.
 
-Hillclimbing is not only for quality. Anthropic ran a cost hillclimb on an internal customer-support benchmark starting from Opus 4.8 at high effort (74.4% accuracy, 4.6¢ per ticket). The hillclimber first audited the prompt, removing mandatory tool-call rituals, a scratchpad step, and contradictory rules. It then tried Opus 5.5 at low effort, clearing the accuracy bar at 87.8% and cutting cost to 1.9¢ per ticket. Because Opus 5.5 cleared the bar, it stepped down to Sonnet 5 at low effort — about the same accuracy (88.9%) at half the cost (1¢ per ticket). Finally, prompt improvements with routing rules and a refund-cap cross-reference brought Sonnet 5 to 98.9% at roughly the same cost. On 14 held-out tickets the search never saw, the final configuration scored 90.5% against the original 78.6%, at about one-fifth the cost. Our loop currently optimizes quality; adding cost or latency as a second objective — especially when quality headroom vanishes — is a direct extension of the same governed loop with a different scalar.
+4. **Your eval set should be stolen from prod.** Ours is.
+5. **The schema evolves toward the questions you ask**, not the events you emit. At 5k runs/day we split the hot ingestion path from the analytical path — a stream consumer classifies inline, materialized views serve dashboards and the nightly job, raw checkpoints archive to S3.
+6. **Governed loops > autonomous loops.** The analysis skill is deliberately read-only. Its job is to gather evidence and propose changes, not to mutate production records or rewrite the agent automatically.
 
-### Traps we avoided
+## The larger lesson
 
-Several anti-patterns are worth naming explicitly. **Never paste failure transcripts into the prompt** — that leaks test data into the training signal. **Keep the answers structurally out of the model's reach** — models can reward-hack by directly finding evaluation answers. **Don't hillclimb open-ended harness changes** — the surface must be cheap to iterate (prompts, skills, routing taxonomy) and the score change must be attributable to that surface. **Don't trust an evaluation near saturation** — if the baseline is already at 95%+, the hillclimb objective should shift to cost or latency, not quality. These guardrails are not theoretical; they are the difference between a loop that produces reproducible improvements and one that produces convincing-looking overfit.
+Agent observability isn't distributed tracing with an LLM in the middle. A useful system needs three things:
 
-### Related work: Anthropic's build-eval and hillclimb
+1. **Durable evidence** of what the agent decided and what data/tools supported the answer
+2. **Operational telemetry** explaining timing, dependencies, failures while running
+3. **A governed improvement process** converting repeated evidence → tested, versioned changes
 
-Anthropic's `claude-api` skill implements `build-eval` (guided eval construction from production transcripts, bug reports, hand-written cases, and codebase synthesis, with grader validation and diagnostic checks) and `hillclimb` (train/test split, per-round patches, revert-on-overfit, reflection step on stall, cost/quality objectives). Our Postgres + nightly Claude job implements the same loop in a different stack: durable evidence in Postgres, operational telemetry in Azure Monitor, governed improvement via human review of proposed changes. The principles — production-mirroring tasks, binary graders, train/test guards, reflection on stall, governed deploy — transfer directly. The difference is architectural: Python ecosystem treats evals as separate SaaS (LangSmith, Langfuse, Weights & Biases); our loop treats eval as a transformation pipeline over data frames — traces → sample → grade → hillclimb → new artifact — all composable, all auditable.
+Postgres + Azure Monitor give you 1 & 2. The analysis skill closes the loop by making improvement repeatable without making it uncontrolled.
 
-## The real question
-
-> When your agent fails at 2am, does it leave a lesson or just a log?
-
-Ours leaves both now.
+That's how traces become more than debugging artifacts: they become the evidence base for building a safer, more reliable, more understandable agent.
 
 ---
 
-*Next: full code for the Postgres hook + Claude categorizer script? Say the word and I'll publish it.*
+**Footnote: Criteria drift.** [Research](https://arxiv.org/abs/2404.12272) shows evaluation criteria shift after reviewing model outputs. This is why our loop has human review *between* diagnosis and deploy — the criteria aren't static.
+
+Thanks,
+Ashish
