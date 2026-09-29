@@ -140,6 +140,8 @@ Every recommendation becomes a normal reviewed change:
 
 The loop: **observe → measure → diagnose → propose → review → test → deploy → observe again.**
 
+The discipline that makes this loop trustworthy is stolen from how strong evals are built: every proposal is validated against a held-out test set the analyzer never sees. If the nightly job's diagnosis improves the *training* failures but the *test* failures stay flat, the proposal is discarded — it overfit to yesterday's errors. If both improve, the change ships. This single rule — **train and test must move together** — is what separates a governed loop from a hallucinated one. It's the same principle Claude's hillclimber enforces: [split the cases, never paste failures into the prompt, keep answers structurally out of reach](https://claude.dev/blog/automating-eval-design-and-hillclimbing/).
+
 ## The narrow learning loop that exists today
 
 SQL error learning (generalizes to any repeatable tool failure pattern):
