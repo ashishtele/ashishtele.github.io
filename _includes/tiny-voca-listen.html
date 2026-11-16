@@ -9,13 +9,14 @@
 <div class="tiny-voca" id="tiny-voca">
   <div class="tiny-voca__row">
     <button type="button" id="tv-toggle" class="tiny-voca__btn">Listen to this article</button>
+    <button type="button" id="tv-replay" class="tiny-voca__btn tiny-voca__replay" hidden>Replay</button>
     <span class="tiny-voca__voices" role="radiogroup" aria-label="Voice">
       <label><input type="radio" name="tv-voice" value="0"><span>F2</span></label>
       <label><input type="radio" name="tv-voice" value="1" checked><span>M2</span></label>
     </span>
   </div>
   <div class="tiny-voca__status" id="tv-status" role="status">English only · first listen downloads ~40 MB, then cached</div>
-  <audio id="tv-audio" class="tiny-voca__audio" controls hidden></audio>
+  <audio id="tv-audio" hidden></audio>
   <div class="tiny-voca__credit">Voice by <a href="https://github.com/n4ze3m/tiny-voca" rel="noopener">tiny-voca</a> (Apache-2.0)</div>
 </div>
 
@@ -31,7 +32,7 @@
   .tiny-voca__voices input:checked + span { font-weight: 700; }
   .tiny-voca__voices label:has(input:focus-visible) { outline: 2px solid #b4421f; outline-offset: -2px; }
   .tiny-voca__status { margin-top: .45em; color: #888; min-height: 1.2em; }
-  .tiny-voca__audio { width: 100%; margin-top: .5em; }
+  .tiny-voca__replay { background: transparent; color: inherit; border: 1px solid rgba(128,128,128,.45); }
   .tiny-voca__credit { margin-top: .4em; font-size: .8em; color: #999; }
   .tiny-voca__credit a { color: inherit; }
 </style>
@@ -43,6 +44,7 @@
   if (!btn) return;
   var statusEl = document.getElementById('tv-status');
   var audioEl = document.getElementById('tv-audio');
+  var replayBtn = document.getElementById('tv-replay');
   var workerUrl = {{ '/assets/tiny-voca/worker.js' | relative_url | jsonify }};
 
   var worker = null, ready = false, busy = false, playing = false;
@@ -82,7 +84,7 @@
     var ctx = getContext();
     if (ctx && !live) live = livePlayer(ctx, function () {
       playing = live.playing;
-      if (!playing && replayReady) { replayReady = false; audioEl.hidden = false; setStatus('Done. Replay below.'); }
+      if (!playing && replayReady) { replayReady = false; replayBtn.hidden = false; setStatus('Done. Press Replay to hear it again.'); }
       update();
     });
     return live;
@@ -132,16 +134,16 @@
         var played = live && live.end();
         if (stopped) {
           setStatus('Stopped.');
-          audioEl.hidden = true;
+          replayBtn.hidden = true;
         } else if (played) {
-          // Queued sentences are still playing; reveal the replay bar only when they drain.
+          // Queued sentences are still playing; reveal Replay only when they drain.
           replayReady = true;
           setStatus('Playing…');
         } else {
           playing = false;
-          audioEl.hidden = false;
+          replayBtn.hidden = false;
           audioEl.play().catch(function () {});
-          setStatus('Done. Replay below.');
+          setStatus('Done. Press Replay to hear it again.');
         }
         update();
       }
@@ -166,11 +168,20 @@
     update();
   };
 
+  replayBtn.addEventListener('click', function () {
+    if (!audioEl.src) return;
+    audioEl.currentTime = 0;
+    audioEl.play().catch(function (error) { setStatus('Could not replay: ' + (error && error.message || error)); });
+    setStatus('Replaying…');
+  });
+  audioEl.onended = function () { setStatus('Done.'); };
+
   var pendingText = null;
 
   function speak(text) {
     stopped = false; replayReady = false;
-    audioEl.pause(); audioEl.hidden = true;
+    audioEl.pause();
+    replayBtn.hidden = true;
     request += 1;
     var lp = ensureLive();
     if (lp) lp.begin();
@@ -184,7 +195,7 @@
   }
 
   btn.addEventListener('click', function () {
-    if (playing) { stopped = true; replayReady = false; if (live) live.stop(); playing = false; audioEl.hidden = true; setStatus('Stopped.'); update(); return; }
+    if (playing) { stopped = true; replayReady = false; if (live) live.stop(); playing = false; replayBtn.hidden = true; setStatus('Stopped.'); setBusy(false); return; }
     var text = articleText();
     if (text.length < 40) { setStatus('Not enough text on this page to read aloud.'); return; }
     if (!worker) {
