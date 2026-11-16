@@ -33,6 +33,7 @@
   .tiny-voca__voices label:has(input:focus-visible) { outline: 2px solid #b4421f; outline-offset: -2px; }
   .tiny-voca__status { margin-top: .45em; color: #888; min-height: 1.2em; }
   .tiny-voca__replay { background: transparent; color: inherit; border: 1px solid rgba(128,128,128,.45); }
+  .tiny-voca__replay:focus-visible { outline: 2px solid #b4421f; outline-offset: 2px; }
   .tiny-voca__credit { margin-top: .4em; font-size: .8em; color: #999; }
   .tiny-voca__credit a { color: inherit; }
 </style>
@@ -63,7 +64,7 @@
     var src = document.querySelector('.page__content');
     if (!src) return '';
     var clone = src.cloneNode(true);
-    clone.querySelectorAll('pre, code, script, style, aside, nav, footer, form, .toc, .highlight, .tiny-voca').forEach(function (n) { n.remove(); });
+    clone.querySelectorAll('pre, code, script, style, aside, nav, footer, form, .toc, .highlight, .tiny-voca, button, input, select, textarea, iframe, svg').forEach(function (n) { n.remove(); });
     clone.style.cssText = 'position:absolute;left:-9999px;top:0;visibility:hidden;';
     document.body.appendChild(clone);
     var text = clone.innerText || clone.textContent || '';
@@ -130,7 +131,7 @@
         if (currentUrl) URL.revokeObjectURL(currentUrl);
         currentUrl = URL.createObjectURL(wavBlob(data.audio, data.sampleRate));
         audioEl.src = currentUrl;
-        audioEl.hidden = false;
+        var note = data.skipped ? ' (' + data.skipped + ' part(s) unreadable, skipped)' : '';
         var played = live && live.end();
         if (stopped) {
           setStatus('Stopped.');
@@ -138,17 +139,18 @@
         } else if (played) {
           // Queued sentences are still playing; reveal Replay only when they drain.
           replayReady = true;
-          setStatus('Playing…');
+          setStatus('Playing…' + note);
         } else {
           playing = false;
           replayBtn.hidden = false;
           audioEl.play().catch(function () {});
-          setStatus('Done. Press Replay to hear it again.');
+          setStatus('Done. Press Replay to hear it again.' + note);
         }
         update();
       }
       else if (data.type === 'error') {
         if (data.id != null && data.id !== request) return;
+        if (data.id == null && worker) { try { worker.terminate(); } catch (e) {} worker = null; ready = false; }
         setBusy(false);
         if (live) live.end();
         playing = false;
@@ -157,7 +159,7 @@
         update();
       }
     };
-    worker.onerror = function (event) { setBusy(false); playing = false; setStatus('Could not start: ' + event.message); update(); };
+    worker.onerror = function (event) { if (worker) { try { worker.terminate(); } catch (e) {} worker = null; } ready = false; setBusy(false); playing = false; setStatus('Could not start: ' + event.message); update(); };
     worker.postMessage({ type: 'load' });
   }
 
@@ -186,7 +188,6 @@
     var lp = ensureLive();
     if (lp) lp.begin();
     playing = true;
-    audioEl.pause();
     var voice = Number((document.querySelector('input[name="tv-voice"]:checked') || {}).value || 1);
     worker.postMessage({ type: 'speak', id: request, text: text, voice: voice, speed: 1.0 });
     setBusy(true);

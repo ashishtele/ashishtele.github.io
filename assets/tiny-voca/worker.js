@@ -87,7 +87,9 @@ phonemize_json("Warm up.")
 }
 
 async function loadModel() {
-  config = await (await fetch(`${HF}/config.json`)).json();
+  const configResponse = await fetch(`${HF}/config.json`);
+  if (!configResponse.ok) throw new Error(`config.json: ${configResponse.status}`);
+  config = await configResponse.json();
   const bytes = await download(`${HF}/onnx/model.onnx`, "Loading the model (21 MB, first visit only)");
   status("Starting the model");
   ort.env.wasm.wasmPaths = ORT;
@@ -122,13 +124,15 @@ function finished(text) {
 
 // One utterance holds at most max_tokens phonemes; longer sentences are cut at commas, then by words.
 function fit(sentence) {
+  const limit = (config.model && config.model.max_tokens ? config.model.max_tokens : 512) - 12;
   const result = JSON.parse(phonemize(sentence));
   if (!result) return [];
-  if (result.ids.length <= config.model.max_tokens - 12) return [result];
+  if (result.ids.length <= limit) return [result];
   const pieces = sentence.split(/(?<=[,;:—])\s+/);
   if (pieces.length > 1) return pieces.flatMap(fit);
   const words = sentence.split(" ");
-  if (words.length < 2) return [];
+  // One enormous token (a URL, a hash) has no split point: truncate rather than exceed the model's limit.
+  if (words.length < 2) return [{ ...result, ids: result.ids.slice(0, limit), stress: result.stress.slice(0, limit) }];
   const half = Math.ceil(words.length / 2);
   return [...fit(words.slice(0, half).join(" ")), ...fit(words.slice(half).join(" "))];
 }
@@ -161,13 +165,26 @@ async function speak({ id, text, voice, speed }) {
   const chunks = [];
   let phonemeTime = 0;
   let modelTime = 0;
+  let skipped = 0;
   for (let index = 0; index < list.length; index++) {
     let mark = performance.now();
-    const utterances = fit(list[index]);
+    let utterances;
+    try {
+      utterances = fit(list[index]);
+    } catch (error) {
+      skipped += 1;
+      continue;
+    }
     phonemeTime += performance.now() - mark;
     for (const phones of utterances) {
       mark = performance.now();
-      const audio = await synthesize(phones, voice, speed);
+      let audio;
+      try {
+        audio = await synthesize(phones, voice, speed);
+      } catch (error) {
+        skipped += 1;
+        continue;
+      }
       modelTime += performance.now() - mark;
       chunks.push(audio);
       // The page plays this sentence at once, before the whole clip is known.
@@ -187,7 +204,7 @@ async function speak({ id, text, voice, speed }) {
   for (const chunk of chunks) { audio.set(chunk, offset); offset += chunk.length; }
   limitPeak(audio);
   postMessage({ type: "done", id, audio, sampleRate: config.sample_rate, phonemeTime, modelTime,
-                totalTime: performance.now() - started }, [audio.buffer]);
+                totalTime: performance.now() - started, skipped }, [audio.buffer]);
 }
 
 onmessage = async ({ data }) => {
