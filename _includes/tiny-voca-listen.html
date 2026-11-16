@@ -24,8 +24,12 @@
   .tiny-voca__row { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
   .tiny-voca__btn { font: inherit; font-weight: 600; padding: .45em 1.1em; border-radius: 8px; border: 0; cursor: pointer; background: #b4421f; color: #fff; }
   .tiny-voca__btn:disabled { opacity: .5; cursor: default; }
-  .tiny-voca__voices label { margin-right: .6em; cursor: pointer; opacity: .7; }
-  .tiny-voca__voices input:checked + span { font-weight: 700; opacity: 1; }
+  .tiny-voca__voices { display: inline-flex; border: 1px solid rgba(128,128,128,.35); border-radius: 8px; overflow: hidden; }
+  .tiny-voca__voices label { margin: 0; padding: .4em .8em; cursor: pointer; opacity: .65; }
+  .tiny-voca__voices input { position: absolute; opacity: 0; pointer-events: none; }
+  .tiny-voca__voices label:has(input:checked) { background: rgba(180,66,31,.18); opacity: 1; }
+  .tiny-voca__voices input:checked + span { font-weight: 700; }
+  .tiny-voca__voices label:has(input:focus-visible) { outline: 2px solid #b4421f; outline-offset: -2px; }
   .tiny-voca__status { margin-top: .45em; color: #888; min-height: 1.2em; }
   .tiny-voca__audio { width: 100%; margin-top: .5em; }
   .tiny-voca__credit { margin-top: .4em; font-size: .8em; color: #999; }
@@ -120,9 +124,14 @@
         audioEl.src = currentUrl;
         audioEl.hidden = false;
         var played = live && live.end();
-        if (!played) audioEl.play().catch(function () {});
-        playing = false;
-        setStatus('Done. Replay below.');
+        if (played) {
+          // The queued sentences are still playing; keep the button in "Stop" until they drain.
+          setStatus('Playing…');
+        } else {
+          playing = false;
+          audioEl.play().catch(function () {});
+          setStatus('Done. Replay below.');
+        }
         update();
       }
       else if (data.type === 'error') {
@@ -137,6 +146,13 @@
     worker.onerror = function (event) { setBusy(false); playing = false; setStatus('Could not start: ' + event.message); update(); };
     worker.postMessage({ type: 'load' });
   }
+
+  // Pressing play on the replay clip stops the live sentence queue, so the two never overlap.
+  audioEl.onplay = function () {
+    if (live) live.stop();
+    playing = false;
+    update();
+  };
 
   var pendingText = null;
 
