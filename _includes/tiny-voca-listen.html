@@ -47,6 +47,7 @@
 
   var worker = null, ready = false, busy = false, playing = false;
   var request = 0, currentUrl = null, live = null, rate = 24000, audioCtx = null;
+  var stopped = false, replayReady = false;
 
   function setStatus(text) { statusEl.textContent = text; }
   function setBusy(state) { busy = state; update(); }
@@ -79,7 +80,11 @@
 
   function ensureLive() {
     var ctx = getContext();
-    if (ctx && !live) live = livePlayer(ctx, function () { playing = live.playing; update(); });
+    if (ctx && !live) live = livePlayer(ctx, function () {
+      playing = live.playing;
+      if (!playing && replayReady) { replayReady = false; audioEl.hidden = false; setStatus('Done. Replay below.'); }
+      update();
+    });
     return live;
   }
 
@@ -114,6 +119,7 @@
         if (pendingText) { var t = pendingText; pendingText = null; speak(t); }
       }
       else if (data.type === 'sentence' && data.id === request) {
+        if (stopped) return;
         if (live && data.audio) live.add(data.audio, data.sampleRate);
         setStatus('Speaking sentence ' + (data.index + 1) + ' of ' + data.total + '…');
       }
@@ -124,17 +130,23 @@
         audioEl.src = currentUrl;
         audioEl.hidden = false;
         var played = live && live.end();
-        if (played) {
-          // The queued sentences are still playing; keep the button in "Stop" until they drain.
+        if (stopped) {
+          setStatus('Stopped.');
+          audioEl.hidden = true;
+        } else if (played) {
+          // Queued sentences are still playing; reveal the replay bar only when they drain.
+          replayReady = true;
           setStatus('Playing…');
         } else {
           playing = false;
+          audioEl.hidden = false;
           audioEl.play().catch(function () {});
           setStatus('Done. Replay below.');
         }
         update();
       }
       else if (data.type === 'error') {
+        if (data.id != null && data.id !== request) return;
         setBusy(false);
         if (live) live.end();
         playing = false;
@@ -157,6 +169,8 @@
   var pendingText = null;
 
   function speak(text) {
+    stopped = false; replayReady = false;
+    audioEl.pause(); audioEl.hidden = true;
     request += 1;
     var lp = ensureLive();
     if (lp) lp.begin();
@@ -170,7 +184,7 @@
   }
 
   btn.addEventListener('click', function () {
-    if (playing) { if (live) live.stop(); playing = false; setStatus('Stopped.'); update(); return; }
+    if (playing) { stopped = true; replayReady = false; if (live) live.stop(); playing = false; audioEl.hidden = true; setStatus('Stopped.'); update(); return; }
     var text = articleText();
     if (text.length < 40) { setStatus('Not enough text on this page to read aloud.'); return; }
     if (!worker) {
