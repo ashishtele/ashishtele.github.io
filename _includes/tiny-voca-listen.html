@@ -1,0 +1,174 @@
+{% comment %}
+  "Listen to this article" via tiny-voca (https://github.com/n4ze3m/tiny-voca, Apache-2.0).
+  Runs entirely in the browser: ONNX Runtime Web + Pyodide. First click downloads ~40 MB
+  (model hotlinked from Hugging Face, cached by the browser afterwards).
+  Requires same-origin /assets/tiny-voca/dizione.zip and worker.js + player.js.
+  Opt out per page with `tiny_voca: false` in front matter.
+{% endcomment %}
+{% unless page.tiny_voca == false %}
+<div class="tiny-voca" id="tiny-voca">
+  <div class="tiny-voca__row">
+    <button type="button" id="tv-toggle" class="tiny-voca__btn">Listen to this article</button>
+    <span class="tiny-voca__voices" role="radiogroup" aria-label="Voice">
+      <label><input type="radio" name="tv-voice" value="0"><span>F2</span></label>
+      <label><input type="radio" name="tv-voice" value="1" checked><span>M2</span></label>
+    </span>
+  </div>
+  <div class="tiny-voca__status" id="tv-status" role="status">English only · first listen downloads ~40 MB, then cached</div>
+  <audio id="tv-audio" class="tiny-voca__audio" controls hidden></audio>
+  <div class="tiny-voca__credit">Voice by <a href="https://github.com/n4ze3m/tiny-voca" rel="noopener">tiny-voca</a> (Apache-2.0)</div>
+</div>
+
+<style>
+  .tiny-voca { margin: 0 0 1.2em; padding: .7em .9em; border: 1px solid rgba(128,128,128,.35); border-radius: 10px; font-size: .85em; }
+  .tiny-voca__row { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+  .tiny-voca__btn { font: inherit; font-weight: 600; padding: .45em 1.1em; border-radius: 8px; border: 0; cursor: pointer; background: #b4421f; color: #fff; }
+  .tiny-voca__btn:disabled { opacity: .5; cursor: default; }
+  .tiny-voca__voices label { margin-right: .6em; cursor: pointer; opacity: .7; }
+  .tiny-voca__voices input:checked + span { font-weight: 700; opacity: 1; }
+  .tiny-voca__status { margin-top: .45em; color: #888; min-height: 1.2em; }
+  .tiny-voca__audio { width: 100%; margin-top: .5em; }
+  .tiny-voca__credit { margin-top: .4em; font-size: .8em; color: #999; }
+  .tiny-voca__credit a { color: inherit; }
+</style>
+
+<script src="{{ '/assets/tiny-voca/player.js' | relative_url }}"></script>
+<script>
+(function () {
+  var btn = document.getElementById('tv-toggle');
+  if (!btn) return;
+  var statusEl = document.getElementById('tv-status');
+  var audioEl = document.getElementById('tv-audio');
+  var workerUrl = {{ '/assets/tiny-voca/worker.js' | relative_url | jsonify }};
+
+  var worker = null, ready = false, busy = false, playing = false;
+  var request = 0, currentUrl = null, live = null, rate = 24000, audioCtx = null;
+
+  function setStatus(text) { statusEl.textContent = text; }
+  function setBusy(state) { busy = state; update(); }
+  function update() {
+    if (playing) { btn.textContent = 'Stop'; btn.disabled = false; return; }
+    btn.textContent = busy ? 'Working…' : 'Listen to this article';
+    btn.disabled = busy;
+  }
+
+  function articleText() {
+    var src = document.querySelector('.page__content');
+    if (!src) return '';
+    var clone = src.cloneNode(true);
+    clone.querySelectorAll('pre, code, script, style, aside, nav, footer, form, .toc, .highlight, .tiny-voca').forEach(function (n) { n.remove(); });
+    clone.style.cssText = 'position:absolute;left:-9999px;top:0;visibility:hidden;';
+    document.body.appendChild(clone);
+    var text = clone.innerText || clone.textContent || '';
+    clone.remove();
+    return text.replace(/\s+/g, ' ').trim();
+  }
+
+  function getContext() {
+    if (!audioCtx) {
+      var AC = window.AudioContext || window.webkitAudioContext;
+      if (!AC) return null;
+      try { audioCtx = new AC({ sampleRate: rate }); } catch (e) { try { audioCtx = new AC(); } catch (e2) { return null; } }
+    }
+    return audioCtx;
+  }
+
+  function ensureLive() {
+    var ctx = getContext();
+    if (ctx && !live) live = livePlayer(ctx, function () { playing = live.playing; update(); });
+    return live;
+  }
+
+  function wavBlob(samples, sampleRate) {
+    var buffer = new ArrayBuffer(44 + samples.length * 2);
+    var view = new DataView(buffer);
+    var writeText = function (offset, s) { for (var i = 0; i < s.length; i++) view.setUint8(offset + i, s.charCodeAt(i)); };
+    writeText(0, 'RIFF'); view.setUint32(4, 36 + samples.length * 2, true); writeText(8, 'WAVE'); writeText(12, 'fmt ');
+    view.setUint32(16, 16, true); view.setUint16(20, 1, true); view.setUint16(22, 1, true);
+    view.setUint32(24, sampleRate, true); view.setUint32(28, sampleRate * 2, true); view.setUint16(32, 2, true); view.setUint16(34, 16, true);
+    writeText(36, 'data'); view.setUint32(40, samples.length * 2, true);
+    for (var i = 0; i < samples.length; i++) view.setInt16(44 + i * 2, Math.max(-1, Math.min(1, samples[i])) * 32767, true);
+    return new Blob([buffer], { type: 'audio/wav' });
+  }
+
+  function startWorker() {
+    if (worker) return;
+    try {
+      worker = new Worker(workerUrl);
+    } catch (error) {
+      setStatus('Could not start the voice worker: ' + (error && error.message || error));
+      setBusy(false);
+      return;
+    }
+    worker.onmessage = function (event) {
+      var data = event.data || {};
+      if (data.type === 'status') { setStatus(data.text + (data.progress != null ? ' ' + Math.round(data.progress * 100) + '%' : '')); }
+      else if (data.type === 'ready') {
+        ready = true; rate = data.sampleRate || 24000;
+        setStatus('Ready. Click “Listen to this article”.');
+        update();
+        if (pendingText) { var t = pendingText; pendingText = null; speak(t); }
+      }
+      else if (data.type === 'sentence' && data.id === request) {
+        if (live && data.audio) live.add(data.audio, data.sampleRate);
+        setStatus('Speaking sentence ' + (data.index + 1) + ' of ' + data.total + '…');
+      }
+      else if (data.type === 'done' && data.id === request) {
+        setBusy(false);
+        if (currentUrl) URL.revokeObjectURL(currentUrl);
+        currentUrl = URL.createObjectURL(wavBlob(data.audio, data.sampleRate));
+        audioEl.src = currentUrl;
+        audioEl.hidden = false;
+        var played = live && live.end();
+        if (!played) audioEl.play().catch(function () {});
+        playing = false;
+        setStatus('Done. Replay below.');
+        update();
+      }
+      else if (data.type === 'error') {
+        setBusy(false);
+        if (live) live.end();
+        playing = false;
+        audioEl.hidden = true;
+        setStatus('Something went wrong: ' + (data.message || 'unknown error'));
+        update();
+      }
+    };
+    worker.onerror = function (event) { setBusy(false); playing = false; setStatus('Could not start: ' + event.message); update(); };
+    worker.postMessage({ type: 'load' });
+  }
+
+  var pendingText = null;
+
+  function speak(text) {
+    request += 1;
+    var lp = ensureLive();
+    if (lp) lp.begin();
+    playing = true;
+    audioEl.pause();
+    var voice = Number((document.querySelector('input[name="tv-voice"]:checked') || {}).value || 1);
+    worker.postMessage({ type: 'speak', id: request, text: text, voice: voice, speed: 1.0 });
+    setBusy(true);
+    setStatus('Speaking…');
+    update();
+  }
+
+  btn.addEventListener('click', function () {
+    if (playing) { if (live) live.stop(); playing = false; setStatus('Stopped.'); update(); return; }
+    var text = articleText();
+    if (text.length < 40) { setStatus('Not enough text on this page to read aloud.'); return; }
+    if (!worker) {
+      pendingText = text;
+      startWorker();
+      if (worker) { setStatus('First listen downloads ~40 MB (model + voices)…'); setBusy(true); }
+      return;
+    }
+    if (!ready) { pendingText = text; return; }
+    speak(text);
+  });
+
+  // Warm the worker up only on first hover/focus of the button to avoid 40 MB on cold page loads? No: explicit click only.
+  update();
+})();
+</script>
+{% endunless %}
